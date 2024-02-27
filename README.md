@@ -24,3 +24,6 @@ The moderator's role is to review recipes that have been flagged by users and an
 - Mykola Gora
 - Liliia Kulabukhova
 - Kateryna Riznychenko
+
+## DB diagram
+https://lucid.app/lucidchart/9c454f81-908e-40db-8192-aecebe522e8a/edit?invitationId=inv_79eafe33-5f6e-46af-bd4c-147f86871e44&page=U8PeJpky71NO#
