@@ -1,7 +1,7 @@
 # RecipeMLKer
 
 ## Introduction
-RecipeMLKer(read RecipeMaker) is a web application designed to provide a convenient platform for individuals passionate about cooking. The website offers a vast recipes, search functionality, user interaction features, and moderation tools to ensure a pleasant and safe experience for users.
+RecipeMLKer is a web application designed to provide a convenient platform for individuals passionate about cooking. The website offers a vast recipes, search functionality, user interaction features, and moderation tools to ensure a pleasant and safe experience for users.
 
 ## Features
 - Browse and search recipes by category, dish name, or ingredients.
