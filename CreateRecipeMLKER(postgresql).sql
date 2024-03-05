@@ -22,7 +22,7 @@ secret_password VARCHAR(255) NOT NULL
 CREATE TABLE Ingredient (
         ingredient_id SERIAL PRIMARY KEY,
 name VARCHAR(255) NOT NULL,
-amount_of_ingredient VARCHAR(255) NOT NULL,
+
 allergen BOOLEAN
 );
 CREATE TABLE PublishedRecipe (
@@ -64,6 +64,7 @@ CREATE TABLE AIReport (
 
 CREATE TABLE Recipe (
         fk_device INT REFERENCES CookingDevice (device_id),
+		amount_of_ingredient VARCHAR(255),
         fk_ingredient INT REFERENCES Ingredient (ingredient_id),
         fk_recipe INT REFERENCES PublishedRecipe(recipe_id)
 );
