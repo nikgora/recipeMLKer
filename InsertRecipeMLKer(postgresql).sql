@@ -37,10 +37,11 @@ INSERT INTO PublishedRecipe (title, cooking_time, description, fk_category) VALU
 ('Pancakes', '20 minutes', 'Fluffy pancake recipe', 1);
 
 INSERT INTO Recipe (fk_device, fk_ingredient, amount_of_ingredient, fk_recipe) VALUES
-(1, 4, '2', 1),
-(2, 3, '500 g', 2),
-(3, 1, '1 g' , 3),
-(4, 2, '4 spoons', 4);
+(NULL, 4, '2', 1),
+(1, NULL, NULL, 2),
+(NULL, 3, '500 g', 2),
+(NULL, 1, '1 g' , 3),
+(4, NULL, NULL, 4);
 
 INSERT INTO Rating (mark, fk_user, fk_recipe) VALUES
 (4.5, 1, 1),
