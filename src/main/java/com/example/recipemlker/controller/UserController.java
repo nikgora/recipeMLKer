@@ -6,5 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class UserController {
     @GetMapping("/")
-    public String mainPage() {return "client/main";}
+    public String mainPage() {return "user/main";}
+    @GetMapping("/recipe")
+    public String recipePage() {return "user/recipe";}
 }
