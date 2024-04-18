@@ -15,10 +15,6 @@ CREATE TABLE "User" (
     "password" VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE AI (
-    ai_id SERIAL PRIMARY KEY,
-    secret_password VARCHAR(255) NOT NULL
-);
 
 CREATE TABLE Ingredient (
     ingredient_id SERIAL PRIMARY KEY,
@@ -31,36 +27,44 @@ CREATE TABLE PublishedRecipe (
     title VARCHAR(255) NOT NULL,
     cooking_time VARCHAR(255) NOT NULL,
     description VARCHAR(255) NOT NULL,
+    is_published BOOLEAN NOT NULL,
+    fk_user INT REFERENCES "User"(user_id),
     fk_category INT REFERENCES Category(category_id)
+);
+
+CREATE TABLE Moderator (
+                           moderator_id SERIAL PRIMARY KEY,
+                           secret_password VARCHAR(255) NOT NULL,
+                           fk_user INT REFERENCES "User"(user_id)
 );
 
 CREATE TABLE UserReport (
     report_id SERIAL PRIMARY KEY,
     description VARCHAR(255) NOT NULL,
+    is_accepted BOOLEAN,
     fk_user_id INT REFERENCES "User"(user_id),
-    fk_PublishedRecipe_id INT REFERENCES PublishedRecipe(recipe_id)
-);
-
-CREATE TABLE Moderator (
-    moderator_id SERIAL PRIMARY KEY,
-    secret_password VARCHAR(255) NOT NULL,
-    fk_user INT REFERENCES "User"(user_id)
+    fk_PublishedRecipe_id INT REFERENCES PublishedRecipe(recipe_id),
+    fk_moderator INT REFERENCES Moderator(moderator_id)
 );
 
 CREATE TABLE AIReport (
     report_id SERIAL PRIMARY KEY,
 	description VARCHAR(255) NOT NULL,
-	fk_ai INT REFERENCES AI(ai_id),
-    fk_recipe INT REFERENCES PublishedRecipe(recipe_id)
+    is_accepted BOOLEAN,
+    fk_recipe INT REFERENCES PublishedRecipe(recipe_id),
+    fk_moderator INT REFERENCES Moderator(moderator_id)
 );
 
-CREATE TABLE Recipe (
-    fk_device INT REFERENCES CookingDevice (device_id),
+CREATE TABLE Recipe_Ingredient (
 	amount_of_ingredient VARCHAR(255),
     fk_ingredient INT REFERENCES Ingredient (ingredient_id),
     fk_recipe INT REFERENCES PublishedRecipe(recipe_id)
 );
 
+CREATE TABLE Recipe_Device (
+    fk_device INT REFERENCES CookingDevice (device_id),
+    fk_recipe INT REFERENCES PublishedRecipe(recipe_id)
+);
 CREATE TABLE Rating(
     rating_id SERIAL PRIMARY KEY,
     mark DOUBLE PRECISION,
@@ -82,14 +86,8 @@ CREATE TABLE UserList (
     fk_user INT REFERENCES "User"(user_id)
 );
 
-CREATE TABLE UserRecipe (
-    user_recipe_id SERIAL PRIMARY KEY,
-    is_published BOOLEAN,
-    fk_user INT REFERENCES "User"(user_id),
-    fk_recipe INT REFERENCES PublishedRecipe(recipe_id)
-);
 
-CREATE TABLE AddedList (
+CREATE TABLE Recipe_UserList (
     fk_recipe_id INT REFERENCES PublishedRecipe(recipe_id),
     fk_user_list INT REFERENCES "User"(user_id)
 );
