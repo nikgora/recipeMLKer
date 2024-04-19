@@ -3,7 +3,7 @@ package com.example.recipemlker.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "User")
+@Table(name = "'User'")
 public class User {
 
     @Id
@@ -14,6 +14,9 @@ public class User {
     private String login;
     @Column(name = "password")
     private String password;
+
+    public User() {
+    }
 
     public String getLogin() {
         return login;

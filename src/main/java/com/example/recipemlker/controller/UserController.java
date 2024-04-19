@@ -1,10 +1,16 @@
 package com.example.recipemlker.controller;
 
+import com.example.recipemlker.model.Recipe;
+import com.example.recipemlker.repository.RecipeRepository;
+import com.example.recipemlker.service.RecipeServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import redis.clients.jedis.params.GetExParams;
+
+import java.util.List;
 
 @Controller
 public class UserController {
@@ -13,9 +19,12 @@ public class UserController {
         return "user/main";
     }
 
-    @GetMapping("/allRecipes")
-    public String allRecipePage() {
-        return "user/allRecipes";
+    @GetMapping("/allRecipe")
+    public String allRecipePage(Model model) {
+        RecipeServiceImpl recipeService = new RecipeServiceImpl();
+        List<Recipe> recipes = recipeService.getAllRecipeThatPublished();
+        model.addAttribute("recipes", recipes);
+        return "user/allRecipe";
     }
 
     @GetMapping("/user")
@@ -23,9 +32,9 @@ public class UserController {
         return "user/user";
     }
 
-    @GetMapping("/recipe")
-    public String recipePage(Model model, @RequestParam(value = "id") String id) {
-        model.addAttribute("id", id);
+    @GetMapping("/recipe/{id}")
+    public String recipePage(Model model, @PathVariable("id") int id) {
+        model.addAttribute("recipe", id);
         return "user/recipe";
     }
 }

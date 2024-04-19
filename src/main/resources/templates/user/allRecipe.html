@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>all</title>
+</head>
+<body>
+<p th:each="recipe : ${recipes}", th:text="${recipe.title} cooking_time- ${recipe.cooking_time}">
+</p>
+</body>
+</html>
