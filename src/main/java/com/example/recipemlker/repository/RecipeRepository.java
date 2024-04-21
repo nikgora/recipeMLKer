@@ -10,6 +10,6 @@ import java.util.List;
 public interface RecipeRepository extends JpaRepository<Recipe, Long> {
     Recipe findById(long id);
     Recipe findByTitle(String Title);
-    List<Recipe> findAllByis_published(boolean published);
+    List<Recipe> findAllByIsPublished(boolean published);
 
 }

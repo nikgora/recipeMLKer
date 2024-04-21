@@ -1,6 +1,6 @@
 CREATE TABLE CookingDevice (
     device_id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL
+    title VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE Category (
@@ -18,7 +18,7 @@ CREATE TABLE "User" (
 
 CREATE TABLE Ingredient (
     ingredient_id SERIAL PRIMARY KEY,
-    "name" VARCHAR(255) NOT NULL,
+    "title" VARCHAR(255) NOT NULL,
     allergen BOOLEAN
 );
 
@@ -27,7 +27,7 @@ CREATE TABLE PublishedRecipe (
     title VARCHAR(255) NOT NULL,
     cooking_time VARCHAR(255) NOT NULL,
     description VARCHAR(255) NOT NULL,
-    is_published BOOLEAN NOT NULL,
+    published BOOLEAN NOT NULL,
     fk_user INT REFERENCES "User"(user_id),
     fk_category INT REFERENCES Category(category_id)
 );

@@ -5,7 +5,10 @@
     <title>all</title>
 </head>
 <body>
-<p th:each="recipe : ${recipes}", th:text="${recipe.title} cooking_time- ${recipe.cooking_time}">
-</p>
+<table>
+<tr th:each="recipe : ${recipes}">
+<td th:text = "${recipe.getTitle()}"></td>
+</tr>
+</table>
 </body>
 </html>

@@ -6,5 +6,5 @@ import com.example.recipemlker.model.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-    User findByid(long id);
+    User findById(long id);
 }

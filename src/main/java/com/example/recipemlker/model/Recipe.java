@@ -1,5 +1,6 @@
 package com.example.recipemlker.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -15,11 +16,15 @@ public class Recipe {
     @Column(name = "cooking_time")
     private String cookingTime;
     @Column(name = "is_published")
-    private boolean is_published;
-    @Column(name = "fk_user")
-    private Long fk_user;
-    @Column(name = "fk_category")
-    private Long fk_category;
+    private boolean isPublished;
+    @OneToOne
+    @JoinColumn(name = "fk_user")
+    @JsonIgnore
+    private User user;
+    @OneToOne
+    @JoinColumn(name = "fk_category")
+    @JsonIgnore
+    private Category category;
 
     public Long getId() {
         return id;
@@ -53,27 +58,29 @@ public class Recipe {
         this.cookingTime = cookingTime;
     }
 
-    public boolean isIs_published() {
-        return is_published;
+    public boolean isPublished() {
+        return isPublished;
     }
 
-    public void setIs_published(boolean is_published) {
-        this.is_published = is_published;
+    public void setPublished(boolean published) {
+        this.isPublished = published;
     }
 
-    public Long getFk_user() {
-        return fk_user;
+    public User getFk_user() {
+        return user;
     }
 
-    public void setFk_user(Long fk_user) {
-        this.fk_user = fk_user;
+    public void setFk_user(User user) {
+        this.user = user;
     }
 
-    public Long getFk_category() {
-        return fk_category;
+    public Category getCategory() {
+        return category;
     }
 
-    public void setFk_category(Long fk_category) {
-        this.fk_category = fk_category;
+    public void setCategory(Category category) {
+        this.category = category;
     }
+
+
 }

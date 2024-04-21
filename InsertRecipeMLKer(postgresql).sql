@@ -1,5 +1,5 @@
 -- Inserting Cooking Devices
-INSERT INTO CookingDevice (name) VALUES
+INSERT INTO CookingDevice (title) VALUES
     ('Oven'),
     ('Stove'),
     ('Microwave'),
@@ -19,14 +19,14 @@ INSERT INTO "User" (login, "password") VALUES
     ('user3', 'password3');
 
 -- Inserting Ingredients
-INSERT INTO Ingredient ("name", allergen) VALUES
+INSERT INTO Ingredient ("title", allergen) VALUES
     ('Eggs', FALSE),
     ('Milk', FALSE),
     ('Wheat Flour', TRUE),
     ('Peanuts', TRUE);
 
 -- Inserting Published Recipes
-INSERT INTO PublishedRecipe (title, cooking_time, description, is_published, fk_user, fk_category) VALUES
+INSERT INTO PublishedRecipe (title, cooking_time, description, published, fk_user, fk_category) VALUES
     ('Scrambled Eggs', '15 minutes', 'Simple recipe for scrambled eggs', TRUE, 1, 1),
     ('Spaghetti Carbonara', '30 minutes', 'Classic Italian pasta dish', TRUE, 2, 3),
     ('Chocolate Cake', '1 hour', 'Decadent dessert for chocolate lovers', TRUE, 3, 4);

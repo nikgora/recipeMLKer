@@ -12,5 +12,5 @@ public class RecipeServiceImpl implements RecipeService {
     @Autowired
     private RecipeRepository recipeRepository;
     @Override
-    public List<Recipe> getAllRecipeThatPublished() {return recipeRepository.findAllByis_published(true);}
+    public List<Recipe> getAllRecipeIsPublished() {return recipeRepository.findAllByIsPublished(true);}
 }
