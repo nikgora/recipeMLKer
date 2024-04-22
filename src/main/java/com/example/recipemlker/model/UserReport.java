@@ -5,23 +5,19 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Entity
-@Table(name = "category")
+@Table(name = "userreport")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
-public class Category {
+public class UserReport {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "category_id")
+    @Column(name = "report_id")
     private Long id;
-    @Column(name = "title")
-    private String title;
-    @Column (name = "description")
+    @Column(name = "is_accepted")
+    private Boolean isAccepted;
+    @Column(name = "description")
     private String description;
-    @OneToMany (mappedBy="category")
-    private List<Recipe> recipes;
+
 }

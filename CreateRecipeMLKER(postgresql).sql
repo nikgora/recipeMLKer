@@ -56,12 +56,14 @@ CREATE TABLE AIReport (
 );
 
 CREATE TABLE Recipe_Ingredient (
+    recipe_ingredient_id SERIAL PRIMARY KEY,
 	amount_of_ingredient VARCHAR(255),
     fk_ingredient INT REFERENCES Ingredient (ingredient_id),
     fk_recipe INT REFERENCES PublishedRecipe(recipe_id)
 );
 
 CREATE TABLE Recipe_Device (
+    recipe_device_id SERIAL PRIMARY KEY,
     fk_device INT REFERENCES CookingDevice (device_id),
     fk_recipe INT REFERENCES PublishedRecipe(recipe_id)
 );
@@ -88,6 +90,7 @@ CREATE TABLE UserList (
 
 
 CREATE TABLE Recipe_UserList (
+    recipe_userList_id SERIAL PRIMARY KEY,
     fk_recipe_id INT REFERENCES PublishedRecipe(recipe_id),
     fk_user_list INT REFERENCES "User"(user_id)
 );

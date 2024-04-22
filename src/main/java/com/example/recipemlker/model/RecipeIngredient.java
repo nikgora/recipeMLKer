@@ -7,26 +7,25 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table (name = "aireport")
+@Table(name = "recipe_ingredient")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class AiReport {
+public class RecipeIngredient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "report_id")
+    @Column(name = "recipe_ingredient_id")
     private Long id;
-    @Column (name = "description")
-    private String description;
-    @Column(name = "is_accepted")
-    private boolean isAccepted;
     @ManyToOne
-    @JoinColumn(name = "fk_moderator", referencedColumnName = "moderator_id")
+    @JoinColumn(name = "fk_ingredient", referencedColumnName = "ingredient_id")
     @JsonIgnore
-    private Moderator moderator;
+    private Ingredient  ingredient;
     @ManyToOne
     @JoinColumn(name = "fk_recipe", referencedColumnName = "recipe_id")
     @JsonIgnore
     private Recipe recipe;
+    @Column (name = "amount_of_ingredient")
+    private String amountOfIngredient;
+
 }

@@ -2,12 +2,22 @@ package com.example.recipemlker.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Table (name = "publishedrecipe")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+
 public class Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "recipe_id")
     private Long id;
     @Column(name = "title")
     private String title;
@@ -15,72 +25,25 @@ public class Recipe {
     private String description;
     @Column(name = "cooking_time")
     private String cookingTime;
-    @Column(name = "is_published")
+    @Column(name = "published")
     private boolean isPublished;
-    @OneToOne
-    @JoinColumn(name = "fk_user")
+    @ManyToOne
+    @JoinColumn(name = "fk_user", referencedColumnName = "user_id")
     @JsonIgnore
     private User user;
-    @OneToOne
-    @JoinColumn(name = "fk_category")
+    @ManyToOne
+    @JoinColumn(name = "fk_category", referencedColumnName = "category_id")
     @JsonIgnore
     private Category category;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getCookingTime() {
-        return cookingTime;
-    }
-
-    public void setCookingTime(String cookingTime) {
-        this.cookingTime = cookingTime;
-    }
-
-    public boolean isPublished() {
-        return isPublished;
-    }
-
-    public void setPublished(boolean published) {
-        this.isPublished = published;
-    }
-
-    public User getFk_user() {
-        return user;
-    }
-
-    public void setFk_user(User user) {
-        this.user = user;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
+    @OneToMany (mappedBy = "recipe")
+    private List<AiReport> aiReports;
+    @OneToMany (mappedBy = "recipe")
+    private List<Comment> comments;
+    @OneToMany (mappedBy = "recipe")
+    private List<Rating> ratings;
+    @OneToMany (mappedBy = "recipe")
+    private List<RecipeIngredient> recipeIngredients;
+    @OneToMany (mappedBy = "recipe")
+    private List<RecipeDevice> recipeDevices;
 
 }

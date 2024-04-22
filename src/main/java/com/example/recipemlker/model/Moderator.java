@@ -2,41 +2,29 @@ package com.example.recipemlker.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Table(name = "moderator")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+
 public class Moderator {
     @Column(name = "secret_password")
     private String secret_password;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long moderator_id;
+    @Column(name = "moderator_id")
+    private Long id;
     @OneToOne
-    @JoinColumn(name = "fk_user")
+    @JoinColumn(name = "fk_user",referencedColumnName = "user_id")
     @JsonIgnore
     private User user;
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public String getSecret_password() {
-        return secret_password;
-    }
-
-    public void setSecret_password(String secret_password) {
-        this.secret_password = secret_password;
-    }
-
-    public void setModerator_id(Long moderatorId) {
-        this.moderator_id = moderatorId;
-    }
-
-    public Long getModerator_id() {
-        return moderator_id;
-    }
+    @OneToMany(mappedBy = "moderator")
+    private List<AiReport> aiReports;
 }

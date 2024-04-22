@@ -1,41 +1,37 @@
 package com.example.recipemlker.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
-@Table(name = "'User'")
+@Table(name = "\"User\"")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long user_id;
-
+    @Column (name = "user_id")
+    private Long id;
     @Column(name = "login")
     private String login;
     @Column(name = "password")
     private String password;
 
-    public String getLogin() {
-        return login;
-    }
+    @OneToMany(mappedBy = "user")
+    private List<Rating> ratings;
+    @OneToMany(mappedBy = "user")
+    private List <Comment> comments;
+    @OneToOne (mappedBy = "user")
+    private Moderator moderator;
+    @OneToMany (mappedBy = "user")
+    private List <Recipe> recipes;
+    @OneToMany (mappedBy = "user")
+    private List <UserList> userLists;
 
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setUser_id(Long user_id) {
-        this.user_id = user_id;
-    }
-
-    public Long getUser_id() {
-        return user_id;
-    }
 }

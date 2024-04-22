@@ -5,24 +5,22 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Entity
-@Table (name = "ingredient")
+@Table(name = "userlist")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
-public class Ingredient {
+public class UserList {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ingredient_id")
+    @Column(name = "list_id")
     private Long id;
     @Column(name = "title")
-    private String name;
-    @Column (name = "allergen")
-    private boolean isAllergen;
-    @OneToMany(mappedBy = "ingredient")
-    private List<RecipeIngredient> recipeIngredients;
+    private String title;
+    @Column(name="description")
+    private String description;
+    @ManyToOne
+    @JoinColumn(name="fk_user", referencedColumnName = "user_id")
+    private User user;
 
 }
