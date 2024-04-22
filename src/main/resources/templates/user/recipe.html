@@ -19,10 +19,8 @@
     </tr>
 </table>
 <table th:each = "comment : ${recipe.getComments()}">
-    <tr>
-        <td th:text = "${comment.getUser().getId()}"></td>
-        <td th:text = "${comment.getText()}"></td>
-    </tr>
+    <tr th:text = "${comment.getUser().getId()}"></tr>
+    <tr th:text = "${comment.getText()}"></tr>
 </table>
 </body>
 </html>

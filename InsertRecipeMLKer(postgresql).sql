@@ -13,7 +13,7 @@ INSERT INTO Category (title, description) VALUES
     ('Dessert', 'Recipes for sweet treats');
 
 -- Inserting Users
-INSERT INTO "User" (login, "password") VALUES
+INSERT INTO "user" (login, "password") VALUES
     ('user1', 'password1'),
     ('user2', 'password2'),
     ('user3', 'password3');
@@ -65,7 +65,7 @@ INSERT INTO Rating (mark, fk_user, fk_recipe) VALUES
     (5.0, 3, 3);
 
 -- Inserting Comments
-INSERT INTO "Comment" ("text", fk_user, fk_recipe) VALUES
+INSERT INTO "comment" ("text", fk_user, fk_recipe) VALUES
     ('Great recipe, loved it!', 1, 1),
     ('I added some extra cheese, delicious!', 2, 2),
     ('Easy to follow instructions, thanks!', 3, 3);
