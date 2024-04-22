@@ -37,8 +37,8 @@ public class UserController {
     }
 
     @GetMapping("/recipe/{id}")
-    public String recipePage(Model model, @PathVariable("id") int id) {
-        model.addAttribute("recipe", id);
+    public String recipePage(Model model, @PathVariable("id") Long id) {
+        model.addAttribute("recipe", this.recipeService.getRecipeById(id));
         return "user/recipe";
     }
 }

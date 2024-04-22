@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>all</title>
-</head>
-<body>
-<table>
-<tr th:each="recipe : ${recipes}">
-<td th:text = "${recipe.getTitle()}"></td>
-</tr>
-</table>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>all</title>
+    </head>
+    <body>
+        <table  th:each = "recipe: ${recipes}" >
+            <tr>
+                <td th:text = "${recipe.getCategory().getTitle()}"></td>
+            </tr>
+
+            <tr>
+                <a th:text = "${recipe.getTitle()}" th:href="@{/recipe/{id}(id=${recipe.getId()})}"></a>
+                <td th:text = "${recipe.getCookingTime()}"></td>
+            </tr>
+            <tr>
+                <td th:text = "${recipe.getAverageMark()}">
+                </td>
+            </tr>
+        </table>
+    </body>
 </html>

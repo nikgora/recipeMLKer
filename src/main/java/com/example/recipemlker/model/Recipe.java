@@ -46,4 +46,12 @@ public class Recipe {
     @OneToMany (mappedBy = "recipe")
     private List<RecipeDevice> recipeDevices;
 
+    public double getAverageMark(){
+        double sum = 0;
+        for (Rating rating : ratings) {
+            sum+=rating.getMark();
+        }
+        return sum/ratings.size();
+    }
+
 }

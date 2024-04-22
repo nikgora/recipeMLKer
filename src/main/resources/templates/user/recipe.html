@@ -5,7 +5,24 @@
     <title>Title</title>
 </head>
 <body>
-<a href="/">Main</a>
-<p th:text="${id}"></p>
+<p th:text="${recipe.getTitle()}"></p>
+<p th:text="${recipe.getDescription()}"></p>
+<p th:text="${recipe.getAverageMark()}"></p>
+<table th:each="devices: ${recipe.getRecipeDevices()}">
+    <tr>
+        <td th:text = "${devices.cookingDevice.getName()}"></td>
+    </tr>
+</table>
+<table th:each="ingedients: ${recipe.getRecipeIngredients()}">
+    <tr>
+        <td th:text = "${ingedients.ingredient.getName()} + ' ' + ${ingedients.getAmountOfIngredient()}"></td>
+    </tr>
+</table>
+<table th:each = "comment : ${recipe.getComments()}">
+    <tr>
+        <td th:text = "${comment.getUser().getId()}"></td>
+        <td th:text = "${comment.getText()}"></td>
+    </tr>
+</table>
 </body>
 </html>
