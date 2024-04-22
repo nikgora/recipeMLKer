@@ -21,7 +21,7 @@ public class CookingDevice {
     @Column(name = "title")
     private String name;
 
-    @OneToMany(mappedBy = "device")
+    @OneToMany(mappedBy = "cookingDevice")
     private List<RecipeDevice> recipeDevices;
 }
 
