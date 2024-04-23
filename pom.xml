@@ -11,7 +11,7 @@
     <groupId>com.example</groupId>
     <artifactId>RecipeMLKer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <title>RecipeMLKer</title>
+    <name>RecipeMLKer</name>
     <description>RecipeMLKer</description>
     <properties>
         <java.version>22</java.version>
@@ -74,7 +74,7 @@
     <repositories>
         <repository>
             <id>spring-milestones</id>
-            <title>Spring Milestones</title>
+            <name>Spring Milestones</name>
             <url>https://repo.spring.io/milestone</url>
             <snapshots>
                 <enabled>false</enabled>

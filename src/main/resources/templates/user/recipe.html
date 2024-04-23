@@ -7,6 +7,7 @@
 <body>
 <p th:text="${recipe.getTitle()}"></p>
 <p th:text="${recipe.getDescription()}"></p>
+<a th:text="${recipe.getCategory().getTitle()}" th:href="@{/allRecipe?category={category}(category=${recipe.getCategory().getTitle()})}"></a>
 <p th:text="${recipe.getAverageMark()}"></p>
 <table th:each="devices: ${recipe.getRecipeDevices()}">
     <tr>
@@ -15,7 +16,10 @@
 </table>
 <table th:each="ingedients: ${recipe.getRecipeIngredients()}">
     <tr>
-        <td th:text = "${ingedients.ingredient.getName()} + ' ' + ${ingedients.getAmountOfIngredient()}"></td>
+       <td> <a th:text = "${ingedients.ingredient.getName()}" th:href="@{/allRecipe?ingedient={ingredient}(ingredient=${ingedients.ingredient.getName()})}"></a>
+       </td>
+        <td th:text = "${ingedients.getAmountOfIngredient()}">
+        </td>
     </tr>
 </table>
 <table th:each = "comment : ${recipe.getComments()}">

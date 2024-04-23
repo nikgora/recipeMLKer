@@ -1,5 +1,6 @@
 package com.example.recipemlker.service;
 
+import com.example.recipemlker.model.Category;
 import com.example.recipemlker.model.Rating;
 import com.example.recipemlker.model.Recipe;
 
@@ -10,5 +11,5 @@ public interface RecipeService {
     List<Rating> getAllRatingForRecipe(Long id);
     double getAverageMarkForRecipe(Long id);
     Recipe getRecipeById(Long id);
-
+    List<Recipe> getAllByCategory (Category category);
 }

@@ -1,7 +1,9 @@
 package com.example.recipemlker.service;
 
+import com.example.recipemlker.model.Category;
 import com.example.recipemlker.model.Rating;
 import com.example.recipemlker.model.Recipe;
+import com.example.recipemlker.repository.CategoryRepository;
 import com.example.recipemlker.repository.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +14,7 @@ import java.util.List;
 public class RecipeServiceImpl implements RecipeService {
     @Autowired
     private RecipeRepository recipeRepository;
+
     @Override
     public List<Recipe> getAllRecipeIsPublished() {return recipeRepository.findAllByIsPublished(true);}
 
@@ -34,5 +37,11 @@ public class RecipeServiceImpl implements RecipeService {
     public Recipe getRecipeById(Long id) {
         return recipeRepository.findById(id).get();
     }
+
+    @Override
+    public List<Recipe> getAllByCategory(Category category) {
+        return recipeRepository.findAllByCategory(category);
+    }
+
 
 }
