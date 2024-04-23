@@ -12,6 +12,6 @@ public class CategoryServiceImpl implements CategoryService{
     private CategoryRepository categoryRepository;
     @Override
     public Category getCategoryByTitle(String title) {
-        return categoryRepository.findByTitle(title);
+        return categoryRepository.findFirstByTitle(title);
     }
 }
