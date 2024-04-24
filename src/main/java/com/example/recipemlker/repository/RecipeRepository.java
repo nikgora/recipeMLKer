@@ -19,7 +19,6 @@ public interface RecipeRepository extends JpaRepository<Recipe, Long> {
     @Query(value = "SELECT DISTINCT r FROM Recipe r INNER JOIN r.recipeIngredients ri INNER JOIN ri.ingredient i WHERE i.name = :ingredientName")
     List<Recipe> findAllByRecipeIngredient(String ingredientName);
 
-
     List<Recipe> findAllByTitleStartsWith(String title);
 
     List<Recipe> findALlByCookingTimeBetween(int min, int max);
