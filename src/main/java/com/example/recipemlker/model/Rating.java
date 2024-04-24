@@ -18,7 +18,7 @@ public class Rating {
     @Column(name = "rating_id")
     private Long id;
     @ManyToOne
-    @JoinColumn(name = "fk_user",referencedColumnName = "user_id")
+    @JoinColumn(name = "fk_user", referencedColumnName = "user_id")
     @JsonIgnore
     private User user;
     @ManyToOne

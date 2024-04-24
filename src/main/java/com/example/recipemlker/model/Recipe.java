@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Entity
-@Table (name = "publishedrecipe")
+@Table(name = "publishedrecipe")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -24,7 +24,7 @@ public class Recipe {
     @Column(name = "description")
     private String description;
     @Column(name = "cooking_time")
-    private String cookingTime;
+    private int cookingTime;
     @Column(name = "published")
     private boolean isPublished;
     @ManyToOne
@@ -35,23 +35,30 @@ public class Recipe {
     @JoinColumn(name = "fk_category", referencedColumnName = "category_id")
     @JsonIgnore
     private Category category;
-    @OneToMany (mappedBy = "recipe")
+    @OneToMany(mappedBy = "recipe")
     private List<AiReport> aiReports;
-    @OneToMany (mappedBy = "recipe")
+    @OneToMany(mappedBy = "recipe")
     private List<Comment> comments;
-    @OneToMany (mappedBy = "recipe")
+    @OneToMany(mappedBy = "recipe")
     private List<Rating> ratings;
-    @OneToMany (mappedBy = "recipe")
+    @OneToMany(mappedBy = "recipe")
     private List<RecipeIngredient> recipeIngredients;
-    @OneToMany (mappedBy = "recipe")
+    @OneToMany(mappedBy = "recipe")
     private List<RecipeDevice> recipeDevices;
 
-    public double getAverageMark(){
+    @Transient
+    private double averageRating = getAverageMark();
+
+    @Transient
+    public double getAverageMark() {
+        if (ratings == null || ratings.isEmpty()) {
+            return 0;
+        }
         double sum = 0;
         for (Rating rating : ratings) {
-            sum+=rating.getMark();
+            sum += rating.getMark();
         }
-        return sum/ratings.size();
+        return sum / ratings.size();
     }
 
 }

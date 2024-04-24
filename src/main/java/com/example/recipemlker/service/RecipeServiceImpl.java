@@ -44,11 +44,24 @@ public class RecipeServiceImpl implements RecipeService {
         return recipeRepository.findAllByCategory(category);
     }
 
-//    @Override
-//    public List<Recipe> getAllByIngredient (Ingredient ingredient){
-//        List<Ingredient> ingredients = new ArrayList<>();
-//        ingredients.add(ingredient);
-//        return recipeRepository.findAllByRecipeIngredients(ingredients);
-//    }
+    @Override
+    public List<Recipe> getAllStartWith(String name) {
+        return recipeRepository.findAllByTitleStartsWith(name);
+    }
+
+    @Override
+    public List<Recipe> getAllByTimeBetween(int min, int max) {
+        return recipeRepository.findALlByCookingTimeBetween(min, max);
+    }
+
+    @Override
+    public List<Recipe> getAllByAverageRatingBetween(double min, double max) {
+        return recipeRepository.findAllByAverageRatingBetween(min, max);
+    }
+
+    @Override
+    public List<Recipe> getAllByIngredient(String ingredient) {
+        return recipeRepository.findAllByRecipeIngredient(ingredient);
+    }
 
 }

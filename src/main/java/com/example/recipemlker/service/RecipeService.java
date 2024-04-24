@@ -16,5 +16,12 @@ public interface RecipeService {
     Recipe getRecipeById(Long id);
 
     List<Recipe> getAllByCategory(Category category);
-//    List<Recipe> getAllByIngredient(Ingredient ingredient);
+
+    List<Recipe> getAllStartWith(String name);
+
+    List<Recipe> getAllByTimeBetween(int min, int max);
+
+    List<Recipe> getAllByAverageRatingBetween(double min, double max);
+
+    List<Recipe> getAllByIngredient(String ingredient);
 }
