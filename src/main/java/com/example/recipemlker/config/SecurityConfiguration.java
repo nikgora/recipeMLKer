@@ -1,3 +1,4 @@
+/*
 package com.example.recipemlker.config;
 
 import org.springframework.context.annotation.Configuration;
@@ -41,3 +42,4 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 }
 
+*/

@@ -1,4 +1,5 @@
 body {
+    background-color: #F2F2EB;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -11,6 +12,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding-right: 20px;
+    padding-left: 40px;
 }
 
 .search-form {
@@ -48,4 +50,354 @@ body {
     text-decoration: none;
 }
 
+.heart, .user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s;
+}
 
+.heart:hover, .user:hover {
+    border-radius: 50%;
+    background-color: #733506;
+    width: 100px;
+    height: 100px;
+}
+
+.heart:hover path, .user:hover path {
+    fill: #F2E3B3;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.menu {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.h1 {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 42px;
+    color: #733506;
+    position: absolute;
+    transform: translateY(-35px);
+    left: 38px;
+}
+
+.ul {
+    position: absolute;
+    top: 150px;
+    height: 500px;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 32px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-left: 5px;
+}
+
+ul {
+    padding-left: 5px;
+    margin-left: 10px;
+}
+
+ul li {
+    list-style: none;
+    padding-left: 5px;
+}
+
+ul hr {
+    border: 2px solid black;
+    margin: 10px 0;
+}
+
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    margin-top: 30px;
+    border: 1px solid black;
+    border-radius: 50px;
+    background: #F2E3B3;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #733506;
+    border-radius: 50px;
+}
+
+.bean {
+    position: absolute;
+    left: 118px;
+    bottom: 30px;
+}
+
+.cheesecake {
+    position: absolute;
+    left: 354px;
+    top: 530px;
+    border-radius: 150px 150px 60px 60px;
+    z-index: 1;
+}
+
+.fresh {
+    position: absolute;
+    left: 666px;
+    top: 530px;
+    bottom: 100px;
+    border-radius: 150px 150px 60px 60px;
+}
+
+.seafoodSalad {
+    position: absolute;
+    left: 982px;
+    top: 530px;
+    bottom: 100px;
+    border-radius: 150px 150px 60px 60px;
+}
+
+.rectangle {
+    position: absolute;
+    width: 272px;
+    height: 65px;
+    top: 855px;
+    border-radius: 0px 0px 60px 60px;
+    background: #F2E3B3;
+    z-index: 2;
+    text-align: center;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 32px;
+}
+
+.rectangle-left-1 {
+    left: 354px;
+}
+
+.dessert:hover .cheesecake, .dessert:hover .rectangle-left-1{
+    border: 5px solid #733506;
+}
+
+.rectangle-left-2 {
+    left: 666px;
+}
+
+.drink:hover .fresh, .drink:hover .rectangle-left-2{
+    border: 5px solid #733506;
+}
+
+.rectangle-left-3 {
+    left: 982px;
+}
+
+.salad:hover .seafoodSalad, .salad:hover .rectangle-left-3{
+    border: 5px solid #733506;
+}
+
+.rectangle1-container {
+    position: absolute;
+    width: 585px;
+    height: 820px;
+    border-radius: 90px;
+    background: #F2E3B3 url('maind.jpg') no-repeat center;
+    background-size: cover; /* Адаптуємо розмір фото, щоб воно покривало всю площу контейнера */
+    right: 40px;
+    top: 160px;
+    bottom: 100px;
+}
+
+.rectangle11-container{
+    position: absolute;
+    width: 585px;
+    height: 85px;
+    border-radius: 0px 0px 90px 90px;
+    background: #F2E3B3;
+    background-size: cover; /* Адаптуємо розмір фото, щоб воно покривало всю площу контейнера */
+    top: 735px;
+    right: 0px ;
+    left: -5px;
+    bottom: 100px;
+}
+
+
+
+.rectangle11-container svg {
+    position: absolute;
+    top: 20px;
+    bottom: 14px;
+    left: 140px;
+}
+
+.rectangle1-container:hover,
+.rectangle11-container {
+    border: 5px solid #733506;
+}
+
+.copyrightm {
+    position: absolute;
+    left: 240px;
+    bottom: -18px;
+    text-align: center;
+    font-family: 'Frank Ruhl Libre';
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 31px;
+    letter-spacing: 0%;
+    color: #000000;
+}
+
+.rectangle2-container {
+    position: absolute;
+    width: 900px;
+    height: 383px;
+    border-radius: 90px;
+    background: #F2E3B3 url('firstd.jpg') no-repeat center;
+    background-size: cover; /* Адаптуємо розмір фото, щоб воно покривало всю площу контейнера */
+    right: 670px;
+    top: 160px;
+    bottom: 535px;
+}
+.rectangle21-container {
+    position: absolute;
+    width: 900px;
+    height: 77px;
+    border-radius: 0px 0px 90px 90px;
+    background: #F2E3B3;
+    background-size: cover; /* Адаптуємо розмір фото, щоб воно покривало всю площу контейнера */
+    top: 306px;
+    bottom: 535px;
+}
+
+.rectangle21-container svg {
+    position: absolute; /* Встановлюємо позицію absolute для SVG відносно його батьківського контейнера */
+    top: 5px;
+    bottom: 20px;
+    left: 325px; /* Зсуваємо SVG на 20px від лівого краю контейнера */
+}
+
+.copyrightf {
+    position: absolute;
+    left: 410px;
+    bottom: -18px;
+    text-align: center;
+    font-family: 'Frank Ruhl Libre';
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 31px;
+    letter-spacing: 0%;
+    color: #000000;
+}
+
+.footer {
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    bottom: 0;
+    background-color: #3E5902;
+    color: #F2E3B3;
+    padding: 15px;
+    display: flex;
+    left: 0;
+    justify-content: space-between;
+    z-index: 5;
+}
+
+.support-button {
+    position: relative;
+    left: 90px;
+    top: 7px;
+    bottom: 7px;
+    background-color: #F2E3B3;
+    color: #733506;
+    border-radius: 30px;
+    padding: 10px;
+    width: 162px;
+    height: 46px;
+    text-align: center;
+    font-family: 'Frank Ruhl Libre';
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 46px;
+    letter-spacing: 0%;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.support-button span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.support-button:hover {
+    background-color: transparent;
+    border: 5px solid #F2E3B3;
+    color: #F2E3B3;
+}
+
+#feedback-input {
+    width: 100%;
+    height: 100px;
+    border: none;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#send-button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px;
+}
+
+
+.circle-container {
+    width: 58px;
+    height: 58px;
+    margin-right: 40px;
+    position: relative;
+}
+
+.circle {
+    position: relative;
+    width: 58px;
+    height: 58px;
+    background-color: #F2E3B3;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.circle svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: auto;
+}
+
+.copyright1 {
+    position: center;
+    width: 400px;
+    height: 30px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    font-family: 'Frank Ruhl Libre';
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 31px;
+    letter-spacing: 0%;
+    text-align: left;
+    color: #F2E3B3;
+}

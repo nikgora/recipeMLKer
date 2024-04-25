@@ -28,7 +28,7 @@ public class UserController {
         return "user/main";
     }
 
-    @GetMapping("/allRecipe")
+    @GetMapping("/allRecipes")
     public String allRecipePage(Model model, @RequestParam(required = false) List<String> category, @RequestParam(required = false) List<String> ingredient, @RequestParam(required = false) List<String> startWith, @RequestParam(required = false) Integer minTime, @RequestParam(required = false) Integer maxTime, @RequestParam(required = false) Double minMark, @RequestParam(required = false) Double maxMark) {
         List<Recipe> recipes = this.recipeService.getAllRecipeIsPublished();
         if (category != null) {
@@ -62,7 +62,7 @@ public class UserController {
         }
 
         model.addAttribute("recipes", recipes);
-        return "user/allRecipe";
+        return "user/allRecipes";
     }
 
 
