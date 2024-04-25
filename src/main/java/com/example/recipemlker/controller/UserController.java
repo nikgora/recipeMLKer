@@ -2,8 +2,8 @@ package com.example.recipemlker.controller;
 
 import com.example.recipemlker.model.Recipe;
 import com.example.recipemlker.service.CategoryService;
-import com.example.recipemlker.service.IngredientService;
 import com.example.recipemlker.service.RecipeService;
+import com.example.recipemlker.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +19,7 @@ public class UserController {
     @Autowired
     private RecipeService recipeService;
     @Autowired
-    private IngredientService ingredientService;
+    private UserService userService;
     @Autowired
     private CategoryService categoryService;
 
@@ -69,6 +69,15 @@ public class UserController {
     @GetMapping("/403")
     public String userPage() {
         return "user/403";
+    }
+
+    @GetMapping("/user/{id}")
+    public String userPage(@PathVariable Long id, Model model) {
+//        if (this.getUser().getId() == id) {
+//            model.addAttribute("user", userService.getUserById(id));
+//            return "user/user";
+//        }
+        return "redirect:/403";
     }
 
     @GetMapping("/recipe/{id}")
