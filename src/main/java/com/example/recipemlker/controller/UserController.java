@@ -1,10 +1,12 @@
 package com.example.recipemlker.controller;
 
 import com.example.recipemlker.model.Recipe;
+import com.example.recipemlker.model.User;
 import com.example.recipemlker.service.CategoryService;
 import com.example.recipemlker.service.RecipeService;
 import com.example.recipemlker.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 public class UserController {
@@ -72,11 +75,11 @@ public class UserController {
     }
 
     @GetMapping("/user/{id}")
-    public String userPage(@PathVariable Long id, Model model) {
-//        if (this.getUser().getId() == id) {
-//            model.addAttribute("user", userService.getUserById(id));
-//            return "user/user";
-//        }
+    public String userPage(@PathVariable Long id, Model model, @AuthenticationPrincipal User user) {
+        if (Objects.equals(user.getId(), id)) {
+            model.addAttribute("user", userService.getUserById(id));
+            return "user/user";
+        }
         return "redirect:/403";
     }
 
