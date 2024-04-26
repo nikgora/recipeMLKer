@@ -15,6 +15,8 @@ import java.util.List;
 @AllArgsConstructor
 
 public class Moderator {
+    @Transient
+    String role = "ADMIN";
     @Column(name = "secret_password")
     private String secret_password;
     @Id
@@ -22,7 +24,7 @@ public class Moderator {
     @Column(name = "moderator_id")
     private Long id;
     @OneToOne
-    @JoinColumn(name = "fk_user",referencedColumnName = "user_id")
+    @JoinColumn(name = "fk_user", referencedColumnName = "user_id")
     @JsonIgnore
     private User user;
     @OneToMany(mappedBy = "moderator")

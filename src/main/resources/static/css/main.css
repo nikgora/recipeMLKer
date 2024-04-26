@@ -20,7 +20,7 @@ body {
     align-items: center;
     gap: 10px;
     padding-left: 10px;
-    background:  #FBEFC7;
+    background: #FBEFC7;
     border-radius: 30px;
 }
 
@@ -29,7 +29,7 @@ body {
     width: 800px;
     flex: 1;
     border: none;
-    background:  #FBEFC7;
+    background: #FBEFC7;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 48px;
     border-radius: 30px;
@@ -182,7 +182,7 @@ ul hr {
     left: 354px;
 }
 
-.dessert:hover .cheesecake, .dessert:hover .rectangle-left-1{
+.dessert:hover .cheesecake, .dessert:hover .rectangle-left-1 {
     border: 5px solid #733506;
 }
 
@@ -190,7 +190,7 @@ ul hr {
     left: 666px;
 }
 
-.drink:hover .fresh, .drink:hover .rectangle-left-2{
+.drink:hover .fresh, .drink:hover .rectangle-left-2 {
     border: 5px solid #733506;
 }
 
@@ -198,7 +198,7 @@ ul hr {
     left: 982px;
 }
 
-.salad:hover .seafoodSalad, .salad:hover .rectangle-left-3{
+.salad:hover .seafoodSalad, .salad:hover .rectangle-left-3 {
     border: 5px solid #733506;
 }
 
@@ -207,14 +207,14 @@ ul hr {
     width: 585px;
     height: 820px;
     border-radius: 90px;
-    background: #F2E3B3 url('maind.jpg') no-repeat center;
+    background: #F2E3B3 url('../images/maind.jpg') no-repeat center;
     background-size: cover; /* Адаптуємо розмір фото, щоб воно покривало всю площу контейнера */
     right: 40px;
     top: 160px;
     bottom: 100px;
 }
 
-.rectangle11-container{
+.rectangle11-container {
     position: absolute;
     width: 585px;
     height: 85px;
@@ -222,11 +222,10 @@ ul hr {
     background: #F2E3B3;
     background-size: cover; /* Адаптуємо розмір фото, щоб воно покривало всю площу контейнера */
     top: 735px;
-    right: 0px ;
+    right: 0px;
     left: -5px;
     bottom: 100px;
 }
-
 
 
 .rectangle11-container svg {
@@ -250,7 +249,7 @@ ul hr {
     font-size: 42px;
     font-weight: 600;
     line-height: 31px;
-    letter-spacing: 0%;
+
     color: #000000;
 }
 
@@ -259,12 +258,13 @@ ul hr {
     width: 900px;
     height: 383px;
     border-radius: 90px;
-    background: #F2E3B3 url('firstd.jpg') no-repeat center;
+    background: #F2E3B3 url('../images/firstd.jpg') no-repeat center;
     background-size: cover; /* Адаптуємо розмір фото, щоб воно покривало всю площу контейнера */
     right: 670px;
     top: 160px;
     bottom: 535px;
 }
+
 .rectangle21-container {
     position: absolute;
     width: 900px;
@@ -292,7 +292,6 @@ ul hr {
     font-size: 42px;
     font-weight: 600;
     line-height: 31px;
-    letter-spacing: 0%;
     color: #000000;
 }
 
@@ -326,7 +325,6 @@ ul hr {
     font-size: 24px;
     font-weight: 400;
     line-height: 46px;
-    letter-spacing: 0%;
     border: none;
     cursor: pointer;
     outline: none;
@@ -387,7 +385,7 @@ ul hr {
 }
 
 .copyright1 {
-    position: center;
+    position: static;
     width: 400px;
     height: 30px;
     top: 0;
@@ -397,7 +395,6 @@ ul hr {
     font-size: 24px;
     font-weight: 400;
     line-height: 31px;
-    letter-spacing: 0%;
     text-align: left;
     color: #F2E3B3;
 }
