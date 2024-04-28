@@ -6,7 +6,7 @@ body {
 }
 
 .header {
-    height: 120px;
+    height: 11.2vh;
     background: #F2E3B3;
     display: flex;
     justify-content: space-between;
@@ -143,43 +143,49 @@ ul hr {
 
 .cheesecake {
     position: absolute;
-    left: 354px;
-    top: 530px;
-    border-radius: 150px 150px 60px 60px;
+    left: 18.4375vw;
+    top: 54.1vh;
+    border-radius: 150px 150px 80px 80px;
     z-index: 1;
+    width: 12.20vw;
+    height: 36.1vh;
 }
 
 .fresh {
     position: absolute;
-    left: 666px;
-    top: 530px;
-    bottom: 100px;
-    border-radius: 150px 150px 60px 60px;
+    left: 33.6875vw;
+    top: 54.1vh;
+    border-radius: 150px 150px 80px 80px;
+    width: 12.20vw;
+    height: 36.1vh;
 }
 
 .seafoodSalad {
     position: absolute;
-    left: 982px;
-    top: 530px;
-    bottom: 100px;
-    border-radius: 150px 150px 60px 60px;
+    left: 48.9175%;
+    top: 54.1vh;
+    border-radius: 150px 150px 80px 80px;
+    width: 12.20vw;
+    height: 36.1vh;
 }
 
 .rectangle {
     position: absolute;
-    width: 272px;
-    height: 65px;
-    top: 855px;
-    border-radius: 0px 0px 60px 60px;
+    width: 12.20vw;
+    height: 6.0185185185vh;
+    top: 84.20vh;
+    margin-right: 2.0833vw;
+    border-radius: 0px 0px 50px 50px;
     background: #F2E3B3;
     z-index: 2;
     text-align: center;
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 32px;
+    font-size: 3.8888vh;
+    font-size: 2.1875vw;
 }
 
 .rectangle-left-1 {
-    left: 354px;
+    left: 18.4375vw;
 }
 
 .dessert:hover .cheesecake, .dessert:hover .rectangle-left-1 {
@@ -187,7 +193,7 @@ ul hr {
 }
 
 .rectangle-left-2 {
-    left: 666px;
+    left: 33.6875vw;
 }
 
 .drink:hover .fresh, .drink:hover .rectangle-left-2 {
@@ -195,10 +201,29 @@ ul hr {
 }
 
 .rectangle-left-3 {
-    left: 982px;
+    left: 48.9175%;
 }
 
 .salad:hover .seafoodSalad, .salad:hover .rectangle-left-3 {
+    border: 5px solid #733506;
+}
+
+
+.rectangle4 {
+    position: absolute;
+    width: 900px;
+    height: 380px;
+    top: 160px;
+    left: 355px;
+    border-radius:60px;
+    background: #F2E3B3;
+    z-index: 2;
+    text-align: center;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 32px;
+}
+
+.firstd:hover .soup, .firstd:hover .rectangle4 {
     border: 5px solid #733506;
 }
 
@@ -298,11 +323,12 @@ ul hr {
 .footer {
     position: fixed;
     width: 100%;
-    height: 60px;
+    height: 5.6vh;
+    top: 94.4vh;
     bottom: 0;
     background-color: #3E5902;
     color: #F2E3B3;
-    padding: 15px;
+    padding: 1.4vh;
     display: flex;
     left: 0;
     justify-content: space-between;
@@ -360,16 +386,16 @@ ul hr {
 
 
 .circle-container {
-    width: 58px;
-    height: 58px;
-    margin-right: 40px;
+    width: 5.3703vw;
+    height: 5.3703vh;
+    margin-right: 1vw;
     position: relative;
 }
 
 .circle {
     position: relative;
-    width: 58px;
-    height: 58px;
+    width: 5.3703vw;
+    height: 5.3703vh;
     background-color: #F2E3B3;
     border-radius: 50%;
     overflow: hidden;
