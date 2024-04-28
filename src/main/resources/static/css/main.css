@@ -232,7 +232,7 @@ ul hr {
     width: 585px;
     height: 820px;
     border-radius: 90px;
-    background: #F2E3B3 url('../images/maind.jpg') no-repeat center;
+    background: #F2E3B3 url('../images/mainD.jpg') no-repeat center;
     background-size: cover; /* Адаптуємо розмір фото, щоб воно покривало всю площу контейнера */
     right: 40px;
     top: 160px;
@@ -283,7 +283,7 @@ ul hr {
     width: 900px;
     height: 383px;
     border-radius: 90px;
-    background: #F2E3B3 url('../images/firstd.jpg') no-repeat center;
+    background: #F2E3B3 url('../images/firstD.jpg') no-repeat center;
     background-size: cover; /* Адаптуємо розмір фото, щоб воно покривало всю площу контейнера */
     right: 670px;
     top: 160px;
