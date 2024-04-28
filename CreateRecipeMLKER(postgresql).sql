@@ -108,3 +108,5 @@ CREATE TABLE Recipe_UserList
     fk_recipe_id       INT REFERENCES PublishedRecipe (recipe_id),
     fk_user_list       INT REFERENCES "user" (user_id)
 );
+
+ALTER TABLE publishedrecipe ALTER COLUMN cooking_time TYPE integer USING cooking_time::integer;
