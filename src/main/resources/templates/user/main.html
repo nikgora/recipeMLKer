@@ -4,7 +4,7 @@
     <title>Main page</title>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" href="../../static/css/main.css">
 </head>
 <body>
 <div class="header">
@@ -335,7 +335,7 @@
     </div>
 
     <div class="firstd">
-        <img alt="soup" class="soup" height="380px" src="../../static/images/firstD.jpg"
+        <img alt="soup" class="soup" height="380px" th:src = "@{images/firstD.jpg}" src="../../static/images/firstD.jpg"
              width="900px">
         <div class="rectangle4">
             <svg width="51.000000" height="60.000000" viewBox="0 0 51 60" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
