@@ -4,9 +4,11 @@ import com.example.recipemlker.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-    User findFirstById(long id);
+    Optional<User> findFirstById(long id);
 
-    User findFirstByLogin(String username);
+    Optional<User> findFirstByLogin(String username);
 }
