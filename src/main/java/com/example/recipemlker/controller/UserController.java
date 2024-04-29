@@ -1,12 +1,10 @@
 package com.example.recipemlker.controller;
 
 import com.example.recipemlker.model.Recipe;
-import com.example.recipemlker.model.User;
 import com.example.recipemlker.service.CategoryService;
 import com.example.recipemlker.service.RecipeService;
 import com.example.recipemlker.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Controller
 public class UserController {
@@ -70,8 +67,13 @@ public class UserController {
 
 
     @GetMapping("/403")
-    public String userPage() {
+    public String forbidden() {
         return "user/403";
+    }
+
+    @GetMapping("/404")
+    public String notExist() {
+        return "user/404";
     }
 
 //    @GetMapping("/user/{id}")
@@ -85,6 +87,9 @@ public class UserController {
 
     @GetMapping("/recipe/{id}")
     public String recipePage(Model model, @PathVariable("id") Long id) {
+        if (this.recipeService.getRecipeById(id) == null) {
+            return "redirect:/404";
+        }
         if (this.recipeService.getRecipeById(id).isPublished()) {
             model.addAttribute("recipe", this.recipeService.getRecipeById(id));
             return "user/recipe";
