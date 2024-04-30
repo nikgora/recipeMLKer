@@ -11,42 +11,54 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-right: 20px;
-    padding-left: 40px;
+    padding-right: 2.083vw;
+    padding-left: 4.166vw;
+}
+.logo1 {
+    width: 6.25vw;
+    height: 10vh;
+    top: 0.3vw;
 }
 
 .search-form {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding-left: 10px;
+    padding-left: 1.0415vw;
     background: #FBEFC7;
     border-radius: 30px;
 }
 
 .search-form input {
-    height: 66.87px;
-    width: 800px;
+    height: 6.19vh;
+    width: 41.67vw;
     flex: 1;
     border: none;
     background: #FBEFC7;
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 48px;
+    font-size: 2.5vh;
+    font-size: 2.5vw;
     border-radius: 30px;
     outline: none;
+}
+
+.magnifier{
+    height: 3.3333333333vh;
+    width: 1.875vw;
 }
 
 .button-style {
     display: flex;
     background-color: #3E5902;
-    height: 62px;
-    width: 124.11px;
+    height: 5.7407vh;
+    width: 6.4640625vw;
     border-radius: 30px;
     color: white;
     justify-content: center;
     align-items: center;
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 24px;
+    font-size: 1.25vh;
+    font-size: 1.25vw;
     text-decoration: none;
 }
 
@@ -66,6 +78,11 @@ body {
 
 .heart:hover path, .user:hover path {
     fill: #F2E3B3;
+}
+
+.home{
+    height: 5.55555555vh;
+    width: 3.125vw;
 }
 
 .container {

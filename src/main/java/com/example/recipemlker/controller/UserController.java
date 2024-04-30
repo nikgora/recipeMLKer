@@ -6,7 +6,7 @@ import com.example.recipemlker.service.CategoryService;
 import com.example.recipemlker.service.RecipeService;
 import com.example.recipemlker.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
+//import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -74,14 +74,14 @@ public class UserController {
         return "user/403";
     }
 
-    @GetMapping("/user/{id}")
-    public String userPage(@PathVariable Long id, Model model, @AuthenticationPrincipal User user) {
-        if (Objects.equals(user.getId(), id)) {
-            model.addAttribute("user", userService.getUserById(id));
-            return "user/user";
-        }
-        return "redirect:/403";
-    }
+//    @GetMapping("/user/{id}")
+//    public String userPage(@PathVariable Long id, Model model, @AuthenticationPrincipal User user) {
+//        if (Objects.equals(user.getId(), id)) {
+//            model.addAttribute("user", userService.getUserById(id));
+//            return "user/user";
+//        }
+//        return "redirect:/403";
+//    }
 
     @GetMapping("/recipe/{id}")
     public String recipePage(Model model, @PathVariable("id") Long id) {
