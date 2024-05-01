@@ -1,7 +1,8 @@
-package com.example.recipemlker.service;
+package com.example.recipemlker.service.impl;
 
 import com.example.recipemlker.model.User;
 import com.example.recipemlker.repository.UserRepository;
+import com.example.recipemlker.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -32,4 +33,5 @@ public class UserServiceImpl implements UserService {
                         .orElseThrow(() -> new UsernameNotFoundException("User not found"));
             }
         };
+    }
 }

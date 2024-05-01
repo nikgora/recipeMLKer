@@ -1,7 +1,8 @@
-package com.example.recipemlker.service;
+package com.example.recipemlker.service.impl;
 
 import com.example.recipemlker.model.UserReport;
 import com.example.recipemlker.repository.UserReportRepository;
+import com.example.recipemlker.service.UserReportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
