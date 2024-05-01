@@ -8,6 +8,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,8 @@ import java.util.function.Function;
 
 @Service
 public class JwtServiceImpl implements JwtService {
-    private static final String jwtSigningKey = "giiadm";
+    @Value("${token.signing.key}")
+    private String jwtSigningKey;
 
     @Override
     public String extractUserName(String token) {
