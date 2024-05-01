@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
-    <script src="../../static/js/scripts.js"></script>
 </head>
 <body>
 <header>
@@ -324,7 +323,17 @@
 </main>
 
 <footer class="footer">
-    <button class="support-button"><span>Support</span></button>
+    <button class="support-button" id="support-btn"><span>Support</span></button>
+
+    <div id="overlay" onclick="hideOverlay()"></div>
+
+    <div class="window" id="popup-window">  <!-- Вікно, яке з'являється при натисканні -->
+        <div class="inner-window">
+            <input name="query" placeholder="Enter feedback" type="search">
+        </div>
+
+        <button id="send-button">Send</button>
+    </div>
 
 <!--    <div id="feedback-form" style="display: none;">-->
 <!--        <label for="feedback-input"></label><textarea id="feedback-input" placeholder="Enter feedback"></textarea>-->
@@ -343,5 +352,6 @@
         </div>
     </div>
 </footer>
+<script src="../../static/js/scripts.js"></script>
 </body>
 </html>
