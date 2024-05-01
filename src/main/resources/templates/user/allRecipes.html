@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>all</title>
+</head>
+<body>
+<table th:each="recipe: ${recipes}">
+    <tr>
+        <td th:text="${recipe.getCategory().getTitle()}"></td>
+    </tr>
+
+    <tr>
+        <a th:href="@{/recipe/{id}(id=${recipe.getId()})}" th:text="${recipe.getTitle()}"></a>
+        <td th:text="${recipe.getCookingTime()}+' minutes'"></td>
+    </tr>
+    <tr>
+        <td th:text="${recipe.getAverageMark()}">
+        </td>
+    </tr>
+</table>
+</body>
+</html>

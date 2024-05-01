@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p th:text="${recipe.getTitle()}"></p>
+<p th:text="${recipe.getDescription()}"></p>
+<a th:href="@{/allRecipes(category=${recipe.getCategory().getTitle()})}"
+   th:text="${recipe.getCategory().getTitle()}"></a>
+<p th:text="${recipe.getAverageMark()}"></p>
+<table th:each="devices: ${recipe.getRecipeDevices()}">
+    <tr>
+        <td th:text="${devices.cookingDevice.getName()}"></td>
+    </tr>
+</table>
+<table th:each="ingedients: ${recipe.getRecipeIngredients()}">
+    <tr>
+        <td><a th:href="@{/allRecipes(ingedient=${ingedients.ingredient.getName()})}"
+               th:text="${ingedients.ingredient.getName()}"></a>
+        </td>
+        <td th:text="${ingedients.getAmountOfIngredient()}">
+        </td>
+    </tr>
+</table>
+<table th:each="comment : ${recipe.getComments()}">
+    <tr th:text="${comment.getUser().getId()}"></tr>
+    <tr th:text="${comment.getText()}"></tr>
+</table>
+</body>
+</html>
