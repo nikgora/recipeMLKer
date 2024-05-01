@@ -76,10 +76,6 @@ body {
     height: 100px;
 }
 
-.heart:hover path, .user:hover path {
-    fill: #F2E3B3;
-}
-
 .home{
     height: 5.55555555vh;
     width: 3.125vw;

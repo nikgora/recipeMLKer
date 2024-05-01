@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
-
+    <script src="../../static/js/scripts.js"></script>
 </head>
 <body>
 <header>
@@ -19,22 +19,20 @@
     </form>
     <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
     <a class="button-style" href="recipe.html" th:href="@{/recipe/1}">Random</a>
-    <div class="heart">
-        <svg fill="none" height="60" viewBox="0 0 70 60" width="70" xmlns="http://www.w3.org/2000/svg"
-        >
-            <path d="M50.75 0C44.62 0 38.85 2.61 35 6.86C31.14 2.61 25.37 0 19.25 0C8.39 0 0 7.84 0 17.98C0 30.4 11.89 40.38 29.92 55.74L35 60L40.07 55.74C58.1 40.38 70 30.4 70 17.98C70 7.84 61.6 0 50.75 0ZM37.16 51.44L36.45 52.05L35 53.26L33.54 52.05L32.84 51.44C24.35 44.21 17.03 37.97 12.18 32.38C7.48 26.96 5.38 22.52 5.38 17.98C5.38 14.41 6.8 11.11 9.37 8.71C11.93 6.31 15.44 5 19.25 5C23.64 5 27.99 6.9 30.87 10.08L35 14.63L39.12 10.08C42 6.9 46.35 5 50.75 5C54.55 5 58.06 6.31 60.62 8.71C63.19 11.11 64.61 14.41 64.61 17.98C64.61 22.52 62.51 26.96 57.81 32.38C52.96 37.96 45.64 44.21 37.16 51.44Z"
-                  fill="#733506"
-                  fill-opacity="1.000000" fill-rule="nonzero" id="Vector"/>
-        </svg>
+    <div
+            class="heart"
+            onmouseover="changeImage('heart-img', '../../static/images/heart-hover.svg')"
+            onmouseout="restoreImage('heart-img', '../../static/images/heart.svg')"
+    >
+        <img id="heart-img" src="../../static/images/heart.svg" alt="heart">
     </div>
 
-    <div class="user">
-        <svg fill="none" height="60.000000" viewBox="0 0 60 60" width="60.000000" xmlns="http://www.w3.org/2000/svg"
-        >
-            <path d="M30 7.06C34.34 7.06 37.87 10.56 37.87 14.87C37.87 19.19 34.34 22.68 30 22.68C25.65 22.68 22.12 19.19 22.12 14.87C22.12 10.56 25.65 7.06 30 7.06ZM30 40.53C41.13 40.53 52.87 45.96 52.87 48.34L52.87 52.43L7.12 52.43L7.12 48.34C7.12 45.96 18.86 40.53 30 40.53ZM30 0C21.71 0 15 6.65 15 14.87C15 23.09 21.71 29.75 30 29.75C38.28 29.75 45 23.09 45 14.87C45 6.65 38.28 0 30 0ZM30 33.47C19.98 33.47 0 38.45 0 48.34L0 55.78C0 57.83 1.68 59.5 3.75 59.5L56.25 59.5C58.31 59.5 60 57.83 60 55.78L60 48.34C60 38.45 40.01 33.47 30 33.47Z"
-                  fill="#733506"
-                  fill-opacity="1.000000" fill-rule="nonzero" id="Vector"/>
-        </svg>
+    <div
+            class="user"
+            onmouseover="changeImage('user-img', '../../static/images/user-hover.svg')"
+            onmouseout="restoreImage('user-img', '../../static/images/user.svg')"
+    >
+        <img id="user-img" src="../../static/images/user.svg" alt="user">
     </div>
 
     <img src="../../static/images/home.svg" alt = "home" class = "home">
@@ -341,12 +339,9 @@
     </div>
     <div class="instagram">
         <div class="circle-container circle ">
-                <img alt="instagram1" class="instagram1" src="../../static/images/inst.svg" >
+            <img alt="instagram1" class="instagram1" src="../../static/images/inst.svg" >
         </div>
     </div>
 </footer>
 </body>
 </html>
-<!--<div class="dessert">-->
-<!--    <img alt="cheesecake" class="cheesecake" src="../../static/images/dessert.jpg" >-->
-<!--    <div class="rectangle rectangle-left-1">-->
