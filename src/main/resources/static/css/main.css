@@ -152,6 +152,21 @@ ul hr {
     border-radius: 50px;
 }
 
+.substance{
+    width: 2.65625vw;
+    height:5.5556vh;
+}
+
+.mDIcon{
+    width: 2.05vw;
+    height:2.7vh;
+}
+
+.saladI{
+    width: 2.0833vw;
+    height:4.167vh;
+}
+
 .bean {
     position: absolute;
     left: 118px;
@@ -164,8 +179,9 @@ ul hr {
     top: 54.1vh;
     border-radius: 150px 150px 80px 80px;
     z-index: 1;
-    width: 12.20vw;
+    width: 13.17vw;
     height: 36.1vh;
+    margin-right: 2.344vw;
 }
 
 .fresh {
@@ -173,25 +189,46 @@ ul hr {
     left: 33.6875vw;
     top: 54.1vh;
     border-radius: 150px 150px 80px 80px;
-    width: 12.20vw;
+    width: 13.17vw;
     height: 36.1vh;
+    margin-right: 2.344vw;
 }
 
 .seafoodSalad {
     position: absolute;
-    left: 48.9175%;
+    left: 48.9175vw;
     top: 54.1vh;
     border-radius: 150px 150px 80px 80px;
-    width: 12.20vw;
+    width: 13.17vw;
     height: 36.1vh;
+    margin-right: 2.344vw;
+}
+
+.firstD1{
+    position: absolute;
+    left: 18.4375vw;
+    top: 14.815vh;
+    height: 35.1851vh;
+    width: 43.69vw;
+    margin-right: 2.344vw;
+    border-radius:60px;
+}
+.mainD1{
+    position: absolute;
+    left: 63.931vw;
+    top: 14.815vh;
+    height: 75.926vh;
+    width: 31.25vw;
+    margin-left: 2.344vw;
+    border-radius:60px;
 }
 
 .rectangle {
     position: absolute;
-    width: 12.20vw;
+    width: 13.17vw;
     height: 6.0185185185vh;
     top: 84.20vh;
-    margin-right: 2.0833vw;
+    margin-right: 2.344vw;
     border-radius: 0px 0px 50px 50px;
     background: #F2E3B3;
     z-index: 2;
@@ -218,7 +255,7 @@ ul hr {
 }
 
 .rectangle-left-3 {
-    left: 48.9175%;
+    left: 48.9175vw;
 }
 
 .salad:hover .seafoodSalad, .salad:hover .rectangle-left-3 {
@@ -226,60 +263,47 @@ ul hr {
 }
 
 
-.rectangle4 {
+.rectangleFD {
     position: absolute;
-    width: 900px;
-    height: 380px;
-    top: 160px;
-    left: 355px;
-    border-radius:60px;
+    height: 6.0185185185vh;
+    width: 43.69vw;
+    top: 44.815vh;
+    margin-right: 2.344vw;
+    border-radius: 0px 0px 50px 50px;
     background: #F2E3B3;
     z-index: 2;
     text-align: center;
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 32px;
+    font-size: 3.8888vh;
+    font-size: 2.1875vw;
 }
 
-.firstd:hover .soup, .firstd:hover .rectangle4 {
+.rectangleFD-left {
+    left: 18.4375vw;
+}
+
+.firstD:hover .firstD1 .firstD:hover .rectangle4 {
     border: 5px solid #733506;
 }
 
-.rectangle1-container {
-    position: absolute;
-    width: 585px;
-    height: 820px;
-    border-radius: 90px;
-    background: #F2E3B3 url('../images/mainD.jpg') no-repeat center;
-    background-size: cover; /* Адаптуємо розмір фото, щоб воно покривало всю площу контейнера */
-    right: 40px;
-    top: 160px;
-    bottom: 100px;
-}
 
-.rectangle11-container {
+.rectangleMD {
     position: absolute;
-    width: 585px;
-    height: 85px;
-    border-radius: 0px 0px 90px 90px;
+    height: 6.0185185185vh;
+    width: 31.25vw;
+    top: 84.70vh;
+    margin-right: 2.344vw;
+    border-radius: 0px 0px 50px 50px;
     background: #F2E3B3;
-    background-size: cover; /* Адаптуємо розмір фото, щоб воно покривало всю площу контейнера */
-    top: 735px;
-    right: 0px;
-    left: -5px;
-    bottom: 100px;
+    z-index: 2;
+    text-align: center;
+    font-family: 'Frank Ruhl Libre';
+    font-size: 3.8888vh;
+    font-size: 2.1875vw;
 }
 
-
-.rectangle11-container svg {
-    position: absolute;
-    top: 20px;
-    bottom: 14px;
-    left: 140px;
-}
-
-.rectangle1-container:hover,
-.rectangle11-container {
-    border: 5px solid #733506;
+.rectangleMD-left {
+    left: 66.275vw;
 }
 
 .copyrightm {
@@ -293,36 +317,6 @@ ul hr {
     line-height: 31px;
 
     color: #000000;
-}
-
-.rectangle2-container {
-    position: absolute;
-    width: 900px;
-    height: 383px;
-    border-radius: 90px;
-    background: #F2E3B3 url('../images/firstD.jpg') no-repeat center;
-    background-size: cover; /* Адаптуємо розмір фото, щоб воно покривало всю площу контейнера */
-    right: 670px;
-    top: 160px;
-    bottom: 535px;
-}
-
-.rectangle21-container {
-    position: absolute;
-    width: 900px;
-    height: 77px;
-    border-radius: 0px 0px 90px 90px;
-    background: #F2E3B3;
-    background-size: cover; /* Адаптуємо розмір фото, щоб воно покривало всю площу контейнера */
-    top: 306px;
-    bottom: 535px;
-}
-
-.rectangle21-container svg {
-    position: absolute; /* Встановлюємо позицію absolute для SVG відносно його батьківського контейнера */
-    top: 5px;
-    bottom: 20px;
-    left: 325px; /* Зсуваємо SVG на 20px від лівого краю контейнера */
 }
 
 .copyrightf {
@@ -354,20 +348,20 @@ ul hr {
 
 .support-button {
     position: relative;
-    left: 90px;
-    top: 7px;
-    bottom: 7px;
+    left: 4.6875vw;
+    bottom: 0.6481vh;
     background-color: #F2E3B3;
     color: #733506;
     border-radius: 30px;
     padding: 10px;
-    width: 162px;
-    height: 46px;
+    width: 8.4375vw;
+    height: 4.2593vh;
     text-align: center;
     font-family: 'Frank Ruhl Libre';
-    font-size: 24px;
+    font-size: 1.25vh;
+    font-size: 1.25vw;
     font-weight: 400;
-    line-height: 46px;
+    line-height: 4.2593vh;
     border: none;
     cursor: pointer;
     outline: none;
@@ -401,43 +395,46 @@ ul hr {
     padding: 10px;
 }
 
-
 .circle-container {
-    width: 5.3703vw;
-    height: 5.3703vh;
-    margin-right: 1vw;
+    width: 2.5vw;
+    height: 5vh;
+    bottom: 1vh;
+    margin-right: 2.344vw;
     position: relative;
 }
 
 .circle {
+    display: flex; /* Робимо контейнер .circle флекс-контейнером */
+    justify-content: center; /* Відцентровуємо по горизонталі */
+    align-items: center; /* Відцентровуємо по вертикалі */
     position: relative;
-    width: 5.3703vw;
-    height: 5.3703vh;
     background-color: #F2E3B3;
     border-radius: 50%;
     overflow: hidden;
 }
 
-.circle svg {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    height: auto;
+.telegram1{
+    width: 2.39583vw;
+    height: 4.2592vh;
 }
 
-.copyright1 {
+.instagram1{
+    width: 2.3vw;
+    height: 4.06vh;
+}
+
+.copyright {
     position: static;
-    width: 400px;
-    height: 30px;
-    top: 0;
-    bottom: 0;
+    width: 21vw;
+    height: 3vh;
     margin: auto;
     font-family: 'Frank Ruhl Libre';
-    font-size: 24px;
+    font-size: 1.25vh;
+    font-size: 1.25vw;
     font-weight: 400;
-    line-height: 31px;
+    line-height: 1vh;
     text-align: left;
     color: #F2E3B3;
 }
+
+
