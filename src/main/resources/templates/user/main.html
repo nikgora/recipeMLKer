@@ -18,20 +18,24 @@
     </form>
     <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
     <a class="button-style" href="recipe.html" th:href="@{/recipe/1}">Random</a>
-    <div
-            class="heart"
-            onmouseover="changeImage('heart-img', '../../static/images/heart-hover.svg')"
-            onmouseout="restoreImage('heart-img', '../../static/images/heart.svg')"
-    >
-        <img id="heart-img" src="../../static/images/heart.svg" alt="heart">
+    <div class="heart-container">
+        <div
+                class="heart"
+                onmouseover="changeImage('heart-img', '../../static/images/heart-hover.svg')"
+                onmouseout="restoreImage('heart-img', '../../static/images/heart.svg')"
+        >
+            <img id="heart-img" src="../../static/images/heart.svg" alt="heart" class="heart">
+        </div>
     </div>
 
-    <div
-            class="user"
-            onmouseover="changeImage('user-img', '../../static/images/user-hover.svg')"
-            onmouseout="restoreImage('user-img', '../../static/images/user.svg')"
-    >
-        <img id="user-img" src="../../static/images/user.svg" alt="user">
+    <div class="user-container">
+        <div
+                class="user"
+                onmouseover="changeImage('user-img', '../../static/images/user-hover.svg')"
+                onmouseout="restoreImage('user-img', '../../static/images/user.svg')"
+        >
+            <img id="user-img" src="../../static/images/user.svg" alt="user" class="user">
+        </div>
     </div>
 
     <img src="../../static/images/home.svg" alt = "home" class = "home">
@@ -341,14 +345,24 @@
 <!--    </div>-->
 
     <div class="copyright">© Company policy and privacy rules</div>
-    <div class="telegram">
-        <div class="circle-container circle ">
-            <img alt="telegram1" class="telegram1" src="../../static/images/telegram.svg" >
+
+    <div class="telegram-container">
+        <div
+                class="telegram"
+                onmouseover="changeImage('telegram-img', '../../static/images/telegram-hover.svg')"
+                onmouseout="restoreImage('telegram-img', '../../static/images/telegram.svg')"
+        >
+            <img id="telegram-img" src="../../static/images/telegram.svg" alt="telegram" class="telegram">
         </div>
     </div>
-    <div class="instagram">
-        <div class="circle-container circle ">
-            <img alt="instagram1" class="instagram1" src="../../static/images/inst.svg" >
+
+    <div class="instagram-container">
+        <div
+                class="instagram"
+                onmouseover="changeImage('instagram-img', '../../static/images/inst-hover.svg')"
+                onmouseout="restoreImage('instagram-img', '../../static/images/inst.svg')"
+        >
+            <img id="instagram-img" src="../../static/images/inst.svg" alt="instagram" class="instagram">
         </div>
     </div>
 </footer>

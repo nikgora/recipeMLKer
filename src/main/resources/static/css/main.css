@@ -63,17 +63,21 @@ body {
 }
 
 .heart, .user {
+    width: 3.6458vw;
+    height: 5.5555vh;
+}
+
+.heart-container, .user-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: all 0.2s;
+    border-radius: 50%;
 }
 
-.heart:hover, .user:hover {
-    border-radius: 50%;
+.user-container:hover, .heart-container:hover {
     background-color: #733506;
-    width: 100px;
-    height: 100px;
+    width: 4.6vw;
+    height: 9.2593vh;
 }
 
 .home{
@@ -437,32 +441,44 @@ ul hr {
     border: 5px solid #3E5902;
 }
 
-.circle-container {
-    width: 2.5vw;
-    height: 5vh;
-    bottom: 1vh;
-    margin-right: 2.344vw;
+.telegram-container {
     position: relative;
-}
-
-.circle {
-    display: flex; /* Робимо контейнер .circle флекс-контейнером */
-    justify-content: center; /* Відцентровуємо по горизонталі */
-    align-items: center; /* Відцентровуємо по вертикалі */
-    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #F2E3B3;
     border-radius: 50%;
-    overflow: hidden;
+    width: 2.4vw;
+    height: 5vh;
+    right: 5vw;
+    bottom: 1vh;
 }
 
-.telegram1{
+.instagram-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F2E3B3;
+    border-radius: 50%;
+    width: 2.4vw;
+    height: 5vh;
+    right: 3vw;
+    bottom: 1vh;
+}
+
+.telegram {
     width: 2.39583vw;
     height: 4.2592vh;
 }
 
-.instagram1{
+.instagram{
     width: 2.3vw;
     height: 4.06vh;
+}
+
+.telegram-container:hover, .instagram-container:hover {
+    background-color: #733506;
 }
 
 .copyright {
