@@ -441,7 +441,7 @@ ul hr {
     border: 5px solid #3E5902;
 }
 
-.telegram-container {
+.circle-container {
     position: relative;
     display: flex;
     justify-content: center;
@@ -450,21 +450,15 @@ ul hr {
     border-radius: 50%;
     width: 2.4vw;
     height: 5vh;
-    right: 5vw;
     bottom: 1vh;
 }
 
+.telegram-container {
+    right: 5vw;
+}
+
 .instagram-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #F2E3B3;
-    border-radius: 50%;
-    width: 2.4vw;
-    height: 5vh;
     right: 3vw;
-    bottom: 1vh;
 }
 
 .telegram {
