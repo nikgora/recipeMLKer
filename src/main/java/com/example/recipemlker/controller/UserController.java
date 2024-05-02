@@ -1,6 +1,7 @@
 package com.example.recipemlker.controller;
 
 import com.example.recipemlker.model.Recipe;
+import com.example.recipemlker.service.AIService;
 import com.example.recipemlker.service.CategoryService;
 import com.example.recipemlker.service.RecipeService;
 import com.example.recipemlker.service.UserService;
@@ -22,6 +23,8 @@ public class UserController {
     private UserService userService;
     @Autowired
     private CategoryService categoryService;
+    @Autowired
+    private AIService aiService;
 
     @GetMapping("/")
     public String mainPage() {
@@ -96,4 +99,11 @@ public class UserController {
         }
         return "redirect:/403";
     }
+
+//    @PostMapping("/publishRecipe")
+//    public ResponseEntity publishRecipe(@RequestBody Recipe request) {
+//        boolean isOkToPublish = aiService.isOkToPublish(new Recipe());
+//
+//        return ResponseEntity.ok("Recipe with name " + request.getTitle() + " publish. ");
+//    }
 }
