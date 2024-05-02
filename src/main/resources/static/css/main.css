@@ -96,8 +96,9 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    margin-left: 20px;
-    margin-top: 20px;
+    margin-left: 1.04167vw;
+    margin-top: 1.852vh;
+    margin-right: 1.04167vw;
 }
 
 .h1 {
@@ -111,8 +112,8 @@ body {
 
 .ul {
     position: absolute;
-    top: 150px;
-    height: 500px;
+    top: 13.889vh;
+    height: 46.2963vh;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 32px;
     overflow-y: auto;
@@ -151,10 +152,15 @@ ul hr {
     background: #733506;
     border-radius: 50px;
 }
-
 .board{
     width: 14.584vw; /*280*/
     height:75.926vh; /*820*/
+    margin-right: 2.5vw;
+}
+
+.fieldForCategory{
+    width: 12.5vw; /*240*/
+    height:66.67vh; /*720*/
     margin-right: 2.344vw;
 }
 
@@ -208,6 +214,7 @@ ul hr {
     left: 6.3vw;
     top: 69vh;
 }
+
 
 .cheesecake {
     position: absolute;
