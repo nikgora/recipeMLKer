@@ -19,21 +19,27 @@
     </form>
     <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
     <a class="button-style" href="recipe.html" th:href="@{/recipe/1}">Random</a>
-    <div class="heart">
-        <svg fill="none" height="60" viewBox="0 0 70 60" width="70" xmlns="http://www.w3.org/2000/svg"
-        >
-            <path d="M50.75 0C44.62 0 38.85 2.61 35 6.86C31.14 2.61 25.37 0 19.25 0C8.39 0 0 7.84 0 17.98C0 30.4 11.89 40.38 29.92 55.74L35 60L40.07 55.74C58.1 40.38 70 30.4 70 17.98C70 7.84 61.6 0 50.75 0ZM37.16 51.44L36.45 52.05L35 53.26L33.54 52.05L32.84 51.44C24.35 44.21 17.03 37.97 12.18 32.38C7.48 26.96 5.38 22.52 5.38 17.98C5.38 14.41 6.8 11.11 9.37 8.71C11.93 6.31 15.44 5 19.25 5C23.64 5 27.99 6.9 30.87 10.08L35 14.63L39.12 10.08C42 6.9 46.35 5 50.75 5C54.55 5 58.06 6.31 60.62 8.71C63.19 11.11 64.61 14.41 64.61 17.98C64.61 22.52 62.51 26.96 57.81 32.38C52.96 37.96 45.64 44.21 37.16 51.44Z"
-                  fill="#733506"
-                  fill-opacity="1.000000" fill-rule="nonzero" id="Vector"/>
-        </svg>
+    <div class="heart-container">
+        <div class="heart">
+                onmouseover="changeImage('heart-img', '../../static/images/heart-hover.svg')"
+                onmouseout="restoreImage('heart-img', '../../static/images/heart.svg')"
+            <img id="heart-img" src="../../static/images/heart.svg" alt="heart" class="heart">
+        </div>
     </div>
 
-    <div class="user">
-        <img th:src="@{images/user.svg}" src="../../static/images/user.svg" alt = "user" class = "user1">
+    <div class="user-container">
+        <div class="user">
+                onmouseover="changeImage('user-img', '../../static/images/user-hover.svg')"
+                onmouseout="restoreImage('user-img', '../../static/images/user.svg')"
+
+            <img id="user-img" src="../../static/images/user.svg" alt="user" class="user">
+        </div>
     </div>
 
     <img th:src="@{images/home.svg}" src="../../static/images/home.svg" alt = "home" class = "home">
 </div>
+
+    /**/
 </header>
 <main>
 <div class="container">
