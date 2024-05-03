@@ -400,6 +400,104 @@ ul hr {
     z-index: 5;
 }
 
+/*#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.window {
+    position: fixed;
+    display: none;
+    bottom: 100px;
+    left: 5%;
+    width: 1140px;
+    height: 465px;
+    background: #F2E3B3;
+    padding: 20px;
+    z-index: 11;
+    border-radius: 60px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.inner-window {
+    background: #FBEFC7;
+    position: absolute;
+    width: 1060px;
+    height: 345px;
+    left: 41px;
+    top: 38px;
+    padding-left: 10px;
+    border-radius: 30px;
+    z-index: 13;
+}
+
+#send-button {
+    position: absolute;
+    right: 90px;
+    width: 173px;
+    height: 46px;
+    background-color: #3E5902;
+    border-radius: 30px;
+    text-align: center;
+    font-family: 'Frank Ruhl Libre';
+    font-size: 1.25vh;
+    font-size: 1.25vw;
+    color: #FBEFC7;
+    border: none;
+    top: 400px;
+    bottom: 16px;
+    z-index: 15;
+}
+
+#send-button:hover {
+    background-color: #FBEFC7;
+    color: #3E5902;
+    border: 5px solid #3E5902;
+}*/
+
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.window {
+    position: fixed;
+    display: none;
+    bottom: 9.2593vh;
+    left: 9.6vh;
+    width: 59.375vw;
+    height: 43.056vh;
+    background: #F2E3B3;
+    padding: 0.02vw;
+    z-index: 11;
+    border-radius: 60px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.inner-window {
+    background: #FBEFC7;
+    position: absolute;
+    width: 55.2083vw;
+    height: 31.945vh;
+    left: 2.1354167vw;
+    top: 3.5185vh;
+    padding-left: 0.01vw;
+    border-radius: 30px;
+    z-index: 13;
+}
+
 .support-button {
     position: relative;
     left: 4.6875vw;
@@ -407,7 +505,7 @@ ul hr {
     background-color: #F2E3B3;
     color: #733506;
     border-radius: 30px;
-    padding: 10px;
+    padding: 0.19vw;
     width: 8.4375vw;
     height: 4.2593vh;
     text-align: center;
@@ -450,33 +548,38 @@ ul hr {
 }
 
 .circle-container {
-    width: 2.5vw;
-    height: 5vh;
-    bottom: 1vh;
-    margin-right: 2.344vw;
     position: relative;
-}
-
-.circle {
-    display: flex; /* Робимо контейнер .circle флекс-контейнером */
-    justify-content: center; /* Відцентровуємо по горизонталі */
-    align-items: center; /* Відцентровуємо по вертикалі */
-    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #F2E3B3;
     border-radius: 50%;
-    overflow: hidden;
+    width: 2.4vw;
+    height: 5vh;
+    bottom: 1vh;
 }
 
-.telegram1{
+.telegram-container {
+    right: 5vw;
+}
+
+.instagram-container {
+    right: 3vw;
+}
+
+.telegram {
     width: 2.39583vw;
     height: 4.2592vh;
 }
 
-.instagram1{
+.instagram{
     width: 2.3vw;
     height: 4.06vh;
 }
 
+.telegram-container:hover, .instagram-container:hover {
+    background-color: #733506;
+}
 .copyright {
     position: static;
     width: 21vw;
