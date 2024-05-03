@@ -5,20 +5,21 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link rel="stylesheet" type="text/css" href="../../static/css/main.css" th:href="@{css/main.css}">
-
+    <script  src="../../static/js/scripts.js"></script>
 </head>
 <body>
 <header>
 <div class="header">
-    <img src="../../static/images/logo1.svg" alt = "logo1" class = "logo1">
+    <img th:src="@{images/logo1.svg}" src="../../static/images/logo1.svg" alt = "logo1" class = "logo1">
 
 
     <form class="search-form">
-        <img src="../../static/images/magnifier.svg" alt = "magnifier" class = "magnifier">
+        <img th:src="@{images/magnifier.svg}" src="../../static/images/magnifier.svg" alt = "magnifier" class = "magnifier">
         <input name="query" placeholder="Search" type="search">
     </form>
     <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
     <a class="button-style" href="recipe.html" th:href="@{/recipe/1}">Random</a>
+
     <div class="heart-container">
         <div class="heart">
                 onmouseover="changeImage('heart-img', '../../static/images/heart-hover.svg')"
@@ -39,81 +40,80 @@
     <img th:src="@{images/home.svg}" src="../../static/images/home.svg" alt = "home" class = "home">
 </div>
 
-    /**/
 </header>
 <main>
 <div class="container">
     <div class="menu">
-        <img alt="board" class="board" src="../../static/images/CuttingBoard.svg" >
+        <img alt="board" class="board" th:src="@{images/CuttingBoard.svg}" src="../../static/images/CuttingBoard.svg" >
         <div class="ul">
             <ul>
                 <h1 class="h1">Categories</h1>
-                <li><img alt="substance" class="substance" src="../../static/images/Soup.svg" >
+                <li><img alt="substance" class="substance" th:src="@{images/Soup.svg}"  src="../../static/images/Soup.svg" >
                     First dishes</li>
                 <hr>
-                <li><img alt="mDIcon" class="mDIcon" src="../../static/images/mainDish.svg" >
+                <li><img alt="mDIcon" class="mDIcon" th:src="@{images/mainDish.svg}" src="../../static/images/mainDish.svg" >
                     Main dishes</li>
                 <hr>
-                <li><img alt="salad" class="saladI" src="../../static/images/Salad.svg" >
+                <li><img alt="salad" class="saladI" th:src="@{images/Salad.svg}" src="../../static/images/Salad.svg" >
                     Salads</li>
                 <hr>
-                <li><img alt="pastry" class="pastryI" src="../../static/images/PastryI.svg" >
+                <li><img alt="pastry" class="pastryI" th:src="@{images/PastryI.svg}" src="../../static/images/PastryI.svg" >
                     Pastry</li>
                 <hr>
-                <li><img alt="dessertI" class="dessertI" src="../../static/images/Waffles.svg" >
+                <li><img alt="dessertI" class="dessertI" th:src="@{images/Waffles.svg}" src="../../static/images/Waffles.svg" >
                     Desserts</li>
                 <hr>
-                <li><img alt="smoothieI" class="smoothieI" src="../../static/images/Smoothie.svg" >
+                <li><img alt="smoothieI" class="smoothieI" th:src="@{images/Smoothie.svg}" src="../../static/images/Smoothie.svg" >
                     Drinks</li>
                 <hr>
-                <li><img alt="snackI" class="snackI" src="../../static/images/Snack.svg" >
+                <li><img alt="snackI" class="snackI" th:src="@{images/Snack.svg}" src="../../static/images/Snack.svg" >
                     Snacks</li>
                 <hr>
-                <li><img alt="fish" class="fish" src="../../static/images/Fish.svg" >
+                <li><img alt="fish" class="fish" th:src="@{images/Fish.svg}" src="../../static/images/Fish.svg" >
                     Fish dishes</li>
                 <hr>
-                <li><img alt="sauce" class="sauceI" src="../../static/images/Sauce%20selection.svg" >
+                <li><img alt="sauce" class="sauceI" th:src="@{images/SauceSelection.svg}" src="../../static/images/SauceSelection.svg" >
                     Sauces</li>
                 <hr>
             </ul>
         </div>
-        <img alt="coffeeBean" class="bean" src="../../static/images/coffee%20bean.svg" >
+        <img alt="coffeeBean" class="bean" th:src="@{images/coffeeBean.svg}" src="../../static/images/coffeeBean.svg" >
     </div>
 
     <div class="main-bottom">
         <div class="dessert">
-            <img alt="cheesecake" class="cheesecake" src="../../static/images/dessert.jpg" >
+            <img alt="cheesecake" class="cheesecake" th:src="@{images/dessert.jpg}" src="../../static/images/dessert.jpg" >
             <div class="rectangle rectangle-left-1">
-                <img alt="dessertI" class="dessertI" src="../../static/images/Waffles.svg" > Desserts
+                <img alt="dessertI" class="dessertI" th:src="@{images/Waffles.svg}" src="../../static/images/Waffles.svg" > Desserts
             </div>
         </div>
 
         <div class="drink">
-            <img alt="fresh" class="fresh" src="../../static/images/drink.jpg" >
+            <img alt="fresh" class="fresh" th:src="@{images/drink.jpg}"  src="../../static/images/drink.jpg" >
             <div class="rectangle rectangle-left-2">
-                <img alt="smoothieI" class="smoothieI" src="../../static/images/Smoothie.svg" >Drinks
+                <img alt="smoothieI" class="smoothieI" th:src="@{images/Smoothie.svg}" src="../../static/images/Smoothie.svg" >Drinks
             </div>
         </div>
 
         <div class="salad">
-            <img alt="seafoodSalad" class="seafoodSalad" src="../../static/images/salad.jpg" >
+            <img alt="seafoodSalad" class="seafoodSalad" th:src="@{salad.jpg}" src="../../static/images/salad.jpg" >
             <div class="rectangle rectangle-left-3">
-                <img alt="salad" class="saladI" src="../../static/images/Salad.svg" > Salads
+                <img alt="salad" class="saladI" th:src="@{images/Salad.svg}" src="../../static/images/Salad.svg" > Salads
             </div>
         </div>
     </div>
 
     <div class="firstD">
-        <img alt="firstD1" class="firstD1" src="../../static/images/firstD.jpg">
+        <img alt="firstD1" class="firstD1" th:src="@{images/firstD.jpg}" src="../../static/images/firstD.jpg">
         <div class="rectangleFD rectangleFD-left">
-            <img alt="substance" class="substance" src="../../static/images/Soup.svg" > First dishes
+            <img alt="substance" class="substance" th:src="@{images/Soup.svg}" src="../../static/images/Soup.svg" > First dishes
         </div>
     </div>
 
     <div class="mainD">
-        <img alt="mainD1" class="mainD1" src="../../static/images/mainD.jpg">
+        <img alt="mainD1" class="mainD1" th:src="@{images/mainD.jpg}" src="../../static/images/mainD.jpg">
         <div class="rectangleMD rectangleMD-left">
-            <img alt="mDIcon" class="mDIcon" src="../../static/images/mainDish.svg" > Main dishes
+            <img alt="mDIcon" class="mDIcon" th:src="@{images/mainDish.svg}" src="../../static/images/mainDish.svg" > Main dishes
         </div>
     </div>
 
