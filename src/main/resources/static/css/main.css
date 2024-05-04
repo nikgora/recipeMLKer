@@ -220,18 +220,18 @@ ul hr {
 
 .fish{
     width: 2.34375vw;
-    height: 3.24075vh; /*35*/
+    height: 3.24075vh;
 }
 
 .sauce{
     width: 1.927084vw;
-    height: 4.3518vh; /*37*/
+    height: 4.3518vh;
 }
 
 .bean {
     position: absolute;
-    width: 2vw;/*35*/
-    height: 4.8vh;/*45*/
+    width: 2vw;
+    height: 4.8vh;
     left: 6.3vw;
     top: 69vh;
 }
@@ -342,7 +342,7 @@ ul hr {
     font-size: 2.1875vw;
 }
 
-.firstD:hover .rectangleFD, .firstDish:hover {
+.firstD:hover .rectangleFD, .firstD:hover .firstDish {
     border: 0.46vh solid #733506;
 }
 
@@ -362,7 +362,7 @@ ul hr {
     font-size: 2.1875vw;
 }
 
-.mainD:hover .rectangleMD, .mainDish:hover {
+.mainD:hover .rectangleMD, .mainD:hover .mainDish {
     border: 0.46vh solid #733506;
 }
 
