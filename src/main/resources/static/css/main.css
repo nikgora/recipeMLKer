@@ -264,9 +264,9 @@ ul hr {
     left: 18.4375vw;
     top: 14.815vh;
     height: 35.1851vh;
+    border-radius: 25px 25px 15px 15px;
     width: 43.69vw;
     margin-right: 2.344vw;
-    border-radius:60px;
 }
 .mainD1{
     position: absolute;
@@ -324,7 +324,7 @@ ul hr {
     width: 43.69vw;
     top: 43vh;
     margin-right: 2.344vw;
-    border-radius: 0px 0px 50px 50px;
+    border-radius: 0px 0px 40px 40px;
     background: #F2E3B3;
     z-index: 2;
     text-align: center;
