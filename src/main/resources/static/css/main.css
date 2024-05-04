@@ -29,7 +29,7 @@ body {
     border-radius: 30px;
 }
 
-.search-form input {
+.search-form input, .inner-window input {
     height: 6.19vh;
     width: 41.67vw;
     flex: 1;
@@ -38,7 +38,7 @@ body {
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 2.5vh;
     font-size: 2.5vw;
-    border-radius: 30px;
+    border-radius: 2.7vw;
     outline: none;
 }
 
