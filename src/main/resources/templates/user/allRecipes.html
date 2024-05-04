@@ -76,9 +76,11 @@
 <!--        </ul>-->
 <!--    </div>-->
     <img alt="coffeeBean" class="bean" th:src="@{images/coffeeBean.svg}" src="../../static/images/coffeeBean.svg" >
-    <div class="field">
-        <!-- Сюди можна додати вміст вашого поля -->
-        <p>Це ваше поле. Додайте сюди вміст.</p>
+    <div class="mainField">
+        <div class="field ">
+
+            <p>Це ваше поле. Додайте сюди вміст.</p>
+        </div>
     </div>
 </main>
 <table th:each="recipe: ${recipes}">
