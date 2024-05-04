@@ -24,10 +24,10 @@ body {
 .search-form {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 0.52vw;
     padding-left: 1.0415vw;
     background: #FBEFC7;
-    border-radius: 30px;
+    border-radius: 2.7vw;
 }
 
 .search-form input, .inner-window input {
@@ -53,7 +53,7 @@ body {
     background-color: #3E5902;
     height: 5.7407vh;
     width: 6.4640625vw;
-    border-radius: 30px;
+    border-radius: 2.7vw;
     color: white;
     justify-content: center;
     align-items: center;
@@ -235,7 +235,7 @@ ul hr {
     position: absolute;
     left: 18.4375vw;
     top: 54.1vh;
-    border-radius: 150px 150px 80px 80px;
+    border-radius: 13.8vh 13.8vh 7.8vh 7.8vh;
     z-index: 1;
     width: 13.17vw;
     height: 36.1vh;
@@ -246,7 +246,7 @@ ul hr {
     position: absolute;
     left: 33.6875vw;
     top: 54.1vh;
-    border-radius: 150px 150px 80px 80px;
+    border-radius: 13.8vh 13.8vh 7.8vh 7.8vh;
     width: 13.17vw;
     height: 36.1vh;
     margin-right: 2.344vw;
@@ -256,7 +256,7 @@ ul hr {
     position: absolute;
     left: 48.9175vw;
     top: 54.1vh;
-    border-radius: 150px 150px 80px 80px;
+    border-radius: 13.8vh 13.8vh 7.8vh 7.8vh;
     width: 13.17vw;
     height: 36.1vh;
     margin-right: 2.344vw;
@@ -269,7 +269,7 @@ ul hr {
     height: 35.1851vh;
     width: 43.69vw;
     margin-right: 2.344vw;
-    border-radius:60px;
+    border-radius: 5.5vh 5.5vh 7.8vh 7.8vh;
 }
 
 .mainDish{
@@ -279,7 +279,7 @@ ul hr {
     height: 75.926vh;
     width: 31.25vw;
     margin-left: 2.344vw;
-    border-radius:60px;
+    border-radius: 8.3vh 8.3vh 7.8vh 7.8vh;
 }
 
 .rectangle {
@@ -288,7 +288,7 @@ ul hr {
     height: 6.0185185185vh;
     top: 84.5vh;
     margin-right: 2.344vw;
-    border-radius: 0px 0px 50px 50px;
+    border-radius: 0vh 0vh 7.8vh 7.8vh;
     background: #F2E3B3;
     z-index: 2;
     text-align: center;
@@ -327,7 +327,7 @@ ul hr {
     width: 43.69vw;
     top: 43vh;
     margin-right: 2.344vw;
-    border-radius: 0px 0px 50px 50px;
+    border-radius: 0px 0px 7.8vh 7.8vh;
     background: #F2E3B3;
     z-index: 2;
     text-align: center;
@@ -348,7 +348,7 @@ ul hr {
     top: 83.70vh;
     left: 66.275vw;
     margin-right: 2.344vw;
-    border-radius: 0px 0px 50px 50px;
+    border-radius: 0px 0px 7.8vh 7.8vh;
     background: #F2E3B3;
     z-index: 2;
     text-align: center;
@@ -443,7 +443,7 @@ ul hr {
     bottom: 0.6481vh;
     background-color: #F2E3B3;
     color: #733506;
-    border-radius: 30px;
+    border-radius: 2.7vw;
     padding: 0.19vw;
     width: 8.4375vw;
     height: 4.2593vh;
