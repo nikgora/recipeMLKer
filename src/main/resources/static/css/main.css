@@ -239,7 +239,7 @@ ul hr {
     position: absolute;
     left: 18.4375vw;
     top: 54.1vh;
-    border-radius: 150px 150px 80px 80px;
+    border-radius: 13.8vh 13.8vh 7.8vh 7.8vh;
     z-index: 1;
     width: 13.17vw;
     height: 36.1vh;
@@ -250,7 +250,7 @@ ul hr {
     position: absolute;
     left: 33.6875vw;
     top: 54.1vh;
-    border-radius: 150px 150px 80px 80px;
+    border-radius: 13.8vh 13.8vh 7.8vh 7.8vh;
     width: 13.17vw;
     height: 36.1vh;
     margin-right: 2.344vw;
@@ -260,29 +260,30 @@ ul hr {
     position: absolute;
     left: 48.9175vw;
     top: 54.1vh;
-    border-radius: 150px 150px 80px 80px;
+    border-radius: 13.8vh 13.8vh 7.8vh 7.8vh;
     width: 13.17vw;
     height: 36.1vh;
     margin-right: 2.344vw;
 }
 
-.firstD1{
+.firstDish{
     position: absolute;
     left: 18.4375vw;
     top: 14.815vh;
     height: 35.1851vh;
-    border-radius: 25px 25px 15px 15px;
     width: 43.69vw;
     margin-right: 2.344vw;
+    border-radius: 5.5vh 5.5vh 7.8vh 7.8vh;
 }
-.mainD1{
+
+.mainDish{
     position: absolute;
     left: 63.931vw;
     top: 14.815vh;
     height: 75.926vh;
     width: 31.25vw;
     margin-left: 2.344vw;
-    border-radius:60px;
+    border-radius: 8.3vh 8.3vh 7.8vh 7.8vh;
 }
 
 .rectangle {
@@ -291,7 +292,7 @@ ul hr {
     height: 6.0185185185vh;
     top: 84.5vh;
     margin-right: 2.344vw;
-    border-radius: 0px 0px 50px 50px;
+    border-radius: 0vh 0vh 7.8vh 7.8vh;
     background: #F2E3B3;
     z-index: 2;
     text-align: center;
@@ -305,7 +306,7 @@ ul hr {
 }
 
 .dessert:hover .cheesecake, .dessert:hover .rectangle-left-1 {
-    border: 5px solid #733506;
+    border: 0.46vh solid #733506;
 }
 
 .rectangle-left-2 {
@@ -313,7 +314,7 @@ ul hr {
 }
 
 .drink:hover .fresh, .drink:hover .rectangle-left-2 {
-    border: 5px solid #733506;
+    border: 0.46vh solid #733506;
 }
 
 .rectangle-left-3 {
@@ -321,9 +322,8 @@ ul hr {
 }
 
 .salad:hover .seafoodSalad, .salad:hover .rectangle-left-3 {
-    border: 5px solid #733506;
+    border: 0.46vh solid #733506;
 }
-
 
 .rectangleFD {
     position: absolute;
@@ -331,7 +331,28 @@ ul hr {
     width: 43.69vw;
     top: 43vh;
     margin-right: 2.344vw;
-    border-radius: 0px 0px 40px 40px;
+    border-radius: 0vh 0vh 7.8vh 7.8vh;
+    background: #F2E3B3;
+    z-index: 2;
+    text-align: center;
+    font-family: 'Frank Ruhl Libre', serif;
+    left: 18.4375vw;
+    font-size: 3.8888vh;
+    font-size: 2.1875vw;
+}
+
+.firstD:hover .rectangleFD, .firstDish:hover {
+    border: 0.46vh solid #733506;
+}
+
+.rectangleMD {
+    position: absolute;
+    height: 7vh;
+    width: 31.25vw;
+    top: 83.70vh;
+    left: 66.275vw;
+    margin-right: 2.344vw;
+    border-radius: 0vh 0vh 7.8vh 7.8vh;
     background: #F2E3B3;
     z-index: 2;
     text-align: center;
@@ -340,32 +361,8 @@ ul hr {
     font-size: 2.1875vw;
 }
 
-.rectangleFD-left {
-    left: 18.4375vw;
-}
-
-.firstD:hover .firstD1 .firstD:hover .rectangle4 {
-    border: 5px solid #733506;
-}
-
-
-.rectangleMD {
-    position: absolute;
-    height: 7vh;
-    width: 31.25vw;
-    top: 83.70vh;
-    margin-right: 2.344vw;
-    border-radius: 0px 0px 50px 50px;
-    background: #F2E3B3;
-    z-index: 2;
-    text-align: center;
-    font-family: 'Frank Ruhl Libre';
-    font-size: 3.8888vh;
-    font-size: 2.1875vw;
-}
-
-.rectangleMD-left {
-    left: 66.275vw;
+.mainD:hover .rectangleMD, .mainDish:hover {
+    border: 0.46vh solid #733506;
 }
 
 .copyrightm {
