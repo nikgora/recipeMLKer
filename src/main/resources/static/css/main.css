@@ -14,7 +14,8 @@ body {
     padding-right: 2.083vw;
     padding-left: 4.166vw;
 }
-.logo1 {
+
+.logo {
     width: 6.25vw;
     height: 10vh;
     top: 0.3vw;
@@ -79,7 +80,6 @@ body {
     width: 4.6vw;
     height: 9.2593vh;
 }
-
 .home{
     height: 5.55555555vh;
     width: 3.125vw;
@@ -96,60 +96,85 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    margin-left: 20px;
-    margin-top: 20px;
+    margin-left: 1.04167vw;
+    margin-top: 1.852vh;
+    margin-right: 1.7vw;
 }
 
 .h1 {
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 42px;
+    font-size: 2.1875vw; /*42*/
+    font-size: 3.8889vh;
     color: #733506;
     position: absolute;
-    transform: translateY(-35px);
-    left: 38px;
+    left: 1.979167vw;
+    bottom: 0.2605vh;
+    margin-bottom: 44.25vh;
 }
 
 .ul {
     position: absolute;
-    top: 150px;
-    height: 500px;
+    top: 13.889vh;
+    height: 48vh;
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 32px;
+    font-size: 1.66667vw;
+    font-size: 2.963vh;
     overflow-y: auto;
     overflow-x: hidden;
-    padding-left: 5px;
+    padding-left: 0.2605vw;
+    margin-top: 1vh;
+
 }
 
 ul {
-    padding-left: 5px;
-    margin-left: 10px;
+    padding-left: 0.2605vw;
+    margin-left: 0.521vw;
 }
 
 ul li {
+
     list-style: none;
-    padding-left: 5px;
+    padding-left: 0.2605vw;
+    margin-left: 0.4vw;
+    margin-right: 0.7vw;
 }
 
 ul hr {
-    border: 2px solid black;
-    margin: 10px 0;
+    border: 0.104167vw solid black;
+    margin: 0.520834vw 0;
+    margin-left: 0.5vw;
+    margin-right: 0.6vw;
 }
 
 
 ::-webkit-scrollbar {
-    width: 15px;
+    width: 0.78125vw;
+    margin-left: 5vw;
 }
 
 ::-webkit-scrollbar-track {
-    margin-top: 30px;
-    border: 1px solid black;
+    margin-top: 2.7778vh;
+    border: 0.0520834vw solid black;
     border-radius: 50px;
     background: #F2E3B3;
+    margin-left: 0.5vw;
 }
 
 ::-webkit-scrollbar-thumb {
     background: #733506;
     border-radius: 50px;
+}
+.board{
+    width: 14.584vw; /*280*/
+    height:75.926vh; /*820*/
+    margin-right: 2.5vw;
+    margin-top: 1vh;
+}
+
+.fieldForCategory{
+    width: 12.5vw; /*240*/
+    height:66.67vh; /*720*/
+    margin-right: 2.344vw;
 }
 
 .substance{
@@ -162,16 +187,47 @@ ul hr {
     height:2.7vh;
 }
 
-.saladI{
+.salad{
     width: 2.0833vw;
     height:4.167vh;
+}
+.pastry{
+    width: 2.34375vw;
+    height: 3.24075vh;
+}
+
+.dessert{
+    width: 2.34375vw;
+    height: 3.24075vh;
+}
+
+.smoothie{
+    width: 2.34375vw;
+    height: 4.1667vh;
+}
+.snack{
+    width: 2.34375vw;/*45*/
+    height: 2.7778vh;/*30*/
+}
+
+.fish{
+    width: 2.34375vw;
+    height: 3.24075vh; /*35*/
+}
+
+.sauce{
+    width: 1.927084vw;
+    height: 4.3518vh; /*37*/
 }
 
 .bean {
     position: absolute;
-    left: 118px;
-    bottom: 30px;
+    width: 2vw;/*35*/
+    height: 4.8vh;/*45*/
+    left: 6.3vw;
+    top: 69vh;
 }
+
 
 .cheesecake {
     position: absolute;
@@ -227,7 +283,7 @@ ul hr {
     position: absolute;
     width: 13.17vw;
     height: 6.0185185185vh;
-    top: 84.20vh;
+    top: 84.5vh;
     margin-right: 2.344vw;
     border-radius: 0px 0px 50px 50px;
     background: #F2E3B3;
@@ -265,9 +321,9 @@ ul hr {
 
 .rectangleFD {
     position: absolute;
-    height: 6.0185185185vh;
+    height: 7vh;
     width: 43.69vw;
-    top: 44.815vh;
+    top: 43vh;
     margin-right: 2.344vw;
     border-radius: 0px 0px 50px 50px;
     background: #F2E3B3;
@@ -289,9 +345,9 @@ ul hr {
 
 .rectangleMD {
     position: absolute;
-    height: 6.0185185185vh;
+    height: 7vh;
     width: 31.25vw;
-    top: 84.70vh;
+    top: 83.70vh;
     margin-right: 2.344vw;
     border-radius: 0px 0px 50px 50px;
     background: #F2E3B3;
@@ -344,40 +400,6 @@ ul hr {
     left: 0;
     justify-content: space-between;
     z-index: 5;
-}
-
-.support-button {
-    position: relative;
-    left: 4.6875vw;
-    bottom: 0.6481vh;
-    background-color: #F2E3B3;
-    color: #733506;
-    border-radius: 30px;
-    padding: 10px;
-    width: 8.4375vw;
-    height: 4.2593vh;
-    text-align: center;
-    font-family: 'Frank Ruhl Libre';
-    font-size: 1.25vh;
-    font-size: 1.25vw;
-    font-weight: 400;
-    line-height: 4.2593vh;
-    border: none;
-    cursor: pointer;
-    outline: none;
-}
-
-.support-button span {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.support-button:hover {
-    background-color: transparent;
-    border: 5px solid #F2E3B3;
-    color: #F2E3B3;
 }
 
 #overlay {
@@ -441,6 +463,40 @@ ul hr {
     border: 5px solid #3E5902;
 }
 
+.support-button {
+    position: relative;
+    left: 4.6875vw;
+    bottom: 0.6481vh;
+    background-color: #F2E3B3;
+    color: #733506;
+    border-radius: 30px;
+    padding: 0.19vw;
+    width: 8.4375vw;
+    height: 4.2593vh;
+    text-align: center;
+    font-family: 'Frank Ruhl Libre';
+    font-size: 1.25vh;
+    font-size: 1.25vw;
+    font-weight: 400;
+    line-height: 4.2593vh;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.support-button span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.support-button:hover {
+    background-color: transparent;
+    border: 5px solid #F2E3B3;
+    color: #F2E3B3;
+}
+
 .circle-container {
     position: relative;
     display: flex;
@@ -474,7 +530,6 @@ ul hr {
 .telegram-container:hover, .instagram-container:hover {
     background-color: #733506;
 }
-
 .copyright {
     position: static;
     width: 21vw;
@@ -488,5 +543,3 @@ ul hr {
     text-align: left;
     color: #F2E3B3;
 }
-
-
