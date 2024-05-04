@@ -164,6 +164,7 @@ ul hr {
     background: #733506;
     border-radius: 50px;
 }
+
 .board{
     width: 14.584vw; /*280*/
     height:75.926vh; /*820*/
@@ -179,17 +180,17 @@ ul hr {
 
 .soup{
     width: 2.65625vw;
-    height:5.5556vh;
+    height: 5.5556vh;
 }
 
 .mainDishIcon{
     width: 2.05vw;
-    height:2.7vh;
+    height: 2.7vh;
 }
 
 .salad{
     width: 2.0833vw;
-    height:4.167vh;
+    height: 4.167vh;
 }
 
 .pastry{
