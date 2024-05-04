@@ -260,7 +260,7 @@ ul hr {
     margin-right: 2.344vw;
 }
 
-.firstD1{
+.firstDish{
     position: absolute;
     left: 18.4375vw;
     top: 14.815vh;
@@ -269,7 +269,8 @@ ul hr {
     margin-right: 2.344vw;
     border-radius:60px;
 }
-.mainD1{
+
+.mainDish{
     position: absolute;
     left: 63.931vw;
     top: 14.815vh;
@@ -318,7 +319,6 @@ ul hr {
     border: 5px solid #733506;
 }
 
-
 .rectangleFD {
     position: absolute;
     height: 7vh;
@@ -330,24 +330,21 @@ ul hr {
     z-index: 2;
     text-align: center;
     font-family: 'Frank Ruhl Libre', serif;
+    left: 18.4375vw;
     font-size: 3.8888vh;
     font-size: 2.1875vw;
 }
 
-.rectangleFD-left {
-    left: 18.4375vw;
-}
-
-.firstD:hover .firstD1 .firstD:hover .rectangle4 {
+.firstD:hover .rectangleFD, .firstDish:hover {
     border: 5px solid #733506;
 }
-
 
 .rectangleMD {
     position: absolute;
     height: 7vh;
     width: 31.25vw;
     top: 83.70vh;
+    left: 66.275vw;
     margin-right: 2.344vw;
     border-radius: 0px 0px 50px 50px;
     background: #F2E3B3;
@@ -358,8 +355,8 @@ ul hr {
     font-size: 2.1875vw;
 }
 
-.rectangleMD-left {
-    left: 66.275vw;
+.mainD:hover .rectangleMD, .mainDish:hover {
+    border: 5px solid #733506;
 }
 
 .copyrightm {
