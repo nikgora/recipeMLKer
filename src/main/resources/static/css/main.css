@@ -23,10 +23,10 @@ body {
 .search-form {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 0.52vw;
     padding-left: 1.0415vw;
     background: #FBEFC7;
-    border-radius: 30px;
+    border-radius: 2.7vw;
 }
 
 .search-form input, .inner-window input {
@@ -52,7 +52,7 @@ body {
     background-color: #3E5902;
     height: 5.7407vh;
     width: 6.4640625vw;
-    border-radius: 30px;
+    border-radius: 2.7vw;
     color: white;
     justify-content: center;
     align-items: center;
@@ -266,7 +266,7 @@ ul hr {
     margin-right: 2.344vw;
 }
 
-.firstD1{
+.firstDish{
     position: absolute;
     left: 18.4375vw;
     top: 14.815vh;
@@ -341,7 +341,7 @@ ul hr {
     font-size: 2.1875vw;
 }
 
-.firstD:hover .rectangleFD, .firstD1:hover {
+.firstD:hover .rectangleFD, .firstD:hover .firstDish {
     border: 0.46vh solid #733506;
 }
 
@@ -361,7 +361,7 @@ ul hr {
     font-size: 2.1875vw;
 }
 
-.mainD:hover .rectangleMD, .mainDish:hover {
+.mainD:hover .rectangleMD, .mainD:hover .mainDish {
     border: 0.46vh solid #733506;
 }
 
@@ -388,7 +388,7 @@ ul hr {
     width: 173px;
     height: 46px;
     background-color: #3E5902;
-    border-radius: 30px;
+    border-radius: 2.7vw;
     text-align: center;
     font-family: 'Frank Ruhl Libre';
     font-size: 1.25vh;
@@ -403,7 +403,7 @@ ul hr {
 #send-button:hover {
     background-color: #FBEFC7;
     color: #3E5902;
-    border: 5px solid #3E5902;
+    border: 0.46vh solid #3E5902;
 }
 
 #overlay {
@@ -449,7 +449,7 @@ ul hr {
     bottom: 0.6481vh;
     background-color: #F2E3B3;
     color: #733506;
-    border-radius: 30px;
+    border-radius: 2.7vw;
     padding: 0.19vw;
     width: 8.4375vw;
     height: 4.2593vh;
