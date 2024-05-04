@@ -365,30 +365,6 @@ ul hr {
     border: 0.46vh solid #733506;
 }
 
-.copyrightm {
-    position: absolute;
-    left: 240px;
-    bottom: -18px;
-    text-align: center;
-    font-family: 'Frank Ruhl Libre';
-    font-size: 42px;
-    font-weight: 600;
-    line-height: 31px;
-
-    color: #000000;
-}
-
-.copyrightf {
-    position: absolute;
-    left: 410px;
-    bottom: -18px;
-    text-align: center;
-    font-family: 'Frank Ruhl Libre';
-    font-size: 42px;
-    font-weight: 600;
-    line-height: 31px;
-    color: #000000;
-}
 
 .footer {
     position: fixed;
@@ -557,3 +533,27 @@ ul hr {
 }
 
 
+.copyrightm {
+    position: absolute;
+    left: 240px;
+    bottom: -18px;
+    text-align: center;
+    font-family: 'Frank Ruhl Libre';
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 31px;
+
+    color: #000000;
+}
+
+.copyrightf {
+    position: absolute;
+    left: 410px;
+    bottom: -18px;
+    text-align: center;
+    font-family: 'Frank Ruhl Libre';
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 31px;
+    color: #000000;
+}
