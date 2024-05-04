@@ -1,0 +1,277 @@
+body {
+    background-color: #F2F2EB;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.header {
+    height: 11.2vh;
+    background: #F2E3B3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 2.083vw;
+    padding-left: 4.166vw;
+}
+
+.logo {
+    width: 6.25vw;
+    height: 10vh;
+    top: 0.3vw;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 0.52vw;
+    padding-left: 1.0415vw;
+    background: #FBEFC7;
+    border-radius: 2.7vw;
+}
+
+.search-form input, .inner-window input {
+    height: 6.19vh;
+    width: 41.67vw;
+    flex: 1;
+    border: none;
+    background: #FBEFC7;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2.5vh;
+    font-size: 2.5vw;
+    border-radius: 2.7vw;
+    outline: none;
+}
+
+.magnifier{
+    height: 3.3333333333vh;
+    width: 1.875vw;
+}
+
+.button-style {
+    display: flex;
+    background-color: #3E5902;
+    height: 5.7407vh;
+    width: 6.4640625vw;
+    border-radius: 2.7vw;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.25vh;
+    font-size: 1.25vw;
+    text-decoration: none;
+}
+
+.heart, .user {
+    width: 3.6458vw;
+    height: 5.5555vh;
+}
+
+.heart-container, .user-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.user-container:hover, .heart-container:hover {
+    background-color: #733506;
+    width: 4.6vw;
+    height: 9.2593vh;
+}
+
+.home{
+    height: 5.55555555vh;
+    width: 3.125vw;
+}
+
+.footer {
+    position: fixed;
+    width: 100%;
+    height: 5.6vh;
+    top: 94.4vh;
+    bottom: 0;
+    background-color: #3E5902;
+    color: #F2E3B3;
+    padding: 1.4vh;
+    display: flex;
+    left: 0;
+    justify-content: space-between;
+    z-index: 5;
+}
+
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.window {
+    position: fixed;
+    display: none;
+    bottom: 100px;
+    left: 5%;
+    width: 1140px;
+    height: 465px;
+    background: #F2E3B3;
+    padding: 20px;
+    z-index: 11;
+    border-radius: 60px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.inner-window {
+    background: #FBEFC7;
+    position: absolute;
+    width: 1060px;
+    height: 345px;
+    left: 41px;
+    top: 38px;
+    padding-left: 10px;
+    border-radius: 30px;
+    z-index: 13;
+}
+
+#send-button {
+    position: absolute;
+    right: 90px;
+    width: 173px;
+    height: 46px;
+    background-color: #3E5902;
+    border-radius: 2.7vw;
+    text-align: center;
+    font-family: 'Frank Ruhl Libre';
+    font-size: 1.25vh;
+    font-size: 1.25vw;
+    color: #FBEFC7;
+    border: none;
+    top: 400px;
+    bottom: 16px;
+    z-index: 15;
+}
+
+#send-button:hover {
+    background-color: #FBEFC7;
+    color: #3E5902;
+    border: 0.46vh solid #3E5902;
+}
+
+.support-button {
+    position: relative;
+    left: 4.6875vw;
+    bottom: 0.6481vh;
+    background-color: #F2E3B3;
+    color: #733506;
+    border-radius: 2.7vw;
+    padding: 0.19vw;
+    width: 8.4375vw;
+    height: 4.2593vh;
+    text-align: center;
+    font-family: 'Frank Ruhl Libre';
+    font-size: 1.25vh;
+    font-size: 1.25vw;
+    font-weight: 400;
+    line-height: 4.2593vh;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.support-button span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.support-button:hover {
+    background-color: transparent;
+    border: 0.46vh solid #F2E3B3;
+    color: #F2E3B3;
+}
+
+.circle-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F2E3B3;
+    border-radius: 50%;
+    width: 2.4vw;
+    height: 5vh;
+    bottom: 1vh;
+}
+
+.telegram-container {
+    right: 5vw;
+}
+
+.instagram-container {
+    right: 3vw;
+}
+
+.telegram {
+    width: 2.39583vw;
+    height: 4.2592vh;
+}
+
+.instagram{
+    width: 2.3vw;
+    height: 4.06vh;
+}
+
+.telegram-container:hover, .instagram-container:hover {
+    background-color: #733506;
+}
+
+.copyright {
+    position: static;
+    width: 21vw;
+    height: 3vh;
+    margin: auto;
+    font-family: 'Frank Ruhl Libre';
+    font-size: 1.25vh;
+    font-size: 1.25vw;
+    font-weight: 400;
+    line-height: 1vh;
+    text-align: left;
+    color: #F2E3B3;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FBEFC7;
+    border-radius: 10px;
+}
+
+.right {
+    width: 45%;
+    background: #D3E4CD;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+.title {
+    position: absolute;
+    width: 820px;
+    height: 60px;
+    left: 78px;
+    border-radius: 30px;
+    background: #FBEFC7;
+}
