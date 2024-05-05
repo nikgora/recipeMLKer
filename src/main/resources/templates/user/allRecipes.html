@@ -43,7 +43,8 @@
 
 <main>
     <img alt="board" class="board" th:src="@{images/CuttingBoard.svg}" src="../../static/images/CuttingBoard.svg" >
-    <div class="ul">
+    <button class="apply-button"><span>Apply</span></button>
+    <div class="ulBoard">
         <ul>
             <h1 class="h1">Filters</h1>
             <li><img alt="categoriesI" class="categoriesI" th:src="@{images/Categories.svg}"  src="../../static/images/Categories.svg" >
@@ -63,6 +64,12 @@
             <hr>
             <li><img alt="devicesI" class="devicesI" th:src="@{images/Mixer.svg}" src="../../static/images/Mixer.svg" >
                 Devices</li>
+            <hr>
+            <li><img alt="ingredientsI" class="ingredientsI" th:src="@{images/ingredients.svg}" src="../../static/images/ingredients.svg" >
+                Ingredients</li>
+            <hr>
+            <li><img alt="devicesI" class="devicesI" th:src="@{images/Mixer.svg}" src="../../static/images/Mixer.svg" >
+                Devices</li>
         </ul>
     </div>
     <img alt="coffeeBean" class="bean" th:src="@{images/coffeeBean.svg}" src="../../static/images/coffeeBean.svg" >
@@ -70,7 +77,11 @@
         <div class="field ">
             <div class="ol">
                 <ol>
-
+                    <li> <div class="smallerField"></div></li>
+                    <li><div class="smallerField smallerField-down1 "></div></li>
+                    <li><div class="smallerField smallerField-down2 "></div></li>
+                    <li><div class="smallerField smallerField-down3 "></div></li>
+                    <li><div class="smallerField smallerField-down4 "></div></li>
                 </ol>
             </div>
         </div>

@@ -405,7 +405,7 @@ ul hr {
 #send-button:hover {
     background-color: #FBEFC7;
     color: #3E5902;
-    border: 0.46vh solid #3E5902;
+    border: 0.5vh solid #3E5902;
 }
 
 #overlay {
