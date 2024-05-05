@@ -85,12 +85,145 @@ body {
     height: 5.55555555vh;
     width: 3.125vw;
 }
+/*____________________________________________________________________________________________________________________*/
 
 .container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
 }
+
+.menu {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 4vw;
+    margin-top: 1.852vh;
+    margin-right: 1.7vw;
+}
+
+.h1 {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2.4vw; /*42*/
+    font-size: 4vh;
+    color: #733506;
+    position: absolute;
+    margin-left: 3.4vw;
+    bottom: 0.2605vh;
+    margin-bottom: 40vh;
+}
+
+.ul {
+    position: absolute;
+    top: 28vh;
+    height: 44vh;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.66667vw;
+    font-size: 2.963vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-left: 0.2605vw;
+    margin-top: 1vh;
+    margin-left: 1.8vw;
+
+}
+
+ul {
+    padding-left: 0.2605vw;
+    margin-left: 0.521vw;
+}
+
+ul li {
+
+    list-style: none;
+    padding-left: 0.2605vw;
+    margin-left: 0.4vw;
+    margin-right: 0.7vw;
+}
+
+ul li:hover {
+    background-color: #F2B705;
+    border-radius: 5.5vw;
+    height: 5vh;
+    width: 9.3vw;
+} /*hover for menu list elements*/
+
+ul hr {
+    border: 0.104167vw solid black;
+    margin: 0.520834vw ;
+    margin-left: 0.5vw;
+    margin-right: 0.6vw;
+}
+
+/*____________________________________________________________________________________________________________________*/
+::-webkit-scrollbar {
+    width: 0.78125vw;
+    margin-left: 5vw;
+}
+
+::-webkit-scrollbar-track {
+    margin-top: 2.7778vh;
+    border: 0.0520834vw solid black;
+    border-radius: 50px;
+    background: #F2E3B3;
+    margin-left: 0.5vw;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #733506;
+    border-radius: 50px;
+}
+
+.fieldForCategory{
+    width: 12.5vw; /*240*/
+    height:66.67vh; /*720*/
+    margin-right: 2.344vw;
+}
+
+.substance{
+    width: 2.65625vw;
+    height:5.5556vh;
+}
+
+.mDIcon{
+    width: 2.05vw;
+    height:2.7vh;
+}
+
+.saladI{
+    width: 2.0833vw;
+    height:4.167vh;
+}
+.pastryI{
+    width: 2.34375vw;
+    height: 3.24075vh;
+}
+
+.dessertI{
+    width: 2.34375vw;
+    height: 3.24075vh;
+}
+
+.smoothieI{
+    width: 2.34375vw;
+    height: 4.1667vh;
+}
+.snackI{
+    width: 2.34375vw;/*45*/
+    height: 2.7778vh;/*30*/
+}
+
+.fish{
+    width: 2.34375vw;
+    height: 3.24075vh; /*35*/
+}
+
+.sauceI{
+    width: 1.927084vw;
+    height: 4.3518vh; /*37*/
+}
+
 /*____________________________________________________________________________________________________________________*/
 
 .board{
@@ -114,7 +247,7 @@ body {
     right: 2vw;
     top: 14.6vh;
     bottom: 8vh;
-    border-radius: 60px;
+    border-radius: 5.5vh;
     background-color: #F2E3B3;
 }
 
