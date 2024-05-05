@@ -32,13 +32,15 @@ body {
 .search-form input, .inner-window input {
     height: 6.19vh;
     width: 41.67vw;
+    margin-left: 1vw;
+    margin-top: 0.2vh;
     flex: 1;
     border: none;
     background: #FBEFC7;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 2.5vh;
     font-size: 2.5vw;
-    border-radius: 2.7vw;
+    border-radius: 5.5vh;
     outline: none;
 }
 
@@ -384,9 +386,9 @@ ul hr {
 
 #send-button {
     position: absolute;
-    right: 90px;
-    width: 173px;
-    height: 46px;
+    right: 4.6875vw;
+    width: 9.0105vw;
+    height: 4.2593vh;
     background-color: #3E5902;
     border-radius: 2.7vw;
     text-align: center;
@@ -395,8 +397,8 @@ ul hr {
     font-size: 1.25vw;
     color: #FBEFC7;
     border: none;
-    top: 400px;
-    bottom: 16px;
+    top: 37.04vh;
+    bottom: 1.4815vh;
     z-index: 15;
 }
 
@@ -427,7 +429,7 @@ ul hr {
     background: #F2E3B3;
     padding: 0.02vw;
     z-index: 11;
-    border-radius: 60px;
+    border-radius: 5.5vh;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -439,7 +441,7 @@ ul hr {
     left: 2.1354167vw;
     top: 3.5185vh;
     padding-left: 0.01vw;
-    border-radius: 30px;
+    border-radius: 2.25vh;
     z-index: 13;
 }
 
@@ -473,7 +475,7 @@ ul hr {
 
 .support-button:hover {
     background-color: transparent;
-    border: 5px solid #F2E3B3;
+    border: 0.4vh solid #F2E3B3;
     color: #F2E3B3;
 }
 
