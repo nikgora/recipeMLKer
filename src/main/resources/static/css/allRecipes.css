@@ -200,28 +200,14 @@ ul hr {
     height: 1.4vh;/*15*/
 }
 
-.dessertI{
-    width: 2.34375vw;
-    height: 3.24075vh;
+.ingredientsI{
+    width:1.5625vw;/*30*/
+    height:2.78vh;/*30*/
 }
 
-.smoothieI{
-    width: 2.34375vw;
-    height: 4.1667vh;
-}
-.snackI{
-    width: 2.34375vw;/*45*/
-    height: 2.7778vh;/*30*/
-}
-
-.fish{
-    width: 2.34375vw;
-    height: 3.24075vh; /*35*/
-}
-
-.sauceI{
-    width: 1.927084vw;
-    height: 4.3518vh; /*37*/
+.devicesI{
+    width:1.5625vw;/*30*/
+    height:2.78vh;/*30*/
 }
 
 /*____________________________________________________________________________________________________________________*/
