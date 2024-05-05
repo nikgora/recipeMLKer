@@ -106,7 +106,7 @@ body {
 .h1 {
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 2.4vw; /*42*/
-    font-size: 4vh;
+    font-size: 3.8889vh;
     color: #733506;
     position: absolute;
     margin-left: 3.4vw;
@@ -181,23 +181,23 @@ ul hr {
     margin-right: 2.344vw;
 }
 
-.substance{
-    width: 2.65625vw;
-    height:5.5556vh;
+.categoriesI{
+    width:1.5625vw;/*30*/
+    height:2.78vh;/*30*/
 }
 
-.mDIcon{
-    width: 2.05vw;
-    height:2.7vh;
+.timeI{
+    width: 1.5625vw;/*30*/
+    height:2.963vh;/*32*/
 }
 
-.saladI{
-    width: 2.0833vw;
-    height:4.167vh;
+.alphabetI{
+    width: 1.5625vw;/*30*/
+    height:1.574vh;/*17*/
 }
-.pastryI{
-    width: 2.34375vw;
-    height: 3.24075vh;
+.ratingI{
+    width: 1.5625vw;/*30*/
+    height: 1.4vh;/*15*/
 }
 
 .dessertI{
