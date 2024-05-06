@@ -111,13 +111,14 @@ body {
     position: absolute;
     margin-left: 3.4vw;
     bottom: 0.2605vh;
-    margin-bottom: 40vh;
+    margin-bottom: 34vh;
+    padding-bottom: 1vh;
 }
 
-.ul {
+.ulBoard {
     position: absolute;
-    top: 28vh;
-    height: 44vh;
+    top: 30vh;
+    height: 39vh;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.66667vw;
     font-size: 2.963vh;
@@ -139,14 +140,15 @@ ul li {
     list-style: none;
     padding-left: 0.2605vw;
     margin-left: 0.4vw;
-    margin-right: 0.7vw;
+    margin-right: 1.8vw;
+    margin-top: 0.5vh;
 }
 
 ul li:hover {
     background-color: #F2B705;
     border-radius: 5.5vw;
     height: 5vh;
-    width: 9.3vw;
+    width: 8.7vw;
 } /*hover for menu list elements*/
 
 ul hr {
@@ -157,12 +159,12 @@ ul hr {
 }
 
 /*____________________________________________________________________________________________________________________*/
-::-webkit-scrollbar {
+.ulBoard::-webkit-scrollbar {
     width: 0.78125vw;
     margin-left: 5vw;
 }
 
-::-webkit-scrollbar-track {
+.ulBoard::-webkit-scrollbar-track {
     margin-top: 2.7778vh;
     border: 0.0520834vw solid black;
     border-radius: 50px;
@@ -170,7 +172,7 @@ ul hr {
     margin-left: 0.5vw;
 }
 
-::-webkit-scrollbar-thumb {
+.ulBoard::-webkit-scrollbar-thumb {
     background: #733506;
     border-radius: 50px;
 }
@@ -226,6 +228,41 @@ ul hr {
     top: 82vh;
 }
 /*____________________________________________________________________________________________________________________*/
+.apply-button {
+    position: absolute;
+    left: 4.6875vw;
+    bottom: 22vh;
+    background-color: #733506;
+    color: #F2E3B3;
+    border-radius: 2.7vw;
+    padding: 0.19vw;
+    width: 8.4375vw;
+    height: 4.2593vh;
+    text-align: center;
+    font-family: 'Frank Ruhl Libre';
+    font-size: 1.25vh;
+    font-size: 1.25vw;
+    font-weight: 400;
+    line-height: 4.2593vh;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.apply-button span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.apply-button:hover {
+    background-color: transparent;
+    border: 0.5vh solid #733506;
+    color: #733506;
+}
+
+/*____________________________________________________________________________________________________________________*/
 .field {
     position: absolute;
     width: 80vw;
@@ -237,6 +274,89 @@ ul hr {
     background-color: #F2E3B3;
 }
 
+.ol{
+    position: absolute;
+    width: 80vw;
+    height: 76vh;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.66667vw;
+    font-size: 2.963vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-left: 0.2605vw;
+    margin-top: 1vh;
+    overflow: auto;
+}
+.ol ol {
+    list-style-type: none;
+}
+
+.ol::-webkit-scrollbar {
+    width: 0.78125vw;
+    margin-right: 5vw;
+}
+
+.ol::-webkit-scrollbar-track {
+    margin-top: 2.7778vh;
+    border: 0.0520834vw solid black;
+    border-radius: 50px;
+    background: #F2E3B3;
+    margin-left: 0.5vw;
+}
+
+.ol::-webkit-scrollbar-thumb {
+    background: #733506;
+    border-radius: 50px;
+}
+
+.ol-scrollbar{
+    position: absolute;
+    right: 5vw;}
+
+.h2{
+    position: absolute;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2.4vw; /*42*/
+    font-size: 3.8889vh;
+    color: #733506;
+    left: 1.6vw;
+    margin-bottom: 0.5vh;
+    margin-top: 2vh;
+}
+
+.h2-down{
+    margin-right: 1.6vw;
+    margin-top: 7.5vh;
+}
+
+.h2-down-right{
+    margin-top: 0vh;
+    margin-left: 1.6vw;
+}
+
+.smallerField{
+    position: absolute;
+    width: 74vw;
+    height: 14vh;
+    right: 4vw;
+    top: 4vh;
+    bottom: 8vh;
+    border-radius: 5.5vh;
+    background-color: #FBEFC7;
+}
+.smallerField-down1{
+    top: 22vh;
+}
+.smallerField-down2{
+    top: 40vh;
+}
+.smallerField-down3{
+    top: 58vh;
+}
+.smallerField-down4{
+    top: 76vh;
+    bottom: 4vh;
+}
 /*____________________________________________________________________________________________________________________*/
 .footer {
     position: fixed;
@@ -345,7 +465,7 @@ ul hr {
 
 .support-button:hover {
     background-color: transparent;
-    border: 0.4vh solid #F2E3B3;
+    border: 0.5vh solid #F2E3B3;
     color: #F2E3B3;
 }
 

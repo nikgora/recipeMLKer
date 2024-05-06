@@ -144,7 +144,7 @@ ul li:hover {
     background-color: #F2B705;
     border-radius: 5.5vw;
     height: 5vh;
-    width: 9.3vw;
+    width: 10.1vw;
 } /*hover for menu list elements*/
 
 ul hr {
@@ -235,6 +235,12 @@ ul hr {
     left: 6.3vw;
     top: 69vh;
 }
+
+a:link {
+    text-decoration: none;
+    color: inherit;
+}
+
 /*____________________________________________________________________________________________________________________*/
 
 .cheesecake {
@@ -405,7 +411,7 @@ ul hr {
 #send-button:hover {
     background-color: #FBEFC7;
     color: #3E5902;
-    border: 0.46vh solid #3E5902;
+    border: 0.5vh solid #3E5902;
 }
 
 #overlay {

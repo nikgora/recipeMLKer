@@ -16,12 +16,12 @@
         </form>
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
         <a class="button-style" href="recipe.html" th:href="@{/recipe/1}">Random</a>
-        <a class="home" href="main.html" th:href="@{main}" > </a>
+        <a class="home" href="main.html" th:href="@{/}" > </a>
         <div class="heart-container">
             <div class="heart"
                  onmouseover="changeImage('heart-img', '../../static/images/heart-hover.svg')"
                  onmouseout="restoreImage('heart-img', '../../static/images/heart.svg')">
-                <img id="heart-img" src="../../static/images/heart.svg" alt="heart" class="heart">
+                <img id="heart-img" th:src="@{images/heart.svg}" src="../../static/images/heart.svg" alt="heart" class="heart">
             </div>
         </div>
 
@@ -30,7 +30,7 @@
                  onmouseover="changeImage('user-img', '../../static/images/user-hover.svg')"
                  onmouseout="restoreImage('user-img', '../../static/images/user.svg')">
 
-                <img id="user-img" src="../../static/images/user.svg" alt="user" class="user">
+                <img id="user-img" th:src="@{images/user.svg}" src="../../static/images/user.svg" alt="user" class="user">
             </div>
         </div>
 
@@ -43,7 +43,8 @@
 
 <main>
     <img alt="board" class="board" th:src="@{images/CuttingBoard.svg}" src="../../static/images/CuttingBoard.svg" >
-    <div class="ul">
+    <button class="apply-button"><span>Apply</span></button>
+    <div class="ulBoard">
         <ul>
             <h1 class="h1">Filters</h1>
             <li><img alt="categoriesI" class="categoriesI" th:src="@{images/Categories.svg}"  src="../../static/images/Categories.svg" >
@@ -63,6 +64,12 @@
             <hr>
             <li><img alt="devicesI" class="devicesI" th:src="@{images/Mixer.svg}" src="../../static/images/Mixer.svg" >
                 Devices</li>
+            <hr>
+            <li><img alt="ingredientsI" class="ingredientsI" th:src="@{images/ingredients.svg}" src="../../static/images/ingredients.svg" >
+                Ingredients</li>
+            <hr>
+            <li><img alt="devicesI" class="devicesI" th:src="@{images/Mixer.svg}" src="../../static/images/Mixer.svg" >
+                Devices</li>
         </ul>
     </div>
     <img alt="coffeeBean" class="bean" th:src="@{images/coffeeBean.svg}" src="../../static/images/coffeeBean.svg" >
@@ -70,26 +77,37 @@
         <div class="field ">
             <div class="ol">
                 <ol>
+                    <li> <div class="smallerField">
+<!--                        <h2 class="h2">Title</h2>-->
+                        <table th:each="recipe: ${recipes}">
+                            <tr>
+                                <td th:text="${recipe.getCategory().getTitle()}"></td>
+                            </tr>
 
+                            <tr>
+                                <a th:href="@{/recipe/{id}(id=${recipe.getId()})}" th:text="${recipe.getTitle()}"></a>
+                                <td th:text="${recipe.getCookingTime()}+' minutes'"></td>
+                            </tr>
+                            <tr>
+                                <td th:text="${recipe.getAverageMark()}">
+                                </td>
+                            </tr>
+                        </table>
+<!--                        <p class="h2-down"> Categories  </p>-->
+<!--                        <p class="h2-right">Time for cooking   </p>-->
+<!--                        <p class="h2-right"> 4.5</p>-->
+                    </div>
+                    </li>
+                    <li><div class="smallerField smallerField-down1 "></div></li>
+                    <li><div class="smallerField smallerField-down2 "></div></li>
+                    <li><div class="smallerField smallerField-down3 "></div></li>
+                    <li><div class="smallerField smallerField-down4 "></div></li>
                 </ol>
             </div>
         </div>
     </div>
 </main>
-<table th:each="recipe: ${recipes}">
-    <tr>
-        <td th:text="${recipe.getCategory().getTitle()}"></td>
-    </tr>
 
-    <tr>
-        <a th:href="@{/recipe/{id}(id=${recipe.getId()})}" th:text="${recipe.getTitle()}"></a>
-        <td th:text="${recipe.getCookingTime()}+' minutes'"></td>
-    </tr>
-    <tr>
-        <td th:text="${recipe.getAverageMark()}">
-        </td>
-    </tr>
-</table>
 </body>
 <footer class="footer">
     <button class="support-button" id="support-btn"><span>Support</span></button>
@@ -112,7 +130,7 @@
                 onmouseover="changeImage('telegram-img', '../../static/images/telegram-hover.svg')"
                 onmouseout="restoreImage('telegram-img', '../../static/images/telegram.svg')"
         >
-            <img id="telegram-img" src="../../static/images/telegram.svg" alt="telegram" class="telegram">
+            <img id="telegram-img" th:src="@{images/telegram.svg}"  src="../../static/images/telegram.svg" alt="telegram" class="telegram">
         </div>
     </div>
 
@@ -122,9 +140,9 @@
                 onmouseover="changeImage('instagram-img', '../../static/images/inst-hover.svg')"
                 onmouseout="restoreImage('instagram-img', '../../static/images/inst.svg')"
         >
-            <img id="instagram-img" src="../../static/images/inst.svg" alt="instagram" class="instagram">
+            <img id="instagram-img" th:src="@{images/inst.svg}" src="../../static/images/inst.svg" alt="instagram" class="instagram">
         </div>
     </div>
 </footer>
-<script src="../../static/js/scripts.js"></script>
+<script th:href="@{js/scripts.js}" src="../../static/js/scripts.js"></script>
 </html>
