@@ -4,12 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-//import org.springframework.security.core.GrantedAuthority;
-//import org.springframework.security.core.authority.SimpleGrantedAuthority;
-//import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 @Entity
@@ -40,7 +35,8 @@ public class User {// implements UserDetails {
     private List<Recipe> recipes;
     @OneToMany(mappedBy = "user")
     private List<UserList> userLists;
-
+    @OneToMany(mappedBy = "user")
+    private List<UserReport> userReports;
 //    @Override
 //    public Collection<? extends GrantedAuthority> getAuthorities() {
 //        return Collections.singleton(new SimpleGrantedAuthority("ROLE_USER"));

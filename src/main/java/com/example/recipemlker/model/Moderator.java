@@ -29,4 +29,6 @@ public class Moderator {
     private User user;
     @OneToMany(mappedBy = "moderator")
     private List<AiReport> aiReports;
+    @OneToMany(mappedBy = "moderator")
+    private List<UserReport> userReports;
 }

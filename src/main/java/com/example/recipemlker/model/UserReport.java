@@ -1,5 +1,6 @@
 package com.example.recipemlker.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,5 +20,17 @@ public class UserReport {
     private Boolean isAccepted;
     @Column(name = "description")
     private String description;
+    @ManyToOne
+    @JoinColumn(name = "fk_moderator", referencedColumnName = "moderator_id")
+    @JsonIgnore
+    private Moderator moderator;
+    @ManyToOne
+    @JoinColumn(name = "fk_publishedrecipe_id", referencedColumnName = "recipe_id")
+    @JsonIgnore
+    private Recipe recipe;
+    @ManyToOne
+    @JoinColumn(name = "fk_user_id", referencedColumnName = "user_id")
+    @JsonIgnore
+    private User user;
 
 }
