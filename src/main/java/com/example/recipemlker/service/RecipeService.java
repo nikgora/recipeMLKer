@@ -24,4 +24,6 @@ public interface RecipeService {
     List<Recipe> getAllByAverageRatingBetween(double min, double max);
 
     List<Recipe> getAllByIngredient(String ingredient);
+
+    List<Recipe> getAllByDevice(String device);
 }
