@@ -1,13 +1,13 @@
-package com.example.recipemlker.service;
+package com.example.recipemlker.service.impl;
 
 import com.example.recipemlker.model.Ingredient;
-import com.example.recipemlker.repository.CategoryRepository;
 import com.example.recipemlker.repository.IngredientRepository;
+import com.example.recipemlker.service.IngredientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class IngredientServiceImpl implements IngredientService{
+public class IngredientServiceImpl implements IngredientService {
     @Autowired
     private IngredientRepository ingredientRepository;
 
