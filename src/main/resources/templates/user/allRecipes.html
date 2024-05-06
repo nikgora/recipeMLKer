@@ -78,7 +78,7 @@
             <div class="ol">
                 <ol>
                     <li> <div class="smallerField">
-                        <h2 class="h2">Title</h2>
+<!--                        <h2 class="h2">Title</h2>-->
                         <table th:each="recipe: ${recipes}">
                             <tr>
                                 <td th:text="${recipe.getCategory().getTitle()}"></td>
@@ -107,20 +107,7 @@
         </div>
     </div>
 </main>
-<table th:each="recipe: ${recipes}">
-    <tr>
-        <td th:text="${recipe.getCategory().getTitle()}"></td>
-    </tr>
 
-    <tr>
-        <a th:href="@{/recipe/{id}(id=${recipe.getId()})}" th:text="${recipe.getTitle()}"></a>
-        <td th:text="${recipe.getCookingTime()}+' minutes'"></td>
-    </tr>
-    <tr>
-        <td th:text="${recipe.getAverageMark()}">
-        </td>
-    </tr>
-</table>
 </body>
 <footer class="footer">
     <button class="support-button" id="support-btn"><span>Support</span></button>
