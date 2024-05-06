@@ -16,7 +16,7 @@
         </form>
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
         <a class="button-style" href="recipe.html" th:href="@{/recipe/1}">Random</a>
-        <a class="home" href="main.html" th:href="@{main}" > </a>
+        <a class="home" href="main.html" th:href="@{/}" > </a>
         <div class="heart-container">
             <div class="heart"
                  onmouseover="changeImage('heart-img', '../../static/images/heart-hover.svg')"
@@ -77,7 +77,27 @@
         <div class="field ">
             <div class="ol">
                 <ol>
-                    <li> <div class="smallerField"></div></li>
+                    <li> <div class="smallerField">
+                        <h2 class="h2">Title</h2>
+                        <table th:each="recipe: ${recipes}">
+                            <tr>
+                                <td th:text="${recipe.getCategory().getTitle()}"></td>
+                            </tr>
+
+                            <tr>
+                                <a th:href="@{/recipe/{id}(id=${recipe.getId()})}" th:text="${recipe.getTitle()}"></a>
+                                <td th:text="${recipe.getCookingTime()}+' minutes'"></td>
+                            </tr>
+                            <tr>
+                                <td th:text="${recipe.getAverageMark()}">
+                                </td>
+                            </tr>
+                        </table>
+<!--                        <p class="h2-down"> Categories  </p>-->
+<!--                        <p class="h2-right">Time for cooking   </p>-->
+<!--                        <p class="h2-right"> 4.5</p>-->
+                    </div>
+                    </li>
                     <li><div class="smallerField smallerField-down1 "></div></li>
                     <li><div class="smallerField smallerField-down2 "></div></li>
                     <li><div class="smallerField smallerField-down3 "></div></li>
