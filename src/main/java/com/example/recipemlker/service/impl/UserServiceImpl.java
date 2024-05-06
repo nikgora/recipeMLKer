@@ -1,13 +1,16 @@
 package com.example.recipemlker.service.impl;
 
 import com.example.recipemlker.model.AuthUser;
+
 import com.example.recipemlker.model.User;
 import com.example.recipemlker.repository.UserRepository;
 import com.example.recipemlker.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
 import org.springframework.stereotype.Service;
 
 @Service
@@ -17,6 +20,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserById(Long id) {
+
         return userRepository.findFirstById(id).orElse(null);
     }
 
@@ -44,5 +48,8 @@ public class UserServiceImpl implements UserService {
                         .orElseThrow(() -> new UsernameNotFoundException("User not found")));
             }
         };
+
+        return userRepository.findFirstById(id);
+
     }
 }

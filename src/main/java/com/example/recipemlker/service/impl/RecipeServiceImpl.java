@@ -65,4 +65,9 @@ public class RecipeServiceImpl implements RecipeService {
         return recipeRepository.findAllByRecipeIngredient(ingredient);
     }
 
+    @Override
+    public List<Recipe> getAllByDevice(String device) {
+        return recipeRepository.findAllByRecipeDevices(device);
+    }
+
 }
