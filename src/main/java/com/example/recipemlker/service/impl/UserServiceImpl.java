@@ -1,5 +1,6 @@
 package com.example.recipemlker.service.impl;
 
+import com.example.recipemlker.model.AuthUser;
 import com.example.recipemlker.model.User;
 import com.example.recipemlker.repository.UserRepository;
 import com.example.recipemlker.service.UserService;
@@ -21,7 +22,17 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserByUsername(String username) {
-        return userRepository.findFirstByLogin(username).orElse(null);
+        return userRepository.findByLogin(username).orElse(null);
+    }
+
+    @Override
+    public void save(User user) {
+        userRepository.save(user);
+    }
+
+    @Override
+    public boolean isExistByLogin(String login) {
+        return userRepository.existsByLogin(login);
     }
 
     @Override
@@ -29,8 +40,8 @@ public class UserServiceImpl implements UserService {
         return new UserDetailsService() {
             @Override
             public UserDetails loadUserByUsername(String username) {
-                return userRepository.findFirstByLogin(username)
-                        .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+                return new AuthUser(userRepository.findByLogin(username)
+                        .orElseThrow(() -> new UsernameNotFoundException("User not found")));
             }
         };
     }

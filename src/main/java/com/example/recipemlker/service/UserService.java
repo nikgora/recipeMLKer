@@ -8,5 +8,9 @@ public interface UserService {
 
     User getUserByUsername(String username);
 
+    void save(User user);
+
+    boolean isExistByLogin(String login);
+
     UserDetailsService userDetailsService();
 }
