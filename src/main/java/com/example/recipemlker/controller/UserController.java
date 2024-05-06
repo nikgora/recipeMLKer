@@ -29,12 +29,12 @@ public class UserController {
     }
 
     @GetMapping("/allRecipes")
-    public String allRecipePage(Model model, @RequestParam(required = false) List<String> devices, @RequestParam(required = false) List<String> category, @RequestParam(required = false) List<String> ingredient, @RequestParam(required = false) List<String> startWith, @RequestParam(required = false) Integer minTime, @RequestParam(required = false) Integer maxTime, @RequestParam(required = false) Double minMark, @RequestParam(required = false) Double maxMark) {
+    public String allRecipePage(Model model, @RequestParam(required = false) List<String> device, @RequestParam(required = false) List<String> category, @RequestParam(required = false) List<String> ingredient, @RequestParam(required = false) List<String> startWith, @RequestParam(required = false) Integer minTime, @RequestParam(required = false) Integer maxTime, @RequestParam(required = false) Double minMark, @RequestParam(required = false) Double maxMark) {
         List<Recipe> recipes = this.recipeService.getAllRecipeIsPublished();
-        if (devices != null) {
+        if (device != null) {
             List<Recipe> recipeWithDevice = new ArrayList<>();
-            for (String device : devices) {
-                recipeWithDevice.addAll(this.recipeService.getAllByDevice(device));
+            for (String deviceName : device) {
+                recipeWithDevice.addAll(this.recipeService.getAllByDevice(deviceName));
             }
             recipes.retainAll(recipeWithDevice);
         }
