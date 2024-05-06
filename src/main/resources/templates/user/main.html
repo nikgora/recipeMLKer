@@ -97,7 +97,7 @@
         </div>
 
         <div class="salad">
-            <img alt="seafoodSalad" class="seafoodSalad" th:src="@{salad.jpg}" src="../../static/images/salad.jpg" >
+            <img alt="seafoodSalad" class="seafoodSalad" th:src="@{images/salad.jpg}" src="../../static/images/salad.jpg" >
             <div class="rectangle rectangle-left-3">
                 <img alt="salad" class="saladI" th:src="@{images/Salad.svg}" src="../../static/images/Salad.svg" > Salads
             </div>
@@ -156,6 +156,6 @@
         </div>
     </div>
 </footer>
-<script src="../../static/js/scripts.js"></script>
+<script th:href="@{js/scripts.js}" src="../../static/js/scripts.js"></script>
 </body>
 </html>
