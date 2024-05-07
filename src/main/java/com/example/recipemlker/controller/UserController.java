@@ -7,6 +7,7 @@ import com.example.recipemlker.service.RecipeService;
 import com.example.recipemlker.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -85,10 +86,10 @@ public class UserController {
         return "user/404";
     }
 
-    //https://www.google.com/search?q=spring+security+6+security+context+holder&sca_esv=51c078bef5da6778&sca_upv=1&sxsrf=ADLYWIK-mBUGsgIaVOZVyq8jr7zgN_GzoQ%3A1715010856355&ei=KP04ZsGtFYzwi-gP15WjqA4&ved=0ahUKEwjB4YOnsfmFAxUM-AIHHdfKCOUQ4dUDCBA&uact=5&oq=spring+security+6+security+context+holder&gs_lp=Egxnd3Mtd2l6LXNlcnAiKXNwcmluZyBzZWN1cml0eSA2IHNlY3VyaXR5IGNvbnRleHQgaG9sZGVyMggQABiABBiiBDIIEAAYgAQYogQyCBAAGIAEGKIESPwgUJ8cWPkdcAJ4AZABAJgB9AGgAdICqgEFMS4wLjG4AQPIAQD4AQGYAgOgApABwgIKEAAYsAMY1gQYR5gDAIgGAZAGCJIHAzIuMaAH4wY&sclient=gws-wiz-serp
     @GetMapping("/user")
-    public String userPage(Model model, @AuthenticationPrincipal User user) {
-        if (user == null) return "redirect:/404";
+    public String userPage(Model model, @AuthenticationPrincipal UserDetails userDetails) {
+        if (userDetails == null) return "redirect:/";
+        User user = userService.getUserByUsername(userDetails.getUsername());
         model.addAttribute("user", user);
         return "user/user";
     }
