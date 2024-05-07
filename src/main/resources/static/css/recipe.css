@@ -337,6 +337,7 @@ body {
 
 .commentField{
     position: absolute;
+    display: flex;
     width: 46.875vw;
     height: 32vh;
     margin-left: 2.0834vw;
@@ -346,12 +347,73 @@ body {
 }
 
 .comment{
+    position: absolute;
+    display: flex;
     width: 42.9vw;
     height: 11.5vh;
     margin-left: 2.0834vw;
     margin-top: 2vh;
-    background-color:  #F28705;
+    background-color:  #FBEFC7;
     border-radius: 5vh;
+}
+
+.comment2{
+    margin-top: 15.5vh;
+}
+.comment3{
+    margin-top: 29vh;
+}
+/*____________________________________________________________________________________________________________________*/
+.fullRecipe{
+    width: 46.875vw;
+    height: 62.5vh;
+    margin-top: 1.6vh;
+    margin-left: 51.0834vw;
+    background: #F2E3B3;
+    border-radius: 5vh;
+}
+
+.fullRecipeHeader{
+    width: 46.875vw;
+    height: 4.875vh;
+    margin-top: 1.9vh;
+
+    background: #3E5902;
+    border-radius: 5vh 5vh 0vh 0vh ;
+}
+.frTitle{
+    position: absolute;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2.5vw; /*48*/
+    font-size: 4.445vh;
+    top: 17.7vh;
+    margin-left: 21vw;
+    color: white;
+}
+
+.amountField{
+    width: 12.6vw;
+    height: 53.7vh;
+    border-radius: 5vh;
+    background-color: #FBEFC7;
+    margin-left: 2vw;
+    margin-top: 1.9vh;
+}
+
+.stepByStepField{
+    width: 27.8645vw;
+    height: 53.7vh;
+    border-radius: 5vh;
+    background-color: #FBEFC7;
+    margin-left: 17vw;
+    margin-top: -53.7vh;
+}
+
+.ingredientsTitle{
+    width: 27.8645vw;
+    height: 3.7vh;
+    background: #3E5902;
+    border-radius: 5vh 5vh 0vh 0vh ;
 }
 /*____________________________________________________________________________________________________________________*/
 .stick{
@@ -359,7 +421,7 @@ body {
     width: 100vw;
     height: 2vh;
     background-color:  black;
-    top: 58.35vh;
+    top: 20.7vh;
 
 }
 .stick2{
