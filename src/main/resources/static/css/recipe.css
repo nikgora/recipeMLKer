@@ -278,6 +278,7 @@ body {
 /*____________________________________________________________________________________________________________________*/
 .text-form {
     position: absolute;
+    display: flex;
     align-items: center;
     gap: 0.53vw;
     padding-left: 1.0415vw;
@@ -285,20 +286,23 @@ body {
     border-radius: 2.778vh;
     left: 2.0834vw;
     top: 26.6vw;
+    width: 42.5vw;
+    height: 5.556vh;
 }
 
 .text-form input, .inner-window input {
-    width: 43vw;
-    height: 5.556vh;
-    left: 2.0834vw;
+    position: absolute;
+    width: 37.5vw;
+    height: 4vh;
+    left: 4.0834vw;
     margin-top: 0.2vh;
-    flex: 1;
+    flex: 2;
     border: none;
     background: #F2E3B3;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 2.25vh;
     font-size: 2.25vw;
-    border-radius: 2.5vh;
+    border-radius: 1.5vh;
     outline: none;
 }
 
@@ -331,16 +335,36 @@ body {
     outline: none;
 }
 
+.commentField{
+    position: absolute;
+    width: 46.875vw;
+    height: 32vh;
+    margin-left: 2.0834vw;
+    margin-top: 39.4vh;
+    background: #F2E3B3;
+    border-radius: 5vh;
+}
+
+.comment{
+    width: 42.9vw;
+    height: 11.5vh;
+    margin-left: 2.0834vw;
+    margin-top: 2vh;
+    background-color:  #F28705;
+    border-radius: 5vh;
+}
 /*____________________________________________________________________________________________________________________*/
 .stick{
     position: absolute;
     width: 100vw;
     height: 2vh;
     background-color:  black;
-    top: 50.75vh;
+    top: 58.35vh;
 
 }
-
+.stick2{
+    top: 92.3vh;
+}
 .footer {
     position: fixed;
     width: 100%;
