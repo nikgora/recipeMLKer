@@ -23,10 +23,10 @@ body {
 .search-form {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 0.53vw;
     padding-left: 1.0415vw;
     background: #FBEFC7;
-    border-radius: 30px;
+    border-radius: 2.778vh;
 }
 
 .search-form input, .inner-window input {
