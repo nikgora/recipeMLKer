@@ -451,7 +451,7 @@ body {
     height: 5.556vh;
     background: #3E5902;
     border-radius: 5vh;
-    margin-top: 66vh;
+    margin-top: 67vh;
     margin-left: 51.2vw;
 }
 .addRating{
@@ -465,26 +465,32 @@ body {
 }
 
 .confirmation{
-    width: 3.0208vw;
-    height:5.3703vw;
+    width: 2.7vw;
+    height: 5.4vh;
     border-radius: 50vh;
-    background: #3E5902;
+    background: #F2B705;
+    margin-left: 95vw;
+    margin-top: -5.6vh;
 }
-/*5,3 703vh
-3,0 208vw*/
 
+.tick{
+    width: 1.5625vw;
+    height: 2.32vh;
+    margin-top: 1.5vh;
+    margin-left: 0.5vw;
+}
 /*____________________________________________________________________________________________________________________*/
-.stick{
-    position: absolute;
-    width: 100vw;
-    height: 2vh;
-    background-color:  black;
-    top: 20.7vh;
+/*.stick{*/
+/*    position: absolute;*/
+/*    width: 100vw;*/
+/*    height: 2vh;*/
+/*    background-color:  black;*/
+/*    top: 20.7vh;*/
 
-}
-.stick2{
-    top: 93.3vh;
-}
+/*}*/
+/*.stick2{*/
+/*    top: 93.3vh;*/
+/*}*/
 .footer {
     position: fixed;
     width: 100%;
