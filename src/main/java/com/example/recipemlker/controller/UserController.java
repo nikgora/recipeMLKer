@@ -1,15 +1,16 @@
 package com.example.recipemlker.controller;
 
 import com.example.recipemlker.model.Recipe;
+import com.example.recipemlker.repository.CategoryRepository;
 import com.example.recipemlker.service.CategoryService;
 import com.example.recipemlker.service.RecipeService;
 import com.example.recipemlker.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +23,9 @@ public class UserController {
     private UserService userService;
     @Autowired
     private CategoryService categoryService;
+    @Autowired
+    private CategoryRepository categoryRepository;
+
 
     @GetMapping("/")
     public String mainPage() {
@@ -72,15 +76,9 @@ public class UserController {
         return "user/allRecipes";
     }
 
-
     @GetMapping("/403")
     public String forbidden() {
         return "user/403";
-    }
-
-    @GetMapping("/404")
-    public String notExist() {
-        return "user/404";
     }
 
 //    @GetMapping("/user/{id}")
@@ -92,6 +90,16 @@ public class UserController {
 //        return "redirect:/403";
 //    }
 
+    @GetMapping("/404")
+    public String notExist() {
+        return "user/404";
+    }
+
+    @GetMapping("/mustBeLogin")
+    public String mustBeLogin() {
+        return "user/mustBeLogin";
+    }
+
     @GetMapping("/recipe/{id}")
     public String recipePage(Model model, @PathVariable("id") Long id) {
         if (this.recipeService.getRecipeById(id) == null) {
@@ -102,5 +110,17 @@ public class UserController {
             return "user/recipe";
         }
         return "redirect:/403";
+    }
+
+    @GetMapping("/newRecipe")
+    public String newRecipePageForm(@AuthenticationPrincipal UserDetails userDetails, Model model) {
+        if (userDetails == null) return "redirect:/mustBeLogin";
+        model.addAttribute("recipe", new Recipe());
+        return "user/newRecipe";
+    }
+
+    @PostMapping("/newRecipe")
+    public void newRecipePageSubmit(@AuthenticationPrincipal UserDetails userDetails, @ModelAttribute Recipe recipe) {
+        recipeService.save(recipe);
     }
 }

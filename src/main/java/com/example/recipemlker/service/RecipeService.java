@@ -25,5 +25,7 @@ public interface RecipeService {
 
     List<Recipe> getAllByIngredient(String ingredient);
 
+    void save(Recipe recipe);
+
     List<Recipe> getAllByDevice(String device);
 }
