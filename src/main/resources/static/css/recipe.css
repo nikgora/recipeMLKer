@@ -339,7 +339,7 @@ body {
     position: absolute;
     display: flex;
     width: 46.875vw;
-    height: 32vh;
+    height: 33.2vh;
     margin-left: 2.0834vw;
     margin-top: 39.4vh;
     background: #F2E3B3;
@@ -465,6 +465,7 @@ body {
 }
 
 .confirmation{
+    position: absolute;
     width: 2.7vw;
     height: 5.4vh;
     border-radius: 50vh;
@@ -474,6 +475,7 @@ body {
 }
 
 .tick{
+    position: absolute;
     width: 1.5625vw;
     height: 2.32vh;
     margin-top: 1.5vh;
