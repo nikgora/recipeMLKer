@@ -16,7 +16,7 @@
         </form>
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
         <a class="button-style" href="recipe.html" th:href="@{/recipe/1}">Random</a>
-        <a class="home" href="main.html" th:href="@{/}" > </a>
+
         <div class="heart-container">
             <div class="heart"
                  onmouseover="changeImage('heart-img', '../../static/images/heart-hover.svg')"
@@ -34,9 +34,9 @@
             </div>
         </div>
 
-        <img th:src="@{images/home.svg}" src="../../static/images/home.svg" alt = "home" class = "home" >
-        <a href = "main.html" th:href="@{images/home.svg}"></a>
-
+        <a th:href="@{/main}" href="main.html">
+            <img th:src="@{images/home.svg}" src="../../images/home.svg" alt="home" class="home">
+        </a>
     </div>
 </header>
 <body>
@@ -78,7 +78,6 @@
             <div class="ol">
                 <ol>
                     <li> <div class="smallerField">
-<!--                        <h2 class="h2">Title</h2>-->
                         <table th:each="recipe: ${recipes}">
                             <tr>
                                 <td th:text="${recipe.getCategory().getTitle()}"></td>

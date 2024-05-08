@@ -48,7 +48,7 @@ body {
 .login-heading {
     position: absolute;
     right: 9.58vw;
-    bottom: 18.5vh;
+    bottom: 21.5vh;
     font-family: 'Frank Ruhl Libre';
     font-size: 2vh;
     font-size: 2vw;
@@ -65,6 +65,7 @@ body {
     font-size: 2vw;
     border-radius: 5.5vh;
     outline: none;
+    padding-left: 1vw;
 }
 
 .magnifier{
@@ -152,7 +153,6 @@ body {
     overflow-x: hidden;
     padding-left: 0.2605vw;
     margin-top: 1vh;
-
 }
 
 ul {
@@ -161,7 +161,6 @@ ul {
 }
 
 ul li {
-
     list-style: none;
     padding-left: 0.2605vw;
     margin-left: 0.4vw;
@@ -266,7 +265,7 @@ ul hr {
     top: 69vh;
 }
 
-a:link {
+a:link, a:visited {
     text-decoration: none;
     color: inherit;
 }
@@ -444,7 +443,7 @@ a:link {
     width: 15.6vw;
     height: 5vh;
     right: 5.2vw;
-    bottom: 1.85vh;
+    bottom: 1.7vh;
     z-index: 15;
     border-radius: 2.7vw;
     cursor: pointer;
@@ -492,7 +491,7 @@ a:link {
     display: none;
     border-radius: 2.7vw;
     width: 26vw;
-    height: 27.3vh;
+    height: 30vh;
     left: 72.9vw;
     bottom: 59.7vh;
     background-color: #F2E3B3;
@@ -501,21 +500,20 @@ a:link {
 }
 
 .login-form {
-    background: #FBEFC7;
     border-radius: 2.7vw;
     position: absolute;
-    width: 21.9vw;
-    height: 5vh;
+    width: 21vw;
+    height: 4.5vh;
     z-index: 13;
-    left: 2.1vw;
+    left: 1.5vw;
 }
 
 .email {
-    top: 6.48vh;
+    top: 7vh;
 }
 
 .password {
-    top: 13.4vh;
+    top: 14.8vh;
 }
 
 .inner-window {
