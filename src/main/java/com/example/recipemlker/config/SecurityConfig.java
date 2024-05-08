@@ -65,7 +65,7 @@ public class SecurityConfig {
                     auth.requestMatchers("/**").permitAll();
                     auth.anyRequest().authenticated();
                 })
-                .formLogin(form -> form.loginPage("/login").permitAll())
+                .formLogin(form -> form.loginPage("/login").loginProcessingUrl("/api/login").defaultSuccessUrl("/").failureUrl("/login?error=true").permitAll())
                 .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .oauth2ResourceServer((oauth2) -> oauth2.jwt((jwt) -> jwt.decoder(jwtDecoder())))
                 .userDetailsService(userDetailsService)

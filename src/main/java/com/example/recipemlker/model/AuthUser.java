@@ -7,6 +7,7 @@ import java.util.Collection;
 
 public class AuthUser extends User implements UserDetails {
     private final User user;
+//    Collection<? extends GrantedAuthority> authorities;
 
     public AuthUser(User user) {
         this.user = user;
