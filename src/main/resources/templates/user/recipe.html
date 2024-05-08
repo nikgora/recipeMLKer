@@ -1,14 +1,9 @@
 <!DOCTYPE html>
-<head>
-    <meta charset="UTF-8">
-    <title>Recipe</title>
-</head>
-<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>All recipes</title>
-    <link rel="stylesheet" type="text/css"  th:href="@{css/recipe.css}" href="../../static/css/recipe.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/recipe.css" th:href="@{css/recipe.css}">
 </head>
 <header>
     <div class="header">
@@ -130,29 +125,29 @@
 
 
 
-<p th:text="${recipe.getTitle()}"></p>
-<p th:text="${recipe.getDescription()}"></p>
-<a th:href="@{/allRecipes(category=${recipe.getCategory().getTitle()})}"
-   th:text="${recipe.getCategory().getTitle()}"></a>
-<p th:text="${recipe.getAverageMark()}"></p>
-<table th:each="devices: ${recipe.getRecipeDevices()}">
-    <tr>
-        <td th:text="${devices.cookingDevice.getName()}"></td>
-    </tr>
-</table>
-<table th:each="ingedients: ${recipe.getRecipeIngredients()}">
-    <tr>
-        <td><a th:href="@{/allRecipes(ingedient=${ingedients.ingredient.getName()})}"
-               th:text="${ingedients.ingredient.getName()}"></a>
-        </td>
-        <td th:text="${ingedients.getAmountOfIngredient()}">
-        </td>
-    </tr>
-</table>
-<table th:each="comment : ${recipe.getComments()}">
-    <tr th:text="${comment.getUser().getId()}"></tr>
-    <tr th:text="${comment.getText()}"></tr>
-</table>
+<!--<p th:text="${recipe.getTitle()}"></p>-->
+<!--<p th:text="${recipe.getDescription()}"></p>-->
+<!--<a th:href="@{/allRecipes(category=${recipe.getCategory().getTitle()})}"-->
+<!--   th:text="${recipe.getCategory().getTitle()}"></a>-->
+<!--<p th:text="${recipe.getAverageMark()}"></p>-->
+<!--<table th:each="devices: ${recipe.getRecipeDevices()}">-->
+<!--    <tr>-->
+<!--        <td th:text="${devices.cookingDevice.getName()}"></td>-->
+<!--    </tr>-->
+<!--</table>-->
+<!--<table th:each="ingedients: ${recipe.getRecipeIngredients()}">-->
+<!--    <tr>-->
+<!--        <td><a th:href="@{/allRecipes(ingedient=${ingedients.ingredient.getName()})}"-->
+<!--               th:text="${ingedients.ingredient.getName()}"></a>-->
+<!--        </td>-->
+<!--        <td th:text="${ingedients.getAmountOfIngredient()}">-->
+<!--        </td>-->
+<!--    </tr>-->
+<!--</table>-->
+<!--<table th:each="comment : ${recipe.getComments()}">-->
+<!--    <tr th:text="${comment.getUser().getId()}"></tr>-->
+<!--    <tr th:text="${comment.getText()}"></tr>-->
+<!--</table>-->
 </body>
 <footer class="footer">
     <button class="support-button" id="support-btn"><span>Support</span></button>

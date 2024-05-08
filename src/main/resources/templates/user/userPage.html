@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Main page</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="stylesheet" type="text/css" href="../../static/css/userPage.css" th:href="@{css/userPage.css}">
+</head>
+<body>
+<header>
+    <div class="header">
+        <img th:src="@{images/logo1.svg}" src="../../static/images/logo1.svg" alt = "logo1" class = "logo1">
+
+
+        <form class="search-form">
+            <img th:src="@{images/magnifier.svg}" src="../../static/images/magnifier.svg" alt = "magnifier" class = "magnifier">
+            <input name="query" placeholder="Search" type="search">
+        </form>
+        <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
+        <a class="button-style" href="recipe.html" th:href="@{/recipe/1}">Random</a>
+
+        <div class="heart-container">
+            <div class="heart"
+                 onmouseover="changeImage('heart-img', '../../images/heart-hover.svg')"
+                 onmouseout="restoreImage('heart-img', '../../images/heart.svg')">
+                <img id="heart-img" th:src="@{images/heart.svg}" src="../../images/heart.svg" alt="heart" class="heart">
+            </div>
+        </div>
+
+        <div class="user-container">
+            <div class="user"
+                 onmouseover="changeImage('user-img', '../../images/user-hover.svg')"
+                 onmouseout="restoreImage('user-img', '../../images/user.svg')">
+
+                <img id="user-img" th:src="@{images/user.svg}" src="../../images/user.svg" alt="user" class="user">
+            </div>
+        </div>
+
+        <img th:src="@{images/home.svg}" src="../../static/images/home.svg" alt = "home" class = "home">
+    </div>
+
+</header>
+<main>
+
+</main>
+
+<footer class="footer">
+    <button class="support-button" id="support-btn"><span>Support</span></button>
+
+    <div id="overlay" onclick="hideOverlay()"></div>
+
+    <div class="window" id="popup-window">  <!-- Вікно, яке з'являється при натисканні -->
+        <div class="inner-window">
+            <input name="query" placeholder="Enter feedback" type="search">
+        </div>
+
+        <button id="send-button">Send</button>
+    </div>
+
+    <div class="copyright">© Company policy and privacy rules</div>
+
+    <div class="circle-container telegram-container">
+        <div
+                class="telegram"
+                onmouseover="changeImage('telegram-img', '../../images/telegram-hover.svg')"
+                onmouseout="restoreImage('telegram-img', '../../images/telegram.svg')"
+        >
+            <img id="telegram-img" th:src="@{images/telegram.svg}"  src="../../images/telegram.svg" alt="telegram" class="telegram">
+        </div>
+    </div>
+
+    <div class="circle-container instagram-container">
+        <div
+                class="instagram"
+                onmouseover="changeImage('instagram-img', '../../images/inst-hover.svg')"
+                onmouseout="restoreImage('instagram-img', '../../images/inst.svg')"
+        >
+            <img id="instagram-img" th:src="@{images/inst.svg}" src="../../images/inst.svg" alt="instagram" class="instagram">
+        </div>
+    </div>
+</footer>
+<script th:href="@{js/scripts.js}" src="../../js/scripts.js"></script>
+</body>
+</html>
