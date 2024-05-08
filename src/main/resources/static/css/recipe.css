@@ -365,9 +365,10 @@ body {
 }
 /*____________________________________________________________________________________________________________________*/
 .fullRecipe{
+    position: absolute;
     width: 46.875vw;
-    height: 62.5vh;
-    margin-top: 1.6vh;
+    height: 63vh;
+    margin-top: 1.8vh;
     margin-left: 51.0834vw;
     background: #F2E3B3;
     border-radius: 5vh;
@@ -376,8 +377,6 @@ body {
 .fullRecipeHeader{
     width: 46.875vw;
     height: 4.875vh;
-    margin-top: 1.9vh;
-
     background: #3E5902;
     border-radius: 5vh 5vh 0vh 0vh ;
 }
@@ -386,7 +385,7 @@ body {
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 2.5vw; /*48*/
     font-size: 4.445vh;
-    top: 17.7vh;
+    top: -5vh;
     margin-left: 21vw;
     color: white;
 }
@@ -409,12 +408,71 @@ body {
     margin-top: -53.7vh;
 }
 
-.ingredientsTitle{
-    width: 27.8645vw;
+.ingredientsHeader{
+    width: 12.6vw;
     height: 3.7vh;
-    background: #3E5902;
+    background: #F2B705;
     border-radius: 5vh 5vh 0vh 0vh ;
 }
+
+.iTitle{
+    position: absolute;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.5vw; /*48*/
+    font-size: 2.5vh;
+    top: 4.6vh;
+    margin-left: 1.7vw;
+    color: black;
+}
+
+.devisesHeader{
+    margin-top: 30vh;
+    border-radius: 0vh;
+}
+
+.dTitle{
+    top: 38.5vh;
+    margin-left: 4.5vw;
+}
+
+.stepByStepHeader{
+    width: 27.8645vw;
+    height: 3.7vh;
+    background: #F2B705;
+    border-radius: 5vh 5vh 0vh 0vh ;
+}
+
+.sbsTitle {
+    margin-left: 8vw;
+}
+
+.ratingField{
+    width: 41.7vw;
+    height: 5.556vh;
+    background: #3E5902;
+    border-radius: 5vh;
+    margin-top: 66vh;
+    margin-left: 51.2vw;
+}
+.addRating{
+    position: absolute;
+    width: 46.875vw;
+    height: 9.5vh;
+    background: none;
+    margin-top: 64.2vh;
+    margin-left: 51.25vw;
+    background: #F2B705;
+}
+
+.confirmation{
+    width: 3.0208vw;
+    height:5.3703vw;
+    border-radius: 50vh;
+    background: #3E5902;
+}
+/*5,3 703vh
+3,0 208vw*/
+
 /*____________________________________________________________________________________________________________________*/
 .stick{
     position: absolute;
@@ -425,7 +483,7 @@ body {
 
 }
 .stick2{
-    top: 92.3vh;
+    top: 93.3vh;
 }
 .footer {
     position: fixed;
