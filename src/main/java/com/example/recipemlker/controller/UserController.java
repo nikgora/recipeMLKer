@@ -27,6 +27,11 @@ public class UserController {
     private CategoryRepository categoryRepository;
 
 
+    @GetMapping("/login")
+    public String loginPage() {
+        return "user/login";
+    }
+
     @GetMapping("/")
     public String mainPage() {
         return "user/main";
