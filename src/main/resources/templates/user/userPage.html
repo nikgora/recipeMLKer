@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Main page</title>
+    <title>User page</title>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link rel="stylesheet" type="text/css" href="../../static/css/userPage.css" th:href="@{css/userPage.css}">
@@ -36,12 +36,19 @@
             </div>
         </div>
 
-        <img th:src="@{images/home.svg}" src="../../static/images/home.svg" alt = "home" class = "home">
+        <a th:href="@{/main.page}" href="main.html">
+            <img th:src="@{images/home.svg}" src="../../images/home.svg" alt="home" class="home">
+        </a>
     </div>
 
 </header>
 <main>
-
+    <div class="avatarField">
+        <img th:src="@{images/Chef.svg}" src="../../static/images/Chef.svg" alt = "chef" class = "chef">
+    </div>
+    <div class="line">
+        <div class="c1">User name</div>
+    </div>
 </main>
 
 <footer class="footer">

@@ -86,8 +86,45 @@ body {
     width: 3.125vw;
 }
 /*____________________________________________________________________________________________________________________*/
+.avatarField{
+    position: absolute;
+    width: 12vw;
+    height:23.15vh;
+    left: 2.448vw;
+    top: 15.9vh;
+    border-radius: 50%;
+    background-color: #FBEFC7;
+}
 
+.chef{
+    width: 7.297vw;
+    height: 14.82vh;
+    margin-top: 3vh;
+    margin-left: 2.3vw;
+}
 
+.line{
+    width: 23.8vw; /* Ширина лінії */
+    height: 1.2vh; /* Товщина лінії */
+    background-color:#3E5902; /* Колір лінії */
+    border-radius: 5vh;
+    margin-left: 20vw;
+    margin-top: 21vh;
+
+}
+
+.c1{
+    position: absolute;
+    font-family: 'Frank Ruhl Libre';
+    font-size: 2.5vh;
+    font-size: 2.5vw;
+    font-weight: 400;
+    line-height: 1vh;
+    text-align: left;
+    color: black;
+    left: 27vw;
+    top: 30vh;
+}
 /*____________________________________________________________________________________________________________________*/
 .footer {
     position: fixed;
