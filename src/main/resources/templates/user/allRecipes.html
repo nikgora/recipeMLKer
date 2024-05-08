@@ -5,10 +5,10 @@
     <title>All recipes</title>
     <link rel="stylesheet" type="text/css" href="../../static/css/allRecipes.css" th:href="@{css/allRecipes.css}">
 </head>
+<body>
 <header>
     <div class="header">
         <img th:src="@{images/logo1.svg}" src="../../static/images/logo1.svg" alt = "logo1" class = "logo1">
-
 
         <form class="search-form">
             <img th:src="@{images/magnifier.svg}" src="../../static/images/magnifier.svg" alt = "magnifier" class = "magnifier">
@@ -39,7 +39,6 @@
         </a>
     </div>
 </header>
-<body>
 
 <main>
     <img alt="board" class="board" th:src="@{images/CuttingBoard.svg}" src="../../static/images/CuttingBoard.svg" >
@@ -107,7 +106,6 @@
     </div>
 </main>
 
-</body>
 <footer class="footer">
     <button class="support-button" id="support-btn"><span>Support</span></button>
 
@@ -144,4 +142,5 @@
     </div>
 </footer>
 <script th:href="@{js/scripts.js}" src="../../static/js/scripts.js"></script>
+</body>
 </html>
