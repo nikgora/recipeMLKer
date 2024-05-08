@@ -1,9 +1,10 @@
-package com.example.recipemlker.service;
+package com.example.recipemlker.service.impl;
 
 import com.example.recipemlker.model.Category;
 import com.example.recipemlker.model.Rating;
 import com.example.recipemlker.model.Recipe;
 import com.example.recipemlker.repository.RecipeRepository;
+import com.example.recipemlker.service.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -62,6 +63,11 @@ public class RecipeServiceImpl implements RecipeService {
     @Override
     public List<Recipe> getAllByIngredient(String ingredient) {
         return recipeRepository.findAllByRecipeIngredient(ingredient);
+    }
+
+    @Override
+    public List<Recipe> getAllByDevice(String device) {
+        return recipeRepository.findAllByRecipeDevices(device);
     }
 
 }
