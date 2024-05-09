@@ -170,15 +170,29 @@ body {
     margin-left: 0.5vw;
 }
 
+.allLists{
+    position: absolute;
+    width: 20.3125vw;
+    height: 7.4074vh;
+    background-color:  #F28705;
+    border-radius: 2.5vh;
+    margin-left: 10.9375vw;
+    margin-top: 30.5vh;
+}
+
+.c4{
+    margin-left: 3vw;
+}
+
 /*2.963*/
 .stick{
     position: absolute;
     width: 100vw;
     height: 2.963vh;
     background-color:  black;
-    margin-top: 27.5vh;
-
+    margin-top: 37.9vh;
 }
+
 .stick2{
    top: 60vh;
 }
