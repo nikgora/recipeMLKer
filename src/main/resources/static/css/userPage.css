@@ -184,26 +184,75 @@ body {
     margin-left: 3vw;
 }
 
-/*2.963*/
-.stick{
+.logOut{
     position: absolute;
-    width: 100vw;
-    height: 2.963vh;
-    background-color:  black;
-    margin-top: 37.9vh;
+    width: 20.3125vw;
+    height: 7.4074vh;
+    background-color:  #F2B705;
+    border-radius: 2.5vh;
+    margin-left: 10.9375vw;
+    margin-top: 40.95vh;
 }
 
-.stick2{
-   top: 60vh;
+.с5{
+    margin-left: -1.7vw;
 }
-.stick3{
+
+.logInModerator{
     position: absolute;
-    width: 3vw;
-    height: 9vh;
-    background-color:  #ff22bb;
-    margin-top: -16.4vh;
-    margin-left: 20vw;
+    width: 20.3125vw;
+    height: 7.4074vh;
+    background: rgba(242, 183, 5, 0.3);
+    border-radius: 2.5vh;
+    margin-left: 10.9375vw;
+    margin-top: 51.4vh;
 }
+
+.c6{
+    color: rgba(0, 0, 0, 0.3);
+}
+/*____________________________________________________________________________________________________________________*/
+.recipesField{
+    width: 55.21vw;
+    height: 75.926vh;
+    background-color: #F2E3B3;
+    border-radius: 5vh;
+    margin-top: -18.5vh;
+    margin-left: 42vw;
+}
+
+.recipesFieldHeader{
+    width: 55.21vw;
+    height: 5vh;
+    background-color: #3E5902;
+    border-radius: 5vh 5vh 0vh 0vh ;
+}
+
+.c7{
+    position: absolute;
+    font-family: 'Frank Ruhl Libre';
+    font-size: 2vh;
+    font-size: 2vw;
+    font-weight: 400;
+    line-height: 1vh;
+    text-align: left;
+    color: white;
+    margin-top: 2vh;
+    margin-left: 23.5vw;
+}
+/*а чи потрібно нам таку довгу фразу? може просто скоротити її до Log out ?*/
+/*2.963*/
+/*.stick{*/
+/*    position: absolute;*/
+/*    width: 100vw;*/
+/*    height: 2.963vh;*/
+/*    background-color:  black;*/
+/*    margin-top: -98.1vh;*/
+/*}*/
+
+/*.stick2{*/
+/*   top: 189.45vh;*/
+/*}*/
 
 /*____________________________________________________________________________________________________________________*/
 .footer {
