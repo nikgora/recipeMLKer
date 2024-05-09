@@ -115,6 +115,25 @@ body {
     border-radius: 50%;
 }
 
+.user-name {
+    position: absolute;
+    left: 52vh;
+    top: 29.6vh;
+    font-family: Frank Ruhl Libre;
+    font-size: 5vh;
+    text-align: center;
+}
+
+.green-line {
+    position: absolute;
+    background-color: #3E5902;
+    width: 23.8vw;
+    height: 0.5vh;
+    border-radius: 5%;
+    left: 17vw;
+    top: 35.18vh;
+}
+
 .footer {
     position: fixed;
     width: 100%;
