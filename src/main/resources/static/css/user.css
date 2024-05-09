@@ -95,6 +95,26 @@ body {
     width: 3.125vw;
 }
 
+.cooker {
+    position: absolute;
+    width: 7.9vw;
+    height: 14.629vh;
+    top: 5vw;
+    left: 5.83vh;
+    z-index: 2;
+}
+
+.cooker-circle {
+    position: absolute;
+    width: 11vw;
+    height: 23.148vh;
+    background-color: #F2E3B3;
+    top: 3.125vw;
+    left: 2.5vh;
+    z-index: 1;
+    border-radius: 50%;
+}
+
 .footer {
     position: fixed;
     width: 100%;
