@@ -146,7 +146,28 @@ body {
     color: black;
     left: 4.5vw;
     bottom: -0.1vh;
+}
 
+.createList{
+    position: absolute;
+    width: 20.3125vw;
+    height: 7.4074vh;
+    background-color:  #F28705;
+    border-radius: 2.5vh;
+    margin-left: 10.9375vw;
+    margin-top: 9.7vh;
+}
+.createRecipe{
+    position: absolute;
+    width: 20.3125vw;
+    height: 7.4074vh;
+    background-color:  #F28705;
+    border-radius: 2.5vh;
+    margin-left: 10.9375vw;
+    margin-top: 20.05vh;
+}
+.c3{
+    margin-left: 0.5vw;
 }
 
 /*2.963*/
@@ -155,7 +176,7 @@ body {
     width: 100vw;
     height: 2.963vh;
     background-color:  black;
-    margin-top: 5.65vh;
+    margin-top: 27.5vh;
 
 }
 .stick2{
