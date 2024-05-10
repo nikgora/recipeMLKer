@@ -154,7 +154,7 @@ body {
     font-family: 'Frank Ruhl Libre';
     font-size: 1.7vw;
     border: none;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .createList {
@@ -427,7 +427,6 @@ body {
     height: 3vh;
     margin: auto;
     font-family: 'Frank Ruhl Libre';
-    font-size: 1.25vh;
     font-size: 1.25vw;
     font-weight: 400;
     line-height: 1vh;

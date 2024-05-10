@@ -82,7 +82,7 @@
     <div class="mini">
         <p class="miniTime"> 30 minutes</p>
         <img alt="dessertI" class="dessertI" th:src="@{images/Waffles.svg}" src="../../static/images/Waffles.svg" >
-        <p class="miniTime miniCategories"> Desserts </p>
+        <p class="miniTime miniCategories" th:text="${recipe.getCategory().getTitle()}"> Desserts </p>
     </div>
 
     <div class="IngredientTagsField">
