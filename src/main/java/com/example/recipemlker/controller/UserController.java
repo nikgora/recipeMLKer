@@ -1,11 +1,9 @@
 package com.example.recipemlker.controller;
 
 import com.example.recipemlker.model.Recipe;
-import com.example.recipemlker.repository.CategoryRepository;
 import com.example.recipemlker.model.User;
-import com.example.recipemlker.service.CategoryService;
-import com.example.recipemlker.service.RecipeService;
-import com.example.recipemlker.service.UserService;
+import com.example.recipemlker.repository.CategoryRepository;
+import com.example.recipemlker.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,6 +20,10 @@ public class UserController {
     private RecipeService recipeService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private JwtService jwtService;
+    @Autowired
+    private AuthService authService;
     @Autowired
     private CategoryService categoryService;
     @Autowired
@@ -94,9 +96,9 @@ public class UserController {
     }
 
     @GetMapping("/user")
-    public String userPage(Model model, @AuthenticationPrincipal UserDetails userDetails) {
-        if (userDetails == null) return "redirect:/";
-        User user = userService.getUserByUsername(userDetails.getUsername());
+    public String userPage(Model model, @RequestHeader("Authorization") String token) {
+        token = token.substring(7);
+        User user = userService.getUserByUsername(jwtService.extractUserName(token));
         model.addAttribute("user", user);
         return "user/user";
     }

@@ -22,7 +22,7 @@ public class AuthController {
         return ResponseEntity.ok(authenticationService.signup(request));
     }
 
-    @PostMapping("/signin")
+    @PostMapping("/login")
     public ResponseEntity<AuthDTO.JwtAuthenticationResponse> signin(@RequestBody AuthDTO.SigninRequest request) {
         return ResponseEntity.ok(authenticationService.signin(request));
     }
