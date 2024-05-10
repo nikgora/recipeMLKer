@@ -2,6 +2,7 @@ package com.example.recipemlker.controller;
 
 import com.example.recipemlker.model.Recipe;
 import com.example.recipemlker.repository.CategoryRepository;
+import com.example.recipemlker.model.User;
 import com.example.recipemlker.service.CategoryService;
 import com.example.recipemlker.service.RecipeService;
 import com.example.recipemlker.service.UserService;
@@ -81,24 +82,25 @@ public class UserController {
         return "user/allRecipes";
     }
 
+
     @GetMapping("/403")
     public String forbidden() {
         return "user/403";
     }
 
-//    @GetMapping("/user/{id}")
-//    public String userPage(@PathVariable Long id, Model model, @AuthenticationPrincipal User user) {
-//        if (Objects.equals(user.getId(), id)) {
-//            model.addAttribute("user", userService.getUserById(id));
-//            return "user/user";
-//        }
-//        return "redirect:/403";
-//    }
-
     @GetMapping("/404")
     public String notExist() {
         return "user/404";
     }
+
+    @GetMapping("/user")
+    public String userPage(Model model, @AuthenticationPrincipal UserDetails userDetails) {
+        if (userDetails == null) return "redirect:/";
+        User user = userService.getUserByUsername(userDetails.getUsername());
+        model.addAttribute("user", user);
+        return "user/user";
+    }
+
 
     @GetMapping("/mustBeLogin")
     public String mustBeLogin() {
