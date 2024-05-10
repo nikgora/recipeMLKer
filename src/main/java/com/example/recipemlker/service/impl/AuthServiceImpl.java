@@ -1,12 +1,18 @@
 package com.example.recipemlker.service.impl;
 
+import com.example.recipemlker.dto.AuthDTO;
 import com.example.recipemlker.repository.UserRepository;
 import com.example.recipemlker.service.AuthService;
+import com.example.recipemlker.service.JwtService;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.jwt.JwtClaimsSet;
 import org.springframework.security.oauth2.jwt.JwtEncoder;
@@ -18,33 +24,28 @@ import java.time.temporal.ChronoUnit;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class AuthServiceImpl implements AuthService {
-    private static final Logger log = LoggerFactory.getLogger(AuthService.class);
-    @Autowired
-    private JwtEncoder jwtEncoder;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-    @Autowired
-    private UserRepository userRepository;
-
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
+    private final JwtService jwtService;
+    private final AuthenticationManager authenticationManager;
     @Override
-    public String generateToken(Authentication authentication) {
-        Instant now = Instant.now();
-
-        String scope = authentication.getAuthorities()
-                .stream()
-                .map(GrantedAuthority::getAuthority)
-                .collect(Collectors.joining(" "));
-
-        JwtClaimsSet claims = JwtClaimsSet.builder()
-                .issuer("self")
-                .issuedAt(now)
-                .expiresAt(now.plus(24 * 14, ChronoUnit.HOURS))
-                .subject(authentication.getName())
-                .claim("scope", scope)
-                .build();
-
-        return jwtEncoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();
+    public AuthDTO.JwtAuthenticationResponse signup(AuthDTO.SignupRequest request) {
+        var user = User.builder().username(request.username()).password(passwordEncoder.encode(request.password())).build();
+        userRepository.save(user);
+        var jwt = jwtService.generateToken(user);
+        return AuthDTO.JwtAuthenticationResponse.builder().token(jwt).build();
     }
 
+    @Override
+    public AuthDTO.JwtAuthenticationResponse signin(AuthDTO.SigninRequest request) {
+        authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(request.username(), request.password()));
+        var user = userRepository.findByLogin(request.username())
+                .orElseThrow(() -> new IllegalArgumentException("Invalid email or password."));
+        var jwt = jwtService.generateToken(user);
+        return AuthDTO.JwtAuthenticationResponse.builder().token(jwt).build();
+    }
 }
+//https://github.com/buingoctruong/springboot3-springsecurity6-jwt/blob/master/src/main/java/com/truongbn/security/dao/request/SigninRequest.java

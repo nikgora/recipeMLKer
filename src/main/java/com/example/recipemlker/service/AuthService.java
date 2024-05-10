@@ -1,7 +1,9 @@
 package com.example.recipemlker.service;
 
-import org.springframework.security.core.Authentication;
+import com.example.recipemlker.dto.AuthDTO;
 
 public interface AuthService {
-    String generateToken(Authentication authentication);
+    AuthDTO.JwtAuthenticationResponse signup(AuthDTO.SignupRequest request);
+
+    AuthDTO.JwtAuthenticationResponse signin(AuthDTO.SigninRequest request);
 }
