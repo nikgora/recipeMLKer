@@ -33,5 +33,8 @@ document.getElementById("user-btn").addEventListener("click",
         () => showOverlay("overlay-user", "popup-login-window"));
 document.getElementById("overlay-user").addEventListener("click",
     () => hideOverlay("overlay-user", "popup-login-window"));
-document.getElementById("confirm-button").addEventListener("click",
-    () => hideOverlay("overlay-user", "popup-login-window"));
+
+
+
+
+

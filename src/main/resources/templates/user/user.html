@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="https://www.thymeleaf.org">
 <head>
     <title>User</title>
     <meta charset="UTF-8">
@@ -47,7 +47,34 @@
         <img th:src="@{images/cooker.svg}" src="../../static/images/cooker.svg" alt="cooker" class="cooker">
     </div>
     <div class="user-name">User name</div>
+
     <div class="green-line"></div>
+
+    <!--<div class="overlay hidden" id="overlay">
+        <div class="list-container">
+            <div class="list-name">
+                <input type="text" placeholder="Enter list name" id="listName">
+            </div>
+            <button class="confirm-list-button">Confirm</button>
+        </div>
+    </div>-->
+
+    <div class="button-container">
+        <button class="createList">Create a List</button>
+        <button class="createRecipe">Create a Recipe</button>
+        <button class="allLists">All Lists</button>
+        <button class="logOut">Log out</button>
+        <button class="logInModerator">Log in as moderator</button>
+    </div>
+
+    <div class ="recipesField">
+        <div class="recipesFieldHeader">
+            <p class="c7">User notes</p>
+        </div>
+    </div>
+    <div class="stick"></div>
+    <div class="stick stick2"></div>
+    <div class="stick3"></div>
 </main>
 
 <footer class="footer">
@@ -86,6 +113,6 @@
     </div>
 </footer>
 
-<script th:href="@{js/scripts.js}" src="../../js/scripts.js"></script>
+<script th:href="@{js/scripts.js}" src="../../static/js/scripts.js"></script>
 </body>
 </html>
