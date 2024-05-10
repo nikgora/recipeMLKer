@@ -8,37 +8,39 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<div class="header">
-    <img th:src="@{images/logo.svg}" src="../../static/images/logo.svg" alt = "logo" class = "logo">
+<header>
+    <div class="header">
+        <img th:src="@{images/logo.svg}" src="../../images/logo.svg" alt = "logo" class = "logo">
 
-    <form class="search-form">
-        <img th:src="@{images/magnifier.svg}" src="../../static/images/magnifier.svg" alt = "magnifier" class = "magnifier">
-        <input name="query" placeholder="Search" type="search">
-    </form>
-    <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
-    <a class="button-style" href="recipe.html" th:href="@{/recipe/1}">Random</a>
-    <div class="heart-container">
-        <div class="heart"
-             onmouseover="changeImage('heart-img', '../../static/images/heart-hover.svg')"
-             onmouseout="restoreImage('heart-img', '../../static/images/heart.svg')"
-        >
-            <img id="heart-img" src="../../static/images/heart.svg" alt="heart" class="heart">
+        <form class="search-form">
+            <img th:src="@{images/magnifier.svg}" src="../../static/images/magnifier.svg" alt = "magnifier" class = "magnifier">
+            <input name="query" placeholder="Search" type="search">
+        </form>
+        <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
+        <a class="button-style" href="recipe.html" th:href="@{/recipe/1}">Random</a>
+        <div class="heart-container">
+            <div class="heart"
+                 onmouseover="changeImage('heart-img', '../../images/heart-hover.svg')"
+                 onmouseout="restoreImage('heart-img', '../../images/heart.svg')"
+            >
+                <img id="heart-img" src="../../images/heart.svg" alt="heart" class="heart">
+            </div>
         </div>
-    </div>
 
-    <div class="user-container">
-        <div class="user"
-             onmouseover="changeImage('user-img', '../../static/images/user-hover.svg')"
-             onmouseout="restoreImage('user-img', '../../static/images/user.svg')"
-        >
-            <img id="user-img" src="../../static/images/user.svg" alt="user" class="user">
+        <div class="user-container">
+            <div class="user"
+                 onmouseover="changeImage('user-img', '../../images/user-hover.svg')"
+                 onmouseout="restoreImage('user-img', '../../images/user.svg')"
+            >
+                <img id="user-img" src="../../images/user.svg" alt="user" class="user">
+            </div>
         </div>
-    </div>
 
-    <a th:href="@{/}" href="main.html">
-        <img th:src="@{images/home.svg}" src="../../images/home.svg" alt="home" class="home">
-    </a>
-</div>
+        <a th:href="@{/}" href="main.html">
+            <img th:src="@{images/home.svg}" src="../../static/images/home.svg" alt="home" class="home">
+        </a>
+    </div>
+</header>
 <!--<p th:text="${recipe.getDescription()}"></p>
 <a th:href="@{/allRecipes(category=${recipe.getCategory().getTitle()})}"
    th:text="${recipe.getCategory().getTitle()}"></a>
@@ -82,7 +84,7 @@
     <div class = "stick"></div>
     <div class="mini">
         <p class="miniTime"> 30 minutes</p>
-        <img alt="dessertI" class="dessertI" th:src="@{images/Waffles.svg}" src="../../static/images/Waffles.svg" >
+        <img alt="dessertI" class="dessertI" th:src="@{images/Waffles.svg}" src="../../images/Waffles.svg" >
         <p class="miniTime miniCategories" th:text="${recipe.getCategory().getTitle()}"> Desserts </p>
     </div>
 
@@ -171,7 +173,7 @@
             </div>
         </div>
         <div class="confirmation">
-            <img th:src="@{images/tick.svg}" src="../../static/images/tick.svg" alt = "quill" class = "tick">
+            <img th:src="@{images/tick.svg}" src="../../images/tick.svg" alt = "quill" class = "tick">
         </div>
     </div>
 </main>
@@ -194,19 +196,19 @@
 
     <div class="circle-container telegram-container">
         <div class="telegram"
-             onmouseover="changeImage('telegram-img', '../../static/images/telegram-hover.svg')"
-             onmouseout="restoreImage('telegram-img', '../../static/images/telegram.svg')"
+             onmouseover="changeImage('telegram-img', '../../images/telegram-hover.svg')"
+             onmouseout="restoreImage('telegram-img', '../../images/telegram.svg')"
         >
-            <img id="telegram-img" src="../../static/images/telegram.svg" alt="telegram" class="telegram">
+            <img id="telegram-img" src="../../images/telegram.svg" alt="telegram" class="telegram">
         </div>
     </div>
 
     <div class="circle-container instagram-container">
         <div class="instagram"
-             onmouseover="changeImage('instagram-img', '../../static/images/inst-hover.svg')"
-             onmouseout="restoreImage('instagram-img', '../../static/images/inst.svg')"
+             onmouseover="changeImage('instagram-img', '../../images/inst-hover.svg')"
+             onmouseout="restoreImage('instagram-img', '../../images/inst.svg')"
         >
-            <img id="instagram-img" src="../../static/images/inst.svg" alt="instagram" class="instagram">
+            <img id="instagram-img" src="../../images/inst.svg" alt="instagram" class="instagram">
         </div>
     </div>
 </footer>
