@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Recipe</title>
@@ -33,7 +33,9 @@
         </div>
     </div>
 
-    <img th:src="@{images/home.svg}" src="../../static/images/home.svg" alt = "home" class = "home">
+    <a th:href="@{/}" href="main.html">
+        <img th:src="@{images/home.svg}" src="../../images/home.svg" alt="home" class="home">
+    </a>
 </div>
 <!--<p th:text="${recipe.getDescription()}"></p>
 <a th:href="@{/allRecipes(category=${recipe.getCategory().getTitle()})}"
@@ -58,16 +60,90 @@
     <tr th:text="${comment.getText()}"></tr>
 </table>-->
 
-<div class="container">
-    <div class="left">
-        <div class="title">
-            <p class="recipe-title" th:text="${recipe.title}">Default Recipe Title</p>
+<main>
+    <img alt="recipeIcon" class="recipeIcon" th:src="@{images/Recipe.svg}" src="../../static/images/Recipe.svg" >
+    <div class = "RecipeTitle">
+        <p class="c3">Pancakes</p>
+    </div>
+    <div class = "RecipeRating">
+        <p class = "num">8.8</p>
+    </div>
+    <div class = "FavoriteList">
+        <p class = "c4">Favorite list</p>
+    </div>
+    <div class = "UserList">
+        <p class = "c5">User list</p>
+    </div>
+    <div class = "Report">
+        <p class = "c6">Report</p>
+    </div>
+    <div class = "stick"></div>
+    <div class="mini">
+        <p class="miniTime"> 30 minutes</p>
+        <img alt="dessertI" class="dessertI" th:src="@{images/Waffles.svg}" src="../../static/images/Waffles.svg" >
+        <p class="miniTime miniCategories"> Desserts </p>
+    </div>
+
+    <div class="IngredientTagsField">
+        <p class="content"> #flour #baking_powder #sugar #milk #butter #eggs</p>
+        <div class="IngredientTagsTitle">
+            <p class = "c7">Ingredient tags</p>
         </div>
     </div>
-    <div class="right">
-        Right Container
+    <div class="IngredientTagsField DeviceTagsField ">
+        <p class="content">#electric_mixer</p>
+        <div class="IngredientTagsTitle">
+            <p class = "c7 devices">Devices tags</p>
+        </div>
     </div>
-</div>
+    <form class="text-form">
+        <img th:src="@{images/quill.svg}" src="../../static/images/quill.svg" alt = "quill" class = "quill">
+        <input name="query" placeholder="Add comment" type="text">
+        <div class="publish">
+            <p class = "c8">Publish</p>
+        </div>
+    </form>
+    <div class = "commentField">
+        <div class = "comment">
+            <div class = "commentIcon">
+            </div>
+        </div>
+        <div class = " comment comment2">
+            <div class = "commentIcon">
+            </div>
+        </div>
+        <div class = "comment comment3">
+            <div class = "commentIcon">
+            </div>
+        </div>
+    </div>
+    <div class = "stick stick2"></div>
+
+    <div class="fullRecipe">
+        <div class="fullRecipeHeader">
+            <p class="frTitle">Recipe</p>
+        </div>
+        <div class="amountField">
+            <div class="ingredientsHeader"></div>
+            <p class="iTitle">Ingredient amount</p>
+            <div class="ingredientsHeader devisesHeader"></div>
+            <p class="iTitle dTitle">Devises</p>
+        </div>
+        <div class="stepByStepField">
+            <div class="stepByStepHeader"></div>
+            <p class="iTitle sbsTitle">Step-by-step instructions</p>
+        </div>
+    </div>
+    <div class="addRatingField">
+
+        <div class="ratingField">
+        </div>
+        <div class="confirmation">
+            <img th:src="@{images/tick.svg}" src="../../static/images/tick.svg" alt = "quill" class = "tick">
+        </div>
+    </div>
+</main>
+
 
 <footer class="footer">
     <button class="support-button" id="support-btn"><span>Support</span></button>

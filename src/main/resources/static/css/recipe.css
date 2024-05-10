@@ -86,6 +86,401 @@ body {
     width: 3.125vw;
 }
 
+.recipeIcon{
+    width: 3.125vw;
+    height: 5.556vh;
+    margin-top: 4vh;
+    margin-left: 0.5vw;
+}
+.RecipeTitle{
+    position: absolute;
+    width: 42.7vw;
+    height: 5.556vh;
+    margin-top: 4vh;
+    margin-left: 4vw;
+    top: 11.1vh;
+    border-radius: 5.5vh;
+    background-color: #F2E3B3;
+}
+
+.c3{
+    position: absolute;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2.5vw; /*48*/
+    font-size: 4.445vh;
+    color: black;
+    left: 1.6vw;
+    margin-bottom: 0.5vh;
+    margin-top: 0.1vh;
+}
+
+.RecipeRating{
+    position: absolute;
+    width: 6.5vw;
+    height: 5vh;
+    margin-left: 48.4834vw;
+    top: 14.6vh;
+    border: 0.7vh solid #F2E3B3;
+    border-radius: 5vh;
+}
+
+.num{
+    position: absolute;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2.5vw; /*48*/
+    font-size: 4.445vh;
+    color: black;
+    left: 1.6vw;
+    margin-left: 0.2vw;
+    margin-bottom: 0.5vh;
+    margin-top: 0.1vh;
+}
+
+.FavoriteList{
+    position: absolute;
+    width: 14.9vw;
+    height: 5.556vh;
+    margin-left: 57.5834vw;
+    top: 15.1vh;
+    background-color:  #F28705;
+    border-radius: 5vh;
+}
+
+.c4{
+    position: absolute;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.75vw; /*48*/
+    font-size: 3.5vh;
+    color: black;
+    left: 2.7vw;
+    margin-left: 0.2vw;
+    margin-bottom: 0.3vh;
+    margin-top: 0.8vh;
+}
+
+.UserList{
+    position: absolute;
+    width: 14.9vw;
+    height: 5.556vh;
+    margin-left: 74.5834vw;
+    top: 15.1vh;
+    background-color:  #F28705;
+    border-radius: 5vh;
+}
+.c5{
+    position: absolute;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.75vw; /*48*/
+    font-size: 3.5vh;
+    color: black;
+    left: 2.7vw;
+    margin-left: 1.5vw;
+    margin-bottom: 0.3vh;
+    margin-top: 0.8vh;
+}
+/*2.0834*/
+.Report{
+    position: absolute;
+    width: 6.5vw;
+    height: 5.556vh;
+    margin-left: 91.4834vw;
+    top: 15.1vh;
+    background-color:  #F28705;
+    border-radius: 5vh;
+}
+.c6{
+    position: absolute;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.75vw; /*48*/
+    font-size: 3.5vh;
+    color: black;
+
+    margin-left: 0.9vw;
+    margin-bottom: 0.3vh;
+    margin-top: 0.8vh;
+}
+
+.mini{
+    position: absolute;
+    width: 10vw;
+    height: 5.556vh;
+    margin-top: 0.5vh;
+    margin-left: 4vw;
+}
+
+.miniTime{
+    position: absolute;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1vw; /*48*/
+    font-size: 3vh;
+    color: black;
+    margin-left: 1.7vw;
+    margin-bottom: 0.3vh;
+    margin-top: 0.3vh;
+}
+.dessertI{
+    position: absolute;
+    width: 6vw;
+    height: 4vh;
+    margin-left: 8vw;
+    margin-top: 0.2vh;
+}
+
+.miniCategories{
+    margin-left: 13.5vw;
+}
+
+/*____________________________________________________________________________________________________________________*/
+.IngredientTagsField{
+    position: absolute;
+    width: 46.875vw;
+    height: 11.1vh;
+    top: 26.5vh;
+    left: 2.0834vw;
+    background-color:  #F2E3B3;
+    border-radius: 5vh;
+}
+.IngredientTagsTitle{
+    position: absolute;
+    width: 11.98vw;
+    height: 4.82vh;
+    border-radius: 5vh;
+    background-color: #3E5902;
+    color: #F2E3B3;
+}
+
+.c7{
+    position: absolute;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1vw; /*48*/
+    font-size: 3vh;
+    margin-top: 0.8vh;
+    margin-left: 1.5vw;
+}
+
+.content{
+    position: absolute;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1vw; /*48*/
+    font-size: 3vh;
+    margin-top: 0.8vh;
+    margin-left: 13vw;
+    color: black;
+}
+
+.DeviceTagsField{
+    margin-top: 13.2vh;
+}
+.devices{
+    margin-left: 2.1vw;
+}
+/*____________________________________________________________________________________________________________________*/
+.text-form {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 0.53vw;
+    padding-left: 1.0415vw;
+    background: #F2E3B3;
+    border-radius: 2.778vh;
+    left: 2.0834vw;
+    top: 26.6vw;
+    width: 42.5vw;
+    height: 5.556vh;
+}
+
+.text-form input, .inner-window input {
+    position: absolute;
+    width: 37.5vw;
+    height: 4vh;
+    left: 4.0834vw;
+    margin-top: 0.2vh;
+    flex: 2;
+    border: none;
+    background: #F2E3B3;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2.25vh;
+    font-size: 2.25vw;
+    border-radius: 1.5vh;
+    outline: none;
+}
+
+.quill{
+    height: 4.445vh;
+    width: 2.5vw;
+}
+
+.publish{
+    position: absolute;
+    width: 6.5vw;
+    height: 5.556vh;
+    margin-left: 39.2vw;
+    top: 0vh;
+    background-color:  #F28705;
+    border-radius: 5vh;
+}
+
+.c8{
+    display: flex;
+    align-items: center;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.5625vw; /*48*/
+    font-size: 2.778vh;
+    margin-top: 1.1vh;
+    margin-left: 1.2vw;
+    flex: 1;
+    border: none;
+    border-radius: 5.5vh;
+    outline: none;
+}
+
+.commentField{
+    position: absolute;
+    display: flex;
+    width: 46.875vw;
+    height: 33.2vh;
+    margin-left: 2.0834vw;
+    margin-top: 39.4vh;
+    background: #F2E3B3;
+    border-radius: 5vh;
+}
+
+.comment{
+    position: absolute;
+    display: flex;
+    width: 42.9vw;
+    height: 11.5vh;
+    margin-left: 2.0834vw;
+    margin-top: 2vh;
+    background-color:  #FBEFC7;
+    border-radius: 5vh;
+}
+
+.comment2{
+    margin-top: 15.5vh;
+}
+.comment3{
+    margin-top: 29vh;
+}
+/*____________________________________________________________________________________________________________________*/
+.fullRecipe{
+    position: absolute;
+    width: 46.875vw;
+    height: 63vh;
+    margin-top: 1.8vh;
+    margin-left: 51.0834vw;
+    background: #F2E3B3;
+    border-radius: 5vh;
+}
+
+.fullRecipeHeader{
+    width: 46.875vw;
+    height: 4.875vh;
+    background: #3E5902;
+    border-radius: 5vh 5vh 0vh 0vh ;
+}
+.frTitle{
+    position: absolute;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2.5vw; /*48*/
+    font-size: 4.445vh;
+    top: -5vh;
+    margin-left: 21vw;
+    color: white;
+}
+
+.amountField{
+    width: 12.6vw;
+    height: 53.7vh;
+    border-radius: 5vh;
+    background-color: #FBEFC7;
+    margin-left: 2vw;
+    margin-top: 1.9vh;
+}
+
+.stepByStepField{
+    width: 27.8645vw;
+    height: 53.7vh;
+    border-radius: 5vh;
+    background-color: #FBEFC7;
+    margin-left: 17vw;
+    margin-top: -53.7vh;
+}
+
+.ingredientsHeader{
+    width: 12.6vw;
+    height: 3.7vh;
+    background: #F2B705;
+    border-radius: 5vh 5vh 0vh 0vh ;
+}
+
+.iTitle{
+    position: absolute;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.5vw; /*48*/
+    font-size: 2.5vh;
+    top: 4.6vh;
+    margin-left: 1.7vw;
+    color: black;
+}
+
+.devisesHeader{
+    margin-top: 30vh;
+    border-radius: 0vh;
+}
+
+.dTitle{
+    top: 38.5vh;
+    margin-left: 4.5vw;
+}
+
+.stepByStepHeader{
+    width: 27.8645vw;
+    height: 3.7vh;
+    background: #F2B705;
+    border-radius: 5vh 5vh 0vh 0vh ;
+}
+
+.sbsTitle {
+    margin-left: 8vw;
+}
+
+.ratingField{
+    width: 41.7vw;
+    height: 5.556vh;
+    background: #3E5902;
+    border-radius: 5vh;
+    margin-top: 67vh;
+    margin-left: 51.2vw;
+}
+.addRating{
+    position: absolute;
+    width: 46.875vw;
+    height: 9.5vh;
+    background: none;
+    margin-top: 64.2vh;
+    margin-left: 51.25vw;
+    background: #F2B705;
+}
+
+.confirmation{
+    position: absolute;
+    width: 2.7vw;
+    height: 5.4vh;
+    border-radius: 50vh;
+    background: #F2B705;
+    margin-left: 95vw;
+    margin-top: -5.6vh;
+}
+
+.tick{
+    position: absolute;
+    width: 1.5625vw;
+    height: 2.32vh;
+    margin-top: 1.5vh;
+    margin-left: 0.5vw;
+}
+
 .footer {
     position: fixed;
     width: 100%;
