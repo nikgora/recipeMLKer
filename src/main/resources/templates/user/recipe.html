@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
     <title>Recipe</title>
-    <link rel="stylesheet" type="text/css" href="../../static/css/recipe.css" th:href="@{css/recipe.css}">
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="stylesheet" type="text/css" href="../../static/css/recipe.css" th:href="@{../css/recipe.css}">
 </head>
 <body>
 <div class="header">
@@ -61,7 +62,7 @@
 </table>-->
 
 <main>
-    <img alt="recipeIcon" class="recipeIcon" th:src="@{images/Recipe.svg}" src="../../static/images/Recipe.svg" >
+    <img alt="recipeIcon" class="recipeIcon" th:src="@{images/Recipe.svg}" src="../../images/Recipe.svg" >
     <div class = "RecipeTitle">
         <p class="c3">Pancakes</p>
     </div>
@@ -178,6 +179,6 @@
         </div>
     </div>
 </footer>
-<script src="../../static/js/scripts.js"></script>
+<script th:href="@{js/scripts.js}" src="../../js/scripts.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <title>Main page</title>
     <meta charset="UTF-8">
@@ -8,50 +8,49 @@
 </head>
 <body>
 <header>
-<div class="header">
-    <img th:src="@{images/logo.svg}" src="../../static/images/logo.svg" alt = "logo" class = "logo">
+    <div class="header">
+        <img th:src="@{images/logo.svg}" src="../../static/images/logo.svg" alt = "logo" class = "logo">
 
-    <form class="search-form">
-        <img th:src="@{images/magnifier.svg}" src="../../static/images/magnifier.svg" alt = "magnifier" class = "magnifier">
-        <input name="query" placeholder="Search" type="search">
-    </form>
-    <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
-    <a class="button-style" href="recipe.html" th:href="@{/recipe/1}">Random</a>
-
-    <div class="heart-container">
-        <div class="heart"
-                onmouseover="changeImage('heart-img', '../../images/heart-hover.svg')"
-                onmouseout="restoreImage('heart-img', '../../images/heart.svg')">
-            <img id="heart-img" th:src="@{images/heart.svg}" src="../../images/heart.svg" alt="heart" class="heart">
-        </div>
-    </div>
-
-    <button class="user-container" id="user-btn">
-        <div class="user"
-                onmouseover="changeImage('user-img', '../../images/user-hover.svg')"
-                onmouseout="restoreImage('user-img', '../../images/user.svg')">
-
-            <img id="user-img" th:src="@{images/user.svg}" src="../../images/user.svg" alt="user" class="user">
-        </div>
-    </button>
-
-    <div id="overlay-user" onclick="hideOverlay()"></div>
-    <div class="login-window" id="popup-login-window">
-        <h1 class="login-heading">Log in</h1>
-        <form th:action="@{/login}" method="post">
-            <div class="login-form email">
-                <input name="username" placeholder="Enter email" type="email" required>
-            </div>
-            <div class="login-form password">
-                <input name="password" placeholder="Enter password" type="password" required>
-            </div>
-            <button id="confirm-button">Confirm</button>
+        <form class="search-form">
+            <img th:src="@{images/magnifier.svg}" src="../../static/images/magnifier.svg" alt = "magnifier" class = "magnifier">
+            <input name="query" placeholder="Search" type="search">
         </form>
+        <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
+        <a class="button-style" href="recipe.html" th:href="@{/recipe/1}">Random</a>
+
+        <div class="heart-container">
+            <div class="heart"
+                    onmouseover="changeImage('heart-img', '../../images/heart-hover.svg')"
+                    onmouseout="restoreImage('heart-img', '../../images/heart.svg')">
+                <img id="heart-img" th:src="@{images/heart.svg}" src="../../images/heart.svg" alt="heart" class="heart">
+            </div>
+        </div>
+
+        <button class="user-container" id="user-btn">
+            <div class="user"
+                    onmouseover="changeImage('user-img', '../../images/user-hover.svg')"
+                    onmouseout="restoreImage('user-img', '../../images/user.svg')">
+
+                <img id="user-img" th:src="@{images/user.svg}" src="../../images/user.svg" alt="user" class="user">
+            </div>
+        </button>
+
+        <div id="overlay-user" onclick="hideOverlay()"></div>
+        <div class="login-window" id="popup-login-window">
+            <h1 class="login-heading">Log in</h1>
+            <form th:action="@{/login}" method="post">
+                <div class="login-form email">
+                    <input name="username" placeholder="Enter email" type="text" required>
+                </div>
+                <div class="login-form password">
+                    <input name="password" placeholder="Enter password" type="password" required>
+                </div>
+                <button id="confirm-button">Confirm</button>
+            </form>
+        </div>
+
+        <img th:src="@{images/home.svg}" src="../../images/home.svg" alt = "home" class = "home">
     </div>
-
-    <img th:src="@{images/home.svg}" src="../../images/home.svg" alt = "home" class = "home">
-</div>
-
 </header>
 <main>
 <div class="container">
