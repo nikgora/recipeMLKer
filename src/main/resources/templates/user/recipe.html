@@ -70,7 +70,7 @@
         <p class="c3">Pancakes</p>
     </div>
     <div class = "RecipeRating">
-        <p class = "num">8.8</p>
+        <p class = "num" th:text="${recipe.getAverageMark()}">8.8</p>
     </div>
     <div class = "FavoriteList">
         <p class = "c4">Favorite list</p>
@@ -131,7 +131,7 @@
             <div class="ingredientsHeader"></div>
             <p class="iTitle">Ingredient amount</p>
             <div class="ingredientsHeader devisesHeader"></div>
-            <p class="iTitle dTitle">Devises</p>
+            <p class="iTitle dTitle">Deviсes</p>
         </div>
         <div class="stepByStepField">
             <div class="stepByStepHeader"></div>
@@ -177,7 +177,6 @@
         </div>
     </div>
 </main>
-
 
 <footer class="footer">
     <button class="support-button" id="support-btn"><span>Support</span></button>
