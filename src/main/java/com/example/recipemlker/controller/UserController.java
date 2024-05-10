@@ -83,14 +83,10 @@ public class UserController {
         return "user/404";
     }
 
-//    @GetMapping("/user/{id}")
-//    public String userPage(@PathVariable Long id, Model model, @AuthenticationPrincipal User user) {
-//        if (Objects.equals(user.getId(), id)) {
-//            model.addAttribute("user", userService.getUserById(id));
-//            return "user/user";
-//        }
-//        return "redirect:/403";
-//    }
+    @GetMapping("/user")
+    public String userPage() {
+        return "user/user";
+    }
 
     @GetMapping("/recipe/{id}")
     public String recipePage(Model model, @PathVariable("id") Long id) {
