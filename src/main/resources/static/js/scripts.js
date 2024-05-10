@@ -35,6 +35,14 @@ document.getElementById("overlay-user").addEventListener("click",
     () => hideOverlay("overlay-user", "popup-login-window"));
 
 
+const container = document.getElementById('recipeContainer');
+
+recipes.forEach((recipe, index) => {
+    const field = document.createElement('div');
+    field.classList.add('smallerField', 'smallerField-down' + (index + 1));
+
+    container.appendChild(field);
+});
 
 
 

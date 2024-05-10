@@ -67,7 +67,7 @@
 <main>
     <img alt="recipeIcon" class="recipeIcon" th:src="@{images/Recipe.svg}" src="../../images/Recipe.svg" >
     <div class = "RecipeTitle">
-        <p class="c3">Pancakes</p>
+        <p class="c3" th:text="${recipe.getTitle()}">Pancakes</p>
     </div>
     <div class = "RecipeRating">
         <p class = "num" th:text="${recipe.getAverageMark()}">8.8</p>
@@ -83,7 +83,7 @@
     </div>
     <div class = "stick"></div>
     <div class="mini">
-        <p class="miniTime"> 30 minutes</p>
+        <p class="miniTime" th:text="${recipe.getCookingTime()}  + ' minutes'"> 30 minutes</p>
         <img alt="dessertI" class="dessertI" th:src="@{images/Waffles.svg}" src="../../images/Waffles.svg" >
         <p class="miniTime miniCategories" th:text="${recipe.getCategory().getTitle()}"> Desserts </p>
     </div>
@@ -133,7 +133,7 @@
             <div class="ingredientsHeader devisesHeader"></div>
             <p class="iTitle dTitle">Deviсes</p>
         </div>
-        <div class="stepByStepField">
+        <div class="stepByStepField" th:text="${recipe.getDescription()}">
             <div class="stepByStepHeader"></div>
             <p class="iTitle sbsTitle">Step-by-step instructions</p>
         </div>
