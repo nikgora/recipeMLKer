@@ -481,6 +481,34 @@ body {
     margin-left: 0.5vw;
 }
 
+.ratingField div{
+    font-size: 2.5vw;
+    color: #F2B705;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.ratingField input{
+    display: none;
+}
+
+.ratingField input + label{
+    cursor: pointer;
+}
+
+.ratingField input:checked + label{
+    color: #F2B705;
+}
+
+.ratingField input:checked + label ~ label {
+    color: #E0E0E0;
+}
+
+.ratingField label:active{
+    transform: scale(0.8);
+    transition: 0.3s ease;
+}
+
 .footer {
     position: fixed;
     width: 100%;
