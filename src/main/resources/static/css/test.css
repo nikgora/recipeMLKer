@@ -14,7 +14,8 @@ body {
     padding-right: 2.083vw;
     padding-left: 4.166vw;
 }
-.logo1 {
+
+.logo {
     width: 6.25vw;
     height: 10vh;
     top: 0.3vw;
@@ -23,10 +24,10 @@ body {
 .search-form {
     display: flex;
     align-items: center;
-    gap: 0.53vw;
+    gap: 10px;
     padding-left: 1.0415vw;
     background: #FBEFC7;
-    border-radius: 2.778vh;
+    border-radius: 30px;
 }
 
 .search-form input, .inner-window input {
@@ -38,7 +39,6 @@ body {
     border: none;
     background: #FBEFC7;
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 2.5vh;
     font-size: 2.5vw;
     border-radius: 5.5vh;
     outline: none;
@@ -54,12 +54,11 @@ body {
     background-color: #3E5902;
     height: 5.7407vh;
     width: 6.4640625vw;
-    border-radius: 2.7vw;
+    border-radius: 30px;
     color: white;
     justify-content: center;
     align-items: center;
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 1.25vh;
     font-size: 1.25vw;
     text-decoration: none;
 }
@@ -76,16 +75,29 @@ body {
     border-radius: 50%;
 }
 
-.user-container:hover, .heart-container:hover {
+.user-container:hover {
     background-color: #733506;
     width: 4.6vw;
     height: 9.2593vh;
 }
+
+.heart-container:hover {
+    background-color: #733506;
+    width: 4.6vw;
+    height: 9.2593vh;
+    cursor: not-allowed;
+}
+
 .home{
     height: 5.55555555vh;
     width: 3.125vw;
 }
+
+a:visited, a:link {
+    text-decoration: none;
+}
 /*____________________________________________________________________________________________________________________*/
+
 .container {
     display: flex;
     justify-content: space-between;
@@ -97,33 +109,34 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    margin-left: 1.04167vw;
+    margin-left: 4vw;
     margin-top: 1.852vh;
     margin-right: 1.7vw;
 }
 
 .h1 {
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 2.1875vw; /*42*/
+    font-size: 2.4vw; /*42*/
     font-size: 3.8889vh;
     color: #733506;
     position: absolute;
-    left: 1.979167vw;
+    margin-left: 3.4vw;
     bottom: 0.2605vh;
-    margin-bottom: 44.25vh;
+    margin-bottom: 34vh;
+    padding-bottom: 1vh;
 }
 
-.ul {
+.ulBoard {
     position: absolute;
-    top: 13.889vh;
-    height: 48vh;
+    top: 30vh;
+    height: 39vh;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.66667vw;
-    font-size: 2.963vh;
     overflow-y: auto;
     overflow-x: hidden;
     padding-left: 0.2605vw;
     margin-top: 1vh;
+    margin-left: 1.8vw;
 
 }
 
@@ -133,7 +146,6 @@ ul {
 }
 
 ul li {
-
     list-style: none;
     padding-left: 0.2605vw;
     margin-left: 0.4vw;
@@ -144,8 +156,8 @@ ul li:hover {
     background-color: #F2B705;
     border-radius: 5.5vw;
     height: 5vh;
-    width: 10.1vw;
-} /*hover for menu list elements*/
+    width: 8.7vw;
+}
 
 ul hr {
     border: 0.104167vw solid black;
@@ -155,12 +167,12 @@ ul hr {
 }
 
 /*____________________________________________________________________________________________________________________*/
-::-webkit-scrollbar {
+.ulBoard::-webkit-scrollbar {
     width: 0.78125vw;
     margin-left: 5vw;
 }
 
-::-webkit-scrollbar-track {
+.ulBoard::-webkit-scrollbar-track {
     margin-top: 2.7778vh;
     border: 0.0520834vw solid black;
     border-radius: 50px;
@@ -168,15 +180,9 @@ ul hr {
     margin-left: 0.5vw;
 }
 
-::-webkit-scrollbar-thumb {
+.ulBoard::-webkit-scrollbar-thumb {
     background: #733506;
     border-radius: 50px;
-}
-.board{
-    width: 14.584vw; /*280*/
-    height:75.926vh; /*820*/
-    margin-right: 2.5vw;
-    margin-top: 1vh;
 }
 
 .fieldForCategory{
@@ -185,194 +191,175 @@ ul hr {
     margin-right: 2.344vw;
 }
 
-.substance{
-    width: 10vw;
-    height:auto;
+.categoriesI{
+    width:1.5625vw;/*30*/
+    height:2.78vh;/*30*/
 }
 
-.mDIcon{
-    width: 2.05vw;
-    height:2.7vh;
+.timeI{
+    width: 1.5625vw;/*30*/
+    height:2.963vh;/*32*/
 }
 
-.saladI{
-    width: 2.0833vw;
-    height:4.167vh;
+.alphabetI{
+    width: 1.5625vw;/*30*/
+    height:1.574vh;/*17*/
 }
-.pastryI{
-    width: 2.34375vw;
-    height: 3.24075vh;
-}
-
-.dessertI{
-    width: 2.34375vw;
-    height: 3.24075vh;
+.ratingI{
+    width: 1.5625vw;/*30*/
+    height: 1.4vh;/*15*/
 }
 
-.smoothieI{
-    width: 2.34375vw;
-    height: 4.1667vh;
-}
-.snackI{
-    width: 2.34375vw;/*45*/
-    height: 2.7778vh;/*30*/
+.ingredientsI{
+    width:1.5625vw;/*30*/
+    height:2.78vh;/*30*/
 }
 
-.fish{
-    width: 2.34375vw;
-    height: 3.24075vh; /*35*/
+.devicesI{
+    width:1.5625vw;/*30*/
+    height:2.78vh;/*30*/
 }
 
-.sauceI{
-    width: 1.927084vw;
-    height: 4.3518vh; /*37*/
+/*____________________________________________________________________________________________________________________*/
+
+.board{
+    width: 18vw; /*280*/
+    height:76vh; /*820*/
+    margin-top: 3.5vh;
 }
 
 .bean {
     position: absolute;
     width: 2vw;/*35*/
     height: 4.8vh;/*45*/
-    left: 6.3vw;
-    top: 69vh;
+    left: 8vw;
+    top: 82vh;
+}
+/*____________________________________________________________________________________________________________________*/
+.apply-button {
+    position: absolute;
+    left: 4.6875vw;
+    bottom: 22vh;
+    background-color: #733506;
+    color: #F2E3B3;
+    border-radius: 2.7vw;
+    padding: 0.19vw;
+    width: 8.4375vw;
+    height: 4.2593vh;
+    text-align: center;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.25vw;
+    font-weight: 400;
+    line-height: 4.2593vh;
+    border: none;
+    cursor: pointer;
+    outline: none;
 }
 
-a:link {
-    text-decoration: none;
-    color: inherit;
+.apply-button span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.apply-button:hover {
+    background-color: transparent;
+    border: 0.5vh solid #733506;
+    color: #733506;
 }
 
 /*____________________________________________________________________________________________________________________*/
-
-.cheesecake {
+.field {
     position: absolute;
-    left: 18.4375vw;
-    top: 54.1vh;
-    border-radius: 13.8vh 13.8vh 7.8vh 7.8vh;
-    z-index: 1;
-    width: 13.17vw;
-    height: 36.1vh;
-    margin-right: 2.344vw;
+    width: 80vw;
+    height: 76vh;
+    right: 2vw;
+    top: 14.6vh;
+    bottom: 8vh;
+    border-radius: 5.5vh;
+    padding-left: 1.5vw;
+    background-color: #F2E3B3;
 }
 
-.fresh {
+.ol{
     position: absolute;
-    left: 33.6875vw;
-    top: 54.1vh;
-    border-radius: 13.8vh 13.8vh 7.8vh 7.8vh;
-    width: 13.17vw;
-    height: 36.1vh;
-    margin-right: 2.344vw;
-}
-
-.seafoodSalad {
-    position: absolute;
-    left: 48.9175vw;
-    top: 54.1vh;
-    border-radius: 13.8vh 13.8vh 7.8vh 7.8vh;
-    width: 13.17vw;
-    height: 36.1vh;
-    margin-right: 2.344vw;
-}
-
-.firstDish{
-    position: absolute;
-    left: 18.4375vw;
-    top: 14.815vh;
-    height: 35.1851vh;
-    width: 43.69vw;
-    margin-right: 2.344vw;
-    border-radius: 5.5vh 5.5vh 7.8vh 7.8vh;
-}
-
-.mainDish{
-    position: absolute;
-    left: 63.931vw;
-    top: 14.815vh;
-    height: 75.926vh;
-    width: 31.25vw;
-    margin-left: 2.344vw;
-    border-radius: 8.3vh 8.3vh 7.8vh 7.8vh;
-}
-
-.rectangle {
-    position: absolute;
-    width: 13.17vw;
-    height: 6.0185185185vh;
-    top: 84.5vh;
-    margin-right: 2.344vw;
-    border-radius: 0vh 0vh 7.8vh 7.8vh;
-    background: #F2E3B3;
-    z-index: 2;
-    text-align: center;
+    width: 79vw;
+    height: 74vh;
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 3.8888vh;
-    font-size: 2.1875vw;
+    font-size: 1.66667vw;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
-.rectangle-left-1 {
-    left: 18.4375vw;
+.ol ol {
+    list-style-type: none;
 }
 
-.dessert:hover .cheesecake, .dessert:hover .rectangle-left-1 {
-    border: 0.46vh solid #733506;
+.ol::-webkit-scrollbar {
+    width: 0.78125vw;
 }
 
-.rectangle-left-2 {
-    left: 33.6875vw;
-}
-
-.drink:hover .fresh, .drink:hover .rectangle-left-2 {
-    border: 0.46vh solid #733506;
-}
-
-.rectangle-left-3 {
-    left: 48.9175vw;
-}
-
-.salad:hover .seafoodSalad, .salad:hover .rectangle-left-3 {
-    border: 0.46vh solid #733506;
-}
-
-.rectangleFD {
-    position: absolute;
-    height: 7vh;
-    width: 43.69vw;
-    top: 43vh;
-    margin-right: 2.344vw;
-    border-radius: 0vh 0vh 7.8vh 7.8vh;
+.ol::-webkit-scrollbar-track {
+    margin-top: 3vh;
+    border: 0.0520834vw solid black;
+    border-radius: 50px;
     background: #F2E3B3;
-    z-index: 2;
-    text-align: center;
-    font-family: 'Frank Ruhl Libre', serif;
-    left: 18.4375vw;
-    font-size: 3.8888vh;
-    font-size: 2.1875vw;
 }
 
-.firstD:hover .rectangleFD, .firstD:hover .firstDish {
-    border: 0.46vh solid #733506;
+.ol::-webkit-scrollbar-thumb {
+    background: #733506;
+    border-radius: 50px;
 }
 
-.rectangleMD {
+.h2{
     position: absolute;
-    height: 7vh;
-    width: 31.25vw;
-    top: 83.70vh;
-    left: 66.275vw;
-    margin-right: 2.344vw;
-    border-radius: 0vh 0vh 7.8vh 7.8vh;
-    background: #F2E3B3;
-    z-index: 2;
-    text-align: center;
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 3.8888vh;
-    font-size: 2.1875vw;
+    font-size: 2.4vw; /*42*/
+    font-size: 3.8889vh;
+    color: #733506;
+    left: 1.6vw;
+    margin-bottom: 0.5vh;
+    margin-top: 2vh;
 }
 
-.mainD:hover .rectangleMD, .mainD:hover .mainDish {
-    border: 0.46vh solid #733506;
+.h2-down{
+    margin-right: 1.6vw;
+    margin-top: 7.5vh;
 }
 
+.h2-down-right{
+    margin-top: 0vh;
+    margin-left: 1.6vw;
+}
+
+.smallerField{
+    position: absolute;
+    width: 74vw;
+    height: 14vh;
+    right: 4vw;
+    top: 4vh;
+    bottom: 8vh;
+    border-radius: 5.5vh;
+    background-color: #FBEFC7;
+}
+.smallerField-down1{
+    top: 22vh;
+}
+.smallerField-down2{
+    top: 40vh;
+}
+.smallerField-down3{
+    top: 58vh;
+}
+.smallerField-down4{
+    top: 76vh;
+    bottom: 4vh;
+}
+
+table td {
+    padding-left: 3vw;
+}
 /*____________________________________________________________________________________________________________________*/
 .footer {
     position: fixed;
@@ -411,7 +398,7 @@ a:link {
 #send-button:hover {
     background-color: #FBEFC7;
     color: #3E5902;
-    border: 0.5vh solid #3E5902;
+    border: 0.46vh solid #3E5902;
 }
 
 #overlay {
@@ -481,7 +468,7 @@ a:link {
 
 .support-button:hover {
     background-color: transparent;
-    border: 0.4vh solid #F2E3B3;
+    border: 0.5vh solid #F2E3B3;
     color: #F2E3B3;
 }
 
@@ -531,8 +518,7 @@ a:link {
     width: 21vw;
     height: 3vh;
     margin: auto;
-    font-family: 'Frank Ruhl Libre';
-    font-size: 1.25vh;
+    font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.25vw;
     font-weight: 400;
     line-height: 1vh;
@@ -541,27 +527,4 @@ a:link {
 }
 
 
-.copyrightm {
-    position: absolute;
-    left: 240px;
-    bottom: -18px;
-    text-align: center;
-    font-family: 'Frank Ruhl Libre';
-    font-size: 42px;
-    font-weight: 600;
-    line-height: 31px;
 
-    color: #000000;
-}
-
-.copyrightf {
-    position: absolute;
-    left: 410px;
-    bottom: -18px;
-    text-align: center;
-    font-family: 'Frank Ruhl Libre';
-    font-size: 42px;
-    font-weight: 600;
-    line-height: 31px;
-    color: #000000;
-}
