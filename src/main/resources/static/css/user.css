@@ -133,13 +133,13 @@ body {
 }
 
 .button-container {
-    position: relative;
+    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 20px;
-    top: 34vh;
+    padding: 1.85vh;
+    top: 40vh;
     left: 10.9375vw;
 }
 
@@ -154,7 +154,7 @@ body {
     font-family: 'Frank Ruhl Libre';
     font-size: 1.7vw;
     border: none;
-    margin-bottom: 20px;
+    margin-bottom: 1.85vh;
 }
 
 .createList {
@@ -187,7 +187,6 @@ body {
     height: 75.926vh;
     background-color: #F2E3B3;
     border-radius: 5vh;
-    margin-top: -43.5vh;
     margin-left: 42vw;
 }
 
@@ -196,7 +195,6 @@ body {
     height: 5vh;
     background-color: #3E5902;
     border-radius: 5vh 5vh 0vh 0vh ;
-    top: 5vh;
 }
 
 .c7{
