@@ -70,6 +70,11 @@ body {
     height: 5.5555vh;
 }
 
+.heart {
+    width: 8.33vw;
+    height: 9.81vh;
+}
+
 .heart-container, .user-container {
     display: flex;
     justify-content: center;
