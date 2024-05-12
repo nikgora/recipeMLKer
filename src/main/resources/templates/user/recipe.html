@@ -128,7 +128,7 @@
             <p class="frTitle">Recipe</p>
         </div>
         <div class="amountField">
-            <div class="ingredientsHeader"></div>
+            <div class="ingredientsHeader" th:each="ingedients: ${recipe.getRecipeIngredients()></div>
             <p class="iTitle">Ingredient amount</p>
             <div class="ingredientsHeader devisesHeader"></div>
             <p class="iTitle dTitle">Deviсes</p>
