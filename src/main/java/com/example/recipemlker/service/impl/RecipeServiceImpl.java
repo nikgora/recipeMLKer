@@ -66,6 +66,11 @@ public class RecipeServiceImpl implements RecipeService {
     }
 
     @Override
+    public void save(Recipe recipe) {
+        recipeRepository.save(recipe);
+    }
+
+    @Override
     public List<Recipe> getAllByDevice(String device) {
         return recipeRepository.findAllByRecipeDevices(device);
     }
