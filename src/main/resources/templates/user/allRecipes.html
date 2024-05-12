@@ -75,7 +75,8 @@
     <div class="mainField">
         <div class="field" id="recipeContainer"  th:if="${recipes.size()!=0}">
             <div class="ol">
-                <div th:each="recipe, i : ${recipes}" th:class="'smallerField smallerField-down' + (${i.index} + 1)">
+                <div th:each="recipe, i : ${recipes}"
+                     th:class="${i.index == 0} ? 'smallerField smallerField' : 'smallerField smallerField-down' + (${i.index})">
                     <table>
                         <tr>
                             <th th:text="${recipe.getCategory().getTitle()}"></th>

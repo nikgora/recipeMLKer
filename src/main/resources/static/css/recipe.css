@@ -331,7 +331,6 @@ body {
     align-items: center;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.5625vw; /*48*/
-    font-size: 2.778vh;
     margin-top: 1.1vh;
     margin-left: 1.2vw;
     flex: 1;
@@ -349,7 +348,21 @@ body {
     background: #F2E3B3;
     border-radius: 5vh;
 }
-
+.comment-user {
+    width: 2vw;
+    height: 3vh;
+}
+.comment-user-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F2F2EB;
+    border-radius: 50%;
+    margin-left: 0.26vw;
+    margin-top: 0.46vh;
+    width: 2.6vw;
+    height: 4.6vh;
+}
 .comment{
     position: absolute;
     display: flex;
@@ -359,12 +372,13 @@ body {
     margin-top: 2vh;
     background-color:  #FBEFC7;
     border-radius: 5vh;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.5625vw;
 }
-
-.comment2{
+.comment1{
     margin-top: 15.5vh;
 }
-.comment3{
+.comment2{
     margin-top: 29vh;
 }
 /*____________________________________________________________________________________________________________________*/
@@ -451,6 +465,7 @@ body {
     margin-top: 70vh;
     margin-left: 51.2vw;
 }
+
 .addRating{
     position: absolute;
     width: 46.875vw;
@@ -711,7 +726,7 @@ body {
 }
 
 .ingredientContent {
-    padding-left: 15.46vw;
+    padding-left: 13vw;
     font-size: 1.5vw;
     color: black;
 }
