@@ -29,8 +29,8 @@ document.getElementById("overlay-support").addEventListener("click",
 document.getElementById("send-button").addEventListener("click",
     () => hideOverlay("overlay-support", "popup-window"));
 
-document.getElementById("user-btn").addEventListener("click",
-        () => showOverlay("overlay-user", "popup-login-window"));
+document.getElementById("user-btn1").addEventListener("click",
+    () => showOverlay("overlay-user", "popup-login-window"));
 document.getElementById("overlay-user").addEventListener("click",
     () => hideOverlay("overlay-user", "popup-login-window"));
 

@@ -25,20 +25,30 @@
                 <img id="heart-img" th:src="@{images/heart.svg}" src="../../images/heart.svg" alt="heart" class="heart">
             </div>
         </div>
+        <button class="user-container" id="user-btn1"  th:if ="${isLogin} == false">
 
-        <button class="user-container" id="user-btn">
             <div class="user"
                     onmouseover="changeImage('user-img', '../../images/user-hover.svg')"
                     onmouseout="restoreImage('user-img', '../../images/user.svg')">
 
-                <img id="user-img" th:src="@{images/user.svg}" src="../../images/user.svg" alt="user" class="user">
+                <img id="user-img1" th:src="@{images/user.svg}" src="../../images/user.svg" alt="user" class="user">
             </div>
-        </button>
 
+        </button>
+        <a th:href="@{/user}" th:if="${isLogin} == true">
+        <button class="user-container"  id="user-btn2" >
+                        <div class="user"
+                             onmouseover="changeImage('user-img', '../../images/user-hover.svg')"
+                             onmouseout="restoreImage('user-img', '../../images/user.svg')">
+
+                <img id="user-img2" th:src="@{images/user.svg}" src="../../images/user.svg" alt="user" class="user">
+            </div>
+                </button>
+        </a>
         <div id="overlay-user" onclick="hideOverlay()"></div>
         <div class="login-window" id="popup-login-window">
             <h1 class="login-heading">Log in</h1>
-            <form th:action="@{/login}" method="post">
+            <form method="post"  id="loginForm"  th:action="@{api/auth/login}" onsubmit="return submitForm()">
                 <div class="login-form email">
                     <input name="username" placeholder="Enter email" type="text" required>
                 </div>
@@ -169,5 +179,29 @@
     </div>
 </footer>
 <script th:href="@{js/scripts.js}" src="../../js/scripts.js"></script>
+<script>
+    function submitForm() {
+        var form = document.getElementById('loginForm');
+        var formData = new FormData(form);
+        var data = {};
+        formData.forEach(function(value, key){
+            data[key] = value;
+        });
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', form.action, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    window.location.href = '/'; // Redirect to success page
+                } else {
+                    alert('Login failed. Please try again.'); // Show an alert or handle error
+                }
+            }
+        };
+        xhr.send(JSON.stringify(data));
+        return false; // Prevent the form from submitting in the traditional way
+    }
+</script>
 </body>
 </html>
