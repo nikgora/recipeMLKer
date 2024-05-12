@@ -89,16 +89,30 @@
     </div>
 
     <div class="IngredientTagsField">
-        <p class="content"> #flour #baking_powder #sugar #milk #butter #eggs</p>
         <div class="IngredientTagsTitle">
             <p class = "c7">Ingredient tags</p>
+            <div class="ingredientContent">
+                <table th:each="ingedients: ${recipe.getRecipeIngredients()}">
+                    <tr>
+                        <td>
+                            <a th:href="${ingedients.ingredient.getName()}" th:text="'#' + ${ingedients.ingredient.getName()}"></a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
     <div class="IngredientTagsField DeviceTagsField ">
-        <p class="content">#electric_mixer</p>
         <div class="IngredientTagsTitle">
             <p class = "c7 devices">Devices tags</p>
         </div>
+        <p class="content">
+            <table th:each="devices: ${recipe.getRecipeDevices()}">
+                <tr>
+                    <td th:text="'#' + ${devices.cookingDevice.getName()}"></td>
+                </tr>
+            </table>
+        </p>
     </div>
     <form class="text-form">
         <img th:src="@{images/quill.svg}" src="../../static/images/quill.svg" alt = "quill" class = "quill">
@@ -128,8 +142,20 @@
             <p class="frTitle">Recipe</p>
         </div>
         <div class="amountField">
-            <div class="ingredientsHeader" th:each="ingedients: ${recipe.getRecipeIngredients()></div>
-            <p class="iTitle">Ingredient amount</p>
+            <div class="ingredientsHeader">
+                <p class="iTitle">Ingredient Amount</p>
+            </div>
+            <div class="amountContent">
+                <table th:each="ingedients: ${recipe.getRecipeIngredients()}">
+                    <tr>
+                        <td><a th:href="@{/allRecipes(ingedient=${ingedients.ingredient.getName()})}"
+                               th:text="${ingedients.ingredient.getName()}"></a>
+                        </td>
+                        <td th:text="' - ' + ${ingedients.getAmountOfIngredient()}">
+                        </td>
+                    </tr>
+                </table>
+            </div>
             <div class="ingredientsHeader devisesHeader"></div>
             <p class="iTitle dTitle">Deviсes</p>
         </div>

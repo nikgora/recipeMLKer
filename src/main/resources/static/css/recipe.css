@@ -714,4 +714,14 @@ body {
     align-items: center;
 }
 
+.amountContent {
+    padding-left: 10px;
+}
+
+.ingredientContent {
+    padding-left: 400px;
+    font-size: 24px;
+    color: black;
+}
+
 
