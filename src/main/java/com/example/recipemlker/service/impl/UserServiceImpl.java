@@ -1,6 +1,5 @@
 package com.example.recipemlker.service.impl;
 
-import com.example.recipemlker.model.AuthUser;
 import com.example.recipemlker.model.User;
 import com.example.recipemlker.repository.UserRepository;
 import com.example.recipemlker.service.UserService;
@@ -41,8 +40,8 @@ public class UserServiceImpl implements UserService {
         return new UserDetailsService() {
             @Override
             public UserDetails loadUserByUsername(String username) {
-                return new AuthUser(userRepository.findByLogin(username)
-                        .orElseThrow(() -> new UsernameNotFoundException("User not found")));
+                return userRepository.findByLogin(username)
+                        .orElseThrow(() -> new UsernameNotFoundException("User not found"));
             }
         };
 
