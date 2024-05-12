@@ -73,7 +73,7 @@
     </div>
     <img alt="coffeeBean" class="bean" th:src="@{images/coffeeBean.svg}" src="../../static/images/coffeeBean.svg" >
     <div class="mainField">
-        <div class="field" id="recipeContainer">
+        <div class="field" id="recipeContainer"  th:if="${recipes.size()!=0}">
             <div class="ol">
                 <div th:each="recipe, i : ${recipes}" th:class="'smallerField smallerField-down' + (${i.index} + 1)">
                     <table>
@@ -91,7 +91,11 @@
                 </div>
             </div>
         </div>
+        <div class="field" id="recipeContainer1" th:if="${recipes.size()==0}">
+            NO SUCH RECIPES!
+        </div>
     </div>
+
 </main>
 
 <footer class="footer">
