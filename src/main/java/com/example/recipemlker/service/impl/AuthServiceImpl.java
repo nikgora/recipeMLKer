@@ -20,7 +20,7 @@ import java.io.IOException;
 @Service
 @WebFilter
 @RequiredArgsConstructor
-public class AuthServiceImpl implements AuthService, Filter {
+public class AuthServiceImpl implements AuthService  {
     private final UserRepository userRepository;
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
@@ -50,22 +50,5 @@ public class AuthServiceImpl implements AuthService, Filter {
         return AuthDTO.JwtAuthenticationResponse.builder().token(jwt).build();
     }
 
-    @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
-        Filter.super.init(filterConfig);
-    }
 
-    @Override
-    public void doFilter(ServletRequest request, ServletResponse response,
-                         FilterChain chain) throws IOException, ServletException {
-        HttpServletResponse httpServletResponse = (HttpServletResponse) response;
-        httpServletResponse.setHeader(
-                "Authorization", jwt);
-        chain.doFilter(request, response);
-    }
-
-    @Override
-    public void destroy() {
-        Filter.super.destroy();
-    }
 }

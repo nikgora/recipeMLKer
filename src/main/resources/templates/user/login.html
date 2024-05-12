@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head>
-    <title>Spring Security Example </title>
+    <title>Login </title>
 </head>
 <body>
 <div th:if="${param.error}">
@@ -10,10 +10,36 @@
 <div  th:if="${param.logout}">
     You have been logged out.
 </div>
-<form method="post" th:action="@{api/auth/login}">
-    <div><label> User Name : <input name="username" type="text"/> </label></div>
-    <div><label> Password: <input name="password" type="password"/> </label></div>
+<h1>Log in Form</h1>
+<form id="loginForm" enctype="text/plain" method="post" th:href="@{api/auth/login}" th:action="@{api/auth/login}" onsubmit="return submitForm()">
+    <div><label>User Name: <input value="username" id="username" name="username" type="text"/></label></div>
+    <div><label>Password: <input value="password" id="password" name="password" type="password"/></label></div>
     <div><input type="submit" value="Sign In"/></div>
 </form>
+
+<script>
+    function submitForm() {
+        var form = document.getElementById('loginForm');
+        var formData = new FormData(form);
+        var data = {};
+        formData.forEach(function(value, key){
+            data[key] = value;
+        });
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', form.action, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    window.location.href = '/'; // Redirect to success page
+                } else {
+                    alert('Login failed. Please try again.'); // Show an alert or handle error
+                }
+            }
+        };
+        xhr.send(JSON.stringify(data));
+        return false; // Prevent the form from submitting in the traditional way
+    }
+</script>
 </body>
 </html>

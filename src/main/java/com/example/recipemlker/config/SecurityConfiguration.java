@@ -32,10 +32,11 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(request -> request.requestMatchers("/**")
                         .permitAll().anyRequest().authenticated())
                 .logout(LogoutConfigurer::permitAll)
-                .formLogin(form -> form.defaultSuccessUrl("/").failureForwardUrl("/login?error"))
+                .formLogin(form -> form.loginPage("/login").defaultSuccessUrl("/").failureForwardUrl("/login?error"))
                 .sessionManagement(manager -> manager.sessionCreationPolicy(STATELESS))
                 .authenticationProvider(authenticationProvider()).addFilterBefore(
-                        jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+                        jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
+        .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 

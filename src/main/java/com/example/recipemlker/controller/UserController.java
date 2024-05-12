@@ -1,10 +1,13 @@
 package com.example.recipemlker.controller;
 
+import com.example.recipemlker.dto.AuthDTO;
+import com.example.recipemlker.dto.AuthDTO.JwtAuthenticationResponse;
 import com.example.recipemlker.model.Recipe;
 import com.example.recipemlker.model.User;
 import com.example.recipemlker.repository.CategoryRepository;
 import com.example.recipemlker.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -29,7 +32,7 @@ public class UserController {
     @Autowired
     private CategoryRepository categoryRepository;
 
-
+    private String jwt = null;
     @GetMapping("/login")
     public String loginPage() {
         return "user/login";
@@ -39,7 +42,18 @@ public class UserController {
     public String mainPage() {
         return "user/main";
     }
+    @PostMapping("/api/auth/signup")
+    public ResponseEntity<JwtAuthenticationResponse> signup(@RequestBody AuthDTO.SignupRequest request) {
+        var jwt1  = authService.signup(request);
+        return ResponseEntity.ok(jwt1) ;
+    }
 
+    @PostMapping("/api/auth/login")
+    public ResponseEntity<JwtAuthenticationResponse> signin(@RequestBody AuthDTO.SigninRequest request) {
+        var jwt1  = authService.signin(request);
+        jwt = jwt1.token();
+        return ResponseEntity.ok(jwt1);
+    }
     @GetMapping("/allRecipes")
     public String allRecipePage(Model model, @RequestParam(required = false) List<String> device, @RequestParam(required = false) List<String> category, @RequestParam(required = false) List<String> ingredient, @RequestParam(required = false) List<String> startWith, @RequestParam(required = false) Integer minTime, @RequestParam(required = false) Integer maxTime, @RequestParam(required = false) Double minMark, @RequestParam(required = false) Double maxMark) {
         List<Recipe> recipes = this.recipeService.getAllRecipeIsPublished();
@@ -96,9 +110,11 @@ public class UserController {
     }
 
     @GetMapping("/user")
-    public String userPage(Model model, @RequestHeader("Authorization") String token) {
-        token = token.substring(7);
-        User user = userService.getUserByUsername(jwtService.extractUserName(token));
+    public String userPage(Model model) {
+        if (jwt == null) {
+            return "redirect:/403";
+        }
+        User user = userService.getUserByUsername(jwtService.extractUserName(jwt));
         model.addAttribute("user", user);
         return "user/user";
     }
