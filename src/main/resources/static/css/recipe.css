@@ -211,7 +211,7 @@ body {
     position: absolute;
     width: 10vw;
     height: 5.556vh;
-    margin-top: 0.5vh;
+    top: 21.5vh;
     margin-left: 4vw;
 }
 
@@ -343,11 +343,10 @@ body {
 
 .commentField{
     position: absolute;
-    display: flex;
     width: 46.875vw;
     height: 33.2vh;
     margin-left: 2.0834vw;
-    top: 60vh;
+    top: 59.4vh;
     background: #F2E3B3;
     border-radius: 5vh;
 }

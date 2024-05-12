@@ -4,16 +4,16 @@
     <title>Recipe</title>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link rel="stylesheet" type="text/css" href="../../static/css/recipe.css" th:href="@{../css/recipe.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{../css/recipe.css}" href="../../static/css/recipe.css" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <header>
     <div class="header">
-        <img th:src="@{images/logo.svg}" src="../../images/logo.svg" alt = "logo" class = "logo">
+        <img th:src="@{../images/logo.svg}" src="../../images/logo.svg" alt = "logo" class = "logo">
 
         <form class="search-form">
-            <img th:src="@{images/magnifier.svg}" src="../../static/images/magnifier.svg" alt = "magnifier" class = "magnifier">
+            <img th:src="@{../images/magnifier.svg}" src="../../static/images/magnifier.svg" alt = "magnifier" class = "magnifier">
             <input name="query" placeholder="Search" type="search">
         </form>
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
@@ -37,7 +37,7 @@
         </div>
 
         <a th:href="@{/}" href="main.html">
-            <img th:src="@{images/home.svg}" src="../../images/home.svg" alt="home" class="home">
+            <img th:src="@{../images/home.svg}" src="../../images/home.svg" alt="home" class="home">
         </a>
     </div>
 </header>
@@ -65,7 +65,7 @@
 </table>-->
 
 <main>
-    <img alt="recipeIcon" class="recipeIcon" th:src="@{images/Recipe.svg}" src="../../images/Recipe.svg" >
+    <img alt="recipeIcon" class="recipeIcon" th:src="@{../images/Recipe.svg}" src="../../images/Recipe.svg" >
     <div class = "RecipeTitle">
         <p class="c3" th:text="${recipe.getTitle()}">Pancakes</p>
     </div>
@@ -84,7 +84,7 @@
     <div class = "stick"></div>
     <div class="mini">
         <p class="miniTime" th:text="${recipe.getCookingTime()}  + ' minutes'"> 30 minutes</p>
-        <img alt="dessertI" class="dessertI" th:src="@{images/Waffles.svg}" src="../../images/Waffles.svg" >
+        <img alt="dessertI" class="dessertI" th:src="@{../images/Waffles.svg}" src="../../images/Waffles.svg" >
         <p class="miniTime miniCategories" th:text="${recipe.getCategory().getTitle()}"> Desserts </p>
     </div>
 
@@ -115,7 +115,7 @@
         </p>
     </div>
     <form class="text-form">
-        <img th:src="@{images/quill.svg}" src="../../static/images/quill.svg" alt = "quill" class = "quill">
+        <img th:src="@{../images/quill.svg}" src="../../static/images/quill.svg" alt = "quill" class = "quill">
         <input name="query" placeholder="Add comment" type="text">
         <div class="publish">
             <p class = "c8">Publish</p>
@@ -199,7 +199,7 @@
             </div>
         </div>
         <div class="confirmation">
-            <img th:src="@{images/tick.svg}" src="../../images/tick.svg" alt = "quill" class = "tick">
+            <img th:src="@{../images/tick.svg}" src="../../images/tick.svg" alt = "quill" class = "tick">
         </div>
     </div>
 </main>

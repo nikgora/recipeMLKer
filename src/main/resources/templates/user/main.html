@@ -18,32 +18,41 @@
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
         <a class="button-style" href="recipe.html" th:href="@{/recipe/1}">Random</a>
 
-        <div class="heart-container">
+        <div class="heart-container" th:if ="${isLogin} == false">
             <div class="heart"
-                    onmouseover="changeImage('heart-img', '../../images/heart-hover.svg')"
-                    onmouseout="restoreImage('heart-img', '../../images/heart.svg')">
-                <img id="heart-img" th:src="@{images/heart.svg}" src="../../images/heart.svg" alt="heart" class="heart">
+                    onmouseover="changeImage('heart-img1', '../../images/heart-hover.svg')"
+                    onmouseout="restoreImage('heart-img1', '../../images/heart.svg')">
+                <img id="heart-img1" th:src="@{images/heart.svg}" src="../../images/heart.svg" alt="heart" class="heart">
             </div>
         </div>
-        <button class="user-container" id="user-btn1"  th:if ="${isLogin} == false">
 
+        <a th:href="@{/user}" th:if="${isLogin} == true">
+            <div class="heart-container heart-login-container">
+                <div class="heart"
+                     onmouseover="changeImage('heart-img2', '../../images/heart-login-hover.svg')"
+                     onmouseout="restoreImage('heart-img2', '../../images/heart-login.svg')">
+                    <img id="heart-img2" th:src="@{images/heart-login.svg}" src="../../images/heart-login.svg" alt="heart" class="heart">
+                </div>
+            </div>
+        </a>
+
+        <button class="user-container" id="user-btn1"  th:if ="${isLogin} == false">
             <div class="user"
-                    onmouseover="changeImage('user-img', '../../images/user-hover.svg')"
-                    onmouseout="restoreImage('user-img', '../../images/user.svg')">
+                 onmouseover="changeImage('user-img1', '../../images/user-hover.svg')"
+                 onmouseout="restoreImage('user-img1', '../../images/user.svg')">
 
                 <img id="user-img1" th:src="@{images/user.svg}" src="../../images/user.svg" alt="user" class="user">
             </div>
-
         </button>
         <a th:href="@{/user}" th:if="${isLogin} == true">
-        <button class="user-container"  id="user-btn2" >
-                        <div class="user"
-                             onmouseover="changeImage('user-img', '../../images/user-hover.svg')"
-                             onmouseout="restoreImage('user-img', '../../images/user.svg')">
+            <button class="user-container"  id="user-btn2" >
+                <div class="user"
+                     onmouseover="changeImage('user-img2', '../../images/user-hover.svg')"
+                     onmouseout="restoreImage('user-img2', '../../images/user.svg')">
 
-                <img id="user-img2" th:src="@{images/user.svg}" src="../../images/user.svg" alt="user" class="user">
-            </div>
-                </button>
+                    <img id="user-img2" th:src="@{images/user.svg}" src="../../images/user.svg" alt="user" class="user">
+                </div>
+            </button>
         </a>
         <div id="overlay-user" onclick="hideOverlay()"></div>
         <div class="login-window" id="popup-login-window">
