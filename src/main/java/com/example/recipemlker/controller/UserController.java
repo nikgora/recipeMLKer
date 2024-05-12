@@ -138,14 +138,14 @@ public class UserController {
     }
 
     @GetMapping("/newRecipe")
-    public String newRecipePageForm(@AuthenticationPrincipal UserDetails userDetails, Model model) {
-        if (userDetails == null) return "redirect:/mustBeLogin";
+    public String newRecipePageForm(Model model) {
+        if (jwt == null) return "redirect:/mustBeLogin";
         model.addAttribute("recipe", new Recipe());
         return "user/newRecipe";
     }
 
     @PostMapping("/newRecipe")
-    public void newRecipePageSubmit(@AuthenticationPrincipal UserDetails userDetails, @ModelAttribute Recipe recipe) {
+    public void newRecipePageSubmit(@ModelAttribute Recipe recipe) {
         recipeService.save(recipe);
     }
 }
