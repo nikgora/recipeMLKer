@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title th:text="${recipe.title}">Random</title>
-    <link rel="stylesheet" type="text/css" href="../../static/css/recipe.css" th:href="@{../css/recipe.css}">
+<!--    <link rel="stylesheet" type="text/css" href="../../static/css/recipe.css" th:href="@{../css/recipe.css}">-->
+    <link rel="stylesheet" type="text/css" th:href="@{../css/recipe.css}" href="../../static/css/recipe.css" >
 </head>
 <body>
 <header>
     <div class="header">
-        <img th:src="@{images/logo1.svg}" src="../../static/images/logo1.svg" alt = "logo1" class = "logo1">
+        <img th:src="@{../images/logo1.svg}" src="../../static/images/logo1.svg" alt = "logo1" class = "logo1">
 
         <form class="search-form">
-            <img th:src="@{images/magnifier.svg}" src="../../static/images/magnifier.svg" alt = "magnifier" class = "magnifier">
+            <img th:src="@{../images/magnifier.svg}" src="../../static/images/magnifier.svg" alt = "magnifier" class = "magnifier">
             <input name="query" placeholder="Search" type="search">
         </form>
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
@@ -21,7 +22,7 @@
             <div class="heart"
                  onmouseover="changeImage('heart-img', '../../static/images/heart-hover.svg')"
                  onmouseout="restoreImage('heart-img', '../../static/images/heart.svg')">
-                <img id="heart-img" th:src="@{images/heart.svg}" src="../../static/images/heart.svg" alt="heart" class="heart">
+                <img id="heart-img" th:src="@{../images/heart.svg}" src="../../static/images/heart.svg" alt="heart" class="heart">
             </div>
         </div>
 
@@ -30,18 +31,18 @@
                  onmouseover="changeImage('user-img', '../../static/images/user-hover.svg')"
                  onmouseout="restoreImage('user-img', '../../static/images/user.svg')">
 
-                <img id="user-img" th:src="@{images/user.svg}" src="../../static/images/user.svg" alt="user" class="user">
+                <img id="user-img" th:src="@{../images/user.svg}" src="../../static/images/user.svg" alt="user" class="user">
             </div>
         </div>
 
         <a th:href="@{/}" href="main.html">
-            <img th:src="@{images/home.svg}" src="../../images/home.svg" alt="home" class="home">
+            <img th:src="@{../images/home.svg}" src="../../images/home.svg" alt="home" class="home">
         </a>
 
     </div>
 </header>
 <main>
-    <img alt="recipeIcon" class="recipeIcon" th:src="@{images/Recipe.svg}" src="../../static/images/Recipe.svg" >
+    <img alt="recipeIcon" class="recipeIcon" th:src="@{../images/Recipe.svg}" src="../../static/images/Recipe.svg" >
     <div class = "RecipeTitle">
         <p class="c3">Pancakes</p>
     </div>
@@ -59,9 +60,9 @@
     </div>
     <div class = "stick"></div>
     <div class="mini">
-        <p class="miniTime"> 30 minutes</p>
-            <img alt="dessertI" class="dessertI" th:src="@{images/Waffles.svg}" src="../../static/images/Waffles.svg" >
-        <p class="miniTime miniCategories"> Desserts </p>
+        <div class="miniTime"> 30 minutes</div>
+            <img alt="dessertI" class="dessertI" th:src="@{../images/Waffles.svg}" src="../../static/images/Waffles.svg" >
+        <div class="miniTime miniCategories"> Desserts </div>
     </div>
 
     <div class="IngredientTagsField">
@@ -77,7 +78,7 @@
         </div>
     </div>
     <form class="text-form">
-        <img th:src="@{images/quill.svg}" src="../../static/images/quill.svg" alt = "quill" class = "quill">
+        <img th:src="@{../images/quill.svg}" src="../../static/images/quill.svg" alt = "quill" class = "quill">
         <input name="query" placeholder="Add comment" type="text">
         <div class="publish">
             <p class = "c8">Publish</p>
@@ -89,10 +90,6 @@
         </div>
     </div>
         <div class = " comment comment2">
-            <div class = "commentIcon">
-            </div>
-        </div>
-        <div class = "comment comment3">
             <div class = "commentIcon">
             </div>
         </div>
@@ -119,7 +116,7 @@
     <div class="ratingField">
     </div>
         <div class="confirmation">
-            <img th:src="@{images/tick.svg}" src="../../static/images/tick.svg" alt = "quill" class = "tick">
+            <img th:src="@{../images/tick.svg}" src="../../static/images/tick.svg" alt = "quill" class = "tick">
     </div>
     </div>
 </main>
@@ -171,7 +168,7 @@
                 onmouseover="changeImage('telegram-img', '../../static/images/telegram-hover.svg')"
                 onmouseout="restoreImage('telegram-img', '../../static/images/telegram.svg')"
         >
-            <img id="telegram-img" th:src="@{images/telegram.svg}"  src="../../static/images/telegram.svg" alt="telegram" class="telegram">
+            <img id="telegram-img" th:src="@{../images/telegram.svg}"  src="../../static/images/telegram.svg" alt="telegram" class="telegram">
         </div>
     </div>
 
@@ -181,7 +178,7 @@
                 onmouseover="changeImage('instagram-img', '../../static/images/inst-hover.svg')"
                 onmouseout="restoreImage('instagram-img', '../../static/images/inst.svg')"
         >
-            <img id="instagram-img" th:src="@{images/inst.svg}" src="../../static/images/inst.svg" alt="instagram" class="instagram">
+            <img id="instagram-img" th:src="@{../images/inst.svg}" src="../../static/images/inst.svg" alt="instagram" class="instagram">
         </div>
     </div>
 </footer>

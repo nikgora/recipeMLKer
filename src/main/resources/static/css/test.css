@@ -180,7 +180,7 @@ ul hr {
     border: 0.0520834vw solid black;
     border-radius: 50px;
     background: #F2E3B3;
-    margin-left: 0.5vw;
+    margin-left: 0.6vw;
 }
 
 .ulBoard::-webkit-scrollbar-thumb {
@@ -275,6 +275,54 @@ ul hr {
     left: 8vw;
     top: 82vh;
 }
+/*____________________________________________________________________________________________________________________*/
+.substance{
+    width: 2.65625vw;
+    height:5.5556vh;
+}
+
+.mDIcon{
+    width: 2.05vw;
+    height:2.7vh;
+}
+
+.saladI{
+    width: 2.0833vw;
+    height:4.167vh;
+}
+.pastryI{
+    width: 2.34375vw;
+    height: 3.24075vh;
+}
+
+.dessertI{
+    width: 2.34375vw;
+    height: 3.24075vh;
+}
+
+.smoothieI{
+    width: 2.34375vw;
+    height: 4.1667vh;
+}
+.snackI{
+    width: 2.34375vw;/*45*/
+    height: 2.7778vh;/*30*/
+}
+
+.fish{
+    width: 2.34375vw;
+    height: 3.24075vh; /*35*/
+}
+
+.sauceI{
+    width: 1.927084vw;
+    height: 4.3518vh; /*37*/
+}
+
+.hidden {
+    display: none;
+}
+
 /*____________________________________________________________________________________________________________________*/
 .apply-button {
     position: absolute;

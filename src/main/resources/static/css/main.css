@@ -228,6 +228,10 @@ ul hr {
     height: 4.3518vh; /*37*/
 }
 
+.toggleBlock {
+    display: none;
+}
+
 .bean {
     position: absolute;
     width: 2vw;/*35*/
