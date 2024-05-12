@@ -11,9 +11,9 @@
     You have been logged out.
 </div>
 <h1>Log in Form</h1>
-<form id="loginForm" enctype="text/plain" method="post" th:href="@{api/auth/login}" th:action="@{api/auth/login}" onsubmit="return submitForm()">
-    <div><label>User Name: <input value="username" id="username" name="username" type="text"/></label></div>
-    <div><label>Password: <input value="password" id="password" name="password" type="password"/></label></div>
+<form id="loginForm" method="post" th:href="@{api/auth/login}" th:action="@{api/auth/login}" onsubmit="return submitForm()">
+    <div><label>User Name: <input id="username" name="username" type="text"/></label></div>
+    <div><label>Password: <input id="password" name="password" type="password"/></label></div>
     <div><input type="submit" value="Sign In"/></div>
 </form>
 
