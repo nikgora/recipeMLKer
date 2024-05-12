@@ -88,7 +88,7 @@ body {
     text-decoration: none;
 }
 
-.heart, .user {
+.heart, .user .userL{
     width: 3.6458vw;
     height: 5.5555vh;
 }

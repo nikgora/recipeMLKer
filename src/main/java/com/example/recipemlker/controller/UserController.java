@@ -33,13 +33,9 @@ public class UserController {
     private CategoryRepository categoryRepository;
 
     private String jwt = null;
-    @GetMapping("/login")
-    public String loginPage() {
-        return "user/login";
-    }
-
     @GetMapping("/")
-    public String mainPage() {
+    public String mainPage(Model model) {
+        model.addAttribute("isLogin", jwt!=null);
         return "user/main";
     }
     @PostMapping("/api/auth/signup")
