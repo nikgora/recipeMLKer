@@ -30,7 +30,7 @@ body {
     border-radius: 2.7vw;
 }
 
-.search-form input, .inner-window input{
+.search-form input{
     height: 6.19vh;
     width: 41.67vw;
     margin-left: 1vw;
@@ -43,6 +43,11 @@ body {
     font-size: 2.5vw;
     border-radius: 5.5vh;
     outline: none;
+}
+
+.inner-window input{
+    width: 55vw;
+    height: 31vh;
 }
 
 .magnifier{
