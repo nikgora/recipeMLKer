@@ -148,7 +148,8 @@ body {
 .createRecipe,
 .allLists,
 .logInModerator,
-.logOut {
+.logOut,
+.confirm-list-button{
     width: 20.3125vw;
     height: 7.4074vh;
     border-radius: 2.5vh;
@@ -156,6 +157,7 @@ body {
     font-size: 1.7vw;
     border: none;
     margin-bottom: 1.85vh;
+    cursor: pointer;
 }
 
 .createList {
@@ -163,8 +165,14 @@ body {
     background-color: #F28705;
 }
 
-.createRecipe {
+.createRecipe{
     top: 34.1vh;
+    background-color: #F28705;
+}
+
+.confirm-list-button {
+    margin-top: 1.75vh;
+    margin-left: 0.6vh;
     background-color: #F28705;
 }
 
@@ -181,6 +189,11 @@ body {
 .logInModerator{
     background: rgba(242, 183, 5, 0.3);
     top: 34.4vh;
+}
+
+.confirm-list-button:hover {
+    background-color: #FBEFC7;
+    border: 0.5vh solid #F28705;
 }
 /*____________________________________________________________________________________________________________________*/
 .recipesField{
@@ -227,16 +240,17 @@ body {
 }
 
 .list-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: fixed;
+    display: none;
+    top: 40.1vh;
+    left: 11.5vw;
+    z-index: 11;
 }
 
 .list-name {
-    width: 400px;
-    height: 100px;
-    border-radius: 30px;
+    width: 20.83vw;
+    height: 9.259vh;
+    border-radius: 2.7vh;
     background-color: #F2E3B3;
     display: flex;
     justify-content: center;
@@ -244,29 +258,14 @@ body {
 }
 
 .list-name input {
-    width: 355px;
-    height: 85px;
-    border-radius: 30px;
+    width: 18.48958vw;
+    height: 7vh;
+    border-radius: 2.7vh;
     background-color: #FBEFC7;
     outline: none;
     border: none;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 2.1875vw;
-    font-size: 3.8889vh;
-}
-
-.confirm-list-button {
-    background-color: #F28705;
-    border-radius: 30px;
-    border: none;
-    font-size: 1.5em;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.confirm-list-button:hover {
-    background-color: #d07203;
 }
 
 .footer {
@@ -309,7 +308,7 @@ body {
     border: 0.5vh solid #3E5902;
 }
 
-#overlay-support {
+#overlay-support, #overlay-list  {
     position: fixed;
     display: none;
     width: 100%;
@@ -378,14 +377,6 @@ body {
     background-color: transparent;
     border: 0.4vh solid #F2E3B3;
     color: #F2E3B3;
-}
-
-#feedback-input {
-    width: 100%;
-    height: 100px;
-    border: none;
-    padding: 10px;
-    box-sizing: border-box;
 }
 
 .circle-container {

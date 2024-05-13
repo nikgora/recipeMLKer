@@ -18,7 +18,7 @@
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
         <a class="button-style" href="recipe.html" th:href="@{/recipe/1}">Random</a>
 
-        <div class="heart-container" th:if ="${isLogin} == false">
+        <div class="user-container heart-container" th:if ="${isLogin} == false">
             <div class="heart"
                     onmouseover="changeImage('heart-img1', '../../images/heart-hover.svg')"
                     onmouseout="restoreImage('heart-img1', '../../images/heart.svg')">
@@ -26,7 +26,7 @@
             </div>
         </div>
         <a th:href="@{/user}" th:if="${isLogin} == true">
-            <div class="heart-container heart-login-container">
+            <div class="user-container heart-login-container">
                 <div class="heart"
                      onmouseover="changeImage('heart-img2', '../../images/heart-login-hover.svg')"
                      onmouseout="restoreImage('heart-img2', '../../images/heart-login.svg')">

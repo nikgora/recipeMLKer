@@ -50,21 +50,21 @@
 
     <div class="green-line"></div>
 
-    <!--<div class="overlay hidden" id="overlay">
-        <div class="list-container">
-            <div class="list-name">
-                <input type="text" placeholder="Enter list name" id="listName">
-            </div>
-            <button class="confirm-list-button">Confirm</button>
-        </div>
-    </div>-->
-
-    <div class="button-container">
-        <button class="createList">Create a list</button>
+    <div class="button-container" id="button">
+        <button class="createList" id="createList-btn">Create a list</button>
         <button class="createRecipe">Create a recipe</button>
         <button class="allLists">All Lists</button>
         <button class="logOut">Log out</button>
         <button class="logInModerator">Log in as moderator</button>
+    </div>
+
+    <div id="overlay-list" onclick="hideOverlay()"></div>
+
+    <div class="list-container" id="list-field-popup-window">
+        <div class="list-name">
+            <input type="text" placeholder="Enter list name" id="listName">
+        </div>
+        <button class="confirm-list-button" id="confirm-list-btn">Confirm</button>
     </div>
 
     <div class ="recipesField">
@@ -83,7 +83,7 @@
     <div id="overlay-support" onclick="hideOverlay()"></div>
 
     <div class="window" id="popup-window">
-        <div class="search-form inner-window">
+        <div class="inner-window">
             <input name="query" placeholder="Enter feedback" type="text">
         </div>
 
