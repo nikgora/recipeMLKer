@@ -151,40 +151,42 @@
     <div class="addRatingField">
         <div class="ratingField">
             <div class="star-icon">
-                <input type="radio" name="rating" id="rating1">
-                <label for="rating1" class="fa fa-star"></label>
+                <input type="radio" name="rating" id="1">
+                <label for="1" class="fa fa-star"></label>
 
-                <input type="radio" name="rating" id="rating2">
-                <label for="rating2" class="fa fa-star"></label>
+                <input type="radio" name="rating" id="2">
+                <label for="2" class="fa fa-star"></label>
 
-                <input type="radio" name="rating" id="rating3">
-                <label for="rating3" class="fa fa-star"></label>
+                <input type="radio" name="rating" id="3">
+                <label for="3" class="fa fa-star"></label>
 
-                <input type="radio" name="rating" id="rating4">
-                <label for="rating4" class="fa fa-star"></label>
+                <input type="radio" name="rating" id="4">
+                <label for="4" class="fa fa-star"></label>
 
-                <input type="radio" name="rating" id="rating5">
-                <label for="rating5" class="fa fa-star"></label>
+                <input type="radio" name="rating" id="5">
+                <label for="5" class="fa fa-star"></label>
 
-                <input type="radio" name="rating" id="rating6">
-                <label for="rating6" class="fa fa-star"></label>
+                <input type="radio" name="rating" id="6">
+                <label for="6" class="fa fa-star"></label>
 
-                <input type="radio" name="rating" id="rating7">
-                <label for="rating7" class="fa fa-star"></label>
+                <input type="radio" name="rating" id="7">
+                <label for="7" class="fa fa-star"></label>
 
-                <input type="radio" name="rating" id="rating8">
-                <label for="rating8" class="fa fa-star"></label>
+                <input type="radio" name="rating" id="8">
+                <label for="8" class="fa fa-star"></label>
 
-                <input type="radio" name="rating" id="rating9">
-                <label for="rating9" class="fa fa-star"></label>
+                <input type="radio" name="rating" id="9">
+                <label for="9" class="fa fa-star"></label>
 
-                <input type="radio" name="rating" id="rating10">
-                <label for="rating10" class="fa fa-star"></label>
+                <input type="radio" name="rating" id="10">
+                <label for="10" class="fa fa-star"></label>
             </div>
         </div>
-        <div class="confirmation">
-            <img th:src="@{../images/tick.svg}" src="../../images/tick.svg" alt = "quill" class = "tick">
-        </div>
+        <button id="rate-btn">
+            <span class="confirmation">
+                <img th:src="@{../images/tick.svg}" src="../../images/tick.svg" alt="quill" class="tick">
+            </span>
+        </button>
     </div>
 </main>
 
@@ -224,5 +226,26 @@
     </div>
 </footer>
 <script th:href="@{js/scripts.js}" src="../../js/scripts.js"></script>
+<script>
+    function getRating() {
+        var ratingInputs = document.querySelectorAll('input[name="rating"]');
+        var selectedRating = null;
+
+        for (var i = 0; i < ratingInputs.length; i++) {
+            if (ratingInputs[i].checked) {
+                selectedRating = ratingInputs[i].id;
+                break;
+            }
+        }
+        return selectedRating;
+    }
+
+    var button = document.getElementById("rate-btn");
+
+    button.addEventListener("click", function() {
+        var selectedRating = getRating();
+        alert("Selected rating: " + selectedRating)
+    });
+</script>
 </body>
 </html>

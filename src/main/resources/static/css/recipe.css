@@ -524,14 +524,15 @@ body {
     background: #F2B705;
     margin-left: 95vw;
     top: 87.6vh;
+    cursor: pointer;
 }
 
 .tick{
     position: absolute;
     width: 1.5625vw;
     height: 2.32vh;
-    margin-top: 1.5vh;
-    margin-left: 0.5vw;
+    right: 0.5vw;
+    bottom: 1.5vh;
 }
 
 .ratingField div{
