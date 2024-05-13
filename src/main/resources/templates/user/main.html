@@ -25,7 +25,6 @@
                 <img id="heart-img1" th:src="@{images/heart.svg}" src="../../images/heart.svg" alt="heart" class="heart">
             </div>
         </div>
-
         <a th:href="@{/user}" th:if="${isLogin} == true">
             <div class="heart-container heart-login-container">
                 <div class="heart"
@@ -47,10 +46,10 @@
         <a th:href="@{/user}" th:if="${isLogin} == true">
             <button class="user-container"  id="user-btn2" >
                 <div class="user"
-                     onmouseover="changeImage('user-img2', '../../images/user-hover.svg')"
-                     onmouseout="restoreImage('user-img2', '../../images/user.svg')">
+                     onmouseover="changeImage('user-img2', '../../images/user-login-hover.svg')"
+                     onmouseout="restoreImage('user-img2', '../../images/user-login.svg')">
 
-                    <img id="user-img2" th:src="@{images/user.svg}" src="../../images/user.svg" alt="user" class="user">
+                    <img id="user-img2" th:src="@{images/user-login.svg}" src="../../images/user-login.svg" alt="user" class="user">
                 </div>
             </button>
         </a>

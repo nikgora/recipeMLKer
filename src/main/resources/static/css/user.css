@@ -30,7 +30,7 @@ body {
     border-radius: 2.7vw;
 }
 
-.search-form input{
+.search-form input, .inner-window input{
     height: 6.19vh;
     width: 41.67vw;
     margin-left: 1vw;
@@ -39,15 +39,10 @@ body {
     border: none;
     background: #FBEFC7;
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 2.5vh;
     font-size: 2.5vw;
     border-radius: 5.5vh;
     outline: none;
-}
-
-.inner-window input{
-    width: 55vw;
-    height: 31vh;
+    autocomplete: off;
 }
 
 .magnifier{
@@ -70,7 +65,7 @@ body {
     text-decoration: none;
 }
 
-.user {
+.heart img, .user img{
     width: 3.6458vw;
     height: 5.5555vh;
 }
@@ -86,13 +81,14 @@ body {
     background-color: #F2E3B3;
 }
 
-.heart-container:hover {
-}
-
 .user-container:hover {
     background-color: #733506;
     width: 4.6vw;
     height: 9.2593vh;
+}
+
+.heart-container:hover{
+    background-color: #B90F0F;
 }
 
 .home{

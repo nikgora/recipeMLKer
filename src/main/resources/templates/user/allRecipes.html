@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>All recipes</title>
@@ -12,7 +12,7 @@
 
         <form class="search-form">
             <img th:src="@{images/magnifier.svg}" src="../../static/images/magnifier.svg" alt = "magnifier" class = "magnifier">
-            <input name="query" placeholder="Search" type="search">
+            <input name="startWith" placeholder="Search" type="search">
         </form>
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
         <a class="button-style" href="recipe.html" th:href="@{/recipe/1}">Random</a>
@@ -27,7 +27,7 @@
 
         <div class="user-container">
             <div class="user"
-                 onmouseover="changeImage('user-img', '../../images/user-hover.svg')"
+                 onmouseover="changeImage('user-img', '.././images/user-hover.svg')"
                  onmouseout="restoreImage('user-img', '../../images/user.svg')">
 
                 <img id="user-img" th:src="@{images/user.svg}" src="../../images/user.svg" alt="user" class="user">
@@ -103,11 +103,11 @@
 <footer class="footer">
     <button class="support-button" id="support-btn"><span>Support</span></button>
 
-    <div id="overlay" onclick="hideOverlay()"></div>
+    <div id="overlay-support" onclick="hideOverlay()"></div>
 
-    <div class="window" id="popup-window">  <!-- Вікно, яке з'являється при натисканні -->
+    <div class="window" id="popup-window">
         <div class="inner-window">
-            <input name="query" placeholder="Enter feedback" type="search">
+            <input name="query" placeholder="Enter feedback" type="text">
         </div>
 
         <button id="send-button">Send</button>

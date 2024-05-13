@@ -75,17 +75,10 @@ body {
     border-radius: 50%;
 }
 
-.user-container:hover {
+.user-container:hover, .heart-container:hover {
     background-color: #733506;
     width: 4.6vw;
     height: 9.2593vh;
-}
-
-.heart-container:hover {
-    background-color: #733506;
-    width: 4.6vw;
-    height: 9.2593vh;
-    cursor: not-allowed;
 }
 
 .home{
@@ -411,7 +404,7 @@ table td {
     border: 0.46vh solid #3E5902;
 }
 
-#overlay {
+#overlay-support {
     position: fixed;
     display: none;
     width: 100%;
