@@ -18,16 +18,15 @@
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
         <a class="button-style" href="recipe.html" th:href="@{/recipe/1}">Random</a>
 
-        <div class="heart-container" th:if ="${isLogin} == false">
+        <div class="user-container heart-container" th:if ="${isLogin} == false">
             <div class="heart"
                     onmouseover="changeImage('heart-img1', '../../images/heart-hover.svg')"
                     onmouseout="restoreImage('heart-img1', '../../images/heart.svg')">
                 <img id="heart-img1" th:src="@{images/heart.svg}" src="../../images/heart.svg" alt="heart" class="heart">
             </div>
         </div>
-
         <a th:href="@{/user}" th:if="${isLogin} == true">
-            <div class="heart-container heart-login-container">
+            <div class="user-container heart-login-container">
                 <div class="heart"
                      onmouseover="changeImage('heart-img2', '../../images/heart-login-hover.svg')"
                      onmouseout="restoreImage('heart-img2', '../../images/heart-login.svg')">
@@ -47,10 +46,10 @@
         <a th:href="@{/user}" th:if="${isLogin} == true">
             <button class="user-container"  id="user-btn2" >
                 <div class="user"
-                     onmouseover="changeImage('user-img2', '../../images/user-hover.svg')"
-                     onmouseout="restoreImage('user-img2', '../../images/user.svg')">
+                     onmouseover="changeImage('user-img2', '../../images/user-login-hover.svg')"
+                     onmouseout="restoreImage('user-img2', '../../images/user-login.svg')">
 
-                    <img id="user-img2" th:src="@{images/user.svg}" src="../../images/user.svg" alt="user" class="user">
+                    <img id="user-img2" th:src="@{images/user-login.svg}" src="../../images/user-login.svg" alt="user" class="user">
                 </div>
             </button>
         </a>
@@ -75,9 +74,9 @@
 <div class="container">
     <div class="menu">
         <img alt="board" class="board" th:src="@{images/CuttingBoard.svg}" src="../../static/images/CuttingBoard.svg" >
+        <h1 class="boardOneTitle">Categories</h1>
         <div class="ul">
             <ul>
-                <h1 class="h1">Categories</h1>
                 <a th:href="@{/allRecipes(category= Soup )}">
                 <li><img alt="substance" class="substance" th:src="@{images/Soup.svg}"  src="../../static/images/Soup.svg" >
                     First dishes</li>

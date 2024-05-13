@@ -19,7 +19,7 @@
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
         <a class="button-style" href="recipe.html" th:href="@{/recipe/1}">Random</a>
 
-        <div class="heart-container">
+        <div class="user-container heart-container">
             <div class="heart"
                  onmouseover="changeImage('heart-img', '../../images/heart-login-hover.svg')"
                  onmouseout="restoreImage('heart-img', '../../images/heart-login.svg')">
@@ -29,9 +29,9 @@
 
         <button class="user-container" id="user-btn">
             <div class="user"
-                 onmouseover="changeImage('user-img', '../../images/user-hover.svg')"
-                 onmouseout="restoreImage('user-img', '../../images/user.svg')">
-                <img id="user-img" th:src="@{images/user.svg}" src="../../images/user.svg" alt="user" class="user">
+                 onmouseover="changeImage('user-img', '../../images/user-login-hover.svg')"
+                 onmouseout="restoreImage('user-img', '../../images/user-login.svg')">
+                <img id="user-img" th:src="@{images/user-login.svg}" src="../../images/user-login.svg" alt="user" class="user">
             </div>
         </button>
 
@@ -50,21 +50,21 @@
 
     <div class="green-line"></div>
 
-    <!--<div class="overlay hidden" id="overlay">
-        <div class="list-container">
-            <div class="list-name">
-                <input type="text" placeholder="Enter list name" id="listName">
-            </div>
-            <button class="confirm-list-button">Confirm</button>
-        </div>
-    </div>-->
-
-    <div class="button-container">
-        <button class="createList">Create a list</button>
+    <div class="button-container" id="button">
+        <button class="createList" id="createList-btn">Create a list</button>
         <button class="createRecipe">Create a recipe</button>
         <button class="allLists">All Lists</button>
         <button class="logOut">Log out</button>
         <button class="logInModerator">Log in as moderator</button>
+    </div>
+
+    <div id="overlay-list" onclick="hideOverlay()"></div>
+
+    <div class="list-container" id="list-field-popup-window">
+        <div class="list-name">
+            <input type="text" placeholder="Enter list name" id="listName">
+        </div>
+        <button class="confirm-list-button" id="confirm-list-btn">Confirm</button>
     </div>
 
     <div class ="recipesField">
