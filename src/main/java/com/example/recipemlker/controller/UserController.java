@@ -2,14 +2,13 @@ package com.example.recipemlker.controller;
 
 import com.example.recipemlker.dto.AuthDTO;
 import com.example.recipemlker.dto.AuthDTO.JwtAuthenticationResponse;
+import com.example.recipemlker.model.Comment;
 import com.example.recipemlker.model.Recipe;
 import com.example.recipemlker.model.User;
 import com.example.recipemlker.repository.CategoryRepository;
 import com.example.recipemlker.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -30,26 +29,32 @@ public class UserController {
     @Autowired
     private CategoryService categoryService;
     @Autowired
+    private CommentService commentService;
+
+    @Autowired
     private CategoryRepository categoryRepository;
 
     private String jwt = null;
+
     @GetMapping("/")
     public String mainPage(Model model) {
-        model.addAttribute("isLogin", jwt!=null);
+        model.addAttribute("isLogin", jwt != null);
         return "user/main";
     }
+
     @PostMapping("/api/auth/signup")
     public ResponseEntity<JwtAuthenticationResponse> signup(@RequestBody AuthDTO.SignupRequest request) {
-        var jwt1  = authService.signup(request);
-        return ResponseEntity.ok(jwt1) ;
+        var jwt1 = authService.signup(request);
+        return ResponseEntity.ok(jwt1);
     }
 
     @PostMapping("/api/auth/login")
     public ResponseEntity<JwtAuthenticationResponse> signin(@RequestBody AuthDTO.SigninRequest request) {
-        var jwt1  = authService.signin(request);
+        var jwt1 = authService.signin(request);
         jwt = jwt1.token();
         return ResponseEntity.ok(jwt1);
     }
+
     @GetMapping("/allRecipes")
     public String allRecipePage(Model model, @RequestParam(required = false) List<String> device, @RequestParam(required = false) List<String> category, @RequestParam(required = false) List<String> ingredient, @RequestParam(required = false) List<String> startWith, @RequestParam(required = false) Integer minTime, @RequestParam(required = false) Integer maxTime, @RequestParam(required = false) Double minMark, @RequestParam(required = false) Double maxMark) {
         List<Recipe> recipes = this.recipeService.getAllRecipeIsPublished();
@@ -142,6 +147,13 @@ public class UserController {
 
     @PostMapping("/newRecipe")
     public void newRecipePageSubmit(@ModelAttribute Recipe recipe) {
+        
         recipeService.save(recipe);
+    }
+
+    @PostMapping("/newRecipe")
+    public void newComment(@ModelAttribute Comment comment) {
+        comment.setUser();
+        commentService.save(comment);
     }
 }
