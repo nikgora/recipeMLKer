@@ -2,10 +2,8 @@ package com.example.recipemlker.controller;
 
 import com.example.recipemlker.dto.AuthDTO;
 import com.example.recipemlker.dto.AuthDTO.JwtAuthenticationResponse;
-import com.example.recipemlker.model.Comment;
 import com.example.recipemlker.model.Recipe;
 import com.example.recipemlker.model.User;
-import com.example.recipemlker.repository.CategoryRepository;
 import com.example.recipemlker.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -28,11 +26,6 @@ public class UserController {
     private AuthService authService;
     @Autowired
     private CategoryService categoryService;
-    @Autowired
-    private CommentService commentService;
-
-    @Autowired
-    private CategoryRepository categoryRepository;
 
     private String jwt = null;
 
@@ -141,19 +134,20 @@ public class UserController {
     @GetMapping("/newRecipe")
     public String newRecipePageForm(Model model) {
         if (jwt == null) return "redirect:/mustBeLogin";
-        model.addAttribute("recipe", new Recipe());
+        Recipe recipe = new Recipe();
+        User user = (userService.getUserByUsername(jwtService.extractUserName(jwt)));
+        model.addAttribute("user", user);
+        model.addAttribute("category", categoryService.getAllCategory());
+        model.addAttribute("recipe", recipe);
         return "user/newRecipe";
     }
 
-    @PostMapping("/newRecipe")
-    public void newRecipePageSubmit(@ModelAttribute Recipe recipe) {
-        
+    @PostMapping("/api/newRecipe")
+    public String newRecipePageSubmit(@ModelAttribute Recipe recipe) {
+        User user = (userService.getUserByUsername(jwtService.extractUserName(jwt)));
+        recipe.setCategory(categoryService.getCategoryById(1L));
+        recipe.setUser(user);
         recipeService.save(recipe);
-    }
-
-    @PostMapping("/newRecipe")
-    public void newComment(@ModelAttribute Comment comment) {
-        comment.setUser();
-        commentService.save(comment);
+        return "redirect:/user";
     }
 }
