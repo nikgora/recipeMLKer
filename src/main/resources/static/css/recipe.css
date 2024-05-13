@@ -21,6 +21,7 @@ body {
     top: 0.3vw;
 }
 
+
 .search-form {
     display: flex;
     align-items: center;
@@ -30,17 +31,23 @@ body {
     border-radius: 2.7vw;
 }
 
-.search-form input, .inner-window input {
+.search-form input{
     height: 6.19vh;
     width: 41.67vw;
+    margin-left: 1vw;
+    margin-top: 0.2vh;
     flex: 1;
     border: none;
     background: #FBEFC7;
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 2.5vh;
     font-size: 2.5vw;
-    border-radius: 2.7vw;
+    border-radius: 5.5vh;
     outline: none;
+}
+.inner-window input{
+    height: 1vh;
+    width: 41.67vw;
+    border: none;
 }
 
 .magnifier{
@@ -58,6 +65,7 @@ body {
     justify-content: center;
     align-items: center;
     font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.25vh;
     font-size: 1.25vw;
     text-decoration: none;
 }
@@ -290,7 +298,7 @@ body {
     background: #F2E3B3;
     border-radius: 2.778vh;
     left: 2.0834vw;
-    top: 24.3vw;
+    top: 26.6vw;
     width: 42.5vw;
     height: 5.556vh;
 }
@@ -447,8 +455,15 @@ body {
 
 .devicesHeader{
     position: absolute;
-    top: 43vh;
+    top: 43.5vh;
     border-radius: 0;
+}
+
+.deviceContent{
+    position: absolute;
+    top:47vh;
+    left: 2vw;
+    width: 1.5vw ;
 }
 
 .stepByStepHeader{
@@ -696,11 +711,44 @@ body {
     padding: 20px;
 }
 
+.right {
+     width: 45%;
+     background: #D3E4CD;
+     border-radius: 10px;
+     padding: 10px;
+     text-align: center;
+ }
+
+.left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FBEFC7;
+    border-radius: 60px;
+}
+
+.title {
+    font-family: 'Frank Ruhl Libre', serif; /* Використовуйте додаткове визначення типу шрифту */
+    font-size: 48px;  /* Вказуємо розмір шрифту */
+    font-weight: 400; /* Вказуємо вагу шрифту */
+}
+
+.title-container  {
+    position: relative; /* Зміна на relative для контейнера, щоб працював Flexbox */
+    width: 820px;
+    height: 60px;
+    border-radius: 60px;
+    background: #FBEFC7;
+    display: flex;  /* Включаємо Flexbox */
+    justify-content: center; /* Центрування по горизонталі */
+    align-items: center;
+}
+
 .amountContent {
-    position: absolute;
     padding-left: 0.52vw;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.3vw;
+    text-align: center;
 }
 
 .ingredientContent {
@@ -709,9 +757,4 @@ body {
     color: black;
 }
 
-.deviceContent{
-    position: absolute;
-    top:47vh;
-    left: 2vw;
-    width: 1.5vw ;
-}
+

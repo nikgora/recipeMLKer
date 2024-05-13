@@ -1,10 +1,13 @@
 package com.example.recipemlker.service;
 
 import com.example.recipemlker.model.Category;
-import com.example.recipemlker.model.Recipe;
-import com.example.recipemlker.repository.CategoryRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
 
 public interface CategoryService {
     Category getCategoryByTitle(String title);
+
+    Category getCategoryById(Long id);
+
+    List<String> getAllCategory();
 }
