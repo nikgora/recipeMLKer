@@ -316,13 +316,23 @@ body {
     width: 2.5vw;
 }
 
-.publish{
+#publish{
     position: absolute;
     width: 6.5vw;
     height: 5.556vh;
     margin-left: 39.2vw;
-    background-color:  #F28705;
+    background-color: #F28705;
     border-radius: 5vh;
+    align-items: center;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.5625vw;
+    border: none;
+    cursor: pointer;
+}
+
+#publish:hover{
+    background-color: #FBEFC7;
+    border: 0.5vh solid #F28705;
 }
 
 .c8{
