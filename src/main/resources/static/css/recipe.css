@@ -340,25 +340,41 @@ body {
     width: 46.875vw;
     height: 33.2vh;
     margin-left: 2.0834vw;
-    top: 59.4vh;
+    top: 57vh;
     background: #F2E3B3;
     border-radius: 5vh;
 }
-
+.comment-user {
+    width: 2vw;
+    height: 3vh;
+}
+.comment-user-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F2F2EB;
+    border-radius: 50%;
+    margin-left: 0.26vw;
+    margin-top: 0.46vh;
+    width: 2.6vw;
+    height: 4.6vh;
+}
 .comment{
     position: absolute;
+    display: flex;
     width: 42.9vw;
     height: 11.5vh;
     margin-left: 2.0834vw;
     margin-top: 2vh;
     background-color:  #FBEFC7;
     border-radius: 5vh;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.5625vw;
 }
-
-.comment2{
+.comment1{
     margin-top: 15.5vh;
 }
-.comment3{
+.comment2{
     margin-top: 29vh;
 }
 /*____________________________________________________________________________________________________________________*/
@@ -479,6 +495,34 @@ body {
     height: 2.32vh;
     margin-top: 1.5vh;
     margin-left: 0.5vw;
+}
+
+.ratingField div{
+    font-size: 2.5vw;
+    color: #F2B705;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.ratingField input{
+    display: none;
+}
+
+.ratingField input + label{
+    cursor: pointer;
+}
+
+.ratingField input:checked + label{
+    color: #F2B705;
+}
+
+.ratingField input:checked + label ~ label {
+    color: #E0E0E0;
+}
+
+.ratingField label:active{
+    transform: scale(0.8);
+    transition: 0.3s ease;
 }
 /*____________________________________________________________________________________________________________________*/
 /*.stick{*/
@@ -682,4 +726,18 @@ body {
     font-weight: 600;
     line-height: 31px;
     color: #000000;
+}
+
+
+.amountContent {
+    padding-left: 0.52vw;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.3vw;
+    text-align: center;
+}
+
+.ingredientContent {
+    padding-left: 13vw;
+    font-size: 1.5vw;
+    color: black;
 }
