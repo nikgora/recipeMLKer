@@ -298,17 +298,16 @@ body {
     background: #F2E3B3;
     border-radius: 2.778vh;
     left: 2.0834vw;
-    top: 26.6vw;
+    top: 24.3vw;
     width: 42.5vw;
-    height: 5.556vh;
+    height: 6vh;
 }
 
 .text-form input, .inner-window input {
     position: absolute;
     width: 37.5vw;
-    height: 4vh;
+    height: 6vh;
     left: 4.0834vw;
-    margin-top: 0.2vh;
     flex: 2;
     border: none;
     background: #F2E3B3;

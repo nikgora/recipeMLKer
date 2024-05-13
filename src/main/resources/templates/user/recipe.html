@@ -41,29 +41,6 @@
         </a>
     </div>
 </header>
-<!--<p th:text="${recipe.getDescription()}"></p>
-<a th:href="@{/allRecipes(category=${recipe.getCategory().getTitle()})}"
-   th:text="${recipe.getCategory().getTitle()}"></a>
-<p th:text="${recipe.getAverageMark()}"></p>
-<table th:each="devices: ${recipe.getRecipeDevices()}">
-    <tr>
-        <td th:text="${devices.cookingDevice.getName()}"></td>
-    </tr>
-</table>
-<table th:each="ingedients: ${recipe.getRecipeIngredients()}">
-    <tr>
-        <td><a th:href="@{/allRecipes(ingedient=${ingedients.ingredient.getName()})}"
-               th:text="${ingedients.ingredient.getName()}"></a>
-        </td>
-        <td th:text="${ingedients.getAmountOfIngredient()}">
-        </td>
-    </tr>
-</table>
-<table th:each="comment : ${recipe.getComments()}">
-    <tr th:text="${comment.getUser().getId()}"></tr>
-    <tr th:text="${comment.getText()}"></tr>
-</table>-->
-
 <main>
     <img alt="recipeIcon" class="recipeIcon" th:src="@{../images/Recipe.svg}" src="../../images/Recipe.svg" >
     <div class = "RecipeTitle">
@@ -121,9 +98,7 @@
     <form class="text-form" th:action="@{/api/newComment/{id1}(id1=${id})}" method="post" th:object="${comment}">
         <img th:src="@{../images/quill.svg}" src="../../static/images/quill.svg" alt = "quill" class = "quill">
             <input name="startWith" th:field="${comment.text}" placeholder="Add comment" type="text">
-        <div class="publish">
-            <p class = "c8">Publish</p>
-        </div>
+        <button id="publish">Publish</button>
     </form>
     <div class="commentField">
         <div th:each="comment, commentStat : ${recipe.getComments()}"
@@ -167,11 +142,6 @@
                 </table>
             </div>
         </div>
-        <div class="stepByStepField">
-            <div class="ingredientsHeader stepByStepHeader">Step-by-step instructions</div>
-            <div class="amountContent" th:text="${recipe.getDescription()}"></div>
-        </div>
-    </div>
         <div class="stepByStepField">
             <div class="ingredientsHeader stepByStepHeader">Step-by-step instructions</div>
             <div class="amountContent" th:text="${recipe.getDescription()}"></div>
