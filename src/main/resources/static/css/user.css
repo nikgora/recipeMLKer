@@ -30,7 +30,7 @@ body {
     border-radius: 2.7vw;
 }
 
-.search-form input{
+.search-form input, .inner-window input{
     height: 6.19vh;
     width: 41.67vw;
     margin-left: 1vw;
