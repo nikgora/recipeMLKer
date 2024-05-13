@@ -54,7 +54,7 @@ body {
     background-color: #3E5902;
     height: 5.7407vh;
     width: 6.4640625vw;
-    border-radius: 30px;
+    border-radius: 2.7vw;
     color: white;
     justify-content: center;
     align-items: center;
@@ -110,33 +110,43 @@ a:visited, a:link {
     flex-direction: column;
     justify-content: flex-start;
     margin-left: 4vw;
-    margin-top: 1.852vh;
+    margin-top: 1vh;
     margin-right: 1.7vw;
 }
 
 .h1 {
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 2.4vw; /*42*/
-    font-size: 3.8889vh;
     color: #733506;
     position: absolute;
-    margin-left: 3.4vw;
-    bottom: 0.2605vh;
-    margin-bottom: 34vh;
-    padding-bottom: 1vh;
+    margin-left: 5.4vw;
+    margin-top: 1vh;
+
+}
+
+.boardTwoTitle{
+    position: absolute;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2vw; /*42*/
+    color: #733506;
+    width: 3vw;
+    height: 4vh;
+    margin-left: 6.1vw;
+    margin-top: 16.5vh;
+
 }
 
 .ulBoard {
     position: absolute;
-    top: 30vh;
-    height: 39vh;
+    top: 33.5vh;
+    height: 37vh;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.66667vw;
     overflow-y: auto;
     overflow-x: hidden;
     padding-left: 0.2605vw;
-    margin-top: 1vh;
-    margin-left: 1.8vw;
+    margin-top: 0.1vh;
+    margin-left: 1.7vw;
 
 }
 
@@ -156,7 +166,7 @@ ul li:hover {
     background-color: #F2B705;
     border-radius: 5.5vw;
     height: 5vh;
-    width: 8.7vw;
+    width: 10vw;
 }
 
 ul hr {

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
-    <title>Recipe</title>
+    <title th:text="${recipe.title}"></title>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link rel="stylesheet" type="text/css" th:href="@{../css/recipe.css}" href="../../static/css/recipe.css" >
@@ -14,9 +14,7 @@
 
         <form class="search-form">
             <img th:src="@{../images/magnifier.svg}" src="../../static/images/magnifier.svg" alt = "magnifier" class = "magnifier">
-            <label>
-                <input name="query" placeholder="Search" type="search">
-            </label>
+            <input name="query" placeholder="Search" type="search">
         </form>
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
         <a class="button-style" href="recipe.html" th:href="@{/recipe/1}">Random</a>
@@ -122,16 +120,16 @@
     </div>
     <form class="text-form">
         <img th:src="@{../images/quill.svg}" src="../../static/images/quill.svg" alt = "quill" class = "quill">
-        <label>
-            <input name="startWith" placeholder="Add comment" type="text">
-        </label>
+
+        <input name="startWith" placeholder="Add comment" type="text">
+
         <div class="publish">
             <p class = "c8">Publish</p>
         </div>
     </form>
     <div class="commentField">
-        <<div th:each="comment, commentStat : ${recipe.getComments()}"
-              th:class="${commentStat.first} ? 'comment comment' : 'comment comment' + ${commentStat.count}">
+        <div th:each="comment, commentStat : ${recipe.getComments()}"
+             th:class="${commentStat.first} ? 'comment comment' : 'comment comment' + ${commentStat.count}">
             <div class="comment-user-circle">
                 <img id="comment-user" src="../../images/Chef Hat.svg" alt="comment-user" class="comment-user">
             </div>
@@ -163,7 +161,7 @@
                 </table>
             </div>
             <div class="ingredientsHeader devicesHeader">Cooking devices</div>
-            <div class="amountContent">
+            <div class="amountContent deviceContent">
                 <table th:each="devices: ${recipe.getRecipeDevices()}">
                     <tr>
                         <td th:text="${devices.cookingDevice.getName()}"></td>

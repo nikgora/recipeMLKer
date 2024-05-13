@@ -291,7 +291,7 @@ body {
     background: #F2E3B3;
     border-radius: 2.778vh;
     left: 2.0834vw;
-    top: 26.6vw;
+    top: 24.3vw;
     width: 42.5vw;
     height: 5.556vh;
 }
@@ -344,7 +344,7 @@ body {
     width: 46.875vw;
     height: 33.2vh;
     margin-left: 2.0834vw;
-    top: 57vh;
+    top: 59.8vh;
     background: #F2E3B3;
     border-radius: 5vh;
 }
@@ -437,7 +437,8 @@ body {
 }
 
 .devicesHeader{
-    margin-top: 30vh;
+    position: absolute;
+    top: 43vh;
     border-radius: 0;
 }
 
@@ -458,11 +459,12 @@ body {
 }
 
 .ratingField{
+    position: absolute;
     width: 41.7vw;
     height: 5.556vh;
     background: #3E5902;
     border-radius: 5vh;
-    margin-top: 70vh;
+    top: 87.6vh;
     margin-left: 51.2vw;
 }
 
@@ -685,44 +687,11 @@ body {
     padding: 20px;
 }
 
-.right {
-     width: 45%;
-     background: #D3E4CD;
-     border-radius: 10px;
-     padding: 10px;
-     text-align: center;
- }
-
-.left {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #FBEFC7;
-    border-radius: 60px;
-}
-
-.title {
-    font-family: 'Frank Ruhl Libre', serif; /* Використовуйте додаткове визначення типу шрифту */
-    font-size: 48px;  /* Вказуємо розмір шрифту */
-    font-weight: 400; /* Вказуємо вагу шрифту */
-}
-
-.title-container  {
-    position: relative; /* Зміна на relative для контейнера, щоб працював Flexbox */
-    width: 820px;
-    height: 60px;
-    border-radius: 60px;
-    background: #FBEFC7;
-    display: flex;  /* Включаємо Flexbox */
-    justify-content: center; /* Центрування по горизонталі */
-    align-items: center;
-}
-
 .amountContent {
+    position: absolute;
     padding-left: 0.52vw;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.3vw;
-    text-align: center;
 }
 
 .ingredientContent {
@@ -731,4 +700,9 @@ body {
     color: black;
 }
 
-
+.deviceContent{
+    position: absolute;
+    top:47vh;
+    left: 2vw;
+    width: 1.5vw ;
+}
