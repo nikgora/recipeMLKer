@@ -21,6 +21,7 @@ body {
     top: 0.3vw;
 }
 
+
 .search-form {
     display: flex;
     align-items: center;
@@ -30,17 +31,23 @@ body {
     border-radius: 2.7vw;
 }
 
-.search-form input, .inner-window input {
+.search-form input{
     height: 6.19vh;
     width: 41.67vw;
+    margin-left: 1vw;
+    margin-top: 0.2vh;
     flex: 1;
     border: none;
     background: #FBEFC7;
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 2.5vh;
     font-size: 2.5vw;
-    border-radius: 2.7vw;
+    border-radius: 5.5vh;
     outline: none;
+}
+.inner-window input{
+    height: 1vh;
+    width: 41.67vw;
+    border: none;
 }
 
 .magnifier{
@@ -344,7 +351,7 @@ body {
     width: 46.875vw;
     height: 33.2vh;
     margin-left: 2.0834vw;
-    top: 57vh;
+    top: 59.8vh;
     background: #F2E3B3;
     border-radius: 5vh;
 }
@@ -437,8 +444,16 @@ body {
 }
 
 .devicesHeader{
-    margin-top: 30vh;
+    position: absolute;
+    top: 43.5vh;
     border-radius: 0;
+}
+
+.deviceContent{
+    position: absolute;
+    top:47vh;
+    left: 2vw;
+    width: 1.5vw ;
 }
 
 .stepByStepHeader{
@@ -458,11 +473,12 @@ body {
 }
 
 .ratingField{
+    position: absolute;
     width: 41.7vw;
     height: 5.556vh;
     background: #3E5902;
     border-radius: 5vh;
-    margin-top: 70vh;
+    top: 87.6vh;
     margin-left: 51.2vw;
 }
 

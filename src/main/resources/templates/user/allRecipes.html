@@ -7,7 +7,7 @@
 </head>
 <header>
     <div class="header">
-        <img th:src="@{images/logo1.svg}" src="../../static/images/logo1.svg" alt = "logo1" class = "logo1">
+        <img th:src="@{images/logo.svg}" src="../../static/images/logo.svg" alt = "logo" class = "logo">
 
 
         <form class="search-form">
@@ -16,7 +16,6 @@
         </form>
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
         <a class="button-style" href="recipe.html" th:href="@{/recipe/1}">Random</a>
-        <a class="home" href="main.html" th:href="@{/}" > </a>
         <div class="heart-container">
             <div class="heart"
                  onmouseover="changeImage('heart-img', '../../static/images/heart-hover.svg')"
@@ -34,19 +33,21 @@
             </div>
         </div>
 
-        <img th:src="@{images/home.svg}" src="../../static/images/home.svg" alt = "home" class = "home" >
-        <a href = "main.html" th:href="@{images/home.svg}"></a>
+        <a th:href="@{/}" href="main.html">
+            <img th:src="@{images/home.svg}" src="../../images/home.svg" alt="home" class="home">
+        </a>
 
     </div>
 </header>
 <body>
 
 <main>
+    <h1 class="boardTwoTitle">Filters</h1>
     <img alt="board" class="board" th:src="@{images/CuttingBoard.svg}" src="../../static/images/CuttingBoard.svg" >
     <button class="apply-button"><span>Apply</span></button>
     <div class="ulBoard">
+        <div class="h1"></div>
         <ul>
-            <h1 class="h1">Filters</h1>
             <li><img alt="categoriesI" class="categoriesI" th:src="@{images/Categories.svg}"  src="../../static/images/Categories.svg" >
                 Categories</li>
             <hr>
@@ -74,38 +75,30 @@
     </div>
     <img alt="coffeeBean" class="bean" th:src="@{images/coffeeBean.svg}" src="../../static/images/coffeeBean.svg" >
     <div class="mainField">
-        <div class="field ">
+        <div class="field" id="recipeContainer"  th:if="${recipes.size()!=0}">
             <div class="ol">
-                <ol>
-                    <li> <div class="smallerField">
-<!--                        <h2 class="h2">Title</h2>-->
-                        <table th:each="recipe: ${recipes}">
-                            <tr>
-                                <td th:text="${recipe.getCategory().getTitle()}"></td>
-                            </tr>
-
-                            <tr>
+                <div th:each="recipe, i : ${recipes}"
+                     th:class="${i.index == 0} ? 'smallerField smallerField' : 'smallerField smallerField-down' + (${i.index})">
+                    <table>
+                        <tr>
+                            <th th:text="${recipe.getCategory().getTitle()}"></th>
+                        </tr>
+                        <tr>
+                            <td>
                                 <a th:href="@{/recipe/{id}(id=${recipe.getId()})}" th:text="${recipe.getTitle()}"></a>
-                                <td th:text="${recipe.getCookingTime()}+' minutes'"></td>
-                            </tr>
-                            <tr>
-                                <td th:text="${recipe.getAverageMark()}">
-                                </td>
-                            </tr>
-                        </table>
-<!--                        <p class="h2-down"> Categories  </p>-->
-<!--                        <p class="h2-right">Time for cooking   </p>-->
-<!--                        <p class="h2-right"> 4.5</p>-->
-                    </div>
-                    </li>
-                    <li><div class="smallerField smallerField-down1 "></div></li>
-                    <li><div class="smallerField smallerField-down2 "></div></li>
-                    <li><div class="smallerField smallerField-down3 "></div></li>
-                    <li><div class="smallerField smallerField-down4 "></div></li>
-                </ol>
+                            </td>
+                            <td th:text="${recipe.getCookingTime()} + ' minutes'"></td>
+                            <td th:text="${recipe.getAverageMark()}"></td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
+        <div class="field" id="recipeContainer1" th:if="${recipes.size()==0}">
+            NO SUCH RECIPES!
+        </div>
     </div>
+
 </main>
 
 </body>
