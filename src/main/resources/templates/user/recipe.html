@@ -161,7 +161,7 @@
                 </table>
             </div>
             <div class="ingredientsHeader devicesHeader">Cooking devices</div>
-            <div class="amountContent">
+            <div class="amountContent deviceContent">
                 <table th:each="devices: ${recipe.getRecipeDevices()}">
                     <tr>
                         <td th:text="${devices.cookingDevice.getName()}"></td>

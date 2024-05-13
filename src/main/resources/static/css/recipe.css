@@ -344,7 +344,7 @@ body {
     width: 46.875vw;
     height: 33.2vh;
     margin-left: 2.0834vw;
-    top: 62vh;
+    top: 59.8vh;
     background: #F2E3B3;
     border-radius: 5vh;
 }
@@ -437,7 +437,8 @@ body {
 }
 
 .devicesHeader{
-    margin-top: 30vh;
+    position: absolute;
+    top: 43vh;
     border-radius: 0;
 }
 
@@ -458,11 +459,12 @@ body {
 }
 
 .ratingField{
+    position: absolute;
     width: 41.7vw;
     height: 5.556vh;
     background: #3E5902;
     border-radius: 5vh;
-    margin-top: 70vh;
+    top: 87.6vh;
     margin-left: 51.2vw;
 }
 
@@ -686,16 +688,23 @@ body {
 }
 
 .amountContent {
+    position: absolute;
     padding-left: 0.52vw;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.3vw;
-    text-align: center;
 }
 
 .ingredientContent {
     padding-left: 13vw;
     font-size: 1.5vw;
     color: black;
+}
+
+.deviceContent{
+    position: absolute;
+    top:47vh;
+    left: 2vw;
+    width: 1.5vw ;
 }
 
 
