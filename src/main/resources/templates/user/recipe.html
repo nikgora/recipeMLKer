@@ -10,10 +10,11 @@
 <body>
 <header>
     <div class="header">
-        <img th:src="@{images/logo.svg}" src="../../images/logo.svg" alt = "logo" class = "logo">
+        <img th:src="@{images/logo.svg}" src="../../images/logo.svg" alt="logo" class="logo">
 
         <form class="search-form">
-            <img th:src="@{images/magnifier.svg}" src="../../static/images/magnifier.svg" alt = "magnifier" class = "magnifier">
+            <img th:src="@{images/magnifier.svg}" src="../../static/images/magnifier.svg" alt="magnifier"
+                 class="magnifier">
             <input name="query" placeholder="Search" type="search">
         </form>
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
@@ -65,63 +66,63 @@
 </table>-->
 
 <main>
-    <img alt="recipeIcon" class="recipeIcon" th:src="@{images/Recipe.svg}" src="../../images/Recipe.svg" >
-    <div class = "RecipeTitle">
+    <img alt="recipeIcon" class="recipeIcon" th:src="@{images/Recipe.svg}" src="../../images/Recipe.svg">
+    <div class="RecipeTitle">
         <p class="c3" th:text="${recipe.getTitle()}">Pancakes</p>
     </div>
-    <div class = "RecipeRating">
-        <p class = "num" th:text="${recipe.getAverageMark()}">8.8</p>
+    <div class="RecipeRating">
+        <p class="num" th:text="${recipe.getAverageMark()}">8.8</p>
     </div>
-    <div class = "FavoriteList">
-        <p class = "c4">Favorite list</p>
+    <div class="FavoriteList">
+        <p class="c4">Favorite list</p>
     </div>
-    <div class = "UserList">
-        <p class = "c5">User list</p>
+    <div class="UserList">
+        <p class="c5">User list</p>
     </div>
-    <div class = "Report">
-        <p class = "c6">Report</p>
+    <div class="Report">
+        <p class="c6">Report</p>
     </div>
-    <div class = "stick"></div>
+    <div class="stick"></div>
     <div class="mini">
         <p class="miniTime" th:text="${recipe.getCookingTime()}  + ' minutes'"> 30 minutes</p>
-        <img alt="dessertI" class="dessertI" th:src="@{images/Waffles.svg}" src="../../images/Waffles.svg" >
+        <img alt="dessertI" class="dessertI" th:src="@{images/Waffles.svg}" src="../../images/Waffles.svg">
         <p class="miniTime miniCategories" th:text="${recipe.getCategory().getTitle()}"> Desserts </p>
     </div>
 
     <div class="IngredientTagsField">
         <p class="content"> #flour #baking_powder #sugar #milk #butter #eggs</p>
         <div class="IngredientTagsTitle">
-            <p class = "c7">Ingredient tags</p>
+            <p class="c7">Ingredient tags</p>
         </div>
     </div>
     <div class="IngredientTagsField DeviceTagsField ">
         <p class="content">#electric_mixer</p>
         <div class="IngredientTagsTitle">
-            <p class = "c7 devices">Devices tags</p>
+            <p class="c7 devices">Devices tags</p>
         </div>
     </div>
-    <form class="text-form">
-        <img th:src="@{images/quill.svg}" src="../../static/images/quill.svg" alt = "quill" class = "quill">
-        <input name="query" placeholder="Add comment" type="text">
+    <form class="text-form" th:action="@{/api/newComment/{id1}(id1=${id})}" method="post" th:object="${comment}">
+        <img th:src="@{images/quill.svg}" src="../../static/images/quill.svg" alt="quill" class="quill">
+        <input placeholder="Add comment" th:field="${comment.text}" type="text">
         <div class="publish">
-            <p class = "c8">Publish</p>
+            <p class="c8">Publish</p>
         </div>
     </form>
-    <div class = "commentField">
-        <div class = "comment">
-            <div class = "commentIcon">
+    <div class="commentField">
+        <div class="comment">
+            <div class="commentIcon">
             </div>
         </div>
-        <div class = " comment comment2">
-            <div class = "commentIcon">
+        <div class=" comment comment2">
+            <div class="commentIcon">
             </div>
         </div>
-        <div class = "comment comment3">
-            <div class = "commentIcon">
+        <div class="comment comment3">
+            <div class="commentIcon">
             </div>
         </div>
     </div>
-    <div class = "stick stick2"></div>
+    <div class="stick stick2"></div>
 
     <div class="fullRecipe">
         <div class="fullRecipeHeader">
@@ -173,7 +174,7 @@
             </div>
         </div>
         <div class="confirmation">
-            <img th:src="@{images/tick.svg}" src="../../images/tick.svg" alt = "quill" class = "tick">
+            <img th:src="@{images/tick.svg}" src="../../images/tick.svg" alt="quill" class="tick">
         </div>
     </div>
 </main>

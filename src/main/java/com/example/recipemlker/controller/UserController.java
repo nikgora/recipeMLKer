@@ -2,6 +2,7 @@ package com.example.recipemlker.controller;
 
 import com.example.recipemlker.dto.AuthDTO;
 import com.example.recipemlker.dto.AuthDTO.JwtAuthenticationResponse;
+import com.example.recipemlker.model.Comment;
 import com.example.recipemlker.model.Recipe;
 import com.example.recipemlker.model.User;
 import com.example.recipemlker.service.*;
@@ -26,6 +27,8 @@ public class UserController {
     private AuthService authService;
     @Autowired
     private CategoryService categoryService;
+    @Autowired
+    private CommentService commentService;
 
     private String jwt = null;
 
@@ -126,6 +129,8 @@ public class UserController {
         }
         if (this.recipeService.getRecipeById(id).isPublished()) {
             model.addAttribute("recipe", this.recipeService.getRecipeById(id));
+            model.addAttribute("id", id);
+            model.addAttribute("comment", new Comment());
             return "user/recipe";
         }
         return "redirect:/403";
@@ -149,5 +154,20 @@ public class UserController {
         recipe.setUser(user);
         recipeService.save(recipe);
         return "redirect:/user";
+    }
+
+    @PostMapping("/api/newComment/{id}")
+    public String newComment(@ModelAttribute Comment comment, @PathVariable("id") Long id) {
+
+        if (jwt == null) return "redirect:/mustBeLogin";
+        if (this.recipeService.getRecipeById(id) == null) {
+            return "redirect:/404";
+        }
+        if (!this.recipeService.getRecipeById(id).isPublished()) return "redirect:/403";
+        comment.setUser(userService.getUserByUsername(jwtService.extractUserName(jwt)));
+        comment.setRecipe(recipeService.getRecipeById(id));
+        commentService.save(comment);
+        String string = "/recipe/" + id;
+        return string;
     }
 }
