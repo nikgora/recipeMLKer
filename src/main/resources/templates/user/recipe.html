@@ -4,18 +4,17 @@
     <title>Recipe</title>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link rel="stylesheet" type="text/css" href="../../static/css/recipe.css" th:href="@{../css/recipe.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{../css/recipe.css}" href="../../static/css/recipe.css" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <header>
     <div class="header">
-        <img th:src="@{images/logo.svg}" src="../../images/logo.svg" alt="logo" class="logo">
+        <img th:src="@{../images/logo.svg}" src="../../images/logo.svg" alt = "logo" class = "logo">
 
         <form class="search-form">
-            <img th:src="@{images/magnifier.svg}" src="../../static/images/magnifier.svg" alt="magnifier"
-                 class="magnifier">
-            <input name="query" placeholder="Search" type="search">
+            <img th:src="@{../images/magnifier.svg}" src="../../static/images/magnifier.svg" alt = "magnifier" class = "magnifier">
+                <input name="query" placeholder="Search" type="search">
         </form>
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
         <a class="button-style" href="recipe.html" th:href="@{/recipe/1}">Random</a>
@@ -38,7 +37,7 @@
         </div>
 
         <a th:href="@{/}" href="main.html">
-            <img th:src="@{images/home.svg}" src="../../images/home.svg" alt="home" class="home">
+            <img th:src="@{../images/home.svg}" src="../../images/home.svg" alt="home" class="home">
         </a>
     </div>
 </header>
@@ -66,12 +65,14 @@
 </table>-->
 
 <main>
-    <img alt="recipeIcon" class="recipeIcon" th:src="@{images/Recipe.svg}" src="../../images/Recipe.svg">
-    <div class="RecipeTitle">
+    <img alt="recipeIcon" class="recipeIcon" th:src="@{../images/Recipe.svg}" src="../../images/Recipe.svg" >
+    <div class = "RecipeTitle">
         <p class="c3" th:text="${recipe.getTitle()}">Pancakes</p>
     </div>
     <div class="RecipeRating">
-        <p class="num" th:text="${recipe.getAverageMark()}">8.8</p>
+        <a th:href="@{/allRecipes(rating=${recipe.getAverageMark()})}">
+            <p class="num" th:text="${recipe.getAverageMark()}">8.8</p>
+        </a>
     </div>
     <div class="FavoriteList">
         <p class="c4">Favorite list</p>
@@ -85,58 +86,95 @@
     <div class="stick"></div>
     <div class="mini">
         <p class="miniTime" th:text="${recipe.getCookingTime()}  + ' minutes'"> 30 minutes</p>
-        <img alt="dessertI" class="dessertI" th:src="@{images/Waffles.svg}" src="../../images/Waffles.svg">
+        <img alt="dessertI" class="dessertI" th:src="@{../images/Waffles.svg}" src="../../images/Waffles.svg" >
         <p class="miniTime miniCategories" th:text="${recipe.getCategory().getTitle()}"> Desserts </p>
     </div>
 
     <div class="IngredientTagsField">
-        <p class="content"> #flour #baking_powder #sugar #milk #butter #eggs</p>
         <div class="IngredientTagsTitle">
-            <p class="c7">Ingredient tags</p>
+            <p class = "c7">Ingredient tags</p>
+            <div class="ingredientContent">
+                <table th:each="ingedients: ${recipe.getRecipeIngredients()}">
+                    <tr>
+                        <td>
+                            <a th:href="@{/allRecipes(ingredient=${ingedients.ingredient.getName()})}" th:text="'#' + ${ingedients.ingredient.getName()}"></a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
     <div class="IngredientTagsField DeviceTagsField ">
-        <p class="content">#electric_mixer</p>
         <div class="IngredientTagsTitle">
-            <p class="c7 devices">Devices tags</p>
+            <p class = "c7 devices">Devices tags</p>
+        </div>
+        <div class="ingredientContent">
+            <table th:each="devices: ${recipe.getRecipeDevices()}">
+                <tr>
+                    <td>
+                        <a th:href="@{/allRecipes(device=${devices.cookingDevice.getName()})}" th:text="'#' + ${devices.cookingDevice.getName()}"></a>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
     <form class="text-form" th:action="@{/api/newComment/{id1}(id1=${id})}" method="post" th:object="${comment}">
-        <img th:src="@{images/quill.svg}" src="../../static/images/quill.svg" alt="quill" class="quill">
-        <input placeholder="Add comment" th:field="${comment.text}" type="text">
+        <img th:src="@{../images/quill.svg}" src="../../static/images/quill.svg" alt = "quill" class = "quill">
+            <input name="startWith" th:field="${comment.text}" placeholder="Add comment" type="text">
         <div class="publish">
-            <p class="c8">Publish</p>
+            <p class = "c8">Publish</p>
         </div>
     </form>
     <div class="commentField">
-        <div class="comment">
-            <div class="commentIcon">
+        <div th:each="comment, commentStat : ${recipe.getComments()}"
+              th:class="${commentStat.first} ? 'comment comment' : 'comment comment' + ${commentStat.count}">
+            <div class="comment-user-circle">
+                <img id="comment-user" src="../../images/Chef Hat.svg" alt="comment-user" class="comment-user">
             </div>
-        </div>
-        <div class=" comment comment2">
-            <div class="commentIcon">
-            </div>
-        </div>
-        <div class="comment comment3">
-            <div class="commentIcon">
-            </div>
+            <table>
+                <tbody>
+                <tr>
+                    <td th:text="${comment.getText()}"></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
-    <div class="stick stick2"></div>
+
+    <div class = "stick stick2"></div>
 
     <div class="fullRecipe">
         <div class="fullRecipeHeader">
             <p class="frTitle">Recipe</p>
         </div>
         <div class="amountField">
-            <div class="ingredientsHeader"></div>
-            <p class="iTitle">Ingredient amount</p>
-            <div class="ingredientsHeader devisesHeader"></div>
-            <p class="iTitle dTitle">Deviсes</p>
+            <div class="ingredientsHeader">Ingredient amount</div>
+            <div class="amountContent">
+                <table th:each="ingedients: ${recipe.getRecipeIngredients()}">
+                    <tr>
+                        <td th:text="${ingedients.ingredient.getName()}"></td>
+                        <td th:text="' - ' + ${ingedients.getAmountOfIngredient()}">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="ingredientsHeader devicesHeader">Cooking devices</div>
+            <div class="amountContent deviceContent">
+                <table th:each="devices: ${recipe.getRecipeDevices()}">
+                    <tr>
+                        <td th:text="${devices.cookingDevice.getName()}"></td>
+                    </tr>
+                </table>
+            </div>
         </div>
-        <div class="stepByStepField" th:text="${recipe.getDescription()}">
-            <div class="stepByStepHeader"></div>
-            <p class="iTitle sbsTitle">Step-by-step instructions</p>
+        <div class="stepByStepField">
+            <div class="ingredientsHeader stepByStepHeader">Step-by-step instructions</div>
+            <div class="amountContent" th:text="${recipe.getDescription()}"></div>
+        </div>
+    </div>
+        <div class="stepByStepField">
+            <div class="ingredientsHeader stepByStepHeader">Step-by-step instructions</div>
+            <div class="amountContent" th:text="${recipe.getDescription()}"></div>
         </div>
     </div>
     <div class="addRatingField">
@@ -174,7 +212,7 @@
             </div>
         </div>
         <div class="confirmation">
-            <img th:src="@{images/tick.svg}" src="../../images/tick.svg" alt="quill" class="tick">
+            <img th:src="@{../images/tick.svg}" src="../../images/tick.svg" alt = "quill" class = "tick">
         </div>
     </div>
 </main>
@@ -186,7 +224,9 @@
 
     <div class="window" id="popup-window">
         <div class="inner-window">
-            <input name="query" placeholder="Enter feedback" type="search">
+            <label>
+                <input name="query" placeholder="Enter feedback" type="search">
+            </label>
         </div>
 
         <button id="send-button">Send</button>

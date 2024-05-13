@@ -14,8 +14,7 @@ body {
     padding-right: 2.083vw;
     padding-left: 4.166vw;
 }
-
-.logo {
+.logo1 {
     width: 6.25vw;
     height: 10vh;
     top: 0.3vw;
@@ -24,13 +23,13 @@ body {
 .search-form {
     display: flex;
     align-items: center;
-    gap: 0.52vw;
+    gap: 0.53vw;
     padding-left: 1.0415vw;
     background: #FBEFC7;
-    border-radius: 2.7vw;
+    border-radius: 2.778vh;
 }
 
-.search-form input, .inner-window input{
+.search-form input, .inner-window input {
     height: 6.19vh;
     width: 41.67vw;
     margin-left: 1vw;
@@ -39,10 +38,10 @@ body {
     border: none;
     background: #FBEFC7;
     font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2.5vh;
     font-size: 2.5vw;
     border-radius: 5.5vh;
     outline: none;
-    autocomplete: off;
 }
 
 .magnifier{
@@ -55,7 +54,7 @@ body {
     background-color: #3E5902;
     height: 5.7407vh;
     width: 6.4640625vw;
-    border-radius: 2.7vw;
+    border-radius: 2.778vh;
     color: white;
     justify-content: center;
     align-items: center;
@@ -65,7 +64,7 @@ body {
     text-decoration: none;
 }
 
-.heart img, .user img{
+.heart, .user {
     width: 3.6458vw;
     height: 5.5555vh;
 }
@@ -75,198 +74,168 @@ body {
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    cursor: pointer;
-    pointer-events: auto;
-    border: none;
-    background-color: #F2E3B3;
 }
 
-.user-container:hover {
+.user-container:hover, .heart-container:hover {
     background-color: #733506;
     width: 4.6vw;
     height: 9.2593vh;
 }
-
-.heart-container:hover{
-    background-color: #B90F0F;
-}
-
 .home{
     height: 5.55555555vh;
     width: 3.125vw;
 }
 
-.cooker {
+/*____________________________________________________________________________________________________________________*/
+.title {
     position: absolute;
-    width: 7.9vw;
-    height: 14.629vh;
-    top: 5vw;
-    left: 5.83vh;
-}
-
-.cooker-circle {
-    position: absolute;
-    width: 11vw;
-    height: 23.148vh;
-    background-color: #F2E3B3;
-    top: 3.125vw;
-    left: 2.5vh;
-    border-radius: 50%;
-}
-
-.user-name {
-    position: absolute;
-    left: 52vh;
-    top: 29.6vh;
-    font-family: Frank Ruhl Libre;
-    font-size: 5vh;
+    font-family: 'Frank Ruhl Libre', serif;;
+    font-size: 3vw;
+    font-weight: 400;
+    line-height: 1vh;
+    left: 40vw;
+    top: 14.5vh;
+    color: black;
     text-align: center;
 }
 
-.green-line {
+.recipeTitle{
     position: absolute;
-    background-color: #3E5902;
-    width: 23.8vw;
-    height: 0.5vh;
-    border-radius: 5%;
-    left: 17vw;
-    top: 35.18vh;
-}
-
-.button-container {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 1.85vh;
-    top: 40vh;
-    left: 10.9375vw;
-}
-
-.createList,
-.createRecipe,
-.allLists,
-.logInModerator,
-.logOut,
-.confirm-list-button{
-    width: 20.3125vw;
-    height: 7.4074vh;
-    border-radius: 2.5vh;
-    font-family: 'Frank Ruhl Libre';
-    font-size: 1.7vw;
-    border: none;
-    margin-bottom: 1.85vh;
-    cursor: pointer;
-}
-
-.createList {
-    top: 34vh;
-    background-color: #F28705;
-}
-
-.createRecipe{
-    top: 34.1vh;
-    background-color: #F28705;
-}
-
-.confirm-list-button {
-    margin-top: 1.75vh;
-    margin-left: 0.6vh;
-    background-color: #F28705;
-}
-
-.allLists {
-    top: 34.2vh;
-    background-color: #F28705;
-}
-
-.logOut{
-    background-color: #F2B705;
-    top: 34.3vh;
-}
-
-.logInModerator{
-    background: rgba(242, 183, 5, 0.3);
-    top: 34.4vh;
-}
-
-.confirm-list-button:hover {
-    background-color: #FBEFC7;
-    border: 0.5vh solid #F28705;
-}
-/*____________________________________________________________________________________________________________________*/
-.recipesField{
-    position: absolute;
-    top: 15vh;
-    width: 55.21vw;
-    height: 75.926vh;
+    width: 94vw;
+    height: 5.5556vh;
     background-color: #F2E3B3;
+    left: 3vw;
+    right: 3vw;
+    top: 20vh;
+    border-radius: 5vw;
+}
+
+.recipeCookingTime{
+    position: absolute;
+    width: 44.76vw;
+    height: 5.5556vh;
+    background-color: #F2E3B3;
+    left: 3vw;
+    top: 27.4vh;
+    border-radius: 5vw;
+}
+/*4,6875 = 2.3437*/
+.recipeCategory{
+    position: absolute;
+    width: 44.76vw;
+    height: 5.5556vh;
+    background-color: #F2E3B3;
+    right: 3vw;
+    top: 27.4vh;
+    border-radius: 5vw;
+}
+
+.recipeIngredients{
+    position: absolute;
+    width: 44.76vw;
+    height: 16.5vh;
+    background-color: #F2E3B3;
+    left: 3vw;
+    top: 34.8vh;
     border-radius: 5vh;
-    margin-left: 42vw;
 }
-
-.recipesFieldHeader{
-    width: 55.21vw;
-    height: 5vh;
-    background-color: #3E5902;
-    border-radius: 5vh 5vh 0vh 0vh ;
-}
-
-.c7{
+/*4,6875 = 2.3437*/
+.recipeIngredientsAmount{
     position: absolute;
-    font-family: 'Frank Ruhl Libre';
-    font-size: 2vh;
-    font-size: 2vw;
-    font-weight: 400;
-    line-height: 1vh;
-    text-align: left;
-    color: white;
-    margin-top: 2vh;
-    margin-left: 23.5vw;
-}
-
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.list-container {
-    position: fixed;
-    display: none;
-    top: 40.1vh;
-    left: 11.5vw;
-    z-index: 11;
-}
-
-.list-name {
-    width: 20.83vw;
-    height: 9.259vh;
-    border-radius: 2.7vh;
+    width: 44.76vw;
+    height: 16.5vh;
     background-color: #F2E3B3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    right: 3vw;
+    top: 34.8vh;
+    border-radius: 5vh;
 }
 
-.list-name input {
-    width: 18.48958vw;
-    height: 7vh;
-    border-radius: 2.7vh;
-    background-color: #FBEFC7;
-    outline: none;
-    border: none;
-    font-family: 'Frank Ruhl Libre', serif;
-    font-size: 2.1875vw;
+.recipeDevices{
+    position: absolute;
+    width: 94vw;
+    height: 5.5556vh;
+    background-color: #F2E3B3;
+    left: 3vw;
+    right: 3vw;
+    top: 53.2vh;
+    border-radius: 5vw;
 }
+.recipeStepByStep{
+    position: absolute;
+    width: 94vw;
+    height: 16.5vh;
+    background-color: #F2E3B3;
+    left: 3vw;
+    right: 3vw;
+    top: 60.6vh;
+    border-radius: 5vh;
+}
+
+.saveButton{
+    position: absolute;
+    width: 15.625vw;
+    height: 7.41vh;
+    top: 82vh;
+    left: 20.4vw;
+    background-color: #F28705;
+    border-radius: 5vh;
+}
+
+.previewButton{
+    position: absolute;
+    width: 15.625vw;
+    height: 7.41vh;
+    top: 82vh;
+    left: 42vw;
+    background-color: #F28705;
+    border-radius: 5vh;
+}
+
+.publishButton{
+    position: absolute;
+    width: 15.625vw;
+    height: 7.41vh;
+    top: 82vh;
+    right: 20.4vw;
+    background-color: #F28705;
+    border-radius: 5vh;
+}
+
+.text-form {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 0.53vw;
+    padding-left: 1.0415vw;
+    border-radius: 2.778vh;
+    top: 0vh;
+}
+
+.text-form input, .inner-window input {
+    position: absolute;
+    width: 90vw;
+    height: 4vh;
+    left: 2vw;
+    margin-top: 0.3vh;
+    flex: 2;
+    border: none;
+    background: #F2E3B3;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2.25vh;
+    font-size: 2.25vw;
+    border-radius: 1.5vh;
+    outline: none;
+}
+
+/*.stick{*/
+/*    position: absolute;*/
+/*    width: 100vw;*/
+/*    height: 1.852vh;*/
+/*    background-color: black;*/
+/*    top: 25.5vh;*/
+/*}*/
+
+/*____________________________________________________________________________________________________________________*/
 
 .footer {
     position: fixed;
@@ -282,6 +251,7 @@ body {
     justify-content: space-between;
     z-index: 5;
 }
+
 
 #send-button {
     position: absolute;
@@ -299,16 +269,15 @@ body {
     top: 37.04vh;
     bottom: 1.4815vh;
     z-index: 15;
-    cursor: pointer;
 }
 
 #send-button:hover {
     background-color: #FBEFC7;
     color: #3E5902;
-    border: 0.5vh solid #3E5902;
+    border: 0.46vh solid #3E5902;
 }
 
-#overlay-support, #overlay-list  {
+#overlay {
     position: fixed;
     display: none;
     width: 100%;
@@ -375,8 +344,16 @@ body {
 
 .support-button:hover {
     background-color: transparent;
-    border: 0.4vh solid #F2E3B3;
+    border: 0.5vh solid #F2E3B3;
     color: #F2E3B3;
+}
+
+#feedback-input {
+    width: 100%;
+    height: 100px;
+    border: none;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .circle-container {
@@ -412,16 +389,42 @@ body {
 .telegram-container:hover, .instagram-container:hover {
     background-color: #733506;
 }
-
 .copyright {
     position: static;
     width: 21vw;
     height: 3vh;
     margin: auto;
     font-family: 'Frank Ruhl Libre';
+    font-size: 1.25vh;
     font-size: 1.25vw;
     font-weight: 400;
     line-height: 1vh;
     text-align: left;
     color: #F2E3B3;
+}
+
+
+.copyrightm {
+    position: absolute;
+    left: 240px;
+    bottom: -18px;
+    text-align: center;
+    font-family: 'Frank Ruhl Libre';
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 31px;
+
+    color: #000000;
+}
+
+.copyrightf {
+    position: absolute;
+    left: 410px;
+    bottom: -18px;
+    text-align: center;
+    font-family: 'Frank Ruhl Libre';
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 31px;
+    color: #000000;
 }

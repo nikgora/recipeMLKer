@@ -14,8 +14,7 @@ body {
     padding-right: 2.083vw;
     padding-left: 4.166vw;
 }
-
-.logo {
+.logo1 {
     width: 6.25vw;
     height: 10vh;
     top: 0.3vw;
@@ -24,13 +23,13 @@ body {
 .search-form {
     display: flex;
     align-items: center;
-    gap: 0.52vw;
+    gap: 0.53vw;
     padding-left: 1.0415vw;
     background: #FBEFC7;
-    border-radius: 2.7vw;
+    border-radius: 2.778vh;
 }
 
-.search-form input, .inner-window input{
+.search-form input, .inner-window input {
     height: 6.19vh;
     width: 41.67vw;
     margin-left: 1vw;
@@ -39,10 +38,10 @@ body {
     border: none;
     background: #FBEFC7;
     font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2.5vh;
     font-size: 2.5vw;
     border-radius: 5.5vh;
     outline: none;
-    autocomplete: off;
 }
 
 .magnifier{
@@ -65,7 +64,7 @@ body {
     text-decoration: none;
 }
 
-.heart img, .user img{
+.heart, .user {
     width: 3.6458vw;
     height: 5.5555vh;
 }
@@ -75,134 +74,150 @@ body {
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    cursor: pointer;
-    pointer-events: auto;
-    border: none;
-    background-color: #F2E3B3;
 }
 
-.user-container:hover {
+.user-container:hover, .heart-container:hover {
     background-color: #733506;
     width: 4.6vw;
     height: 9.2593vh;
 }
-
-.heart-container:hover{
-    background-color: #B90F0F;
-}
-
 .home{
     height: 5.55555555vh;
     width: 3.125vw;
 }
-
-.cooker {
+/*____________________________________________________________________________________________________________________*/
+.avatarField{
     position: absolute;
-    width: 7.9vw;
-    height: 14.629vh;
-    top: 5vw;
-    left: 5.83vh;
-}
-
-.cooker-circle {
-    position: absolute;
-    width: 11vw;
-    height: 23.148vh;
-    background-color: #F2E3B3;
-    top: 3.125vw;
-    left: 2.5vh;
+    width: 12vw;
+    height:23.15vh;
+    left: 2.448vw;
+    top: 15.9vh;
     border-radius: 50%;
+    background-color: #F2E3B3;
 }
 
-.user-name {
+.chef{
+    width: 7.297vw;
+    height: 14.82vh;
+    margin-top: 3vh;
+    margin-left: 2.3vw;
+}
+
+.line{
+    width: 23.8vw; /* Ширина лінії */
+    height: 1.2vh; /* Товщина лінії */
+    background-color:#3E5902; /* Колір лінії */
+    border-radius: 5vh;
+    margin-left: 16vw;
+    margin-top: 21vh;
+}
+
+.c1{
     position: absolute;
-    left: 52vh;
-    top: 29.6vh;
-    font-family: Frank Ruhl Libre;
-    font-size: 5vh;
-    text-align: center;
+    font-family: 'Frank Ruhl Libre';
+    font-size: 2.7vh;
+    font-size: 2.7vw;
+    font-weight: 400;
+    line-height: 1vh;
+    text-align: left;
+    color: black;
+    left: 22.5vw;
+    top: 29.8vh;
 }
-
-.green-line {
+/*____________________________________________________________________________________________________________________*/
+.createBottom{
     position: absolute;
-    background-color: #3E5902;
-    width: 23.8vw;
-    height: 0.5vh;
-    border-radius: 5%;
-    left: 17vw;
-    top: 35.18vh;
-}
-
-.button-container {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 1.85vh;
-    top: 40vh;
-    left: 10.9375vw;
-}
-
-.createList,
-.createRecipe,
-.allLists,
-.logInModerator,
-.logOut,
-.confirm-list-button{
     width: 20.3125vw;
     height: 7.4074vh;
+    background-color:  #F28705;
     border-radius: 2.5vh;
+    margin-left: 10.9375vw;
+    margin-top: 9.7vh;
+}
+
+.с2{
+    position: absolute;
     font-family: 'Frank Ruhl Libre';
+    font-size: 1.7vh;
     font-size: 1.7vw;
-    border: none;
-    margin-bottom: 1.85vh;
-    cursor: pointer;
+    font-weight: 400;
+    line-height: 1vh;
+    text-align: left;
+    color: black;
+    left: 4.5vw;
+    bottom: -0.1vh;
 }
 
-.createList {
-    top: 34vh;
-    background-color: #F28705;
+.createList{
+    position: absolute;
+    width: 20.3125vw;
+    height: 7.4074vh;
+    background-color:  #F28705;
+    border-radius: 2.5vh;
+    margin-left: 10.9375vw;
+    margin-top: 9.7vh;
 }
-
 .createRecipe{
-    top: 34.1vh;
-    background-color: #F28705;
+    position: absolute;
+    width: 20.3125vw;
+    height: 7.4074vh;
+    background-color:  #F28705;
+    border-radius: 2.5vh;
+    margin-left: 10.9375vw;
+    margin-top: 20.05vh;
+}
+.c3{
+    margin-left: 0.5vw;
 }
 
-.confirm-list-button {
-    margin-top: 1.75vh;
-    margin-left: 0.6vh;
-    background-color: #F28705;
+.allLists{
+    position: absolute;
+    width: 20.3125vw;
+    height: 7.4074vh;
+    background-color:  #F28705;
+    border-radius: 2.5vh;
+    margin-left: 10.9375vw;
+    margin-top: 30.5vh;
 }
 
-.allLists {
-    top: 34.2vh;
-    background-color: #F28705;
+.c4{
+    margin-left: 3vw;
 }
 
 .logOut{
-    background-color: #F2B705;
-    top: 34.3vh;
+    position: absolute;
+    width: 20.3125vw;
+    height: 7.4074vh;
+    background-color:  #F2B705;
+    border-radius: 2.5vh;
+    margin-left: 10.9375vw;
+    margin-top: 40.95vh;
+}
+
+.с5{
+    margin-left: -1.7vw;
 }
 
 .logInModerator{
+    position: absolute;
+    width: 20.3125vw;
+    height: 7.4074vh;
     background: rgba(242, 183, 5, 0.3);
-    top: 34.4vh;
+    border-radius: 2.5vh;
+    margin-left: 10.9375vw;
+    margin-top: 51.4vh;
 }
 
-.confirm-list-button:hover {
-    background-color: #FBEFC7;
-    border: 0.5vh solid #F28705;
+.c6{
+    color: rgba(0, 0, 0, 0.3);
 }
 /*____________________________________________________________________________________________________________________*/
 .recipesField{
-    position: absolute;
-    top: 15vh;
     width: 55.21vw;
     height: 75.926vh;
     background-color: #F2E3B3;
     border-radius: 5vh;
+    margin-top: -18.5vh;
     margin-left: 42vw;
 }
 
@@ -225,49 +240,21 @@ body {
     margin-top: 2vh;
     margin-left: 23.5vw;
 }
+/*а чи потрібно нам таку довгу фразу? може просто скоротити її до Log out ?*/
+/*2.963*/
+/*.stick{*/
+/*    position: absolute;*/
+/*    width: 100vw;*/
+/*    height: 2.963vh;*/
+/*    background-color:  black;*/
+/*    margin-top: -98.1vh;*/
+/*}*/
 
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
+/*.stick2{*/
+/*   top: 189.45vh;*/
+/*}*/
 
-.list-container {
-    position: fixed;
-    display: none;
-    top: 40.1vh;
-    left: 11.5vw;
-    z-index: 11;
-}
-
-.list-name {
-    width: 20.83vw;
-    height: 9.259vh;
-    border-radius: 2.7vh;
-    background-color: #F2E3B3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.list-name input {
-    width: 18.48958vw;
-    height: 7vh;
-    border-radius: 2.7vh;
-    background-color: #FBEFC7;
-    outline: none;
-    border: none;
-    font-family: 'Frank Ruhl Libre', serif;
-    font-size: 2.1875vw;
-}
-
+/*____________________________________________________________________________________________________________________*/
 .footer {
     position: fixed;
     width: 100%;
@@ -282,6 +269,7 @@ body {
     justify-content: space-between;
     z-index: 5;
 }
+
 
 #send-button {
     position: absolute;
@@ -299,7 +287,6 @@ body {
     top: 37.04vh;
     bottom: 1.4815vh;
     z-index: 15;
-    cursor: pointer;
 }
 
 #send-button:hover {
@@ -308,7 +295,7 @@ body {
     border: 0.5vh solid #3E5902;
 }
 
-#overlay-support, #overlay-list  {
+#overlay {
     position: fixed;
     display: none;
     width: 100%;
@@ -379,6 +366,14 @@ body {
     color: #F2E3B3;
 }
 
+#feedback-input {
+    width: 100%;
+    height: 100px;
+    border: none;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
 .circle-container {
     position: relative;
     display: flex;
@@ -412,16 +407,42 @@ body {
 .telegram-container:hover, .instagram-container:hover {
     background-color: #733506;
 }
-
 .copyright {
     position: static;
     width: 21vw;
     height: 3vh;
     margin: auto;
     font-family: 'Frank Ruhl Libre';
+    font-size: 1.25vh;
     font-size: 1.25vw;
     font-weight: 400;
     line-height: 1vh;
     text-align: left;
     color: #F2E3B3;
+}
+
+
+.copyrightm {
+    position: absolute;
+    left: 240px;
+    bottom: -18px;
+    text-align: center;
+    font-family: 'Frank Ruhl Libre';
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 31px;
+
+    color: #000000;
+}
+
+.copyrightf {
+    position: absolute;
+    left: 410px;
+    bottom: -18px;
+    text-align: center;
+    font-family: 'Frank Ruhl Libre';
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 31px;
+    color: #000000;
 }
