@@ -363,6 +363,7 @@ body {
     top: 59.8vh;
     background: #F2E3B3;
     border-radius: 5vh;
+    overflow-y: auto;
 }
 .comment-user {
     width: 2vw;
@@ -383,19 +384,33 @@ body {
     position: absolute;
     display: flex;
     width: 42.9vw;
-    height: 11.5vh;
+    height: 10vh;
     margin-left: 2.0834vw;
-    margin-top: 2vh;
+    margin-top: 0.9259vh;
+    top: 1.85vh;
     background-color:  #FBEFC7;
     border-radius: 5vh;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.5625vw;
 }
-.comment1{
-    margin-top: 15.5vh;
-}
 .comment2{
-    margin-top: 29vh;
+    top: 11.5vh;
+}
+
+::-webkit-scrollbar {
+    width: 0.78125vw;
+}
+
+::-webkit-scrollbar-track {
+    margin-top: 2.7778vh;
+    margin-bottom: 2.7778vh;
+    border-radius: 4.63vh;
+    background: #F2E3B3;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #733506;
+    border-radius: 4.63vh;
 }
 /*____________________________________________________________________________________________________________________*/
 .fullRecipe{

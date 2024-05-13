@@ -102,7 +102,8 @@
     </form>
     <div class="commentField">
         <div th:each="comment, commentStat : ${recipe.getComments()}"
-              th:class="${commentStat.first} ? 'comment comment' : 'comment comment' + ${commentStat.count}">
+              th:class="${commentStat.first} ? 'comment comment' : 'comment comment' + ${commentStat.count}"
+             th:style="'top: ' + (${commentStat.index} * 11.5) + 'vh;'">
             <div class="comment-user-circle">
                 <img id="comment-user" src="../../images/Chef Hat.svg" alt="comment-user" class="comment-user">
             </div>
