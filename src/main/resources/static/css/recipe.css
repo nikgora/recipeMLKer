@@ -445,12 +445,12 @@ body {
 }
 
 .ratingField{
+    position: absolute;
     width: 41.7vw;
     height: 5.556vh;
     background: #3E5902;
     border-radius: 5vh;
-    margin-top: 50vh;
-    bottom: 15vh;
+    top: 87.4vh;
     margin-left: 51.2vw;
 }
 .addRating{
@@ -470,7 +470,7 @@ body {
     border-radius: 50vh;
     background: #F2B705;
     margin-left: 95vw;
-    top: 87.6vh;
+    top: 87.4vh;
 }
 
 .tick{
