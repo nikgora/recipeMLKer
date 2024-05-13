@@ -5,12 +5,19 @@ VALUES ('Oven'),
        ('Microwave'),
        ('Blender');
 
+
+
 -- Inserting Categories
 INSERT INTO Category (title, description)
-VALUES ('Breakfast', 'Recipes suitable for breakfast'),
-       ('Lunch', 'Recipes suitable for lunch'),
-       ('Dinner', 'Recipes suitable for dinner'),
-       ('Dessert', 'Recipes for sweet treats');
+VALUES ('Soup', 'Recipes suitable for first dish'),
+       ('MainDish', 'Recipes suitable for main dish'),
+       ('Salad', 'Recipes suitable for light vegetable  '),
+       ('Pastry', 'Recipes suitable for breakfast'),
+       ('Dessert', 'Recipes suitable for sweet treats'),
+       ('Drinks', 'Recipes suitable for sip'),
+       ('Snacks', 'Recipes for sweet treats'),
+       ('FishDishes', 'Recipes suitable for lunch'),
+       ('Sauces', 'Recipes suitable for dinner');
 
 -- Inserting Users
 INSERT INTO "user" (login, "password")
