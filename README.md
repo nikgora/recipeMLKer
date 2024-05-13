@@ -4,7 +4,7 @@
 RecipeMLKer is a web application designed to provide a convenient platform for individuals passionate about cooking. The website offers a vast recipes, search functionality, user interaction features, and moderation tools to ensure a pleasant and safe experience for users.
 
 ## Features
-- Browse and search recipes by category, dish title, or ingredients.
+- Browse and search recipes by category, dish name, or ingredients.
 - Save favorite recipes for future reference.
 - Create and publish personalized recipes.
 - Rate and comment on recipes to share feedback and impressions.
