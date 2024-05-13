@@ -1,52 +1,80 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
+    <title>Recipe</title>
     <meta charset="UTF-8">
-    <title th:text="${recipe.title}">Random</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
     <link rel="stylesheet" type="text/css" th:href="@{../css/recipe.css}" href="../../static/css/recipe.css" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <header>
     <div class="header">
-        <img th:src="@{../images/logo1.svg}" src="../../static/images/logo1.svg" alt = "logo1" class = "logo1">
+        <img th:src="@{../images/logo.svg}" src="../../images/logo.svg" alt = "logo" class = "logo">
 
         <form class="search-form">
             <img th:src="@{../images/magnifier.svg}" src="../../static/images/magnifier.svg" alt = "magnifier" class = "magnifier">
-            <input name="query" placeholder="Search" type="search">
+            <label>
+                <input name="query" placeholder="Search" type="search">
+            </label>
         </form>
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
         <a class="button-style" href="recipe.html" th:href="@{/recipe/1}">Random</a>
         <div class="heart-container">
             <div class="heart"
-                 onmouseover="changeImage('heart-img', '../../static/images/heart-hover.svg')"
-                 onmouseout="restoreImage('heart-img', '../../static/images/heart.svg')">
-                <img id="heart-img" th:src="@{../images/heart.svg}" src="../../static/images/heart.svg" alt="heart" class="heart">
+                 onmouseover="changeImage('heart-img', '../../images/heart-hover.svg')"
+                 onmouseout="restoreImage('heart-img', '../../images/heart.svg')"
+            >
+                <img id="heart-img" src="../../images/heart.svg" alt="heart" class="heart">
             </div>
         </div>
 
         <div class="user-container">
             <div class="user"
-                 onmouseover="changeImage('user-img', '../../static/images/user-hover.svg')"
-                 onmouseout="restoreImage('user-img', '../../static/images/user.svg')">
-
-                <img id="user-img" th:src="@{../images/user.svg}" src="../../static/images/user.svg" alt="user" class="user">
+                 onmouseover="changeImage('user-img', '../../images/user-hover.svg')"
+                 onmouseout="restoreImage('user-img', '../../images/user.svg')"
+            >
+                <img id="user-img" src="../../images/user.svg" alt="user" class="user">
             </div>
         </div>
 
         <a th:href="@{/}" href="main.html">
             <img th:src="@{../images/home.svg}" src="../../images/home.svg" alt="home" class="home">
         </a>
-
     </div>
 </header>
+<!--<p th:text="${recipe.getDescription()}"></p>
+<a th:href="@{/allRecipes(category=${recipe.getCategory().getTitle()})}"
+   th:text="${recipe.getCategory().getTitle()}"></a>
+<p th:text="${recipe.getAverageMark()}"></p>
+<table th:each="devices: ${recipe.getRecipeDevices()}">
+    <tr>
+        <td th:text="${devices.cookingDevice.getName()}"></td>
+    </tr>
+</table>
+<table th:each="ingedients: ${recipe.getRecipeIngredients()}">
+    <tr>
+        <td><a th:href="@{/allRecipes(ingedient=${ingedients.ingredient.getName()})}"
+               th:text="${ingedients.ingredient.getName()}"></a>
+        </td>
+        <td th:text="${ingedients.getAmountOfIngredient()}">
+        </td>
+    </tr>
+</table>
+<table th:each="comment : ${recipe.getComments()}">
+    <tr th:text="${comment.getUser().getId()}"></tr>
+    <tr th:text="${comment.getText()}"></tr>
+</table>-->
+
 <main>
-    <img alt="recipeIcon" class="recipeIcon" th:src="@{../images/Recipe.svg}" src="../../static/images/Recipe.svg" >
+    <img alt="recipeIcon" class="recipeIcon" th:src="@{../images/Recipe.svg}" src="../../images/Recipe.svg" >
     <div class = "RecipeTitle">
-        <p class="c3">Pancakes</p>
+        <p class="c3" th:text="${recipe.getTitle()}">Pancakes</p>
     </div>
-    <div class = "RecipeRating">
-        <p class = "num">8.8</p>
+    <div class="RecipeRating">
+        <a th:href="@{/allRecipes(rating=${recipe.getAverageMark()})}">
+            <p class="num" th:text="${recipe.getAverageMark()}">8.8</p>
+        </a>
     </div>
     <div class = "FavoriteList">
         <p class = "c4">Favorite list</p>
@@ -59,40 +87,64 @@
     </div>
     <div class = "stick"></div>
     <div class="mini">
-        <div class="miniTime"> 30 minutes</div>
-            <img alt="dessertI" class="dessertI" th:src="@{../images/Waffles.svg}" src="../../static/images/Waffles.svg" >
-        <div class="miniTime miniCategories"> Desserts </div>
+        <p class="miniTime" th:text="${recipe.getCookingTime()}  + ' minutes'"> 30 minutes</p>
+        <img alt="dessertI" class="dessertI" th:src="@{../images/Waffles.svg}" src="../../images/Waffles.svg" >
+        <p class="miniTime miniCategories" th:text="${recipe.getCategory().getTitle()}"> Desserts </p>
     </div>
 
     <div class="IngredientTagsField">
-        <p class="content"> #flour #baking_powder #sugar #milk #butter #eggs</p>
         <div class="IngredientTagsTitle">
             <p class = "c7">Ingredient tags</p>
+            <div class="ingredientContent">
+                <table th:each="ingedients: ${recipe.getRecipeIngredients()}">
+                    <tr>
+                        <td>
+                            <a th:href="@{/allRecipes(ingredient=${ingedients.ingredient.getName()})}" th:text="'#' + ${ingedients.ingredient.getName()}"></a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
     <div class="IngredientTagsField DeviceTagsField ">
-        <p class="content">#electric_mixer</p>
         <div class="IngredientTagsTitle">
             <p class = "c7 devices">Devices tags</p>
+        </div>
+        <div class="ingredientContent">
+            <table th:each="devices: ${recipe.getRecipeDevices()}">
+                <tr>
+                    <td>
+                        <a th:href="@{/allRecipes(device=${devices.cookingDevice.getName()})}" th:text="'#' + ${devices.cookingDevice.getName()}"></a>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
     <form class="text-form">
         <img th:src="@{../images/quill.svg}" src="../../static/images/quill.svg" alt = "quill" class = "quill">
-        <input name="query" placeholder="Add comment" type="text">
+        <label>
+            <input name="startWith" placeholder="Add comment" type="text">
+        </label>
         <div class="publish">
             <p class = "c8">Publish</p>
         </div>
     </form>
-    <div class = "commentField">
-    <div class = "comment">
-        <div class = "commentIcon">
-        </div>
-    </div>
-        <div class = " comment comment2">
-            <div class = "commentIcon">
+    <div class="commentField">
+        <<div th:each="comment, commentStat : ${recipe.getComments()}"
+              th:class="${commentStat.first} ? 'comment comment' : 'comment comment' + ${commentStat.count}">
+            <div class="comment-user-circle">
+                <img id="comment-user" src="../../images/Chef Hat.svg" alt="comment-user" class="comment-user">
             </div>
+            <table>
+                <tbody>
+                <tr>
+                    <td th:text="${comment.getText()}"></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
+
     <div class = "stick stick2"></div>
 
     <div class="fullRecipe">
@@ -100,58 +152,80 @@
             <p class="frTitle">Recipe</p>
         </div>
         <div class="amountField">
-            <div class="ingredientsHeader"></div>
-            <p class="iTitle">Ingredient amount</p>
-            <div class="ingredientsHeader devisesHeader"></div>
-            <p class="iTitle dTitle">Devises</p>
+            <div class="ingredientsHeader">Ingredient amount</div>
+            <div class="amountContent">
+                <table th:each="ingedients: ${recipe.getRecipeIngredients()}">
+                    <tr>
+                        <td th:text="${ingedients.ingredient.getName()}"></td>
+                        <td th:text="' - ' + ${ingedients.getAmountOfIngredient()}">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="ingredientsHeader devicesHeader">Cooking devices</div>
+            <div class="amountContent">
+                <table th:each="devices: ${recipe.getRecipeDevices()}">
+                    <tr>
+                        <td th:text="${devices.cookingDevice.getName()}"></td>
+                    </tr>
+                </table>
+            </div>
         </div>
         <div class="stepByStepField">
-            <div class="stepByStepHeader"></div>
-            <p class="iTitle sbsTitle">Step-by-step instructions</p>
+            <div class="ingredientsHeader stepByStepHeader">Step-by-step instructions</div>
+            <div class="amountContent" th:text="${recipe.getDescription()}"></div>
         </div>
     </div>
+    <div class="addRatingField">
+        <div class="ratingField">
+            <div class="star-icon">
+                <input type="radio" name="rating" id="rating1">
+                <label for="rating1" class="fa fa-star"></label>
 
+                <input type="radio" name="rating" id="rating2">
+                <label for="rating2" class="fa fa-star"></label>
 
-    <div class="ratingField"> </div>
+                <input type="radio" name="rating" id="rating3">
+                <label for="rating3" class="fa fa-star"></label>
+
+                <input type="radio" name="rating" id="rating4">
+                <label for="rating4" class="fa fa-star"></label>
+
+                <input type="radio" name="rating" id="rating5">
+                <label for="rating5" class="fa fa-star"></label>
+
+                <input type="radio" name="rating" id="rating6">
+                <label for="rating6" class="fa fa-star"></label>
+
+                <input type="radio" name="rating" id="rating7">
+                <label for="rating7" class="fa fa-star"></label>
+
+                <input type="radio" name="rating" id="rating8">
+                <label for="rating8" class="fa fa-star"></label>
+
+                <input type="radio" name="rating" id="rating9">
+                <label for="rating9" class="fa fa-star"></label>
+
+                <input type="radio" name="rating" id="rating10">
+                <label for="rating10" class="fa fa-star"></label>
+            </div>
+        </div>
         <div class="confirmation">
-            <img th:src="@{../images/tick.svg}" src="../../static/images/tick.svg" alt = "quill" class = "tick">
+            <img th:src="@{../images/tick.svg}" src="../../images/tick.svg" alt = "quill" class = "tick">
+        </div>
     </div>
 </main>
-
-
-
-<!--<p th:text="${recipe.getTitle()}"></p>-->
-<!--<p th:text="${recipe.getDescription()}"></p>-->
-<!--<a th:href="@{/allRecipes(category=${recipe.getCategory().getTitle()})}"-->
-<!--   th:text="${recipe.getCategory().getTitle()}"></a>-->
-<!--<p th:text="${recipe.getAverageMark()}"></p>-->
-<!--<table th:each="devices: ${recipe.getRecipeDevices()}">-->
-<!--    <tr>-->
-<!--        <td th:text="${devices.cookingDevice.getName()}"></td>-->
-<!--    </tr>-->
-<!--</table>-->
-<!--<table th:each="ingedients: ${recipe.getRecipeIngredients()}">-->
-<!--    <tr>-->
-<!--        <td><a th:href="@{/allRecipes(ingedient=${ingedients.ingredient.getName()})}"-->
-<!--               th:text="${ingedients.ingredient.getName()}"></a>-->
-<!--        </td>-->
-<!--        <td th:text="${ingedients.getAmountOfIngredient()}">-->
-<!--        </td>-->
-<!--    </tr>-->
-<!--</table>-->
-<!--<table th:each="comment : ${recipe.getComments()}">-->
-<!--    <tr th:text="${comment.getUser().getId()}"></tr>-->
-<!--    <tr th:text="${comment.getText()}"></tr>-->
-<!--</table>-->
 
 <footer class="footer">
     <button class="support-button" id="support-btn"><span>Support</span></button>
 
     <div id="overlay" onclick="hideOverlay()"></div>
 
-    <div class="window" id="popup-window">  <!-- Вікно, яке з'являється при натисканні -->
+    <div class="window" id="popup-window">
         <div class="inner-window">
-            <input name="query" placeholder="Enter feedback" type="search">
+            <label>
+                <input name="query" placeholder="Enter feedback" type="search">
+            </label>
         </div>
 
         <button id="send-button">Send</button>
@@ -160,25 +234,23 @@
     <div class="copyright">© Company policy and privacy rules</div>
 
     <div class="circle-container telegram-container">
-        <div
-                class="telegram"
-                onmouseover="changeImage('telegram-img', '../../static/images/telegram-hover.svg')"
-                onmouseout="restoreImage('telegram-img', '../../static/images/telegram.svg')"
+        <div class="telegram"
+             onmouseover="changeImage('telegram-img', '../../images/telegram-hover.svg')"
+             onmouseout="restoreImage('telegram-img', '../../images/telegram.svg')"
         >
-            <img id="telegram-img" th:src="@{../images/telegram.svg}"  src="../../static/images/telegram.svg" alt="telegram" class="telegram">
+            <img id="telegram-img" src="../../images/telegram.svg" alt="telegram" class="telegram">
         </div>
     </div>
 
     <div class="circle-container instagram-container">
-        <div
-                class="instagram"
-                onmouseover="changeImage('instagram-img', '../../static/images/inst-hover.svg')"
-                onmouseout="restoreImage('instagram-img', '../../static/images/inst.svg')"
+        <div class="instagram"
+             onmouseover="changeImage('instagram-img', '../../images/inst-hover.svg')"
+             onmouseout="restoreImage('instagram-img', '../../images/inst.svg')"
         >
-            <img id="instagram-img" th:src="@{../images/inst.svg}" src="../../static/images/inst.svg" alt="instagram" class="instagram">
+            <img id="instagram-img" src="../../images/inst.svg" alt="instagram" class="instagram">
         </div>
     </div>
 </footer>
-<script th:href="@{js/scripts.js}" src="../../static/js/scripts.js"></script>
+<script th:href="@{js/scripts.js}" src="../../js/scripts.js"></script>
 </body>
 </html>

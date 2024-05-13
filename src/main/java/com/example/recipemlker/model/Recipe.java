@@ -45,6 +45,8 @@ public class Recipe {
     private List<RecipeIngredient> recipeIngredients;
     @OneToMany(mappedBy = "recipe")
     private List<RecipeDevice> recipeDevices;
+    @OneToMany(mappedBy = "recipe")
+    private List<UserReport> userReports;
 
     @Transient
     private double averageRating = getAverageMark();

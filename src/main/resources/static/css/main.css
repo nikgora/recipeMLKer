@@ -14,7 +14,8 @@ body {
     padding-right: 2.083vw;
     padding-left: 4.166vw;
 }
-.logo1 {
+
+.logo {
     width: 6.25vw;
     height: 10vh;
     top: 0.3vw;
@@ -23,13 +24,13 @@ body {
 .search-form {
     display: flex;
     align-items: center;
-    gap: 0.53vw;
+    gap: 0.52vw;
     padding-left: 1.0415vw;
     background: #FBEFC7;
-    border-radius: 2.778vh;
+    border-radius: 2.7vw;
 }
 
-.search-form input, .inner-window input {
+.search-form input, .inner-window input{
     height: 6.19vh;
     width: 41.67vw;
     margin-left: 1vw;
@@ -38,10 +39,32 @@ body {
     border: none;
     background: #FBEFC7;
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 2.5vh;
     font-size: 2.5vw;
     border-radius: 5.5vh;
     outline: none;
+    autocomplete: off;
+}
+
+.login-heading {
+    position: absolute;
+    right: 9.58vw;
+    bottom: 21.5vh;
+    font-family: 'Frank Ruhl Libre';
+    font-size: 2vw;
+}
+
+.email input, .password input {
+    width: 21.979vw;
+    height: 6.19vh;
+    flex: 1;
+    border: none;
+    background: #FBEFC7;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2vh;
+    font-size: 2vw;
+    border-radius: 5.5vh;
+    outline: none;
+    padding-left: 1vw;
 }
 
 .magnifier{
@@ -64,23 +87,36 @@ body {
     text-decoration: none;
 }
 
-.heart, .user {
+.heart img, .user img{
     width: 3.6458vw;
     height: 5.5555vh;
 }
 
-.heart-container, .user-container {
+.heart-container, .user-container, .heart-login-container, .user-login-container {
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
+    cursor: pointer;
+    pointer-events: auto;
+    border: none;
+    background-color: #F2E3B3;
 }
 
-.user-container:hover, .heart-container:hover {
+.user-container:hover, .user-login-container {
     background-color: #733506;
     width: 4.6vw;
     height: 9.2593vh;
 }
+
+.heart-container:hover{
+    cursor: not-allowed;
+}
+
+.heart-login-container:hover{
+    background-color: #B90F0F;
+}
+
 .home{
     height: 5.55555555vh;
     width: 3.125vw;
@@ -144,20 +180,18 @@ ul {
 }
 
 ul li {
-
     list-style: none;
     padding-left: 0.2605vw;
     margin-left: 0.4vw;
     margin-right: 0.7vw;
-    margin-top: 0.7vh;
 }
 
 ul li:hover {
     background-color: #F2B705;
     border-radius: 5.5vw;
     height: 5vh;
-    width: 10vw;
-} /*hover for menu list elements*/
+    width: 9.3vw;
+}
 
 ul hr {
     border: 0.104167vw solid black;
@@ -165,7 +199,6 @@ ul hr {
     margin-left: 0.5vw;
     margin-right: 0.6vw;
 }
-
 /*____________________________________________________________________________________________________________________*/
 ::-webkit-scrollbar {
     width: 0.78125vw;
@@ -184,6 +217,7 @@ ul hr {
     background: #733506;
     border-radius: 50px;
 }
+
 .board{
     width: 14.584vw; /*280*/
     height:75.926vh; /*820*/
@@ -211,6 +245,7 @@ ul hr {
     width: 2.0833vw;
     height:4.167vh;
 }
+
 .pastryI{
     width: 2.34375vw;
     height: 3.24075vh;
@@ -225,6 +260,7 @@ ul hr {
     width: 2.34375vw;
     height: 4.1667vh;
 }
+
 .snackI{
     width: 2.34375vw;/*45*/
     height: 2.7778vh;/*30*/
@@ -240,10 +276,6 @@ ul hr {
     height: 4.3518vh; /*37*/
 }
 
-.toggleBlock {
-    display: none;
-}
-
 .bean {
     position: absolute;
     width: 2vw;/*35*/
@@ -252,9 +284,8 @@ ul hr {
     top: 69vh;
 }
 
-a:link {
+a:link, a:visited {
     text-decoration: none;
-    color: inherit;
 }
 
 /*____________________________________________________________________________________________________________________*/
@@ -405,7 +436,6 @@ a:link {
     z-index: 5;
 }
 
-
 #send-button {
     position: absolute;
     right: 4.6875vw;
@@ -422,6 +452,25 @@ a:link {
     top: 37.04vh;
     bottom: 1.4815vh;
     z-index: 15;
+    cursor: pointer;
+}
+
+#confirm-button {
+    background-color: #3E5902;
+    position: absolute;
+    width: 15.6vw;
+    height: 5vh;
+    right: 5.2vw;
+    bottom: 1.7vh;
+    z-index: 15;
+    border-radius: 2.7vw;
+    cursor: pointer;
+    text-align: center;
+    font-family: 'Frank Ruhl Libre';
+    font-size: 2vh;
+    font-size: 2vw;
+    color: #FBEFC7;
+    border: none;
 }
 
 #send-button:hover {
@@ -430,14 +479,14 @@ a:link {
     border: 0.5vh solid #3E5902;
 }
 
-#overlay {
+#overlay-support, #overlay-user {
     position: fixed;
     display: none;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
     z-index: 10;
 }
 
@@ -453,6 +502,36 @@ a:link {
     z-index: 11;
     border-radius: 5.5vh;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.login-window {
+    position: fixed;
+    display: none;
+    border-radius: 2.7vw;
+    width: 26vw;
+    height: 30vh;
+    left: 72.9vw;
+    bottom: 59.7vh;
+    background-color: #F2E3B3;
+    z-index: 11;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.login-form {
+    border-radius: 2.7vw;
+    position: absolute;
+    width: 21vw;
+    height: 4.5vh;
+    z-index: 13;
+    left: 1.5vw;
+}
+
+.email {
+    top: 7vh;
+}
+
+.password {
+    top: 14.8vh;
 }
 
 .inner-window {
@@ -501,14 +580,6 @@ a:link {
     color: #F2E3B3;
 }
 
-#feedback-input {
-    width: 100%;
-    height: 100px;
-    border: none;
-    padding: 10px;
-    box-sizing: border-box;
-}
-
 .circle-container {
     position: relative;
     display: flex;
@@ -542,6 +613,7 @@ a:link {
 .telegram-container:hover, .instagram-container:hover {
     background-color: #733506;
 }
+
 .copyright {
     position: static;
     width: 21vw;
@@ -554,30 +626,4 @@ a:link {
     line-height: 1vh;
     text-align: left;
     color: #F2E3B3;
-}
-
-
-.copyrightm {
-    position: absolute;
-    left: 240px;
-    bottom: -18px;
-    text-align: center;
-    font-family: 'Frank Ruhl Libre';
-    font-size: 42px;
-    font-weight: 600;
-    line-height: 31px;
-
-    color: #000000;
-}
-
-.copyrightf {
-    position: absolute;
-    left: 410px;
-    bottom: -18px;
-    text-align: center;
-    font-family: 'Frank Ruhl Libre';
-    font-size: 42px;
-    font-weight: 600;
-    line-height: 31px;
-    color: #000000;
 }

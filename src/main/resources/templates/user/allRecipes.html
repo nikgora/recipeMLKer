@@ -16,6 +16,7 @@
         </form>
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
         <a class="button-style" href="recipe.html" th:href="@{/recipe/1}">Random</a>
+        <a class="home" href="main.html" th:href="@{/}" > </a>
         <div class="heart-container">
             <div class="heart"
                  onmouseover="changeImage('heart-img', '../../static/images/heart-hover.svg')"
@@ -33,10 +34,8 @@
             </div>
         </div>
 
-        <a th:href="@{/}" href="main.html">
-            <img th:src="@{images/home.svg}" src="../../images/home.svg" alt="home" class="home">
-        </a>
-
+        <img th:src="@{images/home.svg}" src="../../static/images/home.svg" alt = "home" class = "home" >
+        <a href = "main.html" th:href="@{images/home.svg}"></a>
 
     </div>
 </header>
@@ -49,9 +48,7 @@
         <ul>
             <h1 class="h1">Filters</h1>
             <li><img alt="categoriesI" class="categoriesI" th:src="@{images/Categories.svg}"  src="../../static/images/Categories.svg" >
-                Categories
-                <img alt="DropDownIcon.svg" class="DropDownIcon.svg" th:src="@{images/DropDownIcon.svg}"  src="../../static/images/DropDownIcon.svg" >
-            </li>
+                Categories</li>
             <hr>
             <li><img alt="timeI" class="timeI" th:src="@{images/Time.svg}" src="../../static/images/Time.svg" >
                 Time</li>
