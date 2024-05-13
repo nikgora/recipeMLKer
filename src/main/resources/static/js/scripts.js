@@ -29,20 +29,20 @@ document.getElementById("overlay").addEventListener("click",
 document.getElementById("send-button").addEventListener("click",
     () => hideOverlay("overlay", "popup-window"));
 
-/*document.getElementById("user-btn1").addEventListener("click",
+document.getElementById("user-btn1").addEventListener("click",
     () => showOverlay("overlay-user", "popup-login-window"));
 document.getElementById("overlay-user").addEventListener("click",
-    () => hideOverlay("overlay-user", "popup-login-window"));*/
+    () => hideOverlay("overlay-user", "popup-login-window"));
 
 
 const container = document.getElementById('recipeContainer');
 
-/*recipes.forEach((recipe, index) => {
+recipes.forEach((recipe, index) => {
     const field = document.createElement('div');
     field.classList.add('smallerField', 'smallerField-down' + (index + 1));
 
     container.appendChild(field);
-});*/
+});
 
 // Отримуємо елементи
 const dropDownIcon = document.querySelector('.DropDownIcon');
