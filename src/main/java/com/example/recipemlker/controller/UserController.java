@@ -130,7 +130,8 @@ public class UserController {
         if (this.recipeService.getRecipeById(id).isPublished()) {
             model.addAttribute("recipe", this.recipeService.getRecipeById(id));
             model.addAttribute("id", id);
-            model.addAttribute("comment", new Comment());
+            Comment comment = new Comment();
+            model.addAttribute("comment", comment);
             return "user/recipe";
         }
         return "redirect:/403";
@@ -163,11 +164,13 @@ public class UserController {
         if (this.recipeService.getRecipeById(id) == null) {
             return "redirect:/404";
         }
+        Comment newComment = new Comment();
         if (!this.recipeService.getRecipeById(id).isPublished()) return "redirect:/403";
-        comment.setUser(userService.getUserByUsername(jwtService.extractUserName(jwt)));
-        comment.setRecipe(recipeService.getRecipeById(id));
-        commentService.save(comment);
-        String string = "/recipe/" + id;
+        newComment.setUser(userService.getUserByUsername(jwtService.extractUserName(jwt)));
+        newComment.setRecipe(recipeService.getRecipeById(id));
+        newComment.setText(comment.getText());
+        commentService.save(newComment);
+        String string = "redirect:/recipe/" + id;
         return string;
     }
 }
