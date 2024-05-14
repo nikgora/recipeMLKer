@@ -228,7 +228,7 @@ body {
     margin-bottom: 0.3vh;
     margin-top: 0.3vh;
 }
-.Desserts{
+.Dessert, .Main-Dishes, .First-Dishes, .Salads, .Sauces, .Drinks{
     position: absolute;
     width: 6vw;
     height: 4vh;
@@ -236,8 +236,10 @@ body {
     margin-top: 0.2vh;
 }
 
+
 .miniCategories{
-    margin-left: 13.5vw;
+    margin-left: 14vw;
+    width: 10vw;
 }
 
 /*____________________________________________________________________________________________________________________*/

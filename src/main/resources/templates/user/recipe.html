@@ -60,11 +60,13 @@
     <div class="Report">
         <p class="c6">Report</p>
     </div>
-    <div class="stick"></div>
     <div class="mini">
         <p class="miniTime" th:text="${recipe.getCookingTime()}  + ' minutes'"> 30 minutes</p>
-        <img alt="dessertI" class="dessertI" th:src="@{../images/Waffles.svg}" src="../../images/Waffles.svg" >
-        <p class="miniTime miniCategories" th:text="${recipe.getCategory().getTitle()}"> Desserts </p>
+        <img th:if="${recipe}"
+             th:src="@{'../images/' + ${recipe.getCategory().getTitle()} + '.svg'}"
+             th:alt="${recipe.getCategory().getTitle()}"
+             th:class="${recipe.getCategory().getTitle().replace(' ', '-')}">
+        <p class="miniTime miniCategories" th:text="${recipe.getCategory().getTitle()}">
     </div>
 
     <div class="IngredientTagsField">
@@ -116,8 +118,6 @@
             </table>
         </div>
     </div>
-
-    <div class = "stick stick2"></div>
 
     <div class="fullRecipe">
         <div class="fullRecipeHeader">
