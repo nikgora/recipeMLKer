@@ -153,7 +153,7 @@ public class UserController {
         model.addAttribute("category", categoryService.getAllCategory());
         model.addAttribute("recipe", recipe);
         model.addAttribute("isLogin", jwt != null);
-
+        model.addAttribute("randomRecipeId", getRandomNumRecipe());
         return "user/newRecipe";
     }
 
