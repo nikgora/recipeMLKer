@@ -60,11 +60,13 @@
     <div class="Report">
         <p class="c6">Report</p>
     </div>
-    <div class="stick"></div>
     <div class="mini">
         <p class="miniTime" th:text="${recipe.getCookingTime()}  + ' minutes'"> 30 minutes</p>
-        <img alt="dessertI" class="dessertI" th:src="@{../images/Waffles.svg}" src="../../images/Waffles.svg" >
-        <p class="miniTime miniCategories" th:text="${recipe.getCategory().getTitle()}"> Desserts </p>
+        <img th:if="${recipe}"
+             th:src="@{'../images/' + ${recipe.getCategory().getTitle()} + '.svg'}"
+             th:alt="${recipe.getCategory().getTitle()}"
+             th:class="${recipe.getCategory().getTitle().replace(' ', '-')}">
+        <p class="miniTime miniCategories" th:text="${recipe.getCategory().getTitle()}">
     </div>
 
     <div class="IngredientTagsField">
@@ -97,7 +99,7 @@
     </div>
     <form class="text-form" th:action="@{/api/newComment/{id1}(id1=${id})}" method="post" th:object="${comment}">
         <img th:src="@{../images/quill.svg}" src="../../static/images/quill.svg" alt = "quill" class = "quill">
-            <input name="startWith" th:field="${comment.text}" placeholder="Add comment" type="text">
+            <input name="startWith" maxlength="255" th:field="${comment.text}" placeholder="Add comment" type="text">
         <button id="publish">Publish</button>
     </form>
     <div class="commentField">
@@ -105,7 +107,7 @@
               th:class="${commentStat.first} ? 'comment comment' : 'comment comment' + ${commentStat.count}"
              th:style="'top: ' + (${commentStat.index} * 11.5) + 'vh;'">
             <div class="comment-user-circle">
-                <img id="comment-user" src="../../images/Chef Hat.svg" alt="comment-user" class="comment-user">
+                <img  id="comment-user" src="../../images/Chef Hat.svg" alt="comment-user" class="comment-user">
             </div>
             <table>
                 <tbody>
@@ -116,8 +118,6 @@
             </table>
         </div>
     </div>
-
-    <div class = "stick stick2"></div>
 
     <div class="fullRecipe">
         <div class="fullRecipeHeader">

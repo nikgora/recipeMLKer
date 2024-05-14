@@ -231,12 +231,12 @@ ul hr {
     margin-right: 2.344vw;
 }
 
-.FirstDishes{
+.First-Dishes{
     width: 2.65625vw;
     height:5.5556vh;
 }
 
-.MainDishes{
+.Main-Dishes{
     width: 2.05vw;
     height:2.7vh;
 }
@@ -251,7 +251,7 @@ ul hr {
     height: 3.24075vh;
 }
 
-.Desserts{
+.Dessert{
     width: 2.34375vw;
     height: 3.24075vh;
 }
@@ -264,11 +264,6 @@ ul hr {
 .Snacks{
     width: 2.34375vw;/*45*/
     height: 2.7778vh;/*30*/
-}
-
-.FishDishes{
-    width: 2.34375vw;
-    height: 3.24075vh; /*35*/
 }
 
 .Sauces{
