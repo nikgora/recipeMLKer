@@ -26,12 +26,12 @@ body {
     display: flex;
     align-items: center;
     gap: 0.52vw;
-    padding-left: 1.0415vw;
+    left: 1.0415vw;
     background: #FBEFC7;
     border-radius: 2.7vw;
 }
 
-.search-form input{
+.search-form input, .inner-window input{
     height: 6.19vh;
     width: 41.67vw;
     margin-left: 1vw;
@@ -43,11 +43,6 @@ body {
     font-size: 2.5vw;
     border-radius: 5.5vh;
     outline: none;
-}
-.inner-window input{
-    height: 1vh;
-    width: 41.67vw;
-    border: none;
 }
 
 .magnifier{
@@ -303,7 +298,7 @@ body {
     height: 5.556vh;
 }
 
-.text-form input, .inner-window input {
+.text-form input{
     position: absolute;
     width: 37.5vw;
     height: 4vh;
