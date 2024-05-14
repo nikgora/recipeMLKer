@@ -38,9 +38,9 @@ body {
     flex: 1;
     border: none;
     background: #FBEFC7;
+    border-radius: 0 5.5vh 5.5vh 0;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 2.5vw;
-    border-radius: 5.5vh;
     outline: none;
     autocomplete: off;
 }
@@ -153,7 +153,7 @@ body {
     width: 20.3125vw;
     height: 7.4074vh;
     border-radius: 2.5vh;
-    font-family: 'Frank Ruhl Libre';
+    font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.7vw;
     border: none;
     margin-bottom: 1.85vh;
@@ -226,19 +226,6 @@ body {
     margin-left: 23.5vw;
 }
 
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
 .list-container {
     position: fixed;
     display: none;
@@ -308,7 +295,7 @@ body {
     border: 0.5vh solid #3E5902;
 }
 
-#overlay-support, #overlay-list  {
+#overlay, #overlay-list  {
     position: fixed;
     display: none;
     width: 100%;
