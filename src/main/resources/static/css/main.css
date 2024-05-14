@@ -231,47 +231,47 @@ ul hr {
     margin-right: 2.344vw;
 }
 
-.substance{
+.FirstDishes{
     width: 2.65625vw;
     height:5.5556vh;
 }
 
-.mDIcon{
+.MainDishes{
     width: 2.05vw;
     height:2.7vh;
 }
 
-.saladI{
+.Salads{
     width: 2.0833vw;
     height:4.167vh;
 }
 
-.pastryI{
+.Pastry{
     width: 2.34375vw;
     height: 3.24075vh;
 }
 
-.dessertI{
+.Desserts{
     width: 2.34375vw;
     height: 3.24075vh;
 }
 
-.smoothieI{
+.Drinks{
     width: 2.34375vw;
     height: 4.1667vh;
 }
 
-.snackI{
+.Snacks{
     width: 2.34375vw;/*45*/
     height: 2.7778vh;/*30*/
 }
 
-.fish{
+.FishDishes{
     width: 2.34375vw;
     height: 3.24075vh; /*35*/
 }
 
-.sauceI{
+.Sauces{
     width: 1.927084vw;
     height: 4.3518vh; /*37*/
 }
