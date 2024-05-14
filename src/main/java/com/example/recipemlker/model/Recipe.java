@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+import static org.codehaus.groovy.runtime.DefaultGroovyMethods.round;
+
 @Entity
 @Table(name = "publishedrecipe")
 @Data
@@ -60,7 +62,7 @@ public class Recipe {
         for (Rating rating : ratings) {
             sum += rating.getMark();
         }
-        return sum / ratings.size();
+        return round(sum / ratings.size(), 2);
     }
 
 }
