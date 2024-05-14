@@ -99,7 +99,7 @@
     </div>
     <form class="text-form" th:action="@{/api/newComment/{id1}(id1=${id})}" method="post" th:object="${comment}">
         <img th:src="@{../images/quill.svg}" src="../../static/images/quill.svg" alt = "quill" class = "quill">
-            <input name="startWith" th:field="${comment.text}" placeholder="Add comment" type="text">
+            <input name="startWith" maxlength="255" th:field="${comment.text}" placeholder="Add comment" type="text">
         <button id="publish">Publish</button>
     </form>
     <div class="commentField">
@@ -107,7 +107,7 @@
               th:class="${commentStat.first} ? 'comment comment' : 'comment comment' + ${commentStat.count}"
              th:style="'top: ' + (${commentStat.index} * 11.5) + 'vh;'">
             <div class="comment-user-circle">
-                <img id="comment-user" src="../../images/Chef Hat.svg" alt="comment-user" class="comment-user">
+                <img  id="comment-user" src="../../images/Chef Hat.svg" alt="comment-user" class="comment-user">
             </div>
             <table>
                 <tbody>
