@@ -40,7 +40,7 @@ body {
     background: #FBEFC7;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 2.5vw;
-    border-radius: 5.5vh;
+    border-radius: 0 5.5vh 5.5vh 0;
     outline: none;
     autocomplete: off;
 }
@@ -479,7 +479,7 @@ a:link, a:visited {
     border: 0.5vh solid #3E5902;
 }
 
-#overlay-support, #overlay-user {
+#overlay, #overlay-user {
     position: fixed;
     display: none;
     width: 100%;
