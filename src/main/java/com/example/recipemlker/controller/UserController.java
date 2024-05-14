@@ -140,6 +140,15 @@ public class UserController {
             model.addAttribute("id", id);
             model.addAttribute("isLogin", jwt != null);
             model.addAttribute("randomRecipeId", getRandomNumRecipe());
+            Rating existed = null;
+            if (jwt != null)
+                existed = ratingService.getByUserAndRecipe(userService.getUserByUsername(jwtService.extractUserName(jwt)), recipeService.getRecipeById(id));
+            if (existed == null) {
+                existed = new Rating();
+                existed.setMark(1.0);
+            }
+
+            model.addAttribute("rating", existed);
             Comment comment = new Comment();
             model.addAttribute("comment", comment);
             return "user/recipe";
@@ -186,7 +195,7 @@ public class UserController {
         return string;
     }
 
-    @PostMapping("/api/newComment/{id}")
+    @PostMapping("/api/newRating/{id}")
     public String newMark(@ModelAttribute Rating rating, @PathVariable("id") Long id) {
 
         if (jwt == null) return "redirect:/mustBeLogin";
