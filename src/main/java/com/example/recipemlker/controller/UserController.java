@@ -3,6 +3,7 @@ package com.example.recipemlker.controller;
 import com.example.recipemlker.dto.AuthDTO;
 import com.example.recipemlker.dto.AuthDTO.JwtAuthenticationResponse;
 import com.example.recipemlker.model.Comment;
+import com.example.recipemlker.model.Rating;
 import com.example.recipemlker.model.Recipe;
 import com.example.recipemlker.model.User;
 import com.example.recipemlker.service.*;
@@ -30,6 +31,8 @@ public class UserController {
     private CategoryService categoryService;
     @Autowired
     private CommentService commentService;
+    @Autowired
+    private RatingService ratingService;
 
     private String jwt = null;
 
@@ -179,6 +182,27 @@ public class UserController {
         newComment.setRecipe(recipeService.getRecipeById(id));
         newComment.setText(comment.getText());
         commentService.save(newComment);
+        String string = "redirect:/recipe/" + id;
+        return string;
+    }
+
+    @PostMapping("/api/newComment/{id}")
+    public String newMark(@ModelAttribute Rating rating, @PathVariable("id") Long id) {
+
+        if (jwt == null) return "redirect:/mustBeLogin";
+        if (this.recipeService.getRecipeById(id) == null) {
+            return "redirect:/404";
+        }
+        Rating newRating = new Rating();
+        if (!this.recipeService.getRecipeById(id).isPublished()) return "redirect:/403";
+        newRating.setUser(userService.getUserByUsername(jwtService.extractUserName(jwt)));
+        newRating.setRecipe(recipeService.getRecipeById(id));
+        newRating.setMark(rating.getMark());
+        Rating existed = ratingService.getByUserAndRecipe(userService.getUserByUsername(jwtService.extractUserName(jwt)), recipeService.getRecipeById(id));
+        if (existed != null) {
+            newRating.setId(existed.getId());
+        }
+        ratingService.save(newRating);
         String string = "redirect:/recipe/" + id;
         return string;
     }
