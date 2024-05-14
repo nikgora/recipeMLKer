@@ -31,7 +31,7 @@ body {
     border-radius: 2.7vw;
 }
 
-.search-form input{
+.search-form input, .inner-window input{
     height: 6.19vh;
     width: 41.67vw;
     margin-left: 1vw;
@@ -39,15 +39,11 @@ body {
     flex: 1;
     border: none;
     background: #FBEFC7;
+    border-radius: 0 5.5vh 5.5vh 0;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 2.5vw;
-    border-radius: 5.5vh;
     outline: none;
-}
-.inner-window input{
-    height: 1vh;
-    width: 41.67vw;
-    border: none;
+    autocomplete: off;
 }
 
 .magnifier{
@@ -303,7 +299,7 @@ body {
     height: 6vh;
 }
 
-.text-form input, .inner-window input {
+.text-form input{
     position: absolute;
     width: 37.5vw;
     height: 6vh;
@@ -312,10 +308,9 @@ body {
     border: none;
     background: #F2E3B3;
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 2.25vh;
     font-size: 2.25vw;
-    border-radius: 1.5vh;
     outline: none;
+    autocomplete: off;
 }
 
 .quill{
@@ -617,25 +612,27 @@ body {
 
 #send-button {
     position: absolute;
-    right: 90px;
-    width: 173px;
-    height: 46px;
+    right: 4.6875vw;
+    width: 9.0105vw;
+    height: 4.2593vh;
     background-color: #3E5902;
     border-radius: 2.7vw;
     text-align: center;
     font-family: 'Frank Ruhl Libre';
+    font-size: 1.25vh;
     font-size: 1.25vw;
     color: #FBEFC7;
     border: none;
-    top: 400px;
-    bottom: 16px;
+    top: 37.04vh;
+    bottom: 1.4815vh;
     z-index: 15;
+    cursor: pointer;
 }
 
 #send-button:hover {
     background-color: #FBEFC7;
     color: #3E5902;
-    border: 0.46vh solid #3E5902;
+    border: 0.5vh solid #3E5902;
 }
 
 .support-button {
