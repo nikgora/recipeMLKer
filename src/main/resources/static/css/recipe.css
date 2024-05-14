@@ -236,7 +236,6 @@ body {
     margin-top: 0.2vh;
 }
 
-
 .miniCategories{
     margin-left: 14vw;
     width: 10vw;
@@ -324,7 +323,7 @@ body {
     position: absolute;
     width: 6.5vw;
     height: 6.8vh;
-    margin-left: 39.2vw;
+    left: 39.2vw;
     background-color: #F28705;
     border-radius: 5vh;
     align-items: center;
@@ -718,46 +717,6 @@ body {
     line-height: 1vh;
     text-align: left;
     color: #F2E3B3;
-}
-
-.container {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-}
-
-.right {
-     width: 45%;
-     background: #D3E4CD;
-     border-radius: 10px;
-     padding: 10px;
-     text-align: center;
- }
-
-.left {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #FBEFC7;
-    border-radius: 60px;
-}
-
-.title {
-    font-family: 'Frank Ruhl Libre', serif; /* Використовуйте додаткове визначення типу шрифту */
-    font-size: 48px;  /* Вказуємо розмір шрифту */
-    font-weight: 400; /* Вказуємо вагу шрифту */
-}
-
-.title-container  {
-    position: relative; /* Зміна на relative для контейнера, щоб працював Flexbox */
-    width: 820px;
-    height: 60px;
-    border-radius: 60px;
-    background: #FBEFC7;
-    display: flex;  /* Включаємо Flexbox */
-    justify-content: center; /* Центрування по горизонталі */
-    align-items: center;
 }
 
 .amountContent {
