@@ -145,7 +145,7 @@ public class UserController {
                 existed = ratingService.getByUserAndRecipe(userService.getUserByUsername(jwtService.extractUserName(jwt)), recipeService.getRecipeById(id));
             if (existed == null) {
                 existed = new Rating();
-                existed.setMark(1.0);
+                existed.setMark(10.0);
             }
 
             model.addAttribute("rating", existed);
