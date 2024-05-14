@@ -408,7 +408,7 @@ table td {
     border: 0.46vh solid #3E5902;
 }
 
-#overlay-support {
+#overlay{
     position: fixed;
     display: none;
     width: 100%;
