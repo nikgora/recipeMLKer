@@ -199,17 +199,23 @@ public class UserController {
     public String newMark(@ModelAttribute Rating rating, @PathVariable("id") Long id) {
 
         if (jwt == null) return "redirect:/mustBeLogin";
-        if (this.recipeService.getRecipeById(id) == null) {
+        Recipe recipe = this.recipeService.getRecipeById(id);
+
+        if (recipe == null) {
             return "redirect:/404";
         }
         Rating newRating = new Rating();
         if (!this.recipeService.getRecipeById(id).isPublished()) return "redirect:/403";
         newRating.setUser(userService.getUserByUsername(jwtService.extractUserName(jwt)));
-        newRating.setRecipe(recipeService.getRecipeById(id));
+        newRating.setRecipe(recipe);
         newRating.setMark(rating.getMark());
-        Rating existed = ratingService.getByUserAndRecipe(userService.getUserByUsername(jwtService.extractUserName(jwt)), recipeService.getRecipeById(id));
+        Rating existed = ratingService.getByUserAndRecipe(userService.getUserByUsername(jwtService.extractUserName(jwt)), recipe);
         if (existed != null) {
             newRating.setId(existed.getId());
+        }
+        if (newRating.getMark() == null) {
+            newRating.setMark(recipe.getAverageMark());
+//            System.out.println("MARK IS NULL");
         }
         ratingService.save(newRating);
         String string = "redirect:/recipe/" + id;
