@@ -235,7 +235,6 @@ body {
     position: absolute;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 1vw; /*48*/
-    font-size: 3vh;
     margin-top: 0.8vh;
     margin-left: 13vw;
     color: black;
@@ -256,20 +255,18 @@ body {
     padding-left: 1.0415vw;
     background: #F2E3B3;
     border-radius: 2.778vh;
-    left: 2.0834vw;
-    top: 24vw;
-    width: 43vw;
+    left: 2.1vw;
+    top: 52vh;
+    width: 45vw;
     height: 6.8vh;
 }
 
 .text-form textarea{
-    position: absolute;
-    height: 6vh;
-    width: 80%;
+    height: 4vh;
+    width: 34vw;
     left: 4.0834vw;
-    flex: 2;
-    border: none;
     background: #F2E3B3;
+    border: none;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 2.25vw;
     outline: none;
@@ -287,14 +284,17 @@ body {
     position: absolute;
     width: 6.5vw;
     height: 6.8vh;
-    left: 39.2vw;
+    left: 40vw;
     background-color: #F28705;
     border-radius: 5vh;
-    align-items: center;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.5625vw;
+    text-align: center;
     border: none;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #publish:hover, #FavoriteList:hover, #UserList:hover, .Report:hover{
@@ -471,12 +471,12 @@ body {
 }
 
 .confirmation{
-    position: absolute;
+    position:fixed;
     width: 2.7vw;
     height: 5.4vh;
     border-radius: 50vh;
     background: #F2B705;
-    margin-left: 95vw;
+    left: 95vw;
     top: 87.6vh;
     cursor: pointer;
     border: none;
@@ -664,8 +664,7 @@ body {
     background-color: #3E5902;
     border-radius: 2.7vw;
     text-align: center;
-    font-family: 'Frank Ruhl Libre';
-    font-size: 1.25vh;
+    font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.25vw;
     color: #FBEFC7;
     border: none;
@@ -818,5 +817,8 @@ body {
     border: none;
     color: white;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
