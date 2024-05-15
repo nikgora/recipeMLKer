@@ -206,7 +206,6 @@ public class UserController {
     @PostMapping("/api/newRecipe")
     public String newRecipePageSubmit(@ModelAttribute Recipe recipe) {
         User user = (userService.getUserByUsername(jwtService.extractUserName(jwt)));
-        recipe.setCategory(categoryService.getCategoryById(1L));
         recipe.setUser(user);
         recipeService.save(recipe);
         return "redirect:/user";
