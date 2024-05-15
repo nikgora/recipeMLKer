@@ -317,9 +317,8 @@ ul hr {
 
 .ol::-webkit-scrollbar-track {
     margin-top: 3vh;
-    border: 0.0520834vw solid black;
     border-radius: 50px;
-    background: #F2E3B3;
+    background: #FBEFC7;
 }
 
 .ol::-webkit-scrollbar-thumb {
