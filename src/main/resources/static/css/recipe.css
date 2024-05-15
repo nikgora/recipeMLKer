@@ -31,7 +31,7 @@ body {
     border-radius: 2.7vw;
 }
 
-.search-form input, .inner-window input{
+.search-form input{
     height: 6.19vh;
     width: 41.67vw;
     margin-left: 1vw;
@@ -571,6 +571,22 @@ body {
     z-index: 13;
 }
 
+.inner-window textarea{
+    width: 53vw;
+    height: 27vh;
+    margin-left: 1vw;
+    margin-top: 0.2vh;
+    flex: 1;
+    border: none;
+    background: #FBEFC7;
+    border-radius: 2.25vh 2.25vh 0 0;
+    font-family: 'Frank Ruhl Libre', serif;
+    outline: none;
+    resize: none;
+    autocomplete: off;
+    font-size: 2vw;
+}
+
 .login-window {
     position: fixed;
     display: none;
@@ -659,7 +675,7 @@ body {
     cursor: pointer;
 }
 
-#send-button:hover {
+#send-button:hover, .send-report:hover {
     background-color: #FBEFC7;
     color: #3E5902;
     border: 0.5vh solid #3E5902;
@@ -805,3 +821,4 @@ body {
     color: white;
     cursor: pointer;
 }
+
