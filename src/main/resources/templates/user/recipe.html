@@ -83,15 +83,9 @@
             <p class="num" th:text="${recipe.getAverageMark()}">8.8</p>
         </a>
     </div>
-    <div class="FavoriteList">
-        <p class="c4">Favorite list</p>
-    </div>
-    <div class="UserList">
-        <p class="c5">User list</p>
-    </div>
-    <div class="Report">
-        <p class="c6">Report</p>
-    </div>
+    <button id="FavoriteList">Favorite List</button>
+    <button id="UserList">Lists</button>
+    <button id="Report">Report</button>
     <div class="mini">
         <p class="miniTime" th:text="${recipe.getCookingTime()}  + ' minutes'"> 30 minutes</p>
         <img th:if="${recipe}"

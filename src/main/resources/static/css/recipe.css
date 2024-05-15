@@ -150,68 +150,27 @@ body {
     margin-top: 0.1vh;
 }
 
-.FavoriteList{
+#FavoriteList, #UserList, #Report{
     position: absolute;
     width: 14.9vw;
     height: 5.556vh;
-    margin-left: 57.5834vw;
+    left: 57.5834vw;
     top: 15.1vh;
     background-color:  #F28705;
     border-radius: 5vh;
-}
-
-.c4{
-    position: absolute;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.75vw; /*48*/
-    font-size: 3.5vh;
-    color: black;
-    left: 2.7vw;
-    margin-left: 0.2vw;
-    margin-bottom: 0.3vh;
-    margin-top: 0.8vh;
+    border: none;
+    cursor: pointer;
 }
 
-.UserList{
-    position: absolute;
-    width: 14.9vw;
-    height: 5.556vh;
-    margin-left: 74.5834vw;
-    top: 15.1vh;
-    background-color:  #F28705;
-    border-radius: 5vh;
+#UserList{
+    left: 74.5834vw;
 }
-.c5{
-    position: absolute;
-    font-family: 'Frank Ruhl Libre', serif;
-    font-size: 1.75vw; /*48*/
-    font-size: 3.5vh;
-    color: black;
-    left: 2.7vw;
-    margin-left: 1.5vw;
-    margin-bottom: 0.3vh;
-    margin-top: 0.8vh;
-}
-/*2.0834*/
-.Report{
-    position: absolute;
+
+#Report{
     width: 6.5vw;
-    height: 5.556vh;
-    margin-left: 91.4834vw;
-    top: 15.1vh;
-    background-color:  #F28705;
-    border-radius: 5vh;
-}
-.c6{
-    position: absolute;
-    font-family: 'Frank Ruhl Libre', serif;
-    font-size: 1.75vw; /*48*/
-    font-size: 3.5vh;
-    color: black;
-
-    margin-left: 0.9vw;
-    margin-bottom: 0.3vh;
-    margin-top: 0.8vh;
+    left: 91.4834vw;
 }
 
 .mini{
@@ -337,7 +296,7 @@ body {
     cursor: pointer;
 }
 
-#publish:hover{
+#publish:hover, #FavoriteList:hover, #UserList:hover, #Report:hover{
     background-color: #FBEFC7;
     border: 0.5vh solid #F28705;
 }
