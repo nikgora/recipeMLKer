@@ -345,6 +345,19 @@
         () => showOverlay("overlay-lists", "lists-popup-window"));
     document.getElementById("overlay-lists").addEventListener("click",
         () => hideOverlay("overlay-lists", "lists-popup-window"));
+    document.getElementById("create-new-list-btn").addEventListener("click", function() {
+        var windowHeight = window.innerHeight;
+        var userButtons = document.querySelectorAll(".user-list, .user-list1");
+
+        userButtons.forEach(function(button) {
+            var currentTop = parseFloat(window.getComputedStyle(button).top);
+            var currentTopVh = (currentTop / windowHeight) * 100;
+
+            button.style.top = (currentTopVh + 8) + "vh"; // Припустимо, що ви хочете змістити на 5vh
+        });
+    });
+
+
 </script>
 </body>
 </html>
