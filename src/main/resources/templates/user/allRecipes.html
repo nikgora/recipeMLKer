@@ -11,7 +11,7 @@
 
         <form class="search-form">
             <img th:src="@{images/magnifier.svg}" src="../../static/images/magnifier.svg" alt = "magnifier" class = "magnifier">
-            <input name="query" placeholder="Search" type="search">
+            <input name="startWith" placeholder="Search" type="search">
         </form>
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
         <a class="button-style" href="recipe.html" th:href="@{/recipe/{id1}(id1=${randomRecipeId})}">Random</a>
@@ -111,11 +111,17 @@
             <div class="ol">
                 <div th:each="recipe, i : ${recipes}"
                      th:class="${i.index == 0} ? 'smallerField smallerField' : 'smallerField smallerField-down' + (${i.index})">
+                    <div class="comment-user-circle">
+                        <img th:if="${recipe}"
+                             th:src="@{'../images/' + ${recipe.getCategory().getTitle()} + '.svg'}"
+                             th:alt="${recipe.getCategory().getTitle()}"
+                             th:class="${recipe.getCategory().getTitle().replace(' ', '-')}">
+                    </div>
                     <table>
-                        <tr>
+                        <tr style="position: relative; left: 1.5625vw; bottom: 5vh;">
                             <th th:text="${recipe.getCategory().getTitle()}"></th>
                         </tr>
-                        <tr>
+                        <tr style="position: relative; left: 1.5625vw; bottom: 4vh;">
                             <td>
                                 <a th:href="@{/recipe/{id}(id=${recipe.getId()})}" th:text="${recipe.getTitle()}"></a>
                             </td>
@@ -123,6 +129,7 @@
                             <td th:text="${recipe.getAverageMark()}"></td>
                         </tr>
                     </table>
+                    <div class="line"></div>
                 </div>
             </div>
         </div>
@@ -139,9 +146,9 @@
 
     <div id="overlay" onclick="hideOverlay()"></div>
 
-    <div class="window" id="popup-window">  <!-- Вікно, яке з'являється при натисканні -->
+    <div class="window" id="popup-window">
         <div class="inner-window">
-            <input name="query" placeholder="Enter feedback" type="search">
+            <textarea name="query" placeholder="Enter feedback" required></textarea>
         </div>
 
         <button id="send-button">Send</button>
