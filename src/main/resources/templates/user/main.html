@@ -16,7 +16,7 @@
             <input name="startWith" placeholder="Search" type="search">
         </form>
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
-        <a class="button-style" href="recipe.html" th:href="@{/recipe/1}">Random</a>
+        <a class="button-style" href="recipe.html" th:href="@{/recipe/{id1}(id1=${randomRecipeId})}">Random</a>
 
         <div class="user-container heart-container" th:if ="${isLogin} == false">
             <div class="heart"

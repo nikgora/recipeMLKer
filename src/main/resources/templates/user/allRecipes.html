@@ -9,28 +9,60 @@
     <div class="header">
         <img th:src="@{images/logo.svg}" src="../../static/images/logo.svg" alt = "logo" class = "logo">
 
-
         <form class="search-form">
             <img th:src="@{images/magnifier.svg}" src="../../static/images/magnifier.svg" alt = "magnifier" class = "magnifier">
             <input name="query" placeholder="Search" type="search">
         </form>
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
-        <a class="button-style" href="recipe.html" th:href="@{/recipe/1}">Random</a>
-        <div class="heart-container">
+        <a class="button-style" href="recipe.html" th:href="@{/recipe/{id1}(id1=${randomRecipeId})}">Random</a>
+
+        <div class="user-container heart-container" th:if ="${isLogin} == false">
             <div class="heart"
-                 onmouseover="changeImage('heart-img', '../../images/heart-hover.svg')"
-                 onmouseout="restoreImage('heart-img', '../../images/heart.svg')">
-                <img id="heart-img" th:src="@{images/heart.svg}" src="../../images/heart.svg" alt="heart" class="heart">
+                 onmouseover="changeImage('heart-img1', '../../images/heart-hover.svg')"
+                 onmouseout="restoreImage('heart-img1', '../../images/heart.svg')">
+                <img id="heart-img1" th:src="@{images/heart.svg}" src="../../images/heart.svg" alt="heart" class="heart">
             </div>
         </div>
-
-        <div class="user-container">
-            <div class="user"
-                 onmouseover="changeImage('user-img', '../../images/user-hover.svg')"
-                 onmouseout="restoreImage('user-img', '../../images/user.svg')">
-
-                <img id="user-img" th:src="@{images/user.svg}" src="../../images/user.svg" alt="user" class="user">
+        <a th:href="@{/user}" th:if="${isLogin} == true">
+            <div class="user-container heart-login-container">
+                <div class="heart"
+                     onmouseover="changeImage('heart-img2', '../../images/heart-login-hover.svg')"
+                     onmouseout="restoreImage('heart-img2', '../../images/heart-login.svg')">
+                    <img id="heart-img2" th:src="@{images/heart-login.svg}" src="../../images/heart-login.svg" alt="heart" class="heart">
+                </div>
             </div>
+        </a>
+
+        <button class="user-container" id="user-btn1"  th:if ="${isLogin} == false">
+            <div class="user"
+                 onmouseover="changeImage('user-img1', '../../images/user-hover.svg')"
+                 onmouseout="restoreImage('user-img1', '../../images/user.svg')">
+
+                <img id="user-img1" th:src="@{images/user.svg}" src="../../images/user.svg" alt="user" class="user">
+            </div>
+        </button>
+        <a th:href="@{/user}" th:if="${isLogin} == true">
+            <button class="user-container"  id="user-btn2" >
+                <div class="user"
+                     onmouseover="changeImage('user-img2', '../../images/user-login-hover.svg')"
+                     onmouseout="restoreImage('user-img2', '../../images/user-login.svg')">
+
+                    <img id="user-img2" th:src="@{images/user-login.svg}" src="../../images/user-login.svg" alt="user" class="user">
+                </div>
+            </button>
+        </a>
+        <div id="overlay-user" onclick="hideOverlay()"></div>
+        <div class="login-window" id="popup-login-window">
+            <h1 class="login-heading">Log in</h1>
+            <form method="post"  id="loginForm"  th:action="@{api/auth/login}" onsubmit="return submitForm()">
+                <div class="login-form email">
+                    <input name="username" placeholder="Enter email" type="text" required>
+                </div>
+                <div class="login-form password">
+                    <input name="password" placeholder="Enter password" type="password" required>
+                </div>
+                <button id="confirm-button">Confirm</button>
+            </form>
         </div>
 
         <a th:href="@{/}" href="main.html">
@@ -138,4 +170,28 @@
     </div>
 </footer>
 <script th:href="@{js/scripts.js}" src="../../js/scripts.js"></script>
+<script>
+    function submitForm() {
+        var form = document.getElementById('loginForm');
+        var formData = new FormData(form);
+        var data = {};
+        formData.forEach(function(value, key){
+            data[key] = value;
+        });
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', form.action, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    window.location.href = '/allRecipes'; // Redirect to success page
+                } else {
+                    alert('Login failed. Please try again.'); // Show an alert or handle error
+                }
+            }
+        };
+        xhr.send(JSON.stringify(data));
+        return false; // Prevent the form from submitting in the traditional way
+    }
+</script>
 </html>
