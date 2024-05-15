@@ -41,25 +41,46 @@
 <body>
     <div class="title">Create a recipe</div>
     <main>
-        <form class="text-form">
-        <div class="recipeTitle">
-            <input name="query" placeholder="Recipe title" type="text">
-        </div>
-        </form>
-        <div class="recipeCookingTime"></div>
-        <div class="recipeCategory"></div>
-        <div class="recipeIngredients"></div>
-        <div class="recipeIngredientsAmount"></div>
-        <form class="text-form">
-            <div class="recipeDevices"></div>
+        <form class="text-form-title">
+            <div class="recipeTitle">
                 <input name="query" placeholder="Recipe title" type="text">
             </div>
         </form>
-        <div class="recipeStepByStep"></div>
+        <form class="text-form-time">
+            <div class="recipeCookingTime">
+                <input name="query" placeholder="Cooking time" type="number">
+<!-- TODO               min value 1-->
+            </div>
+        </form>
+        <form class="text-form-category">
+            <div class="recipeCategory">
+                <input name="query" placeholder="Category" type="text">
+            </div>
+        </form>
+        <form class="text-form-ingredients">
+            <div class="recipeIngredients">
+                <input name="query" placeholder="Ingredients" type="text">
+            </div>
+        </form>
+        <form class="text-form-ingredients-amount">
+            <div class="recipeIngredientsAmount">
+                <input name="query" placeholder="Ingredients amount" type="text">
+            </div>
+        </form>
+        <form class="text-form-devices">
+            <div class="recipeDevices"></div>
+                <input name="query" placeholder="Recipe devices" type="text">
+            </div>
+        </form>
+        <form class="text-form-StepByStep">
+            <div class="recipeStepByStep">
+                <input name="query" placeholder="Step by step" type="text">
+            </div>
+        </form>
 
-        <div class="previewButton"></div>
-        <div class="saveButton"></div>
-        <div class="publishButton"></div>
+        <div class="previewButton buttonText">Preview</div>
+        <div class="saveButton buttonText">Save</div>
+        <div class="publishButton buttonText">Publish</div>
         <div class="stick"></div>
     </main>
 

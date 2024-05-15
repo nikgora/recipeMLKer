@@ -163,7 +163,7 @@ body {
 .recipeStepByStep{
     position: absolute;
     width: 94vw;
-    height: 16.5vh;
+    height: 17vh;
     background-color: #F2E3B3;
     left: 3vw;
     right: 3vw;
@@ -179,6 +179,16 @@ body {
     left: 20.4vw;
     background-color: #F28705;
     border-radius: 5vh;
+}
+
+.buttonText{
+    position: absolute;
+    text-align: center;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2vw;
+    display: flex;
+    align-items: center; /* Вирівнювання по вертикалі */
+    justify-content: center; /* Вирівнювання по горизонталі */
 }
 
 .previewButton{
@@ -201,7 +211,7 @@ body {
     border-radius: 5vh;
 }
 
-.text-form {
+.text-form-title{
     position: absolute;
     display: flex;
     align-items: center;
@@ -211,18 +221,168 @@ body {
     top: 0vh;
 }
 
-.text-form input, .inner-window input {
+.text-form-title input, .inner-window input {
     position: absolute;
     width: 90vw;
     height: 4vh;
-    left: 2vw;
+    left: 1vw;
     margin-top: 0.3vh;
     flex: 2;
     border: none;
     background: #F2E3B3;
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 2.25vh;
-    font-size: 2.25vw;
+    font-size: 1.9vw;
+    border-radius: 1.5vh;
+    outline: none;
+}
+
+.text-form-time{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 0.53vw;
+    padding-left: 1.0415vw;
+    border-radius: 2.778vh;
+    top: 0vh;
+}
+
+.text-form-time input, .inner-window input {
+    position: absolute;
+    width: 42vw;
+    height: 4vh;
+    left: 1vw;
+    flex: 2;
+    border: none;
+    background: #F2E3B3;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.9vw;
+    border-radius: 1.5vh;
+    outline: none;
+}
+
+.text-form-category{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 0.53vw;
+    padding-left: 1.0415vw;
+    border-radius: 2.778vh;
+    top: 0vh;
+    right: 0vw;
+}
+
+.text-form-category input, .inner-window input {
+    position: absolute;
+    width: 42vw;
+    height: 4.2vh;
+    left: 1vw;
+    flex: 2;
+    border: none;
+    background: #F2E3B3;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.9vw;
+    border-radius: 1.5vh;
+    outline: none;
+}
+
+.text-form-ingredients{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 0.53vw;
+    padding-left: 1.0415vw;
+    border-radius: 2.778vh;
+    top: 0vh;
+}
+
+.text-form-ingredients input, .inner-window input {
+    position: absolute;
+    width: 42vw;
+    height: 4.2vh;
+    left: 1vw;
+    top: 1vh;
+    flex: 2;
+    border: none;
+    background: #F2E3B3;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.9vw;
+    border-radius: 1.5vh;
+    outline: none;
+}
+
+.text-form-ingredients-amount{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 0.53vw;
+    padding-left: 1.0415vw;
+    border-radius: 2.778vh;
+    top: 0vh;
+    right: 0vw;
+}
+
+.text-form-ingredients-amount input, .inner-window input {
+    position: absolute;
+    width: 42vw;
+    height: 4.2vh;
+    left: 1vw;
+    top: 1vh;
+    flex: 2;
+    border: none;
+    background: #F2E3B3;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.9vw;
+    border-radius: 1.5vh;
+    outline: none;
+}
+
+
+.text-form-devices{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 0.53vw;
+    padding-left: 1.0415vw;
+    border-radius: 2.778vh;
+    top: 0vh;
+}
+
+.text-form-devices input, .inner-window input {
+    position: absolute;
+    width: 90vw;
+    height: 4.2vh;
+    left: 4vw;
+    top: 53.25vh;/*рухати поле в середині*/
+    flex: 2;
+    border: none;
+    background: #F2E3B3;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.9vw;
+    border-radius: 1.5vh;
+    outline: none;
+}
+
+.text-form-StepByStep{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 0.53vw;
+    padding-left: 1.0415vw;
+    border-radius: 2.778vh;
+    top: 0vh;
+}
+
+.text-form-StepByStep input, .inner-window input {
+    position: absolute;
+    width: 90vw;
+    height: 4.2vh;
+    left: 1vw;
+    top: 1vh;/*рухати поле в середині*/
+    flex: 2;
+    border: none;
+    background: #F2E3B3;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.9vw;
     border-radius: 1.5vh;
     outline: none;
 }
@@ -234,6 +394,7 @@ body {
 /*    background-color: black;*/
 /*    top: 25.5vh;*/
 /*}*/
+
 
 /*____________________________________________________________________________________________________________________*/
 
