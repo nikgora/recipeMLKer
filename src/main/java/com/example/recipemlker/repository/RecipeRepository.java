@@ -2,6 +2,7 @@ package com.example.recipemlker.repository;
 
 import com.example.recipemlker.model.Category;
 import com.example.recipemlker.model.Recipe;
+import com.example.recipemlker.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -25,6 +26,8 @@ public interface RecipeRepository extends JpaRepository<Recipe, Long> {
     List<Recipe> findAllByTitleStartsWith(String title);
 
     List<Recipe> findALlByCookingTimeBetween(int min, int max);
+
+    List<Recipe> findAllByUser(User user);
 
     @Query(value = "SELECT pr FROM Recipe pr JOIN Rating r ON pr.id = r.recipe.id GROUP BY pr.id HAVING AVG(r.mark) BETWEEN :min AND :max")
     List<Recipe> findAllByAverageRatingBetween(double min, double max);

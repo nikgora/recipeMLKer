@@ -46,7 +46,7 @@ recipes.forEach((recipe, index) => {
 
 // Отримуємо елементи
 const dropDownIcon = document.querySelector('.DropDownIcon');
-const elementsToToggle = document.querySelectorAll('.FirstDishes, .MainDishes, .Salads, .Pastry, .Desserts, .Drinks, .Snacks, .FishDishes, .Sauces');
+const elementsToToggle = document.querySelectorAll('.substance, .mDIcon, .saladI, .pastryI, .dessertI, .smoothieI, .snackI, .fish, .sauceI');
 const timeI = document.querySelector('.timeI');
 
 // Додаємо обробник подій для кліка на DropDownIcon

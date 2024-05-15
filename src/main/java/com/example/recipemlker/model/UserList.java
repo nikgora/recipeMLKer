@@ -17,8 +17,6 @@ public class UserList {
     private Long id;
     @Column(name = "title")
     private String title;
-    @Column(name="description")
-    private String description;
     @ManyToOne
     @JoinColumn(name="fk_user", referencedColumnName = "user_id")
     private User user;
