@@ -276,12 +276,12 @@ ul hr {
     top: 82vh;
 }
 /*____________________________________________________________________________________________________________________*/
-.First-Dishes{
+.FirstDishes{
     width: 2.65625vw;
     height:5.5556vh;
 }
 
-.Main-Dishes{
+.MainDishes{
     width: 2.05vw;
     height:2.7vh;
 }
@@ -295,7 +295,7 @@ ul hr {
     height: 3.24075vh;
 }
 
-.Dessert{
+.Desserts{
     width: 2.34375vw;
     height: 3.24075vh;
 }

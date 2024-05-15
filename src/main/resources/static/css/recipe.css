@@ -61,34 +61,38 @@ body {
     justify-content: center;
     align-items: center;
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 1.25vh;
     font-size: 1.25vw;
     text-decoration: none;
 }
 
-.heart, .user {
+.heart img, .user img{
     width: 3.6458vw;
     height: 5.5555vh;
 }
 
-.heart-container, .user-container {
+.heart-container, .user-container, .heart-login-container, .user-login-container {
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
+    cursor: pointer;
+    pointer-events: auto;
+    border: none;
+    background-color: #F2E3B3;
 }
 
-.heart-container:hover {
+.user-container:hover, .user-login-container {
+    background-color: #733506;
+    width: 4.6vw;
+    height: 9.2593vh;
+}
+
+.heart-container:hover{
     cursor: not-allowed;
-    background-color: #733506;
-    width: 4.6vw;
-    height: 9.2593vh;
 }
 
-.user-container:hover {
-    background-color: #733506;
-    width: 4.6vw;
-    height: 9.2593vh;
+.heart-login-container:hover{
+    background-color: #B90F0F;
 }
 
 .home{
@@ -146,68 +150,27 @@ body {
     margin-top: 0.1vh;
 }
 
-.FavoriteList{
+#FavoriteList, #UserList, #Report{
     position: absolute;
     width: 14.9vw;
     height: 5.556vh;
-    margin-left: 57.5834vw;
+    left: 57.5834vw;
     top: 15.1vh;
     background-color:  #F28705;
     border-radius: 5vh;
-}
-
-.c4{
-    position: absolute;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.75vw; /*48*/
-    font-size: 3.5vh;
-    color: black;
-    left: 2.7vw;
-    margin-left: 0.2vw;
-    margin-bottom: 0.3vh;
-    margin-top: 0.8vh;
+    border: none;
+    cursor: pointer;
 }
 
-.UserList{
-    position: absolute;
-    width: 14.9vw;
-    height: 5.556vh;
-    margin-left: 74.5834vw;
-    top: 15.1vh;
-    background-color:  #F28705;
-    border-radius: 5vh;
+#UserList{
+    left: 74.5834vw;
 }
-.c5{
-    position: absolute;
-    font-family: 'Frank Ruhl Libre', serif;
-    font-size: 1.75vw; /*48*/
-    font-size: 3.5vh;
-    color: black;
-    left: 2.7vw;
-    margin-left: 1.5vw;
-    margin-bottom: 0.3vh;
-    margin-top: 0.8vh;
-}
-/*2.0834*/
-.Report{
-    position: absolute;
+
+#Report{
     width: 6.5vw;
-    height: 5.556vh;
-    margin-left: 91.4834vw;
-    top: 15.1vh;
-    background-color:  #F28705;
-    border-radius: 5vh;
-}
-.c6{
-    position: absolute;
-    font-family: 'Frank Ruhl Libre', serif;
-    font-size: 1.75vw; /*48*/
-    font-size: 3.5vh;
-    color: black;
-
-    margin-left: 0.9vw;
-    margin-bottom: 0.3vh;
-    margin-top: 0.8vh;
+    left: 91.4834vw;
 }
 
 .mini{
@@ -228,7 +191,7 @@ body {
     margin-bottom: 0.3vh;
     margin-top: 0.3vh;
 }
-.dessertI{
+.Dessert, .Main-Dishes, .First-Dishes, .Salads, .Sauces, .Drinks{
     position: absolute;
     width: 6vw;
     height: 4vh;
@@ -237,7 +200,8 @@ body {
 }
 
 .miniCategories{
-    margin-left: 13.5vw;
+    margin-left: 14vw;
+    width: 10vw;
 }
 
 /*____________________________________________________________________________________________________________________*/
@@ -322,7 +286,7 @@ body {
     position: absolute;
     width: 6.5vw;
     height: 6.8vh;
-    margin-left: 39.2vw;
+    left: 39.2vw;
     background-color: #F28705;
     border-radius: 5vh;
     align-items: center;
@@ -332,7 +296,7 @@ body {
     cursor: pointer;
 }
 
-#publish:hover{
+#publish:hover, #FavoriteList:hover, #UserList:hover, #Report:hover{
     background-color: #FBEFC7;
     border: 0.5vh solid #F28705;
 }
@@ -575,7 +539,7 @@ body {
     z-index: 5;
 }
 
-#overlay {
+#overlay, #overlay-user {
     position: fixed;
     display: none;
     width: 100%;
@@ -610,6 +574,75 @@ body {
     padding-left: 0.01vw;
     border-radius: 2.25vh;
     z-index: 13;
+}
+
+.login-window {
+    position: fixed;
+    display: none;
+    border-radius: 2.7vw;
+    width: 26vw;
+    height: 30vh;
+    left: 72.9vw;
+    bottom: 59.7vh;
+    background-color: #F2E3B3;
+    z-index: 11;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.login-form {
+    border-radius: 2.7vw;
+    position: absolute;
+    width: 21vw;
+    height: 4.5vh;
+    z-index: 13;
+    left: 1.5vw;
+}
+
+.email {
+    top: 7vh;
+}
+
+.password {
+    top: 14.8vh;
+}
+
+.login-heading {
+    position: absolute;
+    right: 9.58vw;
+    bottom: 21.5vh;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2vw;
+}
+
+.email input, .password input {
+    width: 21.979vw;
+    height: 6.19vh;
+    flex: 1;
+    border: none;
+    background: #FBEFC7;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2vh;
+    font-size: 2vw;
+    border-radius: 5.5vh;
+    outline: none;
+    padding-left: 1vw;
+}
+
+#confirm-button {
+    background-color: #3E5902;
+    position: absolute;
+    width: 15.6vw;
+    height: 5vh;
+    right: 5.2vw;
+    bottom: 1.7vh;
+    z-index: 15;
+    border-radius: 2.7vw;
+    cursor: pointer;
+    text-align: center;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2vw;
+    color: #FBEFC7;
+    border: none;
 }
 
 #send-button {
@@ -716,46 +749,6 @@ body {
     line-height: 1vh;
     text-align: left;
     color: #F2E3B3;
-}
-
-.container {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-}
-
-.right {
-     width: 45%;
-     background: #D3E4CD;
-     border-radius: 10px;
-     padding: 10px;
-     text-align: center;
- }
-
-.left {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #FBEFC7;
-    border-radius: 60px;
-}
-
-.title {
-    font-family: 'Frank Ruhl Libre', serif; /* Використовуйте додаткове визначення типу шрифту */
-    font-size: 48px;  /* Вказуємо розмір шрифту */
-    font-weight: 400; /* Вказуємо вагу шрифту */
-}
-
-.title-container  {
-    position: relative; /* Зміна на relative для контейнера, щоб працював Flexbox */
-    width: 820px;
-    height: 60px;
-    border-radius: 60px;
-    background: #FBEFC7;
-    display: flex;  /* Включаємо Flexbox */
-    justify-content: center; /* Центрування по горизонталі */
-    align-items: center;
 }
 
 .amountContent {
