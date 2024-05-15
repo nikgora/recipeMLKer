@@ -87,7 +87,7 @@
     <button id="UserList">Lists</button>
     <button class="Report" id="report-btn">Report</button>
 
-    <a th:href="@{/user}" th:if="${isLogin} == true">
+    <a th:if="${isLogin} == true">
         <div id="overlay-report" onclick="hideOverlay()"></div>
 
         <div class="report-container" id="report-field-popup-window">
@@ -138,7 +138,7 @@
     </div>
     <form class="text-form" th:action="@{/api/newComment/{id1}(id1=${id})}" method="post" th:object="${comment}">
         <img th:src="@{../images/quill.svg}" src="../../static/images/quill.svg" alt = "quill" class = "quill">
-        <textarea name="startWith" maxlength="255" th:field="${comment.text}" placeholder="Add comment"></textarea>
+            <textarea name="startWith" maxlength="255" th:field="${comment.text}" placeholder="Add comment"></textarea>
         <button id="publish">Publish</button>
     </form>
     <div class="commentField">
