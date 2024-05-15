@@ -23,7 +23,7 @@
             <div class="heart"
                  onmouseover="changeImage('heart-img1', '../../images/heart-hover.svg')"
                  onmouseout="restoreImage('heart-img1', '../../images/heart.svg')">
-                <img id="heart-img1" th:src="@{images/heart.svg}" src="../../images/heart.svg" alt="heart" class="heart">
+                <img id="heart-img1" th:src="@{../images/heart.svg}" src="../../images/heart.svg" alt="heart" class="heart">
             </div>
         </div>
         <a th:href="@{/user}" th:if="${isLogin} == true">
@@ -41,7 +41,7 @@
                  onmouseover="changeImage('user-img1', '../../images/user-hover.svg')"
                  onmouseout="restoreImage('user-img1', '../../images/user.svg')">
 
-                <img id="user-img1" th:src="@{images/user.svg}" src="../../images/user.svg" alt="user" class="user">
+                <img id="user-img1" th:src="@{../images/user.svg}" src="../../images/user.svg" alt="user" class="user">
             </div>
         </button>
         <a th:href="@{/user}" th:if="${isLogin} == true">
@@ -96,6 +96,9 @@
             </div>
             <button class="send-report" id="send-report-btn">Send a report</button>
         </form>
+    </div>
+    <div th:if="${isLogin} == false">
+        <button class="Report" id="report-btn1" onclick="showAlert(this.id)">Report</button>
     </div>
 
     <div class="mini">
@@ -259,8 +262,21 @@
         </div>
     </div>
 </footer>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.8/dist/sweetalert2.all.min.js"></script>-->
 <script th:href="@{js/scripts.js}" src="../../js/scripts.js"></script>
 <script>
+    var isLogin = /*[[${isLogin}]]*/ false;
+
+    function showAlert(button) {
+        if(!isLogin) {
+            alert("Please log in to report.");
+        }
+    }
+    /*$(".Report").click(function(){
+        Swal.fire('Register to report',);
+    });*/
+
     function getRating() {
         var ratingInputs = document.querySelectorAll('input[name="rating"]');
         var selectedRating = null;
@@ -281,7 +297,7 @@
         alert("Selected rating: " + selectedRating)
     });
 
-        function submitForm() {
+    function submitForm() {
         var form = document.getElementById('loginForm');
         var formData = new FormData(form);
         var data = {};
@@ -295,9 +311,9 @@
         if (xhr.readyState === XMLHttpRequest.DONE) {
         if (xhr.status === 200) {
             alert('Login successful. You are now logged in.');
-    } else {
-        alert('Login failed. Please try again.'); // Show an alert or handle error
-    }
+        } else {
+            alert('Login failed. Please try again.'); // Show an alert or handle error
+        }
     }
     };
         xhr.send(JSON.stringify(data));

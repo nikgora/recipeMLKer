@@ -140,10 +140,9 @@ body {
 .num{
     position: absolute;
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 2.5vw; /*48*/
-    font-size: 4.445vh;
+    font-size: 2vw;
     color: black;
-    left: 1.6vw;
+    left: 1.8vw;
     margin-left: 0.2vw;
     margin-bottom: 0.5vh;
     margin-top: 0.1vh;
@@ -195,7 +194,7 @@ body {
     margin-bottom: 0.3vh;
     margin-top: 0.3vh;
 }
-.Dessert, .Main-Dishes, .First-Dishes, .Salads, .Sauces, .Drinks{
+.Dessert, .Main-Dish, .First-Dish, .Salad, .Sauce, .Drink{
     position: absolute;
     width: 6vw;
     height: 4vh;
@@ -251,6 +250,8 @@ body {
 .devices{
     margin-left: 2.1vw;
 }
+
+
 /*____________________________________________________________________________________________________________________*/
 
 .text-form {
