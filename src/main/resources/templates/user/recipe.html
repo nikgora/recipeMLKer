@@ -85,7 +85,18 @@
     </div>
     <button id="FavoriteList">Favorite List</button>
     <button id="UserList">Lists</button>
-    <button id="Report">Report</button>
+    <button class="Report" id="report-btn">Report</button>
+
+    <div id="overlay-report" onclick="hideOverlay()"></div>
+
+    <div class="report-container" id="report-field-popup-window">
+        <div class="reportHeader">Report</div>
+        <div class="report-inner-window">
+            <textarea name="report" placeholder="Please, enter the reason for the report" required></textarea>
+        </div>
+        <button class="send-report" id="send-report-btn">Send a report</button>
+    </div>
+
     <div class="mini">
         <p class="miniTime" th:text="${recipe.getCookingTime()}  + ' minutes'"> 30 minutes</p>
         <img th:if="${recipe}"
@@ -146,9 +157,7 @@
     </div>
 
     <div class="fullRecipe">
-        <div class="fullRecipeHeader">
-            <p class="frTitle">Recipe</p>
-        </div>
+        <div class="fullRecipeHeader">Recipe</div>
         <div class="amountField">
             <div class="ingredientsHeader">Ingredient amount</div>
             <div class="amountContent">
@@ -293,6 +302,13 @@
         xhr.send(JSON.stringify(data));
         return false; // Prevent the form from submitting in the traditional way
     }
+
+    document.getElementById("report-btn").addEventListener("click",
+        () => showOverlay("overlay-report", "report-field-popup-window"));
+    document.getElementById("overlay-report").addEventListener("click",
+        () => hideOverlay("overlay-report", "report-field-popup-window"));
+    document.getElementById("send-report-btn").addEventListener("click",
+        () => hideOverlay("overlay-report", "report-field-popup-window"));
 </script>
 </body>
 </html>

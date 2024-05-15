@@ -150,7 +150,7 @@ body {
     margin-top: 0.1vh;
 }
 
-#FavoriteList, #UserList, #Report{
+#FavoriteList, #UserList, .Report{
     position: absolute;
     width: 14.9vw;
     height: 5.556vh;
@@ -168,7 +168,7 @@ body {
     left: 74.5834vw;
 }
 
-#Report{
+.Report{
     width: 6.5vw;
     left: 91.4834vw;
 }
@@ -296,7 +296,7 @@ body {
     cursor: pointer;
 }
 
-#publish:hover, #FavoriteList:hover, #UserList:hover, #Report:hover{
+#publish:hover, #FavoriteList:hover, #UserList:hover, .Report:hover{
     background-color: #FBEFC7;
     border: 0.5vh solid #F28705;
 }
@@ -372,7 +372,7 @@ body {
     border-radius: 4.63vh;
 }
 /*____________________________________________________________________________________________________________________*/
-.fullRecipe{
+.fullRecipe, .report-container{
     position: absolute;
     width: 46.875vw;
     height: 63vh;
@@ -382,20 +382,15 @@ body {
     border-radius: 5vh;
 }
 
-.fullRecipeHeader{
+.fullRecipeHeader, .reportHeader{
     width: 46.875vw;
     height: 4.875vh;
     background: #3E5902;
-    border-radius: 5vh 5vh 0vh 0vh ;
-}
-.frTitle{
-    position: absolute;
+    border-radius: 5vh 5vh 0 0;
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 2.5vw; /*48*/
-    font-size: 4.445vh;
-    top: -5vh;
-    margin-left: 21vw;
+    font-size: 1.9vw; /*48*/
     color: white;
+    text-align: center;
 }
 
 .amountField{
@@ -539,7 +534,7 @@ body {
     z-index: 5;
 }
 
-#overlay, #overlay-user {
+#overlay, #overlay-user, #overlay-report {
     position: fixed;
     display: none;
     width: 100%;
@@ -681,8 +676,7 @@ body {
     width: 8.4375vw;
     height: 4.2593vh;
     text-align: center;
-    font-family: 'Frank Ruhl Libre';
-    font-size: 1.25vh;
+    font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.25vw;
     font-weight: 400;
     line-height: 4.2593vh;
@@ -743,7 +737,7 @@ body {
     width: 21vw;
     height: 3vh;
     margin: auto;
-    font-family: 'Frank Ruhl Libre';
+    font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.25vw;
     font-weight: 400;
     line-height: 1vh;
@@ -764,4 +758,50 @@ body {
     color: black;
 }
 
+.report-container{
+    z-index: 11;
+    display: none;
+}
 
+.report-inner-window {
+    position: absolute;
+    width: 42.45vw;
+    height: 46.296vh;
+    left: 42px;
+    top: 7vh;
+    border-radius: 3.125vw;
+    background: #FBEFC7;
+    z-index: 11;
+    padding-left: 0.5vw;
+}
+
+.report-inner-window textarea {
+    margin-top: 2vh;
+    width: 37.7vw;
+    height: 40vh;
+    border: none;
+    background: #FBEFC7;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2vw;
+    padding-left: 2dvw;
+    border-radius: 3.125vw 0 0 0;
+    outline: none;
+    resize: none;
+    autocomplete: off;
+}
+
+.send-report{
+    position: absolute;
+    width: 30vw;
+    height: 5.5vh;
+    right: 7.5vw;
+    bottom: 2.4vh;
+    border-radius: 4.6875vw;
+    background: #3E5902;
+    z-index: 11;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2vw;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
