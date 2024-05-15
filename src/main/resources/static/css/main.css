@@ -231,17 +231,17 @@ ul hr {
     margin-right: 2.344vw;
 }
 
-.substance{
+.First-Dish{
     width: 2.65625vw;
     height:5.5556vh;
 }
 
-.mDIcon{
+.Main-Dish{
     width: 2.05vw;
     height:2.7vh;
 }
 
-.saladI{
+.Salad{
     width: 2.0833vw;
     height:4.167vh;
 }
@@ -251,12 +251,12 @@ ul hr {
     height: 3.24075vh;
 }
 
-.dessertI{
+.Dessert{
     width: 2.34375vw;
     height: 3.24075vh;
 }
 
-.smoothieI{
+.Drink{
     width: 2.34375vw;
     height: 4.1667vh;
 }

@@ -131,7 +131,7 @@ body {
     position: absolute;
     width: 6.5vw;
     height: 5vh;
-    margin-left: 48.4834vw;
+    left: 51.0834vw;
     top: 14.6vh;
     border: 0.7vh solid #F2E3B3;
     border-radius: 5vh;
@@ -151,9 +151,9 @@ body {
 
 #FavoriteList, #UserList, .Report{
     position: absolute;
-    width: 14.9vw;
+    width: 12vw;
     height: 5.556vh;
-    left: 57.5834vw;
+    left: 61.5vw;
     top: 15.1vh;
     background-color:  #F28705;
     border-radius: 5vh;
@@ -164,12 +164,17 @@ body {
 }
 
 #UserList{
-    left: 74.5834vw;
+    left: 76.5vw;
 }
 
 .Report{
+    position: absolute;
     width: 6.5vw;
     left: 91.4834vw;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .mini{
@@ -247,6 +252,7 @@ body {
     margin-left: 2.1vw;
 }
 /*____________________________________________________________________________________________________________________*/
+
 .text-form {
     position: absolute;
     display: flex;
@@ -259,16 +265,19 @@ body {
     top: 52vh;
     width: 45vw;
     height: 6.8vh;
+    border: none;
+    outline: none;
 }
 
 .text-form textarea{
+    position: absolute;
     height: 4vh;
-    width: 34vw;
+    width: 75%;
     left: 4.0834vw;
-    background: #F2E3B3;
     border: none;
+    background: #F2E3B3;
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 2.25vw;
+    font-size: 2vw;
     outline: none;
     resize: none;
     autocomplete: off;
@@ -289,7 +298,6 @@ body {
     border-radius: 5vh;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.5625vw;
-    text-align: center;
     border: none;
     cursor: pointer;
     display: flex;

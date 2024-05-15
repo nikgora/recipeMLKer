@@ -83,21 +83,20 @@
             <p class="num" th:text="${recipe.getAverageMark()}">8.8</p>
         </a>
     </div>
-    <button id="FavoriteList">Favorite List</button>
+    <button id="FavoriteList">Favorite</button>
     <button id="UserList">Lists</button>
     <button class="Report" id="report-btn">Report</button>
 
-    <a th:if="${isLogin} == true">
+    <div th:if="${isLogin} == true">
         <div id="overlay-report" onclick="hideOverlay()"></div>
-
-        <div class="report-container" id="report-field-popup-window">
+        <form class="report-container" id="report-field-popup-window" method="post" th:action="@{/api/newUserReport/{id1}(id1=${id})}" th:object="${userReport}">
             <div class="reportHeader">Report</div>
             <div class="report-inner-window">
-                <textarea name="report" placeholder="Please, enter the reason for the report" required></textarea>
+                <textarea  name="description" placeholder="Please, enter the reason for the report" th:value="${userReport.description}"></textarea>
             </div>
             <button class="send-report" id="send-report-btn">Send a report</button>
-        </div>
-    </a>
+        </form>
+    </div>
 
     <div class="mini">
         <p class="miniTime" th:text="${recipe.getCookingTime()}  + ' minutes'"> 30 minutes</p>
