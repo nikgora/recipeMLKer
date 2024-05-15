@@ -215,7 +215,6 @@ public class UserController {
         }
         if (newRating.getMark() == null) {
             newRating.setMark(recipe.getAverageMark());
-//            System.out.println("MARK IS NULL");
         }
         ratingService.save(newRating);
         String string = "redirect:/recipe/" + id;
