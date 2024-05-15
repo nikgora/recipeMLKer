@@ -87,17 +87,16 @@
     <button id="UserList">Lists</button>
     <button class="Report" id="report-btn">Report</button>
 
-    <a th:href="@{/user}" th:if="${isLogin} == true">
+    <div th:if="${isLogin} == true">
         <div id="overlay-report" onclick="hideOverlay()"></div>
-
-        <div class="report-container" id="report-field-popup-window">
+        <form class="report-container" id="report-field-popup-window" method="post" th:action="@{/api/newUserReport/{id1}(id1=${id})}" th:object="${userReport}">
             <div class="reportHeader">Report</div>
             <div class="report-inner-window">
-                <textarea name="report" placeholder="Please, enter the reason for the report" required></textarea>
+                <textarea  name="description" placeholder="Please, enter the reason for the report" th:value="${userReport.description}"></textarea>
             </div>
-            <button class="send-report" id="send-report-btn">Send a report</button>
-        </div>
-    </a>
+                <button class="send-report" id="send-report-btn">Send a report</button>
+        </form>
+    </div>
 
     <div class="mini">
         <p class="miniTime" th:text="${recipe.getCookingTime()}  + ' minutes'"> 30 minutes</p>
@@ -138,7 +137,7 @@
     </div>
     <form class="text-form" th:action="@{/api/newComment/{id1}(id1=${id})}" method="post" th:object="${comment}">
         <img th:src="@{../images/quill.svg}" src="../../static/images/quill.svg" alt = "quill" class = "quill">
-        <textarea name="startWith" maxlength="255" th:field="${comment.text}" placeholder="Add comment"></textarea>
+        <textarea name="text" maxlength="255" th:field="${comment.text}" placeholder="Add comment"></textarea>
         <button id="publish">Publish</button>
     </form>
     <div class="commentField">
