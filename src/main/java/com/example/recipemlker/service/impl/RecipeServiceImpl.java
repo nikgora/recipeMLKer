@@ -3,6 +3,7 @@ package com.example.recipemlker.service.impl;
 import com.example.recipemlker.model.Category;
 import com.example.recipemlker.model.Rating;
 import com.example.recipemlker.model.Recipe;
+import com.example.recipemlker.model.User;
 import com.example.recipemlker.repository.RecipeRepository;
 import com.example.recipemlker.service.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,6 +69,11 @@ public class RecipeServiceImpl implements RecipeService {
     @Override
     public void save(Recipe recipe) {
         recipeRepository.save(recipe);
+    }
+
+    @Override
+    public List<Recipe> getAllByUser(User user) {
+        return recipeRepository.findAllByUser(user);
     }
 
     @Override
