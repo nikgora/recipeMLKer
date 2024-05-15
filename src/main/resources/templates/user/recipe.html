@@ -92,7 +92,7 @@
         <form class="report-container" id="report-field-popup-window" method="post" th:action="@{/api/newUserReport/{id1}(id1=${id})}" th:object="${userReport}">
             <div class="reportHeader">Report</div>
             <div class="report-inner-window">
-                <textarea  name="description" placeholder="Please, enter the reason for the report" th:value="${userReport.description}"></textarea>
+                <textarea name="description" placeholder="Please, enter the reason for the report" th:value="${userReport.description}"></textarea>
             </div>
             <button class="send-report" id="send-report-btn">Send a report</button>
         </form>
