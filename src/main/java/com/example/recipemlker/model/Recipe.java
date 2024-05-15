@@ -62,7 +62,7 @@ public class Recipe {
         for (Rating rating : ratings) {
             sum += rating.getMark();
         }
-        return round(sum / ratings.size(), 2);
+        return round(sum / ratings.size(), 1);
     }
 
 }
