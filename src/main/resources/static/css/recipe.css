@@ -809,9 +809,9 @@ body {
 .send-report{
     position: absolute;
     width: 30vw;
-    height: 5.5vh;
+    height: 6vh;
     right: 7.5vw;
-    bottom: 2.4vh;
+    bottom: 1.8vh;
     border-radius: 4.6875vw;
     background: #3E5902;
     z-index: 11;
