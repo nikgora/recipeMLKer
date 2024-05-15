@@ -14,7 +14,7 @@
 
         <form class="search-form">
             <img th:src="@{../images/magnifier.svg}" src="../../static/images/magnifier.svg" alt = "magnifier" class = "magnifier">
-                <input name="query" placeholder="Search" type="search">
+                <input name="startWith" placeholder="Search" type="search">
         </form>
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
         <a class="button-style" href="recipe.html" th:href="@{/recipe/{id1}(id1=${randomRecipeId})}">Random</a>
@@ -136,7 +136,7 @@
     </div>
     <form class="text-form" th:action="@{/api/newComment/{id1}(id1=${id})}" method="post" th:object="${comment}">
         <img th:src="@{../images/quill.svg}" src="../../static/images/quill.svg" alt = "quill" class = "quill">
-            <input name="startWith" maxlength="255" th:field="${comment.text}" placeholder="Add comment" type="text">
+        <textarea name="startWith" maxlength="255" th:field="${comment.text}" placeholder="Add comment"></textarea>
         <button id="publish">Publish</button>
     </form>
     <div class="commentField">

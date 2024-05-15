@@ -263,7 +263,7 @@ body {
     height: 6.8vh;
 }
 
-.text-form input{
+.text-form textarea{
     position: absolute;
     height: 6vh;
     width: 80%;
@@ -274,7 +274,9 @@ body {
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 2.25vw;
     outline: none;
+    resize: none;
     autocomplete: off;
+    scrollbar-width: none;
 }
 
 .quill{
@@ -377,7 +379,7 @@ body {
     width: 46.875vw;
     height: 63vh;
     top: 22.8vh;
-    margin-left: 51.0834vw;
+    left: 51.0834vw;
     background: #F2E3B3;
     border-radius: 5vh;
 }
@@ -781,25 +783,23 @@ body {
 
 .report-inner-window {
     position: absolute;
-    width: 42.45vw;
-    height: 46.296vh;
-    left: 42px;
-    top: 7vh;
+    width: 90%;
+    height: 75%;
+    left: 5%;
+    top: 10%;
     border-radius: 3.125vw;
     background: #FBEFC7;
     z-index: 11;
-    padding-left: 0.5vw;
 }
 
 .report-inner-window textarea {
-    margin-top: 2vh;
-    width: 37.7vw;
-    height: 40vh;
+    width: 90%;
+    height: 90%;
+    padding-left: 5%;
     border: none;
     background: #FBEFC7;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 2vw;
-    padding-left: 2dvw;
     border-radius: 3.125vw 0 0 0;
     outline: none;
     resize: none;
