@@ -134,6 +134,7 @@ body {
     margin-top: 10.65vh;
 }
 
+
 .reportAI{
     position: absolute;
     font-family: 'Frank Ruhl Libre', serif;
@@ -145,6 +146,10 @@ body {
     color: black;
     left: 21vw;
     top: 47vh;
+}
+
+.reportAI:hover, .AIReport:hover {
+    background-color: #F2B705;
 }
 
 .UserReport{
@@ -169,6 +174,10 @@ body {
     top: 47vh;
 }
 
+.UserReport:hover, .reportUser:hover {
+    background-color: #F2B705;
+}
+
 .returnB{
     width: 28.3vw;
     height: 8.34vh;
@@ -186,7 +195,7 @@ body {
 }
 
 .returnB:hover, .returnText:hover {
-    background-color: #F2E3B3;
+    background-color: #F2B705;
     color: #3E5902;
     border: 0.5vh solid #3E5902;
 }

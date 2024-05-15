@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
-    <title>User page</title>
+    <title>Moderator page</title>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link rel="stylesheet" type="text/css" href="../../static/css/moderatorPage.css" th:href="@{css/moderatorPage.css}">
@@ -35,11 +35,11 @@
                 <img id="user-img" th:src="@{images/user.svg}" src="../../images/user.svg" alt="user" class="user">
             </div>
         </div>
-
-        <a th:href="@{/main.page}" href="main.html">
+        <a th:href="@{/}" href="../user/main.html">
             <img th:src="@{images/home.svg}" src="../../images/home.svg" alt="home" class="home">
         </a>
     </div>
+</header>
 
 </header>
 <main>
