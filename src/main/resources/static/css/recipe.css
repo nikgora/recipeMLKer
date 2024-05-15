@@ -257,14 +257,14 @@ body {
     border-radius: 2.778vh;
     left: 2.1vw;
     top: 52vh;
-    width: 43vw;
+    width: 45vw;
     height: 6.8vh;
 }
 
 .text-form textarea{
     position: absolute;
     height: 6vh;
-    width: 80%;
+    width: 75%;
     left: 4.0834vw;
     flex: 2;
     border: none;
@@ -286,7 +286,7 @@ body {
     position: absolute;
     width: 6.5vw;
     height: 6.8vh;
-    left: 39.2vw;
+    left: 40vw;
     background-color: #F28705;
     border-radius: 5vh;
     align-items: center;
