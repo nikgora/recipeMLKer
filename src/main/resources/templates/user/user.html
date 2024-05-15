@@ -9,10 +9,11 @@
 <body>
 <header>
     <div class="header">
-        <img th:src="@{images/logo.svg}" src="../../static/images/logo.svg" alt = "logo" class = "logo">
+        <img th:src="@{images/logo.svg}" src="../../static/images/logo.svg" alt="logo" class="logo">
 
         <form class="search-form">
-            <img th:src="@{images/magnifier.svg}" src="../../static/images/magnifier.svg" alt = "magnifier" class = "magnifier">
+            <img th:src="@{images/magnifier.svg}" src="../../static/images/magnifier.svg" alt="magnifier"
+                 class="magnifier">
             <input name="query" placeholder="Search" type="search">
         </form>
 
@@ -23,7 +24,8 @@
             <div class="heart"
                  onmouseover="changeImage('heart-img', '../../images/heart-login-hover.svg')"
                  onmouseout="restoreImage('heart-img', '../../images/heart-login.svg')">
-                <img id="heart-img" th:src="@{images/heart-login.svg}" src="../../images/heart-login.svg" alt="heart" class="heart">
+                <img id="heart-img" th:src="@{images/heart-login.svg}" src="../../images/heart-login.svg" alt="heart"
+                     class="heart">
             </div>
         </div>
 
@@ -31,7 +33,8 @@
             <div class="user"
                  onmouseover="changeImage('user-img', '../../images/user-login-hover.svg')"
                  onmouseout="restoreImage('user-img', '../../images/user-login.svg')">
-                <img id="user-img" th:src="@{images/user-login.svg}" src="../../images/user-login.svg" alt="user" class="user">
+                <img id="user-img" th:src="@{images/user-login.svg}" src="../../images/user-login.svg" alt="user"
+                     class="user">
             </div>
         </button>
 
@@ -54,7 +57,9 @@
         <button class="createList" id="createList-btn">Create a list</button>
         <button class="createRecipe">Create a recipe</button>
         <button class="allLists">All Lists</button>
-        <button class="logOut">Log out</button>
+        <form method="post" th:action="@{/api/logout}">
+            <button class="logOut">Log out</button>
+        </form>
         <button class="logInModerator">Log in as moderator</button>
     </div>
 
@@ -62,12 +67,13 @@
 
     <div class="list-container" id="list-field-popup-window">
         <div class="list-name">
+            <form th:action="@{/api/newList}" method="post"></form>
             <input type="text" placeholder="Enter list name" id="listName">
         </div>
         <button class="confirm-list-button" id="confirm-list-btn">Confirm</button>
     </div>
 
-    <div class ="recipesField">
+    <div class="recipesField">
         <div class="recipesFieldHeader">
             <p class="c7">User notes</p>
         </div>
@@ -80,7 +86,7 @@
 <footer class="footer">
     <button class="support-button" id="support-btn"><span>Support</span></button>
 
-    <div id="overlay-support" onclick="hideOverlay()"></div>
+    <div id="overlay" onclick="hideOverlay()"></div>
 
     <div class="window" id="popup-window">
         <div class="inner-window">
@@ -98,7 +104,8 @@
                 onmouseover="changeImage('telegram-img', '../../images/telegram-hover.svg')"
                 onmouseout="restoreImage('telegram-img', '../../images/telegram.svg')"
         >
-            <img id="telegram-img" th:src="@{images/telegram.svg}"  src="../../images/telegram.svg" alt="telegram" class="telegram">
+            <img id="telegram-img" th:src="@{images/telegram.svg}" src="../../images/telegram.svg" alt="telegram"
+                 class="telegram">
         </div>
     </div>
 
@@ -108,11 +115,20 @@
                 onmouseover="changeImage('instagram-img',  '../../images/inst-hover.svg')"
                 onmouseout="restoreImage('instagram-img',  '../../images/inst.svg')"
         >
-            <img id="instagram-img" th:src="@{images/inst.svg}" src="../../images/inst.svg" alt="instagram" class="instagram">
+            <img id="instagram-img" th:src="@{images/inst.svg}" src="../../images/inst.svg" alt="instagram"
+                 class="instagram">
         </div>
     </div>
 </footer>
 
 <script th:href="@{js/scripts.js}" src="../../js/scripts.js"></script>
+<script>
+    document.getElementById("createList-btn").addEventListener("click",
+        () => showOverlay("overlay-list", "list-field-popup-window"));
+    document.getElementById("overlay-list").addEventListener("click",
+        () => hideOverlay("overlay-list", "list-field-popup-window"));
+    document.getElementById("confirm-list-btn").addEventListener("click",
+        () => hideOverlay("overlay-list", "list-field-popup-window"));
+</script>
 </body>
 </html>

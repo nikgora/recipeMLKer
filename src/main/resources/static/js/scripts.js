@@ -23,11 +23,11 @@ function hideOverlay(overlayId, windowId) {
 }
 
 document.getElementById("support-btn").addEventListener("click",
-    () => showOverlay("overlay-support", "popup-window"));
-document.getElementById("overlay-support").addEventListener("click",
-    () => hideOverlay("overlay-support", "popup-window"));
+    () => showOverlay("overlay", "popup-window"));
+document.getElementById("overlay").addEventListener("click",
+    () => hideOverlay("overlay", "popup-window"));
 document.getElementById("send-button").addEventListener("click",
-    () => hideOverlay("overlay-support", "popup-window"));
+    () => hideOverlay("overlay", "popup-window"));
 
 document.getElementById("user-btn1").addEventListener("click",
     () => showOverlay("overlay-user", "popup-login-window"));
@@ -46,7 +46,7 @@ recipes.forEach((recipe, index) => {
 
 // Отримуємо елементи
 const dropDownIcon = document.querySelector('.DropDownIcon');
-const elementsToToggle = document.querySelectorAll('.substance, .mDIcon, .saladI, .pastryI, .dessertI, .smoothieI, .snackI, .fish, .sauceI');
+const elementsToToggle = document.querySelectorAll('.FirstDishes, .MainDishes, .Salads, .Pastry, .Desserts, .Drinks, .Snacks, .FishDishes, .Sauces');
 const timeI = document.querySelector('.timeI');
 
 // Додаємо обробник подій для кліка на DropDownIcon

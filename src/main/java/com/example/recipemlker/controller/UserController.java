@@ -3,8 +3,10 @@ package com.example.recipemlker.controller;
 import com.example.recipemlker.dto.AuthDTO;
 import com.example.recipemlker.dto.AuthDTO.JwtAuthenticationResponse;
 import com.example.recipemlker.model.Comment;
+import com.example.recipemlker.model.Rating;
 import com.example.recipemlker.model.Recipe;
 import com.example.recipemlker.model.User;
+import com.example.recipemlker.model.UserList;
 import com.example.recipemlker.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @Controller
 public class UserController {
@@ -29,18 +32,35 @@ public class UserController {
     private CategoryService categoryService;
     @Autowired
     private CommentService commentService;
+    @Autowired
+
+    private RatingService ratingService;
+
+
+    @Autowired
+    private UserListService userListService;
 
     private String jwt = null;
 
     @GetMapping("/")
     public String mainPage(Model model) {
         model.addAttribute("isLogin", jwt != null);
+        model.addAttribute("randomRecipeId", getRandomNumRecipe());
         return "user/main";
     }
 
     @PostMapping("/api/auth/signup")
     public ResponseEntity<JwtAuthenticationResponse> signup(@RequestBody AuthDTO.SignupRequest request) {
         var jwt1 = authService.signup(request);
+        User user = userService.getUserByUsername(jwtService.extractUserName(jwt1.token()));
+        UserList userList = new UserList();
+        userList.setUser(user);
+        userList.setDescription("My favorite recipes");
+        userList.setTitle("Favorites");
+        userListService.save(userList);
+        List<UserList> userLists = new ArrayList<>(1);
+        userLists.add(userList);
+        user.setUserLists(userLists);
         return ResponseEntity.ok(jwt1);
     }
 
@@ -90,7 +110,8 @@ public class UserController {
             }
             recipes.retainAll(recipeWithIngredient);
         }
-
+        model.addAttribute("isLogin", jwt != null);
+        model.addAttribute("randomRecipeId", getRandomNumRecipe());
         model.addAttribute("recipes", recipes);
         return "user/allRecipes";
     }
@@ -112,10 +133,33 @@ public class UserController {
             return "redirect:/403";
         }
         User user = userService.getUserByUsername(jwtService.extractUserName(jwt));
+        model.addAttribute("isLogin", jwt != null);
+        model.addAttribute("randomRecipeId", getRandomNumRecipe());
         model.addAttribute("user", user);
+        model.addAttribute("notes", recipeService.getAllByUser(user));
+        model.addAttribute("newList", new UserList());
         return "user/user";
     }
 
+    @PostMapping("/api/newList")
+    public String newList(@ModelAttribute UserList userList) {
+        if (jwt == null) {
+            return "redirect:/403";
+        }
+        User user = userService.getUserByUsername(jwtService.extractUserName(jwt));
+        UserList newUserList = new UserList();
+        newUserList.setTitle(userList.getTitle());
+        newUserList.setUser(user);
+        newUserList.setDescription(userList.getDescription());
+        userListService.save(newUserList);
+        return "redirect:/user";
+    }
+
+    @PostMapping("/api/logout")
+    public String logout() {
+        jwt = null;
+        return "redirect:/";
+    }
 
     @GetMapping("/mustBeLogin")
     public String mustBeLogin() {
@@ -130,6 +174,17 @@ public class UserController {
         if (this.recipeService.getRecipeById(id).isPublished()) {
             model.addAttribute("recipe", this.recipeService.getRecipeById(id));
             model.addAttribute("id", id);
+            model.addAttribute("isLogin", jwt != null);
+            model.addAttribute("randomRecipeId", getRandomNumRecipe());
+            Rating existed = null;
+            if (jwt != null)
+                existed = ratingService.getByUserAndRecipe(userService.getUserByUsername(jwtService.extractUserName(jwt)), recipeService.getRecipeById(id));
+            if (existed == null) {
+                existed = new Rating();
+                existed.setMark(10.0);
+            }
+
+            model.addAttribute("rating", existed);
             Comment comment = new Comment();
             model.addAttribute("comment", comment);
             return "user/recipe";
@@ -145,7 +200,9 @@ public class UserController {
         model.addAttribute("user", user);
         model.addAttribute("category", categoryService.getAllCategory());
         model.addAttribute("recipe", recipe);
-        return "user/newRecipe";
+        model.addAttribute("isLogin", jwt != null);
+        model.addAttribute("randomRecipeId", getRandomNumRecipe());
+        return "user/recipeCreation";
     }
 
     @PostMapping("/api/newRecipe")
@@ -172,5 +229,38 @@ public class UserController {
         commentService.save(newComment);
         String string = "redirect:/recipe/" + id;
         return string;
+    }
+
+    @PostMapping("/api/newRating/{id}")
+    public String newMark(@ModelAttribute Rating rating, @PathVariable("id") Long id) {
+
+        if (jwt == null) return "redirect:/mustBeLogin";
+        Recipe recipe = this.recipeService.getRecipeById(id);
+
+        if (recipe == null) {
+            return "redirect:/404";
+        }
+        Rating newRating = new Rating();
+        if (!this.recipeService.getRecipeById(id).isPublished()) return "redirect:/403";
+        newRating.setUser(userService.getUserByUsername(jwtService.extractUserName(jwt)));
+        newRating.setRecipe(recipe);
+        newRating.setMark(rating.getMark());
+        Rating existed = ratingService.getByUserAndRecipe(userService.getUserByUsername(jwtService.extractUserName(jwt)), recipe);
+        if (existed != null) {
+            newRating.setId(existed.getId());
+        }
+        if (newRating.getMark() == null) {
+            newRating.setMark(recipe.getAverageMark());
+        }
+        ratingService.save(newRating);
+        String string = "redirect:/recipe/" + id;
+        return string;
+    }
+
+    private Long getRandomNumRecipe() {
+        List<Recipe> recipes = recipeService.getAllRecipeIsPublished();
+        Random random = new Random();
+        int ind = random.nextInt(recipes.size());
+        return recipes.get(ind).getId();
     }
 }

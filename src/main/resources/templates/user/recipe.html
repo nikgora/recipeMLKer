@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
-    <title th:text="${recipe.title}"></title>
+    <title>Recipe</title>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link rel="stylesheet" type="text/css" th:href="@{../css/recipe.css}" href="../../static/css/recipe.css" >
@@ -17,21 +17,55 @@
                 <input name="query" placeholder="Search" type="search">
         </form>
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
-        <a class="button-style" href="recipe.html" th:href="@{/recipe/1}">Random</a>
-        <div class="heart-container">
+        <a class="button-style" href="recipe.html" th:href="@{/recipe/{id1}(id1=${randomRecipeId})}">Random</a>
+
+        <div class="user-container heart-container" th:if ="${isLogin} == false">
             <div class="heart"
-                 onmouseover="changeImage('heart-img', '../../images/heart-hover.svg')"
-                 onmouseout="restoreImage('heart-img', '../../images/heart.svg')">
-                <img id="heart-img" src="../../images/heart.svg" alt="heart" class="heart">
+                 onmouseover="changeImage('heart-img1', '../../images/heart-hover.svg')"
+                 onmouseout="restoreImage('heart-img1', '../../images/heart.svg')">
+                <img id="heart-img1" th:src="@{images/heart.svg}" src="../../images/heart.svg" alt="heart" class="heart">
             </div>
         </div>
-
-        <div class="user-container">
-            <div class="user"
-                 onmouseover="changeImage('user-img', '../../images/user-hover.svg')"
-                 onmouseout="restoreImage('user-img', '../../images/user.svg')">
-                <img id="user-img" src="../../images/user.svg" alt="user" class="user">
+        <a th:href="@{/user}" th:if="${isLogin} == true">
+            <div class="user-container heart-login-container">
+                <div class="heart"
+                     onmouseover="changeImage('heart-img2', '../../images/heart-login-hover.svg')"
+                     onmouseout="restoreImage('heart-img2', '../../images/heart-login.svg')">
+                    <img id="heart-img2" th:src="@{images/heart-login.svg}" src="../../images/heart-login.svg" alt="heart" class="heart">
+                </div>
             </div>
+        </a>
+
+        <button class="user-container" id="user-btn1"  th:if ="${isLogin} == false">
+            <div class="user"
+                 onmouseover="changeImage('user-img1', '../../images/user-hover.svg')"
+                 onmouseout="restoreImage('user-img1', '../../images/user.svg')">
+
+                <img id="user-img1" th:src="@{images/user.svg}" src="../../images/user.svg" alt="user" class="user">
+            </div>
+        </button>
+        <a th:href="@{/user}" th:if="${isLogin} == true">
+            <button class="user-container"  id="user-btn2" >
+                <div class="user"
+                     onmouseover="changeImage('user-img2', '../../images/user-login-hover.svg')"
+                     onmouseout="restoreImage('user-img2', '../../images/user-login.svg')">
+
+                    <img id="user-img2" th:src="@{images/user-login.svg}" src="../../images/user-login.svg" alt="user" class="user">
+                </div>
+            </button>
+        </a>
+        <div id="overlay-user" onclick="hideOverlay()"></div>
+        <div class="login-window" id="popup-login-window">
+            <h1 class="login-heading">Log in</h1>
+            <form method="post"  id="loginForm"  th:action="@{api/auth/login}" onsubmit="return submitForm()">
+                <div class="login-form email">
+                    <input name="username" placeholder="Enter email" type="text" required>
+                </div>
+                <div class="login-form password">
+                    <input name="password" placeholder="Enter password" type="password" required>
+                </div>
+                <button id="confirm-button">Confirm</button>
+            </form>
         </div>
 
         <a th:href="@{/}" href="main.html">
@@ -39,7 +73,6 @@
         </a>
     </div>
 </header>
-
 <main>
     <img alt="recipeIcon" class="recipeIcon" th:src="@{../images/Recipe.svg}" src="../../images/Recipe.svg" >
     <div class = "RecipeTitle">
@@ -50,20 +83,16 @@
             <p class="num" th:text="${recipe.getAverageMark()}">8.8</p>
         </a>
     </div>
-    <div class = "FavoriteList">
-        <p class = "c4">Favorite list</p>
-    </div>
-    <div class = "UserList">
-        <p class = "c5">User list</p>
-    </div>
-    <div class = "Report">
-        <p class = "c6">Report</p>
-    </div>
-    <div class = "stick"></div>
+    <button id="FavoriteList">Favorite List</button>
+    <button id="UserList">Lists</button>
+    <button id="Report">Report</button>
     <div class="mini">
         <p class="miniTime" th:text="${recipe.getCookingTime()}  + ' minutes'"> 30 minutes</p>
-        <img alt="dessertI" class="dessertI" th:src="@{../images/Waffles.svg}" src="../../images/Waffles.svg" >
-        <p class="miniTime miniCategories" th:text="${recipe.getCategory().getTitle()}"> Desserts </p>
+        <img th:if="${recipe}"
+             th:src="@{'../images/' + ${recipe.getCategory().getTitle()} + '.svg'}"
+             th:alt="${recipe.getCategory().getTitle()}"
+             th:class="${recipe.getCategory().getTitle().replace(' ', '-')}">
+        <p class="miniTime miniCategories" th:text="${recipe.getCategory().getTitle()}">
     </div>
 
     <div class="IngredientTagsField">
@@ -96,16 +125,15 @@
     </div>
     <form class="text-form" th:action="@{/api/newComment/{id1}(id1=${id})}" method="post" th:object="${comment}">
         <img th:src="@{../images/quill.svg}" src="../../static/images/quill.svg" alt = "quill" class = "quill">
-
-        <input name="startWith" th:field="${comment.text}" placeholder="Add comment" type="text">
-
+            <input name="startWith" maxlength="255" th:field="${comment.text}" placeholder="Add comment" type="text">
         <button id="publish">Publish</button>
     </form>
     <div class="commentField">
         <div th:each="comment, commentStat : ${recipe.getComments()}"
-              th:class="${commentStat.first} ? 'comment comment' : 'comment comment' + ${commentStat.count}">
+              th:class="${commentStat.first} ? 'comment comment' : 'comment comment' + ${commentStat.count}"
+             th:style="'top: ' + (${commentStat.index} * 11.5) + 'vh;'">
             <div class="comment-user-circle">
-                <img id="comment-user" src="../../images/Chef Hat.svg" alt="comment-user" class="comment-user">
+                <img  id="comment-user" src="../../images/Chef Hat.svg" alt="comment-user" class="comment-user">
             </div>
             <table>
                 <tbody>
@@ -116,8 +144,6 @@
             </table>
         </div>
     </div>
-
-    <div class = "stick stick2"></div>
 
     <div class="fullRecipe">
         <div class="fullRecipeHeader">
@@ -151,40 +177,42 @@
     <div class="addRatingField">
         <div class="ratingField">
             <div class="star-icon">
-                <input type="radio" name="rating" id="rating1">
-                <label for="rating1" class="fa fa-star"></label>
+                <input type="radio" name="rating" id="1">
+                <label for="1" class="fa fa-star"></label>
 
-                <input type="radio" name="rating" id="rating2">
-                <label for="rating2" class="fa fa-star"></label>
+                <input type="radio" name="rating" id="2">
+                <label for="2" class="fa fa-star"></label>
 
-                <input type="radio" name="rating" id="rating3">
-                <label for="rating3" class="fa fa-star"></label>
+                <input type="radio" name="rating" id="3">
+                <label for="3" class="fa fa-star"></label>
 
-                <input type="radio" name="rating" id="rating4">
-                <label for="rating4" class="fa fa-star"></label>
+                <input type="radio" name="rating" id="4">
+                <label for="4" class="fa fa-star"></label>
 
-                <input type="radio" name="rating" id="rating5">
-                <label for="rating5" class="fa fa-star"></label>
+                <input type="radio" name="rating" id="5">
+                <label for="5" class="fa fa-star"></label>
 
-                <input type="radio" name="rating" id="rating6">
-                <label for="rating6" class="fa fa-star"></label>
+                <input type="radio" name="rating" id="6">
+                <label for="6" class="fa fa-star"></label>
 
-                <input type="radio" name="rating" id="rating7">
-                <label for="rating7" class="fa fa-star"></label>
+                <input type="radio" name="rating" id="7">
+                <label for="7" class="fa fa-star"></label>
 
-                <input type="radio" name="rating" id="rating8">
-                <label for="rating8" class="fa fa-star"></label>
+                <input type="radio" name="rating" id="8">
+                <label for="8" class="fa fa-star"></label>
 
-                <input type="radio" name="rating" id="rating9">
-                <label for="rating9" class="fa fa-star"></label>
+                <input type="radio" name="rating" id="9">
+                <label for="9" class="fa fa-star"></label>
 
-                <input type="radio" name="rating" id="rating10">
-                <label for="rating10" class="fa fa-star"></label>
+                <input type="radio" name="rating" id="10">
+                <label for="10" class="fa fa-star"></label>
             </div>
         </div>
-        <div class="confirmation">
-            <img th:src="@{../images/tick.svg}" src="../../images/tick.svg" alt = "quill" class = "tick">
-        </div>
+        <form th:action="@{/api/newRating/{id1}(id1=${id})}" th:object="${rating}" method="post">
+            <button id="rate-btn" class="confirmation">
+                <img th:src="@{../images/tick.svg}" src="../../images/tick.svg" alt="quill" class="tick">
+            </button>
+        </form>
     </div>
 </main>
 
@@ -195,7 +223,9 @@
 
     <div class="window" id="popup-window">
         <div class="inner-window">
-            <input name="query" placeholder="Enter feedback" type="search">
+            <label>
+                <input name="query" placeholder="Enter feedback" type="search">
+            </label>
         </div>
 
         <button id="send-button">Send</button>
@@ -206,7 +236,8 @@
     <div class="circle-container telegram-container">
         <div class="telegram"
              onmouseover="changeImage('telegram-img', '../../images/telegram-hover.svg')"
-             onmouseout="restoreImage('telegram-img', '../../images/telegram.svg')">
+             onmouseout="restoreImage('telegram-img', '../../images/telegram.svg')"
+        >
             <img id="telegram-img" src="../../images/telegram.svg" alt="telegram" class="telegram">
         </div>
     </div>
@@ -214,11 +245,56 @@
     <div class="circle-container instagram-container">
         <div class="instagram"
              onmouseover="changeImage('instagram-img', '../../images/inst-hover.svg')"
-             onmouseout="restoreImage('instagram-img', '../../images/inst.svg')">
+             onmouseout="restoreImage('instagram-img', '../../images/inst.svg')"
+        >
             <img id="instagram-img" src="../../images/inst.svg" alt="instagram" class="instagram">
         </div>
     </div>
 </footer>
 <script th:href="@{js/scripts.js}" src="../../js/scripts.js"></script>
+<script>
+    function getRating() {
+        var ratingInputs = document.querySelectorAll('input[name="rating"]');
+        var selectedRating = null;
+
+        for (var i = 0; i < ratingInputs.length; i++) {
+            if (ratingInputs[i].checked) {
+                selectedRating = ratingInputs[i].id;
+                break;
+            }
+        }
+        return selectedRating;
+    }
+
+    var button = document.getElementById("rate-btn");
+
+    button.addEventListener("click", function () {
+        var selectedRating = getRating();
+        alert("Selected rating: " + selectedRating)
+    });
+
+        function submitForm() {
+        var form = document.getElementById('loginForm');
+        var formData = new FormData(form);
+        var data = {};
+        formData.forEach(function(value, key){
+        data[key] = value;
+    });
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', form.action, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status === 200) {
+            alert('Login successful. You are now logged in.');
+    } else {
+        alert('Login failed. Please try again.'); // Show an alert or handle error
+    }
+    }
+    };
+        xhr.send(JSON.stringify(data));
+        return false; // Prevent the form from submitting in the traditional way
+    }
+</script>
 </body>
 </html>

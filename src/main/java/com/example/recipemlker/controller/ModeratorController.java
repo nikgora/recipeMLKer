@@ -15,7 +15,7 @@ public class ModeratorController {
     @Autowired
     private UserReportService userReportService;
 
-    @GetMapping("/moderator/account")
+    @GetMapping("/moderator")
     public String moderatorAccount(Model model) {
         //TODO ADD NAME as Moderator Name
         //TODO model.addAttribute("moderator", new Moderator());
