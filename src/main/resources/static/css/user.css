@@ -171,8 +171,9 @@ body {
 }
 
 .confirm-list-button {
-    margin-top: 1.75vh;
-    margin-left: 0.6vh;
+    position: absolute;
+    top: 11vh;
+    left: 0.6vh;
     background-color: #F28705;
 }
 
@@ -278,8 +279,7 @@ body {
     background-color: #3E5902;
     border-radius: 2.7vw;
     text-align: center;
-    font-family: 'Frank Ruhl Libre';
-    font-size: 1.25vh;
+    font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.25vw;
     color: #FBEFC7;
     border: none;
@@ -343,8 +343,7 @@ body {
     width: 8.4375vw;
     height: 4.2593vh;
     text-align: center;
-    font-family: 'Frank Ruhl Libre';
-    font-size: 1.25vh;
+    font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.25vw;
     font-weight: 400;
     line-height: 4.2593vh;
