@@ -83,7 +83,7 @@
             <p class="num" th:text="${recipe.getAverageMark()}">8.8</p>
         </a>
     </div>
-    <button id="FavoriteList">Favorite List</button>
+    <button id="FavoriteList">Favorite</button>
     <button id="UserList">Lists</button>
     <button class="Report" id="report-btn">Report</button>
 
@@ -94,7 +94,7 @@
             <div class="report-inner-window">
                 <textarea  name="description" placeholder="Please, enter the reason for the report" th:value="${userReport.description}"></textarea>
             </div>
-                <button class="send-report" id="send-report-btn">Send a report</button>
+            <button class="send-report" id="send-report-btn">Send a report</button>
         </form>
     </div>
 
@@ -137,7 +137,7 @@
     </div>
     <form class="text-form" th:action="@{/api/newComment/{id1}(id1=${id})}" method="post" th:object="${comment}">
         <img th:src="@{../images/quill.svg}" src="../../static/images/quill.svg" alt = "quill" class = "quill">
-        <textarea name="text" maxlength="255" th:field="${comment.text}" placeholder="Add comment"></textarea>
+            <textarea name="startWith" maxlength="255" th:field="${comment.text}" placeholder="Add comment"></textarea>
         <button id="publish">Publish</button>
     </form>
     <div class="commentField">
