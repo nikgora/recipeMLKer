@@ -87,15 +87,17 @@
     <button id="UserList">Lists</button>
     <button class="Report" id="report-btn">Report</button>
 
-    <div id="overlay-report" onclick="hideOverlay()"></div>
+    <a th:href="@{/user}" th:if="${isLogin} == true">
+        <div id="overlay-report" onclick="hideOverlay()"></div>
 
-    <div class="report-container" id="report-field-popup-window">
-        <div class="reportHeader">Report</div>
-        <div class="report-inner-window">
-            <textarea name="report" placeholder="Please, enter the reason for the report" required></textarea>
+        <div class="report-container" id="report-field-popup-window">
+            <div class="reportHeader">Report</div>
+            <div class="report-inner-window">
+                <textarea name="report" placeholder="Please, enter the reason for the report" required></textarea>
+            </div>
+            <button class="send-report" id="send-report-btn">Send a report</button>
         </div>
-        <button class="send-report" id="send-report-btn">Send a report</button>
-    </div>
+    </a>
 
     <div class="mini">
         <p class="miniTime" th:text="${recipe.getCookingTime()}  + ' minutes'"> 30 minutes</p>
