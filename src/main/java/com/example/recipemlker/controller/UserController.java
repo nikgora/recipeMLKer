@@ -3,6 +3,7 @@ package com.example.recipemlker.controller;
 import com.example.recipemlker.dto.AuthDTO;
 import com.example.recipemlker.dto.AuthDTO.JwtAuthenticationResponse;
 import com.example.recipemlker.model.Comment;
+import com.example.recipemlker.model.Rating;
 import com.example.recipemlker.model.Recipe;
 import com.example.recipemlker.model.User;
 import com.example.recipemlker.model.UserList;
@@ -32,7 +33,13 @@ public class UserController {
     @Autowired
     private CommentService commentService;
     @Autowired
+
+    private RatingService ratingService;
+
+
+    @Autowired
     private UserListService userListService;
+
     private String jwt = null;
 
     @GetMapping("/")
@@ -155,6 +162,15 @@ public class UserController {
             model.addAttribute("id", id);
             model.addAttribute("isLogin", jwt != null);
             model.addAttribute("randomRecipeId", getRandomNumRecipe());
+            Rating existed = null;
+            if (jwt != null)
+                existed = ratingService.getByUserAndRecipe(userService.getUserByUsername(jwtService.extractUserName(jwt)), recipeService.getRecipeById(id));
+            if (existed == null) {
+                existed = new Rating();
+                existed.setMark(10.0);
+            }
+
+            model.addAttribute("rating", existed);
             Comment comment = new Comment();
             model.addAttribute("comment", comment);
             return "user/recipe";
@@ -197,6 +213,32 @@ public class UserController {
         newComment.setRecipe(recipeService.getRecipeById(id));
         newComment.setText(comment.getText());
         commentService.save(newComment);
+        String string = "redirect:/recipe/" + id;
+        return string;
+    }
+
+    @PostMapping("/api/newRating/{id}")
+    public String newMark(@ModelAttribute Rating rating, @PathVariable("id") Long id) {
+
+        if (jwt == null) return "redirect:/mustBeLogin";
+        Recipe recipe = this.recipeService.getRecipeById(id);
+
+        if (recipe == null) {
+            return "redirect:/404";
+        }
+        Rating newRating = new Rating();
+        if (!this.recipeService.getRecipeById(id).isPublished()) return "redirect:/403";
+        newRating.setUser(userService.getUserByUsername(jwtService.extractUserName(jwt)));
+        newRating.setRecipe(recipe);
+        newRating.setMark(rating.getMark());
+        Rating existed = ratingService.getByUserAndRecipe(userService.getUserByUsername(jwtService.extractUserName(jwt)), recipe);
+        if (existed != null) {
+            newRating.setId(existed.getId());
+        }
+        if (newRating.getMark() == null) {
+            newRating.setMark(recipe.getAverageMark());
+        }
+        ratingService.save(newRating);
         String string = "redirect:/recipe/" + id;
         return string;
     }

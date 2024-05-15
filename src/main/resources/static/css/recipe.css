@@ -294,15 +294,15 @@ body {
     background: #F2E3B3;
     border-radius: 2.778vh;
     left: 2.0834vw;
-    top: 24.3vw;
-    width: 42.5vw;
-    height: 6vh;
+    top: 24vw;
+    width: 43vw;
+    height: 6.8vh;
 }
 
 .text-form input{
     position: absolute;
-    width: 37.5vw;
     height: 6vh;
+    width: 80%;
     left: 4.0834vw;
     flex: 2;
     border: none;
@@ -321,7 +321,7 @@ body {
 #publish{
     position: absolute;
     width: 6.5vw;
-    height: 5.556vh;
+    height: 6.8vh;
     margin-left: 39.2vw;
     background-color: #F28705;
     border-radius: 5vh;
@@ -520,6 +520,8 @@ body {
     margin-left: 95vw;
     top: 87.6vh;
     cursor: pointer;
+    border: none;
+    outline: none;
 }
 
 .tick{
