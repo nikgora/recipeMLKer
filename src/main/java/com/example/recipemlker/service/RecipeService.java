@@ -3,6 +3,7 @@ package com.example.recipemlker.service;
 import com.example.recipemlker.model.Category;
 import com.example.recipemlker.model.Rating;
 import com.example.recipemlker.model.Recipe;
+import com.example.recipemlker.model.User;
 
 import java.util.List;
 
@@ -26,6 +27,8 @@ public interface RecipeService {
     List<Recipe> getAllByIngredient(String ingredient);
 
     void save(Recipe recipe);
+
+    List<Recipe> getAllByUser(User user);
 
     List<Recipe> getAllByDevice(String device);
 }

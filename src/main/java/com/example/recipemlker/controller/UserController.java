@@ -136,10 +136,24 @@ public class UserController {
         model.addAttribute("isLogin", jwt != null);
         model.addAttribute("randomRecipeId", getRandomNumRecipe());
         model.addAttribute("user", user);
-
+        model.addAttribute("notes", recipeService.getAllByUser(user));
+        model.addAttribute("newList", new UserList());
         return "user/user";
     }
 
+    @PostMapping("/api/newList")
+    public String newList(@ModelAttribute UserList userList) {
+        if (jwt == null) {
+            return "redirect:/403";
+        }
+        User user = userService.getUserByUsername(jwtService.extractUserName(jwt));
+        UserList newUserList = new UserList();
+        newUserList.setTitle(userList.getTitle());
+        newUserList.setUser(user);
+        newUserList.setDescription(userList.getDescription());
+        userListService.save(newUserList);
+        return "redirect:/user";
+    }
 
     @PostMapping("/api/logout")
     public String logout() {
@@ -188,7 +202,7 @@ public class UserController {
         model.addAttribute("recipe", recipe);
         model.addAttribute("isLogin", jwt != null);
         model.addAttribute("randomRecipeId", getRandomNumRecipe());
-        return "user/newRecipe";
+        return "user/recipeCreation";
     }
 
     @PostMapping("/api/newRecipe")
