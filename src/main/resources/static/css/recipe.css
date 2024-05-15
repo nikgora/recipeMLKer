@@ -270,7 +270,7 @@ body {
 
 .text-form textarea{
     position: absolute;
-    height: 6vh;
+    height: 4vh;
     width: 75%;
     left: 4.0834vw;
     flex: 2;
@@ -612,8 +612,8 @@ body {
 }
 
 .login-form {
-    border-radius: 2.7vw;
     position: absolute;
+    border-radius: 2.7vw;
     width: 21vw;
     height: 4.5vh;
     z-index: 13;
@@ -640,8 +640,9 @@ body {
 }
 
 .email input, .password input {
+    position: absolute;
     width: 21.979vw;
-    height: 6.19vh;
+    height: 4.5vh;
     flex: 1;
     border: none;
     background: #FBEFC7;
