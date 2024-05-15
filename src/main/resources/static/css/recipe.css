@@ -148,7 +148,7 @@ body {
     margin-top: 0.1vh;
 }
 
-#FavoriteList, #UserList, .Report{
+#FavoriteList, .UserList, .Report{
     position: absolute;
     width: 12vw;
     height: 5.556vh;
@@ -162,7 +162,7 @@ body {
     cursor: pointer;
 }
 
-#UserList{
+.UserList{
     left: 76.5vw;
 }
 
@@ -306,7 +306,7 @@ body {
     justify-content: center;
 }
 
-#publish:hover, #FavoriteList:hover, #UserList:hover, .Report:hover{
+#publish:hover, #FavoriteList:hover, .UserList:hover, .Report:hover, .create-list:hover{
     background-color: #FBEFC7;
     border: 0.5vh solid #F28705;
 }
@@ -543,7 +543,7 @@ body {
     z-index: 5;
 }
 
-#overlay, #overlay-user, #overlay-report {
+#overlay, #overlay-user, #overlay-report, #overlay-lists {
     position: fixed;
     display: none;
     width: 100%;
@@ -831,3 +831,38 @@ body {
     justify-content: center;
 }
 
+.lists-container{
+    position: absolute;
+    display: none;
+    width: 25vw;
+    height: 53.7vh;
+    right: 3.9vw;
+    top: 22.8vh;
+    border-radius: 2.7vw;
+    background-color: #F2E3B3;
+    z-index: 11;
+}
+
+.create-list, .user-list, .user-list1{
+    position: absolute;
+    top: 2vh;
+    left: 2vw;
+    width: 21vw;
+    height: 6.48vh;
+    border-radius: 2.7vw;
+    background-color: #F28705;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2vw;
+    border: none;
+    cursor: pointer;
+}
+
+.user-list, .user-list1{
+    top: 10vh;
+    background-color: #3E5902;
+    color: #F2F2EB;
+}
+
+.user-list1{
+    top: 18vh;
+}

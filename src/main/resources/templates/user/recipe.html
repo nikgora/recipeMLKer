@@ -57,7 +57,7 @@
         <div id="overlay-user" onclick="hideOverlay()"></div>
         <div class="login-window" id="popup-login-window">
             <h1 class="login-heading">Log in</h1>
-            <form method="post"  id="loginForm"  th:action="@{api/auth/login}" onsubmit="return submitForm()">
+            <form method="post"  id="loginForm"  th:action="@{/api/auth/login}" onsubmit="return submitForm()">
                 <div class="login-form email">
                     <input name="username" placeholder="Enter email" type="text" required>
                 </div>
@@ -84,15 +84,23 @@
         </a>
     </div>
     <button id="FavoriteList">Favorite</button>
-    <button id="UserList">Lists</button>
-    <button class="Report" id="report-btn">Report</button>
 
+    <button class="UserList" id="lists-btn">Lists</button>
+    <div id="overlay-lists" onclick="hideOverlay()"></div>
+    <div class="lists-container" id="lists-popup-window">
+        <button class="create-list" id="create-new-list-btn">Create a new list</button>
+        <button class="user-list">UserList</button>
+        <button class="user-list1">Userlist</button>
+    </div>
+
+
+    <button class="Report" onclick="doReport('report-btn')">Report</button>
     <div th:if="${isLogin} == true">
         <div id="overlay-report" onclick="hideOverlay()"></div>
         <form class="report-container" id="report-field-popup-window" method="post" th:action="@{/api/newUserReport/{id1}(id1=${id})}" th:object="${userReport}">
             <div class="reportHeader">Report</div>
             <div class="report-inner-window">
-                <textarea name="description" placeholder="Please, enter the reason for the report" th:value="${userReport.description}"></textarea>
+                <textarea  name="description" placeholder="Please, enter the reason for the report" th:value="${userReport.description}"></textarea>
             </div>
             <button class="send-report" id="send-report-btn">Send a report</button>
         </form>
@@ -266,6 +274,7 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.8/dist/sweetalert2.all.min.js"></script>-->
 <script th:href="@{js/scripts.js}" src="../../js/scripts.js"></script>
 <script>
+    /*<![CDATA[*/
     var isLogin = /*[[${isLogin}]]*/ false;
 
     function showAlert(button) {
@@ -273,6 +282,7 @@
             alert("Please log in to report.");
         }
     }
+    /*]]>*/
     /*$(".Report").click(function(){
         Swal.fire('Register to report',);
     });*/
@@ -302,30 +312,39 @@
         var formData = new FormData(form);
         var data = {};
         formData.forEach(function(value, key){
-            data[key] = value;
-        });
+        data[key] = value;
+    });
         var xhr = new XMLHttpRequest();
         xhr.open('POST', form.action, true);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.onreadystatechange = function() {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) {
-                    window.location.href = '/';
-                } else {
-                    alert('Login failed. Please try again.');
-                }
-            }
-        };
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status === 200) {
+            window.location.href = '/allRecipes';
+        } else {
+            alert('Login failed. Please try again.'); // Show an alert or handle error
+        }
+    }
+    };
         xhr.send(JSON.stringify(data));
-        return false;
+        return false; // Prevent the form from submitting in the traditional way
     }
 
-    document.getElementById("report-btn").addEventListener("click",
-        () => showOverlay("overlay-report", "report-field-popup-window"));
-    document.getElementById("overlay-report").addEventListener("click",
-        () => hideOverlay("overlay-report", "report-field-popup-window"));
-    document.getElementById("send-report-btn").addEventListener("click",
-        () => hideOverlay("overlay-report", "report-field-popup-window"));
+    function doReport(button) {
+        if (button === 'report-btn') {
+            document.getElementById("report-btn").addEventListener("click",
+                () => showOverlay("overlay-report", "report-field-popup-window"));
+            document.getElementById("overlay-report").addEventListener("click",
+                () => hideOverlay("overlay-report", "report-field-popup-window"));
+            document.getElementById("send-report-btn").addEventListener("click",
+                () => hideOverlay("overlay-report", "report-field-popup-window"));
+        }
+    }
+
+    document.getElementById("lists-btn").addEventListener("click",
+        () => showOverlay("overlay-lists", "lists-popup-window"));
+    document.getElementById("overlay-lists").addEventListener("click",
+        () => hideOverlay("overlay-lists", "lists-popup-window"));
 </script>
 </body>
 </html>
