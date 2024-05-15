@@ -55,7 +55,6 @@ public class UserController {
         User user = userService.getUserByUsername(jwtService.extractUserName(jwt1.token()));
         UserList userList = new UserList();
         userList.setUser(user);
-        userList.setDescription("My favorite recipes");
         userList.setTitle("Favorites");
         userListService.save(userList);
         List<UserList> userLists = new ArrayList<>(1);
@@ -150,7 +149,6 @@ public class UserController {
         UserList newUserList = new UserList();
         newUserList.setTitle(userList.getTitle());
         newUserList.setUser(user);
-        newUserList.setDescription(userList.getDescription());
         userListService.save(newUserList);
         return "redirect:/user";
     }
