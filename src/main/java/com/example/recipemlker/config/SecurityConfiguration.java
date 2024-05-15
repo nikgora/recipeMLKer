@@ -33,10 +33,11 @@ public class SecurityConfiguration {
                         .permitAll().anyRequest().authenticated())
                 .logout(LogoutConfigurer::permitAll)
                 .formLogin(form -> form.loginPage("/login").defaultSuccessUrl("/").failureForwardUrl("/login?error"))
+//                .logout(form -> form.logoutUrl("/api/logout").logoutSuccessUrl("/"))
                 .sessionManagement(manager -> manager.sessionCreationPolicy(STATELESS))
                 .authenticationProvider(authenticationProvider()).addFilterBefore(
                         jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
-        .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 

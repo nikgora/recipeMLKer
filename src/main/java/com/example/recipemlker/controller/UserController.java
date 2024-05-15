@@ -5,6 +5,7 @@ import com.example.recipemlker.dto.AuthDTO.JwtAuthenticationResponse;
 import com.example.recipemlker.model.Comment;
 import com.example.recipemlker.model.Recipe;
 import com.example.recipemlker.model.User;
+import com.example.recipemlker.model.UserList;
 import com.example.recipemlker.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -30,7 +31,8 @@ public class UserController {
     private CategoryService categoryService;
     @Autowired
     private CommentService commentService;
-
+    @Autowired
+    private UserListService userListService;
     private String jwt = null;
 
     @GetMapping("/")
@@ -43,6 +45,15 @@ public class UserController {
     @PostMapping("/api/auth/signup")
     public ResponseEntity<JwtAuthenticationResponse> signup(@RequestBody AuthDTO.SignupRequest request) {
         var jwt1 = authService.signup(request);
+        User user = userService.getUserByUsername(jwtService.extractUserName(jwt1.token()));
+        UserList userList = new UserList();
+        userList.setUser(user);
+        userList.setDescription("My favorite recipes");
+        userList.setTitle("Favorites");
+        userListService.save(userList);
+        List<UserList> userLists = new ArrayList<>(1);
+        userLists.add(userList);
+        user.setUserLists(userLists);
         return ResponseEntity.ok(jwt1);
     }
 
@@ -118,9 +129,16 @@ public class UserController {
         model.addAttribute("isLogin", jwt != null);
         model.addAttribute("randomRecipeId", getRandomNumRecipe());
         model.addAttribute("user", user);
+
         return "user/user";
     }
 
+
+    @PostMapping("/api/logout")
+    public String logout() {
+        jwt = null;
+        return "redirect:/";
+    }
 
     @GetMapping("/mustBeLogin")
     public String mustBeLogin() {
