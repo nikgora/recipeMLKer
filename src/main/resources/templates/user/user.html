@@ -80,7 +80,7 @@
 <footer class="footer">
     <button class="support-button" id="support-btn"><span>Support</span></button>
 
-    <div id="overlay-support" onclick="hideOverlay()"></div>
+    <div id="overlay" onclick="hideOverlay()"></div>
 
     <div class="window" id="popup-window">
         <div class="inner-window">
@@ -114,5 +114,13 @@
 </footer>
 
 <script th:href="@{js/scripts.js}" src="../../js/scripts.js"></script>
+<script>
+    document.getElementById("createList-btn").addEventListener("click",
+        () => showOverlay("overlay-list", "list-field-popup-window"));
+    document.getElementById("overlay-list").addEventListener("click",
+        () => hideOverlay("overlay-list", "list-field-popup-window"));
+    document.getElementById("confirm-list-btn").addEventListener("click",
+        () => hideOverlay("overlay-list", "list-field-popup-window"));
+</script>
 </body>
 </html>
