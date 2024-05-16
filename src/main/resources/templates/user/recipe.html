@@ -110,7 +110,7 @@
     </div>
 
 
-    <button class="Report" onclick="doReport('report-btn')" id="report-btn">Report</button>
+    <button class="Report" id="report-btn">Report</button>
     <div th:if="${isLogin} == true">
         <div id="overlay-report" onclick="hideOverlay()"></div>
         <form class="report-container" id="report-field-popup-window" method="post"
@@ -345,16 +345,12 @@
         return false; // Prevent the form from submitting in the traditional way
     }
 
-    function doReport(button) {
-        if (button === 'report-btn') {
-            document.getElementById("report-btn").addEventListener("click",
-                () => showOverlay("overlay-report", "report-field-popup-window"));
-            document.getElementById("overlay-report").addEventListener("click",
-                () => hideOverlay("overlay-report", "report-field-popup-window"));
-            document.getElementById("send-report-btn").addEventListener("click",
-                () => hideOverlay("overlay-report", "report-field-popup-window"));
-        }
-    }
+    document.getElementById("report-btn").addEventListener("click",
+        () => showOverlay("overlay-report", "report-field-popup-window"));
+    document.getElementById("overlay-report").addEventListener("click",
+        () => hideOverlay("overlay-report", "report-field-popup-window"));
+    document.getElementById("send-report-btn").addEventListener("click",
+        () => hideOverlay("overlay-report", "report-field-popup-window"));
 
     document.getElementById("lists-btn").addEventListener("click",
         () => showOverlay("overlay-lists", "lists-popup-window"));

@@ -306,7 +306,8 @@ body {
     justify-content: center;
 }
 
-#publish:hover, #FavoriteList:hover, .UserList:hover, .Report:hover, .create-list:hover, #confirm-list-btn:hover {
+#publish:hover, #FavoriteList:hover, .UserList:hover,
+.Report:hover, .create-list:hover, #confirm-list-btn:hover {
     background-color: #FBEFC7;
     border: 0.5vh solid #F28705;
 }
