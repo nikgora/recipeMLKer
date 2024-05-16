@@ -23,7 +23,7 @@
             <div class="heart"
                  onmouseover="changeImage('heart-img1', '../../images/heart-hover.svg')"
                  onmouseout="restoreImage('heart-img1', '../../images/heart.svg')">
-                <img id="heart-img1" th:src="@{images/heart.svg}" src="../../images/heart.svg" alt="heart" class="heart">
+                <img id="heart-img1" th:src="@{../images/heart.svg}" src="../../images/heart.svg" alt="heart" class="heart">
             </div>
         </div>
         <a th:href="@{/user}" th:if="${isLogin} == true">
@@ -41,7 +41,7 @@
                  onmouseover="changeImage('user-img1', '../../images/user-hover.svg')"
                  onmouseout="restoreImage('user-img1', '../../images/user.svg')">
 
-                <img id="user-img1" th:src="@{images/user.svg}" src="../../images/user.svg" alt="user" class="user">
+                <img id="user-img1" th:src="@{../images/user.svg}" src="../../images/user.svg" alt="user" class="user">
             </div>
         </button>
         <a th:href="@{/user}" th:if="${isLogin} == true">
@@ -57,7 +57,7 @@
         <div id="overlay-user" onclick="hideOverlay()"></div>
         <div class="login-window" id="popup-login-window">
             <h1 class="login-heading">Log in</h1>
-            <form method="post"  id="loginForm"  th:action="@{api/auth/login}" onsubmit="return submitForm()">
+            <form method="post"  id="loginForm"  th:action="@{/api/auth/login}" onsubmit="return submitForm()">
                 <div class="login-form email">
                     <input name="username" placeholder="Enter email" type="text" required>
                 </div>
@@ -84,9 +84,24 @@
         </a>
     </div>
     <button id="FavoriteList">Favorite</button>
-    <button id="UserList">Lists</button>
-    <button class="Report" id="report-btn">Report</button>
 
+    <button class="UserList" id="lists-btn">Lists</button>
+    <div id="overlay-lists" onclick="hideOverlay()"></div>
+    <div class="lists-container" id="lists-popup-window">
+        <button class="create-list" id="create-new-list-btn">Create a new list</button>
+        <button class="user-list">UserList</button>
+        <button class="user-list1">Userlist</button>
+        <div class="list-container" id="list-field-popup-window">
+            <div class="list-name">
+                <form th:action="@{/api/newList}" method="post"></form>
+                <input type="text" placeholder="Enter list name" id="listName">
+            </div>
+            <button id="confirm-list-btn">Confirm</button>
+        </div>
+    </div>
+
+
+    <button class="Report" onclick="doReport('report-btn')">Report</button>
     <div th:if="${isLogin} == true">
         <div id="overlay-report" onclick="hideOverlay()"></div>
         <form class="report-container" id="report-field-popup-window" method="post" th:action="@{/api/newUserReport/{id1}(id1=${id})}" th:object="${userReport}">
@@ -96,6 +111,9 @@
             </div>
             <button class="send-report" id="send-report-btn">Send a report</button>
         </form>
+    </div>
+    <div th:if="${isLogin} == false">
+        <button class="Report" id="report-btn1" onclick="showAlert(this.id)">Report</button>
     </div>
 
     <div class="mini">
@@ -259,8 +277,23 @@
         </div>
     </div>
 </footer>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.8/dist/sweetalert2.all.min.js"></script>-->
 <script th:href="@{js/scripts.js}" src="../../js/scripts.js"></script>
 <script>
+    /*<![CDATA[*/
+    var isLogin = /*[[${isLogin}]]*/ false;
+
+    function showAlert(button) {
+        if(!isLogin) {
+            alert("Please log in to report.");
+        }
+    }
+    /*]]>*/
+    /*$(".Report").click(function(){
+        Swal.fire('Register to report',);
+    });*/
+
     function getRating() {
         var ratingInputs = document.querySelectorAll('input[name="rating"]');
         var selectedRating = null;
@@ -281,7 +314,7 @@
         alert("Selected rating: " + selectedRating)
     });
 
-        function submitForm() {
+    function submitForm() {
         var form = document.getElementById('loginForm');
         var formData = new FormData(form);
         var data = {};
@@ -294,22 +327,68 @@
         xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
         if (xhr.status === 200) {
-            alert('Login successful. You are now logged in.');
-    } else {
-        alert('Login failed. Please try again.'); // Show an alert or handle error
-    }
+            window.location.href = '/allRecipes';
+        } else {
+            alert('Login failed. Please try again.'); // Show an alert or handle error
+        }
     }
     };
         xhr.send(JSON.stringify(data));
         return false; // Prevent the form from submitting in the traditional way
     }
 
-    document.getElementById("report-btn").addEventListener("click",
-        () => showOverlay("overlay-report", "report-field-popup-window"));
-    document.getElementById("overlay-report").addEventListener("click",
-        () => hideOverlay("overlay-report", "report-field-popup-window"));
-    document.getElementById("send-report-btn").addEventListener("click",
-        () => hideOverlay("overlay-report", "report-field-popup-window"));
+    function doReport(button) {
+        if (button === 'report-btn') {
+            document.getElementById("report-btn").addEventListener("click",
+                () => showOverlay("overlay-report", "report-field-popup-window"));
+            document.getElementById("overlay-report").addEventListener("click",
+                () => hideOverlay("overlay-report", "report-field-popup-window"));
+            document.getElementById("send-report-btn").addEventListener("click",
+                () => hideOverlay("overlay-report", "report-field-popup-window"));
+        }
+    }
+
+    document.getElementById("lists-btn").addEventListener("click",
+        () => showOverlay("overlay-lists", "lists-popup-window"));
+    document.getElementById("overlay-lists").addEventListener("click",
+        () => hideOverlay("overlay-lists", "lists-popup-window"));
+
+    function createNewList(button) {
+        if(button==='create-nes-list') {
+
+        }
+    }
+
+    // Event listener for moving buttons down
+    document.getElementById("create-new-list-btn").addEventListener("click", function() {
+        var windowHeight = window.innerHeight;
+        var userButtons = document.querySelectorAll(".user-list, .user-list1");
+
+        userButtons.forEach(function(button) {
+            var currentTop = parseFloat(window.getComputedStyle(button).top);
+            var currentTopVh = (currentTop / windowHeight) * 100;
+
+            button.style.top = (currentTopVh + 8) + "vh";
+        });
+    });
+
+    document.getElementById("create-new-list-btn").addEventListener("click", () => showOverlay("list-field-popup-window", "list-name"));
+
+    document.getElementById("confirm-list-btn").addEventListener("click", function() {
+        var windowHeight = window.innerHeight;
+        var userButtons = document.querySelectorAll(".user-list, .user-list1");
+
+        userButtons.forEach(function(button) {
+            var currentTop = parseFloat(window.getComputedStyle(button).top);
+            var currentTopVh = (currentTop / windowHeight) * 100;
+
+            button.style.top = (currentTopVh - 8) + "vh"; // Move up by 8vh
+        });
+
+        hideOverlay("list-field-popup-window", "confirm-list-btn");
+    });
+
+
 </script>
 </body>
 </html>
