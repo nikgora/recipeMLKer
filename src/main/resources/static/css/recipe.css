@@ -423,7 +423,7 @@ body {
 
 .amountField, .deviceField{
     width: 14vw;
-    height: 40vh;
+    height: 39vh;
     border-radius: 5vh;
     background-color: #FBEFC7;
     margin-left: 1.5vw;
@@ -432,8 +432,8 @@ body {
 }
 
 .deviceField{
-    height: 20vh;
-    margin-top: -5vh;
+    height: 17vh;
+    margin-top: -1vh;
     border-radius: 0 0 5vh 5vh;
 }
 
