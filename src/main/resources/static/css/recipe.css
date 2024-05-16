@@ -878,6 +878,7 @@ body {
     font-size: 2vw;
     border: none;
     cursor: pointer;
+    z-index: 11;
 }
 
 .list-container {

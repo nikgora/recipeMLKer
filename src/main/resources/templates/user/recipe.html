@@ -93,8 +93,9 @@
         <button class="user-list1">Userlist</button>
         <div class="list-container" id="list-field-popup-window">
             <div class="list-name">
-                <form th:action="@{/api/newList}" method="post"></form>
+                <form th:action="@{/api/newList}" method="post">
                 <input type="text" placeholder="Enter list name" id="listName">
+                </form>
             </div>
             <button id="confirm-list-btn">Confirm</button>
         </div>
@@ -353,13 +354,8 @@
     document.getElementById("overlay-lists").addEventListener("click",
         () => hideOverlay("overlay-lists", "lists-popup-window"));
 
-    function createNewList(button) {
-        if(button==='create-nes-list') {
+    let overlayShown = false;
 
-        }
-    }
-
-    // Event listener for moving buttons down
     document.getElementById("create-new-list-btn").addEventListener("click", function() {
         var windowHeight = window.innerHeight;
         var userButtons = document.querySelectorAll(".user-list, .user-list1");
@@ -370,9 +366,12 @@
 
             button.style.top = (currentTopVh + 8) + "vh";
         });
-    });
 
-    document.getElementById("create-new-list-btn").addEventListener("click", () => showOverlay("list-field-popup-window", "list-name"));
+        if (overlayShown===false) {
+            showOverlay("list-field-popup-window", "confirm-list-btn");
+            overlayShown = true;
+        }
+    });
 
     document.getElementById("confirm-list-btn").addEventListener("click", function() {
         var windowHeight = window.innerHeight;
@@ -382,13 +381,12 @@
             var currentTop = parseFloat(window.getComputedStyle(button).top);
             var currentTopVh = (currentTop / windowHeight) * 100;
 
-            button.style.top = (currentTopVh - 8) + "vh"; // Move up by 8vh
+            button.style.top = (currentTopVh - 8) + "vh";
         });
 
         hideOverlay("list-field-popup-window", "confirm-list-btn");
+        overlayShown = false;
     });
-
-
 </script>
 </body>
 </html>
