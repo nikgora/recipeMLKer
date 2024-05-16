@@ -416,11 +416,11 @@ body {
 }
 
 .amountField{
-    width: 12.6vw;
+    width: 14vw;
     height: 53.7vh;
     border-radius: 5vh;
     background-color: #FBEFC7;
-    margin-left: 2vw;
+    margin-left: 1.5vw;
     margin-top: 1.9vh;
 }
 
@@ -431,10 +431,12 @@ body {
     background-color: #FBEFC7;
     margin-left: 17vw;
     margin-top: -53.7vh;
+    overflow-y: visible;
+    overflow-x: hidden;
 }
 
 .ingredientsHeader{
-    width: 12.6vw;
+    width: 14vw;
     height: 3.7vh;
     background: #F2B705;
     border-radius: 5vh 5vh 0 0;
@@ -459,8 +461,7 @@ body {
 .stepByStepHeader{
     left: 68.075vw;
     top: 29.39vh;
-    width: 27.8645vw;
-    text-align: center;
+    width: 29vw;
 }
 
 .dTitle{
@@ -783,10 +784,9 @@ body {
 }
 
 .amountContent {
-    padding-left: 0.52vw;
+    padding: 1vh 0.5vw 1vh 1vw;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.3vw;
-    text-align: center;
 }
 
 .ingredientContent {
@@ -918,3 +918,4 @@ body {
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 2vw;
 }
+

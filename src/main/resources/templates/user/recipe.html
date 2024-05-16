@@ -140,11 +140,11 @@
         <div class="IngredientTagsTitle">
             <p class="c7">Ingredient tags</p>
             <div class="ingredientContent">
-                <table th:each="ingedients: ${recipe.getRecipeIngredients()}">
+                <table>
                     <tr>
-                        <td>
-                            <a th:href="@{/allRecipes(ingredient=${ingedients.ingredient.getName()})}"
-                               th:text="'#' + ${ingedients.ingredient.getName()}"></a>
+                        <td th:each="ingredient: ${recipe.getRecipeIngredients()}">
+                            <a th:href="@{/allRecipes(ingredient=${ingredient.ingredient.getName()})}"
+                               th:text="'#' + ${ingredient.ingredient.getName()}"></a>
                         </td>
                     </tr>
                 </table>
