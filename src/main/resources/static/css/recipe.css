@@ -443,6 +443,7 @@ body {
 }
 
 .ingredientsHeader{
+    position: fixed;
     width: 14vw;
     height: 3.7vh;
     background: #F2B705;
@@ -460,15 +461,15 @@ body {
 
 .deviceContent{
     position: absolute;
-    top:47vh;
+    top: 44vh;
     left: 2vw;
     width: 1.5vw ;
 }
 
 .stepByStepHeader{
-    left: 68.075vw;
+    left: 69.1vw;
     top: 29.39vh;
-    width: 29vw;
+    width: 27.8645vw;
 }
 
 .dTitle{
@@ -791,7 +792,7 @@ body {
 }
 
 .amountContent {
-    padding: 1vh 0.5vw 1vh 1vw;
+    padding: 4vh 0.5vw 3vh 1vw;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.3vw;
 }
