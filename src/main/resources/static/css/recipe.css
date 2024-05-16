@@ -866,3 +866,41 @@ body {
 .user-list1{
     top: 18vh;
 }
+
+#confirm-list-btn {
+    position: absolute;
+    top: 8.3vh;
+    width: 21vw;
+    height: 6.48vh;
+    border-radius: 2.7vw;
+    background-color: #F28705;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2vw;
+    border: none;
+    cursor: pointer;
+}
+
+.list-container {
+    position: absolute;
+    display: none;
+    top: 2vh;
+    left: 2vw;
+    z-index: 11;
+}
+
+.list-name {
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-name input {
+    width: 21vw;
+    height: 6.48vh;
+    border-radius: 2.7vh;
+    background-color: #FBEFC7;
+    outline: none;
+    border: none;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2vw;
+}
