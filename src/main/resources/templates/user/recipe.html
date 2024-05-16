@@ -4,26 +4,28 @@
     <title>Recipe</title>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link rel="stylesheet" type="text/css" th:href="@{../css/recipe.css}" href="../../static/css/recipe.css" >
+    <link rel="stylesheet" type="text/css" th:href="@{../css/recipe.css}" href="../../static/css/recipe.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <header>
     <div class="header">
-        <img th:src="@{../images/logo.svg}" src="../../images/logo.svg" alt = "logo" class = "logo">
+        <img th:src="@{../images/logo.svg}" src="../../images/logo.svg" alt="logo" class="logo">
 
         <form class="search-form">
-            <img th:src="@{../images/magnifier.svg}" src="../../static/images/magnifier.svg" alt = "magnifier" class = "magnifier">
-                <input name="startWith" placeholder="Search" type="search">
+            <img th:src="@{../images/magnifier.svg}" src="../../static/images/magnifier.svg" alt="magnifier"
+                 class="magnifier">
+            <input name="startWith" placeholder="Search" type="search">
         </form>
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
         <a class="button-style" href="recipe.html" th:href="@{/recipe/{id1}(id1=${randomRecipeId})}">Random</a>
 
-        <div class="user-container heart-container" th:if ="${isLogin} == false">
+        <div class="user-container heart-container" th:if="${isLogin} == false">
             <div class="heart"
                  onmouseover="changeImage('heart-img1', '../../images/heart-hover.svg')"
                  onmouseout="restoreImage('heart-img1', '../../images/heart.svg')">
-                <img id="heart-img1" th:src="@{../images/heart.svg}" src="../../images/heart.svg" alt="heart" class="heart">
+                <img id="heart-img1" th:src="@{../images/heart.svg}" src="../../images/heart.svg" alt="heart"
+                     class="heart">
             </div>
         </div>
         <a th:href="@{/user}" th:if="${isLogin} == true">
@@ -31,12 +33,13 @@
                 <div class="heart"
                      onmouseover="changeImage('heart-img2', '../../images/heart-login-hover.svg')"
                      onmouseout="restoreImage('heart-img2', '../../images/heart-login.svg')">
-                    <img id="heart-img2" th:src="@{images/heart-login.svg}" src="../../images/heart-login.svg" alt="heart" class="heart">
+                    <img id="heart-img2" th:src="@{images/heart-login.svg}" src="../../images/heart-login.svg"
+                         alt="heart" class="heart">
                 </div>
             </div>
         </a>
 
-        <button class="user-container" id="user-btn1"  th:if ="${isLogin} == false">
+        <button class="user-container" id="user-btn1" th:if="${isLogin} == false">
             <div class="user"
                  onmouseover="changeImage('user-img1', '../../images/user-hover.svg')"
                  onmouseout="restoreImage('user-img1', '../../images/user.svg')">
@@ -45,19 +48,20 @@
             </div>
         </button>
         <a th:href="@{/user}" th:if="${isLogin} == true">
-            <button class="user-container"  id="user-btn2" >
+            <button class="user-container" id="user-btn2">
                 <div class="user"
                      onmouseover="changeImage('user-img2', '../../images/user-login-hover.svg')"
                      onmouseout="restoreImage('user-img2', '../../images/user-login.svg')">
 
-                    <img id="user-img2" th:src="@{images/user-login.svg}" src="../../images/user-login.svg" alt="user" class="user">
+                    <img id="user-img2" th:src="@{images/user-login.svg}" src="../../images/user-login.svg" alt="user"
+                         class="user">
                 </div>
             </button>
         </a>
         <div id="overlay-user" onclick="hideOverlay()"></div>
         <div class="login-window" id="popup-login-window">
             <h1 class="login-heading">Log in</h1>
-            <form method="post"  id="loginForm"  th:action="@{/api/auth/login}" onsubmit="return submitForm()">
+            <form method="post" id="loginForm" th:action="@{/api/auth/login}" onsubmit="return submitForm()">
                 <div class="login-form email">
                     <input name="username" placeholder="Enter email" type="text" required>
                 </div>
@@ -74,8 +78,8 @@
     </div>
 </header>
 <main>
-    <img alt="recipeIcon" class="recipeIcon" th:src="@{../images/Recipe.svg}" src="../../images/Recipe.svg" >
-    <div class = "RecipeTitle">
+    <img alt="recipeIcon" class="recipeIcon" th:src="@{../images/Recipe.svg}" src="../../images/Recipe.svg">
+    <div class="RecipeTitle">
         <p class="c3" th:text="${recipe.getTitle()}">Pancakes</p>
     </div>
     <div class="RecipeRating">
@@ -83,7 +87,9 @@
             <p class="num" th:text="${recipe.getAverageMark()}">8.8</p>
         </a>
     </div>
-    <button id="FavoriteList">Favorite</button>
+    <form method="post" th:action="@{/api/addRecipeToList/{id1}/Favorites(id1=${id})}">
+        <button id="FavoriteList">Favorite</button>
+    </form>
 
     <button class="UserList" id="lists-btn">Lists</button>
     <div id="overlay-lists" onclick="hideOverlay()"></div>
@@ -104,10 +110,12 @@
     <button class="Report" onclick="doReport('report-btn')">Report</button>
     <div th:if="${isLogin} == true">
         <div id="overlay-report" onclick="hideOverlay()"></div>
-        <form class="report-container" id="report-field-popup-window" method="post" th:action="@{/api/newUserReport/{id1}(id1=${id})}" th:object="${userReport}">
+        <form class="report-container" id="report-field-popup-window" method="post"
+              th:action="@{/api/newUserReport/{id1}(id1=${id})}" th:object="${userReport}">
             <div class="reportHeader">Report</div>
             <div class="report-inner-window">
-                <textarea  name="description" placeholder="Please, enter the reason for the report" th:value="${userReport.description}"></textarea>
+                <textarea name="description" placeholder="Please, enter the reason for the report"
+                          th:value="${userReport.description}"></textarea>
             </div>
             <button class="send-report" id="send-report-btn">Send a report</button>
         </form>
@@ -127,12 +135,13 @@
 
     <div class="IngredientTagsField">
         <div class="IngredientTagsTitle">
-            <p class = "c7">Ingredient tags</p>
+            <p class="c7">Ingredient tags</p>
             <div class="ingredientContent">
                 <table th:each="ingedients: ${recipe.getRecipeIngredients()}">
                     <tr>
                         <td>
-                            <a th:href="@{/allRecipes(ingredient=${ingedients.ingredient.getName()})}" th:text="'#' + ${ingedients.ingredient.getName()}"></a>
+                            <a th:href="@{/allRecipes(ingredient=${ingedients.ingredient.getName()})}"
+                               th:text="'#' + ${ingedients.ingredient.getName()}"></a>
                         </td>
                     </tr>
                 </table>
@@ -141,21 +150,22 @@
     </div>
     <div class="IngredientTagsField DeviceTagsField ">
         <div class="IngredientTagsTitle">
-            <p class = "c7 devices">Devices tags</p>
+            <p class="c7 devices">Devices tags</p>
         </div>
         <div class="ingredientContent">
             <table th:each="devices: ${recipe.getRecipeDevices()}">
                 <tr>
                     <td>
-                        <a th:href="@{/allRecipes(device=${devices.cookingDevice.getName()})}" th:text="'#' + ${devices.cookingDevice.getName()}"></a>
+                        <a th:href="@{/allRecipes(device=${devices.cookingDevice.getName()})}"
+                           th:text="'#' + ${devices.cookingDevice.getName()}"></a>
                     </td>
                 </tr>
             </table>
         </div>
     </div>
     <form class="text-form" th:action="@{/api/newComment/{id1}(id1=${id})}" method="post" th:object="${comment}">
-        <img th:src="@{../images/quill.svg}" src="../../static/images/quill.svg" alt = "quill" class = "quill">
-            <textarea name="startWith" maxlength="255" th:field="${comment.text}" placeholder="Add comment"></textarea>
+        <img th:src="@{../images/quill.svg}" src="../../static/images/quill.svg" alt="quill" class="quill">
+        <textarea name="startWith" maxlength="255" th:field="${comment.text}" placeholder="Add comment"></textarea>
         <button id="publish">Publish</button>
     </form>
     <div class="commentField">
@@ -163,7 +173,7 @@
              th:class="${commentStat.first} ? 'comment comment' : 'comment comment' + ${commentStat.count}"
              th:style="'top: ' + (${commentStat.index} * 11.5) + 'vh;'">
             <div class="comment-user-circle">
-                <img  id="comment-user" src="../../images/Chef Hat.svg" alt="comment-user" class="comment-user">
+                <img id="comment-user" src="../../images/Chef Hat.svg" alt="comment-user" class="comment-user">
             </div>
             <table>
                 <tbody>
@@ -285,10 +295,11 @@
     var isLogin = /*[[${isLogin}]]*/ false;
 
     function showAlert(button) {
-        if(!isLogin) {
+        if (!isLogin) {
             alert("Please log in to report.");
         }
     }
+
     /*]]>*/
     /*$(".Report").click(function(){
         Swal.fire('Register to report',);
@@ -316,23 +327,24 @@
 
     function submitForm() {
         var form = document.getElementById('loginForm');
+        var id = [[${id}]];
         var formData = new FormData(form);
         var data = {};
-        formData.forEach(function(value, key){
-        data[key] = value;
-    });
+        formData.forEach(function (value, key) {
+            data[key] = value;
+        });
         var xhr = new XMLHttpRequest();
         xhr.open('POST', form.action, true);
         xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.onreadystatechange = function() {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-        if (xhr.status === 200) {
-            window.location.href = '/allRecipes';
-        } else {
-            alert('Login failed. Please try again.'); // Show an alert or handle error
-        }
-    }
-    };
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    window.location.href = "/recipe/" + id;
+                } else {
+                    alert('Login failed. Please try again.'); // Show an alert or handle error
+                }
+            }
+        };
         xhr.send(JSON.stringify(data));
         return false; // Prevent the form from submitting in the traditional way
     }
@@ -354,17 +366,17 @@
         () => hideOverlay("overlay-lists", "lists-popup-window"));
 
     function createNewList(button) {
-        if(button==='create-nes-list') {
+        if (button === 'create-nes-list') {
 
         }
     }
 
     // Event listener for moving buttons down
-    document.getElementById("create-new-list-btn").addEventListener("click", function() {
+    document.getElementById("create-new-list-btn").addEventListener("click", function () {
         var windowHeight = window.innerHeight;
         var userButtons = document.querySelectorAll(".user-list, .user-list1");
 
-        userButtons.forEach(function(button) {
+        userButtons.forEach(function (button) {
             var currentTop = parseFloat(window.getComputedStyle(button).top);
             var currentTopVh = (currentTop / windowHeight) * 100;
 
@@ -374,11 +386,11 @@
 
     document.getElementById("create-new-list-btn").addEventListener("click", () => showOverlay("list-field-popup-window", "list-name"));
 
-    document.getElementById("confirm-list-btn").addEventListener("click", function() {
+    document.getElementById("confirm-list-btn").addEventListener("click", function () {
         var windowHeight = window.innerHeight;
         var userButtons = document.querySelectorAll(".user-list, .user-list1");
 
-        userButtons.forEach(function(button) {
+        userButtons.forEach(function (button) {
             var currentTop = parseFloat(window.getComputedStyle(button).top);
             var currentTopVh = (currentTop / windowHeight) * 100;
 
