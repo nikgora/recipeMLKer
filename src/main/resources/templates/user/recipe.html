@@ -247,6 +247,7 @@
             </div>
         </div>
         <form th:action="@{/api/newRating/{id1}(id1=${id})}" th:object="${rating}" method="post">
+            <input th:value="${rating.mark}" name="mark"/>
             <button id="rate-btn" class="confirmation">
                 <img th:src="@{../images/tick.svg}" src="../../images/tick.svg" alt="quill" class="tick">
             </button>
