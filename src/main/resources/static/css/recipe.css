@@ -415,13 +415,20 @@ body {
     text-align: center;
 }
 
-.amountField{
+.amountField, .deviceField{
     width: 14vw;
-    height: 53.7vh;
+    height: 40vh;
     border-radius: 5vh;
     background-color: #FBEFC7;
     margin-left: 1.5vw;
     margin-top: 1.9vh;
+    overflow-y: scroll;
+}
+
+.deviceField{
+    height: 20vh;
+    margin-top: -5vh;
+    border-radius: 0 0 5vh 5vh;
 }
 
 .stepByStepField{
@@ -429,8 +436,8 @@ body {
     height: 53.7vh;
     border-radius: 5vh;
     background-color: #FBEFC7;
-    margin-left: 17vw;
-    margin-top: -53.7vh;
+    margin-left: 18vw;
+    margin-top: -55vh;
     overflow-y: visible;
     overflow-x: hidden;
 }
@@ -918,4 +925,3 @@ body {
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 2vw;
 }
-
