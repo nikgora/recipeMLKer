@@ -113,11 +113,12 @@
     <div th:if="${isLogin} == true">
         <div id="overlay-report" onclick="hideOverlay()"></div>
         <form class="report-container" id="report-field-popup-window" method="post"
-              th:action="@{/api/newUserReport/{id1}(id1=${id})}" th:object="${userReport}">
+              th:action="@{/api/newUserReport/{id1}(id1=${id})}" th:object="${userReport}"
+              onsubmit="return validateInput('reportInput')">
             <div class="reportHeader">Report</div>
             <div class="report-inner-window">
             <textarea name="description" placeholder="Please, enter the reason for the report."
-                      th:value="${userReport.description}"></textarea>
+                      th:value="${userReport.description}" id="reportInput"></textarea>
             </div>
             <button class="send-report" id="send-report-btn">Send a report</button>
         </form>
@@ -287,15 +288,6 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.8/dist/sweetalert2.all.min.js"></script>-->
 <script th:href="@{js/scripts.js}" src="../../js/scripts.js"></script>
 <script>
-    function validateInput(inputId) {
-        var input = document.getElementById(inputId).value;
-        if (input.trim() === "") {
-            alert("Input is null.");
-            return false;
-        }
-        return true;
-    }
-
     function showAlert(message) {
         alert(message);
     }

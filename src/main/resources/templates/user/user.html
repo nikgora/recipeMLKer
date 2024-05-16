@@ -66,8 +66,10 @@
 
     <div class="list-container" id="list-field-popup-window">
         <div class="list-name">
-            <form th:action="@{/api/newList}" method="post"></form>
-            <input type="text" placeholder="Enter list name" id="listName">
+            <form th:action="@{/api/newList}" method="post"
+                  onsubmit="return validateInput('listName')">
+                <input type="text" placeholder="Enter list name" id="listName">
+            </form>
         </div>
         <button class="confirm-list-button" id="confirm-list-btn">Confirm</button>
     </div>
