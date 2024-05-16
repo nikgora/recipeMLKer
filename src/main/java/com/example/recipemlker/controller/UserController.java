@@ -202,6 +202,7 @@ public class UserController {
                 existed.setMark(10.0);
             }
             UserReport userReport = new UserReport();
+            model.addAttribute("newList", new UserList());
             model.addAttribute("userReport", userReport);
             model.addAttribute("rating", existed);
             Comment comment = new Comment();

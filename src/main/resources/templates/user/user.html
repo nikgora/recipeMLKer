@@ -66,11 +66,15 @@
     <div id="overlay-list" onclick="hideOverlay()"></div>
 
     <div class="list-container" id="list-field-popup-window">
-        <div class="list-name">
-            <form th:action="@{/api/newList}" method="post"></form>
-            <input type="text" placeholder="Enter list name" id="listName">
-        </div>
-        <button class="confirm-list-button" id="confirm-list-btn">Confirm</button>
+        <form th:action="@{/api/newList}" th:object="${newList}" method="post">
+            <div class="list-name">
+
+            <textarea type="text" placeholder="Enter list name" name="title" th:value="${newList.title}"
+                      id="listName"></textarea>
+            </div>
+            <button class="confirm-list-button" id="confirm-list-btn">Confirm</button>
+        </form>
+
     </div>
 
     <div class="recipesField">
