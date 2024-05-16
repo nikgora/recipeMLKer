@@ -12,9 +12,8 @@
     <div class="header">
         <img th:src="@{../images/logo.svg}" src="../../images/logo.svg" alt="logo" class="logo">
 
-        <form class="search-form">
-            <img th:src="@{../images/magnifier.svg}" src="../../static/images/magnifier.svg" alt="magnifier"
-                 class="magnifier">
+        <form class="search-form" th:action="@{/allRecipes}">
+            <img th:src="@{../images/magnifier.svg}" src="../../static/images/magnifier.svg" alt = "magnifier" class = "magnifier">
             <input name="startWith" placeholder="Search" type="search">
         </form>
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
