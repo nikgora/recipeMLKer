@@ -166,25 +166,19 @@
             </table>
         </div>
     </div>
-    <form class="text-form" th:action="@{/api/newComment/{id1}(id1=${id})}" method="post" th:object="${comment}">
+    <form class="text-form" th:action="@{/api/newComment/{id1}(id1=${id})}"
+          method="post" th:object="${comment}" onsubmit="return validateInput('commentInput')">
         <img th:src="@{../images/quill.svg}" src="../../static/images/quill.svg" alt="quill" class="quill">
-        <textarea name="startWith" maxlength="255" th:field="${comment.text}" placeholder="Add comment"></textarea>
-        <button id="publish">Publish</button>
+        <textarea name="startWith" maxlength="255" th:field="${comment.text}" placeholder="Add comment" id="commentInput"></textarea>
+        <button type="submit" id="publish">Publish</button>
     </form>
     <div class="commentField">
         <div th:each="comment, commentStat : ${recipe.getComments()}"
-             th:class="${commentStat.first} ? 'comment comment' : 'comment comment' + ${commentStat.count}"
-             th:style="'top: ' + (${commentStat.index} * 11.5) + 'vh;'">
+             th:class="'comment-container comment' + ${commentStat.count}">
             <div class="comment-user-circle">
                 <img id="comment-user" src="../../images/Chef Hat.svg" alt="comment-user" class="comment-user">
             </div>
-            <table>
-                <tbody>
-                <tr>
-                    <td th:text="${comment.getText()}"></td>
-                </tr>
-                </tbody>
-            </table>
+            <div class="comment-text" th:text="${comment.getText()}"></div>
         </div>
     </div>
 
@@ -294,6 +288,15 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.8/dist/sweetalert2.all.min.js"></script>-->
 <script th:href="@{js/scripts.js}" src="../../js/scripts.js"></script>
 <script>
+    function validateInput(inputId) {
+        var input = document.getElementById(inputId).value;
+        if (input.trim() === "") {
+            alert("Input is null.");
+            return false;
+        }
+        return true;
+    }
+
     function showAlert(message) {
         alert(message);
     }
