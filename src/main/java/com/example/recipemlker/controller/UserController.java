@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 @Controller
@@ -158,17 +159,21 @@ public class UserController {
         return "user/user";
     }
 
-    @PostMapping("/api/newList")
-    public String newList(@ModelAttribute UserList userList) {
+    @PostMapping("/api/newList/{id}")
+    /// 0 - user page, some else recipe id
+    public String newList(@ModelAttribute UserList userList, @ModelAttribute Long id) {
         if (jwt == null) {
             return "redirect:/403";
         }
-        User user = userService.getUserByUsername(jwtService.extractUserName(jwt));
-        UserList newUserList = new UserList();
-        newUserList.setTitle(userList.getTitle());
-        newUserList.setUser(user);
-        userListService.save(newUserList);
-        return "redirect:/user";
+        if (!Objects.equals(userList.getTitle(), "")) {
+            User user = userService.getUserByUsername(jwtService.extractUserName(jwt));
+            UserList newUserList = new UserList();
+            newUserList.setTitle(userList.getTitle());
+            newUserList.setUser(user);
+            userListService.save(newUserList);
+        }
+        if (id == 0) return "redirect:/user";
+        return "redirect:/recipe/" + id;
     }
 
     @PostMapping("/api/logout")

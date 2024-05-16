@@ -66,7 +66,7 @@
     <div id="overlay-list" onclick="hideOverlay()"></div>
 
     <div class="list-container" id="list-field-popup-window">
-        <form th:action="@{/api/newList}" th:object="${newList}" method="post">
+        <form th:action="@{/api/newList/0}" th:object="${newList}" method="post">
             <div class="list-name">
 
             <textarea type="text" placeholder="Enter list name" name="title" th:value="${newList.title}"
