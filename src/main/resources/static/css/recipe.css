@@ -187,8 +187,7 @@ body {
 .miniTime{
     position: absolute;
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 1vw; /*48*/
-    font-size: 3vh;
+    font-size: 1.5vw;
     color: black;
     margin-left: 1.7vw;
     margin-bottom: 0.3vh;
@@ -200,6 +199,13 @@ body {
     height: 4vh;
     margin-left: 8vw;
     margin-top: 0.2vh;
+}
+
+.First-Dish{
+    margin-top: -0.6vh;
+    margin-left: 7.2vw;
+    width: 7.5vw;
+    height: 5.5vh;
 }
 
 .miniCategories{
