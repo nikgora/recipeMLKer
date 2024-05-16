@@ -18,4 +18,9 @@ public class UserReportServiceImpl implements UserReportService {
     public List<UserReport> findAvailableForModer(boolean accepted, Long id) {
         return userReportRepository.findAllByIsAcceptedOrModeratorId(accepted, id);
     }
+
+    @Override
+    public void save(UserReport userReport) {
+        userReportRepository.save(userReport);
+    }
 }

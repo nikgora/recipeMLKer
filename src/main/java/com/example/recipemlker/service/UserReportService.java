@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface UserReportService {
     List<UserReport> findAvailableForModer(boolean accepted, Long id);
+    void save(UserReport userReport);
 }
