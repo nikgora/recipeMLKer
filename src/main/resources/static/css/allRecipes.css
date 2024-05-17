@@ -724,10 +724,10 @@ table td {
 .dish-container label::before {
     content: "";
     display: inline-block;
-    width: 15px;
-    height: 15px;
-    border: 2px solid #733506;
-    margin-right: 10px;
+    width: 1vw;
+    height: 2vh;
+    border: 0.3vh solid #733506;
+    margin-right: 0.52vw;
     vertical-align: middle;
     border-radius: 50%;
 }
@@ -742,7 +742,7 @@ table td {
 }
 
 .sub-menu a{
-    padding-left: 20px;
+    padding-left: 1vw;
 }
 
 .rotate{
