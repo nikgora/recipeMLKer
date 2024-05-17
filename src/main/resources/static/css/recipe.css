@@ -832,6 +832,11 @@ body {
     font-size: 1.3vw;
 }
 
+.amountContent td:first-child {
+    white-space: nowrap;
+}
+
+
 .ingredientContent {
     padding-left: 13vw;
     font-size: 1.5vw;
