@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" charset="UTF-8"></script>
 </head>
+<body>
 <header>
     <div class="header">
         <img th:src="@{images/logo.svg}" src="../../static/images/logo.svg" alt = "logo" class = "logo">
@@ -73,7 +74,6 @@
 
     </div>
 </header>
-<body>
 
 <main>
     <h1 class="boardTwoTitle">Filters</h1>
@@ -88,15 +88,42 @@
                 <i class="fas fa-angle-down dropdown"></i>
             </a>
             <div class="sub-menu">
-                <a href="#" class="dish">First dishes</a>
-                <a href="#" class="dish">Main dishes</a>
-                <a href="#" class="dish">Desserts</a>
-                <a href="#" class="dish">Salads</a>
-                <a href="#" class="dish">Pastry</a>
-                <a href="#" class="dish">Drinks</a>
-                <a href="#" class="dish">Snacks</a>
-                <a href="#" class="dish">Fish dishes</a>
-                <a href="#" class="dish">Sauces</a>
+                <div class="dish-container">
+                    <input type="checkbox" name="dish" id="first-dish" value="First Dish">
+                    <label class="dish" for="first-dish">First dishes</label>
+                </div>
+                <div class="dish-container">
+                    <input type="checkbox" name="dish" id="main-dish" value="Main Dish">
+                    <label class="dish" for="main-dish">Main dishes</label>
+                </div>
+                <div class="dish-container">
+                    <input type="checkbox" name="dish" id="desserts" value="Desserts">
+                    <label class="dish" for="desserts">Desserts</label>
+                </div>
+                <div class="dish-container">
+                    <input type="checkbox" name="dish" id="salads" value="Salads">
+                    <label class="dish" for="salads">Salads</label>
+                </div>
+                <div class="dish-container">
+                    <input type="checkbox" name="dish" id="pastry" value="Pastry">
+                    <label class="dish" for="pastry">Pastry</label>
+                </div>
+                <div class="dish-container">
+                    <input type="checkbox" name="dish" id="drinks" value="Drinks">
+                    <label class="dish" for="drinks">Drinks</label>
+                </div>
+                <div class="dish-container">
+                    <input type="checkbox" name="dish" id="snacks" value="Snacks">
+                    <label class="dish" for="snacks">Snacks</label>
+                </div>
+                <div class="dish-container">
+                    <input type="checkbox" name="dish" id="fish-dishes" value="Fish Dishes">
+                    <label class="dish" for="fish-dishes">Fish dishes</label>
+                </div>
+                <div class="dish-container">
+                    <input type="checkbox" name="dish" id="sauces" value="Sauces">
+                    <label class="dish" for="sauces">Sauces</label>
+                </div>
             </div>
         </div>
         <hr>
@@ -194,6 +221,7 @@
     </div>
 </footer>
 <script th:href="@{js/scripts.js}" src="../../js/scripts.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 <script type="text/javascript">
     function submitForm() {
         var form = document.getElementById('loginForm');

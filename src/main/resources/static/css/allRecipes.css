@@ -683,7 +683,7 @@ table td {
 .item a{
     color: black;
     display: block;
-    line-height: 40px;
+    line-height: 5.5vh;
 }
 
 .item a:hover{
@@ -700,22 +700,60 @@ table td {
 }
 
 .item .sub-menu{
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
     display: none;
 }
 
+.dish-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.dish-container input {
+    margin-right: 10px;
+    background: #733506;
+}
+.dish {
+    text-decoration: none;
+    color: black;
+}
+
+.dish-container input[type="checkbox"] {
+    display: none;
+}
+.dish-container label::before {
+    content: "";
+    display: inline-block;
+    width: 1vw;
+    height: 2vh;
+    border: 0.3vh solid #733506;
+    margin-right: 0.52vw;
+    vertical-align: middle;
+    border-radius: 50%;
+}
+.dish-container input[type="checkbox"]:checked + label::before {
+    background-color: #733506;
+    border-color: #733506;
+    border-radius: 50%;
+}
+
+.dropdown {
+    margin-left: auto;
+}
+
 .sub-menu a{
-    padding-left: 20px;
+    padding-left: 1vw;
 }
 
 .rotate{
     transform: rotate(180deg);
 }
 
-.ulBoard hr {
+hr {
     border: 0.104167vw solid black;
-    width: 10vw;
-    margin-right: 1vw;
+    width: 9.3vw;
+    margin-right: 0.5vw;
+    margin-left: 2vw;
 }
 
 
