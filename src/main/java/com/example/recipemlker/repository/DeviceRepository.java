@@ -1,6 +1,6 @@
 package com.example.recipemlker.repository;
 
-import com.example.recipemlker.model.Ingredient;
+import com.example.recipemlker.model.CookingDevice;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -8,9 +8,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface IngredientRepository extends JpaRepository<Ingredient, Long> {
-    Ingredient findFirstByName(String name);
+public interface DeviceRepository extends JpaRepository<CookingDevice, Long> {
+    @Query("select dev from CookingDevice dev")
+    List<CookingDevice> findAll();
 
-    @Query("select ing from Ingredient ing")
-    List<Ingredient> findAll();
 }

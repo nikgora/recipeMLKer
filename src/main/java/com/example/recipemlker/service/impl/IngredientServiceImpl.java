@@ -6,6 +6,8 @@ import com.example.recipemlker.service.IngredientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class IngredientServiceImpl implements IngredientService {
     @Autowired
@@ -14,5 +16,10 @@ public class IngredientServiceImpl implements IngredientService {
     @Override
     public Ingredient getIngredientByName(String name) {
         return ingredientRepository.findFirstByName(name);
+    }
+
+    @Override
+    public List<Ingredient> findAll() {
+        return ingredientRepository.findAll();
     }
 }
