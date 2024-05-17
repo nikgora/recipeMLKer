@@ -99,14 +99,20 @@
         <div id="overlay-lists" onclick="hideOverlay()"></div>
         <div class="lists-container" id="lists-popup-window">
             <button class="create-list" id="create-new-list-btn">Create a new list</button>
-            <button class="user-list">UserList</button>
-            <button class="user-list1">Userlist</button>
+            <button th:class="${i.index == 0} ? 'user-list user-list' : 'user-list user-list' + (${i.index})"
+                    th:each="list, i : ${user.getUserLists()}"
+                    th:style="'top:' + (${i.index * 8 + 10}) + 'vh'"
+                    th:text="${list.getTitle()}">
+            </button>
             <div class="list-container" id="list-field-popup-window">
-                <div class="list-name">
-                    <form method="post" th:action="@{/api/newList}"></form>
-                    <input id="listName" placeholder="Enter list name" type="text">
-                </div>
-                <button id="confirm-list-btn">Confirm</button>
+                <form method="post" onsubmit="return validateInput('listName')" th:action="@{/api/newList/0}"
+                      th:object="${newList}">
+                    <div class="list-name">
+                        <input id="listName" name="title" placeholder="Enter list name" th:value="${newList.title}"
+                               type="text">
+                    </div>
+                    <button class="confirm-list-button" id="confirm-list-btn">Confirm</button>
+                </form>
             </div>
         </div>
     </div>
@@ -125,7 +131,8 @@
             <div class="reportHeader">Report</div>
             <div class="report-inner-window">
             <textarea id="reportInput" name="description"
-                      placeholder="Please, enter the reason for the report." th:value="${userReport.description}"></textarea>
+                      placeholder="Please, enter the reason for the report."
+                      th:value="${userReport.description}"></textarea>
             </div>
             <button class="send-report" id="send-report-btn">Send a report</button>
         </form>
@@ -171,7 +178,8 @@
         </div>
     </div>
     <form class="text-form" method="post"
-          onsubmit="return validateInput('commentInput')" th:action="@{/api/newComment/{id1}(id1=${id})}" th:object="${comment}">
+          onsubmit="return validateInput('commentInput')" th:action="@{/api/newComment/{id1}(id1=${id})}"
+          th:object="${comment}">
         <img alt="quill" class="quill" src="../../static/images/quill.svg" th:src="@{../images/quill.svg}">
         <textarea id="commentInput" maxlength="255" name="startWith" placeholder="Add comment"
                   th:field="${comment.text}"></textarea>
