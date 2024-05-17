@@ -107,8 +107,8 @@ a:visited, a:link {
 }
 
 .Main-Dish{
-    width: 2.05vw;
-    height:2.7vh;
+    width: 3vw;
+    height: 4vh;
 }
 
 .Salad{
@@ -116,14 +116,9 @@ a:visited, a:link {
     height:4.167vh;
 }
 
-.pastryI{
-    width: 2.34375vw;
-    height: 3.24075vh;
-}
-
 .Dessert{
-    width: 2.34375vw;
-    height: 3.24075vh;
+    width: 4vw;
+    height: 4.5vh;
 }
 
 .Drink{
@@ -132,8 +127,8 @@ a:visited, a:link {
 }
 
 .Snack{
-    width: 2.34375vw;/*45*/
-    height: 2.7778vh;/*30*/
+    width: 3vw;/*45*/
+    height: 4vh;/*30*/
 }
 
 .Fish-Dish{

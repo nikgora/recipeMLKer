@@ -13,9 +13,8 @@
         <img th:src="@{../images/logo.svg}" src="../../images/logo.svg" alt="logo" class="logo">
 
         <form class="search-form">
-            <img th:src="@{../images/magnifier.svg}" src="../../static/images/magnifier.svg" alt="magnifier"
-                 class="magnifier">
-            <input name="startWith" placeholder="Search" type="search">
+            <img th:src="@{../images/magnifier.svg}" src="../../static/images/magnifier.svg" alt = "magnifier" class = "magnifier">
+                <input name="startWith" placeholder="Search" type="search">
         </form>
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
         <a class="button-style" href="recipe.html" th:href="@{/recipe/{id1}(id1=${randomRecipeId})}">Random</a>
@@ -33,7 +32,7 @@
                 <div class="heart"
                      onmouseover="changeImage('heart-img2', '../../images/heart-login-hover.svg')"
                      onmouseout="restoreImage('heart-img2', '../../images/heart-login.svg')">
-                    <img id="heart-img2" th:src="@{images/heart-login.svg}" src="../../images/heart-login.svg"
+                    <img id="heart-img2" th:src="@{../images/heart-login.svg}" src="../../images/heart-login.svg"
                          alt="heart" class="heart">
                 </div>
             </div>
@@ -53,7 +52,7 @@
                      onmouseover="changeImage('user-img2', '../../images/user-login-hover.svg')"
                      onmouseout="restoreImage('user-img2', '../../images/user-login.svg')">
 
-                    <img id="user-img2" th:src="@{images/user-login.svg}" src="../../images/user-login.svg" alt="user"
+                    <img id="user-img2" th:src="@{../images/user-login.svg}" src="../../images/user-login.svg" alt="user"
                          class="user">
                 </div>
             </button>
@@ -92,36 +91,42 @@
     </form>
 
     <button class="UserList" id="lists-btn">Lists</button>
-    <div id="overlay-lists" onclick="hideOverlay()"></div>
-    <div class="lists-container" id="lists-popup-window">
-        <button class="create-list" id="create-new-list-btn">Create a new list</button>
-        <button class="user-list">UserList</button>
-        <button class="user-list1">Userlist</button>
-        <div class="list-container" id="list-field-popup-window">
-            <div class="list-name">
-                <form th:action="@{/api/newList}" method="post"></form>
-                <input type="text" placeholder="Enter list name" id="listName">
+    <div th:if="${isLogin} == true">
+        <div id="overlay-lists" onclick="hideOverlay()"></div>
+        <div class="lists-container" id="lists-popup-window">
+            <button class="create-list" id="create-new-list-btn">Create a new list</button>
+            <button class="user-list">UserList</button>
+            <button class="user-list1">Userlist</button>
+            <div class="list-container" id="list-field-popup-window">
+                <div class="list-name">
+                    <form th:action="@{/api/newList}" method="post"></form>
+                    <input type="text" placeholder="Enter list name" id="listName">
+                </div>
+                <button id="confirm-list-btn">Confirm</button>
             </div>
-            <button id="confirm-list-btn">Confirm</button>
         </div>
+    </div>
+    <div th:if="${isLogin} == false">
+        <button class="UserList" id="user-list-logout" onclick="showAlert('Please, log in to add recipe to the custom list.')">Lists</button>
     </div>
 
 
-    <button class="Report" onclick="doReport('report-btn')">Report</button>
+    <button class="Report" id="report-btn">Report</button>
     <div th:if="${isLogin} == true">
         <div id="overlay-report" onclick="hideOverlay()"></div>
         <form class="report-container" id="report-field-popup-window" method="post"
-              th:action="@{/api/newUserReport/{id1}(id1=${id})}" th:object="${userReport}">
+              th:action="@{/api/newUserReport/{id1}(id1=${id})}" th:object="${userReport}"
+              onsubmit="return validateInput('reportInput')">
             <div class="reportHeader">Report</div>
             <div class="report-inner-window">
-                <textarea name="description" placeholder="Please, enter the reason for the report"
-                          th:value="${userReport.description}"></textarea>
+            <textarea name="description" placeholder="Please, enter the reason for the report."
+                      th:value="${userReport.description}" id="reportInput"></textarea>
             </div>
             <button class="send-report" id="send-report-btn">Send a report</button>
         </form>
     </div>
     <div th:if="${isLogin} == false">
-        <button class="Report" id="report-btn1" onclick="showAlert(this.id)">Report</button>
+        <button class="Report" id="report-btn1" onclick="showAlert('Please, log in to report')">Report</button>
     </div>
 
     <div class="mini">
@@ -137,11 +142,11 @@
         <div class="IngredientTagsTitle">
             <p class="c7">Ingredient tags</p>
             <div class="ingredientContent">
-                <table th:each="ingedients: ${recipe.getRecipeIngredients()}">
+                <table>
                     <tr>
-                        <td>
-                            <a th:href="@{/allRecipes(ingredient=${ingedients.ingredient.getName()})}"
-                               th:text="'#' + ${ingedients.ingredient.getName()}"></a>
+                        <td th:each="ingredient: ${recipe.getRecipeIngredients()}">
+                            <a th:href="@{/allRecipes(ingredient=${ingredient.ingredient.getName()})}"
+                               th:text="'#' + ${ingredient.ingredient.getName()}"></a>
                         </td>
                     </tr>
                 </table>
@@ -153,9 +158,9 @@
             <p class="c7 devices">Devices tags</p>
         </div>
         <div class="ingredientContent">
-            <table th:each="devices: ${recipe.getRecipeDevices()}">
+            <table>
                 <tr>
-                    <td>
+                    <td th:each="devices: ${recipe.getRecipeDevices()}">
                         <a th:href="@{/allRecipes(device=${devices.cookingDevice.getName()})}"
                            th:text="'#' + ${devices.cookingDevice.getName()}"></a>
                     </td>
@@ -163,25 +168,19 @@
             </table>
         </div>
     </div>
-    <form class="text-form" th:action="@{/api/newComment/{id1}(id1=${id})}" method="post" th:object="${comment}">
+    <form class="text-form" th:action="@{/api/newComment/{id1}(id1=${id})}"
+          method="post" th:object="${comment}" onsubmit="return validateInput('commentInput')">
         <img th:src="@{../images/quill.svg}" src="../../static/images/quill.svg" alt="quill" class="quill">
-        <textarea name="startWith" maxlength="255" th:field="${comment.text}" placeholder="Add comment"></textarea>
-        <button id="publish">Publish</button>
+        <textarea name="startWith" maxlength="255" th:field="${comment.text}" placeholder="Add comment" id="commentInput"></textarea>
+        <button type="submit" id="publish">Publish</button>
     </form>
     <div class="commentField">
         <div th:each="comment, commentStat : ${recipe.getComments()}"
-             th:class="${commentStat.first} ? 'comment comment' : 'comment comment' + ${commentStat.count}"
-             th:style="'top: ' + (${commentStat.index} * 11.5) + 'vh;'">
+             th:class="'comment-container comment' + ${commentStat.count}">
             <div class="comment-user-circle">
                 <img id="comment-user" src="../../images/Chef Hat.svg" alt="comment-user" class="comment-user">
             </div>
-            <table>
-                <tbody>
-                <tr>
-                    <td th:text="${comment.getText()}"></td>
-                </tr>
-                </tbody>
-            </table>
+            <div class="comment-text" th:text="${comment.getText()}"></div>
         </div>
     </div>
 
@@ -193,11 +192,12 @@
                 <table th:each="ingedients: ${recipe.getRecipeIngredients()}">
                     <tr>
                         <td th:text="${ingedients.ingredient.getName()}"></td>
-                        <td th:text="' - ' + ${ingedients.getAmountOfIngredient()}">
-                        </td>
+                        <td th:text="' - ' + ${ingedients.getAmountOfIngredient()}"></td>
                     </tr>
                 </table>
             </div>
+        </div>
+        <div class="deviceField">
             <div class="ingredientsHeader devicesHeader">Cooking devices</div>
             <div class="amountContent deviceContent">
                 <table th:each="devices: ${recipe.getRecipeDevices()}">
@@ -207,6 +207,7 @@
                 </table>
             </div>
         </div>
+
         <div class="stepByStepField">
             <div class="ingredientsHeader stepByStepHeader">Step-by-step instructions</div>
             <div class="amountContent" th:text="${recipe.getDescription()}"></div>
@@ -292,16 +293,9 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.8/dist/sweetalert2.all.min.js"></script>-->
 <script th:href="@{js/scripts.js}" src="../../js/scripts.js"></script>
 <script>
-    /*<![CDATA[*/
-    var isLogin = /*[[${isLogin}]]*/ false;
-
-    function showAlert(button) {
-        if (!isLogin) {
-            alert("Please log in to report.");
-        }
+    function showAlert(message) {
+        alert(message);
     }
-
-    /*]]>*/
     /*$(".Report").click(function(){
         Swal.fire('Register to report',);
     });*/
@@ -350,29 +344,19 @@
         return false; // Prevent the form from submitting in the traditional way
     }
 
-    function doReport(button) {
-        if (button === 'report-btn') {
-            document.getElementById("report-btn").addEventListener("click",
-                () => showOverlay("overlay-report", "report-field-popup-window"));
-            document.getElementById("overlay-report").addEventListener("click",
-                () => hideOverlay("overlay-report", "report-field-popup-window"));
-            document.getElementById("send-report-btn").addEventListener("click",
-                () => hideOverlay("overlay-report", "report-field-popup-window"));
-        }
-    }
+    document.getElementById("report-btn").addEventListener("click",
+        () => showOverlay("overlay-report", "report-field-popup-window"));
+    document.getElementById("overlay-report").addEventListener("click",
+        () => hideOverlay("overlay-report", "report-field-popup-window"));
+    document.getElementById("send-report-btn").addEventListener("click",
+        () => hideOverlay("overlay-report", "report-field-popup-window"));
 
     document.getElementById("lists-btn").addEventListener("click",
         () => showOverlay("overlay-lists", "lists-popup-window"));
     document.getElementById("overlay-lists").addEventListener("click",
         () => hideOverlay("overlay-lists", "lists-popup-window"));
 
-    function createNewList(button) {
-        if (button === 'create-nes-list') {
 
-        }
-    }
-
-    // Event listener for moving buttons down
     document.getElementById("create-new-list-btn").addEventListener("click", function () {
         var windowHeight = window.innerHeight;
         var userButtons = document.querySelectorAll(".user-list, .user-list1");
@@ -385,7 +369,8 @@
         });
     });
 
-    document.getElementById("create-new-list-btn").addEventListener("click", () => showOverlay("list-field-popup-window", "list-name"));
+    document.getElementById("create-new-list-btn").addEventListener("click",
+        () => showOverlay("list-field-popup-window", "confirm-list-btn"));
 
     document.getElementById("confirm-list-btn").addEventListener("click", function () {
         var windowHeight = window.innerHeight;
@@ -400,7 +385,6 @@
 
         hideOverlay("list-field-popup-window", "confirm-list-btn");
     });
-
 
 </script>
 </body>
