@@ -84,7 +84,6 @@
 <main>
     <h1 class="boardTwoTitle">Filters</h1>
     <img alt="board" class="board" src="../../static/images/CuttingBoard.svg" th:src="@{images/CuttingBoard.svg}">
-    <button class="apply-button"><span>Apply</span></button>
     <div class="ulBoard">
         <div class="h1"></div>
         <div class="item">
@@ -145,6 +144,7 @@
                     <div class="minTime">
                         <input name="minTime" placeholder="min" required type="text">
                     </div>
+                    <div class="line"></div>
                     <div class="maxTime">
                         <input name="maxTime" placeholder="max" required type="text">
                     </div>
@@ -182,11 +182,12 @@
             </a>
             <div class="sub-menu">
                 <div class="ingredient-container" th:each="ingredient: ${ingredients}">
-                    <input name="ingredient" th:value="${ingredient.getName()}" type="checkbox">
-                    <label class="ingredient" th:text="${ingredient.getName()}"></label>
+                    <input name="ingredients" th:id="${ingredient.getName()}" th:value="${ingredient.getName()}"
+                           type="checkbox">
+                    <label class="ingredient" th:for="${ingredient.getName()}"
+                           th:text="${ingredient.getName()}"></label>
                 </div>
             </div>
-
         </div>
         <hr>
         <div class="item">
@@ -196,10 +197,17 @@
                 <i class="fas fa-angle-down dropdown"></i>
             </a>
             <div class="sub-menu">
+                <div class="device-container" th:each="device: ${devices}">
+                    <input name="devices" th:id="${device.getName()}" th:value="${device.getName()}"
+                           type="checkbox">
+                    <label class="device" th:for="${device.getName()}"
+                           th:text="${device.getName()}"></label>
+                </div>
             </div>
         </div>
         <hr>
     </div>
+    <button class="apply-button"><span>Apply</span></button>
     <img alt="coffeeBean" class="bean" src="../../static/images/coffeeBean.svg" th:src="@{images/coffeeBean.svg}">
     <div class="mainField">
         <div class="field" id="recipeContainer" th:if="${recipes.size()!=0}">
@@ -232,7 +240,6 @@
         </div>
     </div>
 </main>
-
 <footer class="footer">
     <button class="support-button" id="support-btn"><span>Support</span></button>
 

@@ -309,41 +309,45 @@ table td {
     display: none;
 }
 
-.dish-container, .ingredient-container {
+.dish-container, .ingredient-container, .device-container {
     display: flex;
     align-items: center;
     margin-bottom: 5px;
 }
 
-.dish-container input, .ingredient-container input {
+.dish-container input, .ingredient-container input, .device-container input {
     margin-right: 10px;
     background: #733506;
 }
 
-.dish, .ingredient {
+.dish, .ingredients, .device {
     text-decoration: none;
     color: black;
 }
 
 .dish-container input[type="checkbox"],
-.ingredient-container input[type="checkbox"] {
+.ingredient-container input[type="checkbox"],
+.device-container input[type="checkbox"] {
     display: none;
 }
 
 .dish-container label::before,
-.ingredient-container label::before {
+.ingredient-container label::before,
+.device-container label::before {
     content: "";
     display: inline-block;
     width: 1vw;
-    height: 2vh;
+    height: 2.2vh;
     border: 0.3vh solid #733506;
     margin-right: 0.52vw;
     vertical-align: middle;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .dish-container input[type="checkbox"]:checked + label::before,
-.ingredient-container input[type="checkbox"]:checked + label::before {
+.ingredient-container input[type="checkbox"]:checked + label::before,
+.device-container input[type="checkbox"]:checked + label::before {
     background-color: #733506;
     border-color: #733506;
     border-radius: 50%;
@@ -404,5 +408,12 @@ hr {
     outline: none;
 }
 
+
+.line {
+    position: absolute;
+    left: 6.75vw;
+    width: 0.3vw;
+    border: 0.15vw solid #733506;
+}
 
 
