@@ -145,18 +145,15 @@
     <div class="IngredientTagsField">
         <div class="IngredientTagsTitle">
             <p class="c7">Ingredient tags</p>
-            <div class="ingredientContent">
-                <table>
-                    <tr>
-                        <td th:each="ingredient: ${recipe.getRecipeIngredients()}">
-                            <a th:href="@{/allRecipes(ingredient=${ingredient.ingredient.getName()})}"
-                               th:text="'#' + ${ingredient.ingredient.getName()}"></a>
-                        </td>
-                    </tr>
-                </table>
+        </div>
+        <div class="ingredientContent">
+            <div th:each="ingredient: ${recipe.getRecipeIngredients()}">
+                <a th:href="@{/allRecipes(ingredient=${ingredient.ingredient.getName()})}"
+                   th:text="'#' + ${ingredient.ingredient.getName()}"></a>
             </div>
         </div>
     </div>
+
     <div class="IngredientTagsField DeviceTagsField ">
         <div class="IngredientTagsTitle">
             <p class="c7 devices">Devices tags</p>
@@ -197,7 +194,7 @@
                 <table th:each="ingedients: ${recipe.getRecipeIngredients()}">
                     <tr>
                         <td th:text="${ingedients.ingredient.getName()}"></td>
-                        <td th:text="' - ' + ${ingedients.getAmountOfIngredient()}"></td>
+                        <td th:text="' - '+${ingedients.getAmountOfIngredient()}"></td>
                     </tr>
                 </table>
             </div>

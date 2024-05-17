@@ -48,7 +48,7 @@
         <div class="cooker-circle"></div>
         <img th:src="@{images/cooker.svg}" src="../../static/images/cooker.svg" alt="cooker" class="cooker">
     </div>
-    <div class="user-name">User name</div>
+    <div th:text="${user.getLogin()}" class="user-name">User name</div>
 
     <div class="green-line"></div>
 
