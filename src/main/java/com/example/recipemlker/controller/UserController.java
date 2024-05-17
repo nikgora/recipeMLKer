@@ -37,7 +37,10 @@ public class UserController {
     private UserReportService userReportService;
     @Autowired
     private UserListService userListService;
-
+    @Autowired
+    private DeviceService deviceService;
+    @Autowired
+    private IngredientService ingredientService;
     private String jwt = null;
 
     @GetMapping("/")
@@ -110,6 +113,8 @@ public class UserController {
         model.addAttribute("isLogin", jwt != null);
         model.addAttribute("randomRecipeId", getRandomNumRecipe());
         model.addAttribute("recipes", recipes);
+        model.addAttribute("ingredients", ingredientService.findAll());
+        model.addAttribute("devices", deviceService.findAll());
         return "user/allRecipes";
     }
 
@@ -165,13 +170,11 @@ public class UserController {
         if (jwt == null) {
             return "redirect:/403";
         }
-        if (!Objects.equals(userList.getTitle(), "")) {
-            User user = userService.getUserByUsername(jwtService.extractUserName(jwt));
-            UserList newUserList = new UserList();
-            newUserList.setTitle(userList.getTitle());
-            newUserList.setUser(user);
-            userListService.save(newUserList);
-        }
+        User user = userService.getUserByUsername(jwtService.extractUserName(jwt));
+        UserList newUserList = new UserList();
+        newUserList.setTitle(userList.getTitle());
+        newUserList.setUser(user);
+        userListService.save(newUserList);
         if (Objects.equals(id, "")) return "redirect:/user";
         return "redirect:/recipe/" + id;
     }
@@ -232,6 +235,8 @@ public class UserController {
         Recipe recipe = new Recipe();
         User user = (userService.getUserByUsername(jwtService.extractUserName(jwt)));
         model.addAttribute("user", user);
+        model.addAttribute("ingredients", ingredientService.findAll());
+        model.addAttribute("devices", deviceService.findAll());
         model.addAttribute("category", categoryService.getAllCategory());
         model.addAttribute("recipe", recipe);
         model.addAttribute("isLogin", jwt != null);
@@ -290,6 +295,9 @@ public class UserController {
 
         if (recipe == null) {
             return "redirect:/404";
+        }
+        if (Double.isNaN(rating.getMark())) {
+            rating.setMark(10.0);
         }
         Rating newRating = new Rating();
         if (!this.recipeService.getRecipeById(id).isPublished()) return "redirect:/403";
