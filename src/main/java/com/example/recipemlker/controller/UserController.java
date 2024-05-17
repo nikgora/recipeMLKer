@@ -161,7 +161,7 @@ public class UserController {
 
     @PostMapping("/api/newList/{id}")
     /// 0 - user page, some else recipe id
-    public String newList(@ModelAttribute UserList userList, @ModelAttribute Long id) {
+    public String newList(@ModelAttribute UserList userList, @ModelAttribute String id) {
         if (jwt == null) {
             return "redirect:/403";
         }
@@ -172,7 +172,7 @@ public class UserController {
             newUserList.setUser(user);
             userListService.save(newUserList);
         }
-        if (id == 0) return "redirect:/user";
+        if (Objects.equals(id, "0")) return "redirect:/user";
         return "redirect:/recipe/" + id;
     }
 
