@@ -200,7 +200,6 @@ ul hr {
 /*____________________________________________________________________________________________________________________*/
 ::-webkit-scrollbar {
     width: 0.78125vw;
-    margin-left: 6vw;
 }
 
 ::-webkit-scrollbar-track {
@@ -641,13 +640,15 @@ a:link, a:visited {
 
 .item a:hover{
     background-color: #F2B705;
-    border-radius: 2.7vh;
-    width: 10vw;
+    border-radius: 2vh;
+    width: 9.95vw;
 }
 
 hr {
     border: 0.104167vw solid black;
-    width: 9vw;
+    width: 9.3vw;
+    margin-right: 0.5vw;
+    margin-left: 2vw;
 }
 
 .ulBoard {
