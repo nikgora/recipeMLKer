@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link rel="stylesheet" type="text/css" href="../../static/css/main.css" th:href="@{css/main.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{../css/headerIfooter.css}" href="../../static/css/headerIfooter.css">
 </head>
 <body>
 <header>
@@ -71,119 +72,118 @@
     </div>
 </header>
 <main>
-<div class="container">
-    <div class="menu">
-        <img alt="board" class="board" th:src="@{images/CuttingBoard.svg}" src="../../static/images/CuttingBoard.svg" >
-        <h1 class="boardOneTitle">Categories</h1>
-        <div class="ulBoard">
-            <div class="item">
-                <a th:href="@{/allRecipes(category='First Dish')}">
-                    <img alt="First-Dish" class="First-Dish" th:src="@{images/First dish.svg}" src="../../static/images/First dish.svg">
-                    First dishes
-                </a>
-            </div><hr>
-            <div class="item">
-                <a th:href="@{/allRecipes(category='Main Dish')}">
-                    <img alt="Main-Dish" class="Main-Dish" th:src="@{images/Main dish.svg}" src="../../static/images/Main dish.svg" >
-                    Main dishes
-                </a>
-            </div><hr>
-            <div class="item">
-                <a th:href="@{/allRecipes(category='Salad')}">
-                    <img alt="Salad" class="Salad" th:src="@{images/Salad.svg}" src="../../static/images/Salad.svg" >
-                    Salads
-                </a>
-            </div><hr>
-            <div class="item">
-                <a th:href="@{/allRecipes(category='Pastry')}">
-                    <img alt="Pastry" class="Pastry" th:src="@{images/Pastry.svg}" src="../../static/images/Pastry.svg" >
-                    Pastry
-                </a>
-            </div><hr>
-            <div class="item">
+    <div class="container">
+        <div class="menu">
+            <img alt="board" class="board" th:src="@{images/CuttingBoard.svg}" src="../../static/images/CuttingBoard.svg" >
+            <h1 class="boardOneTitle">Categories</h1>
+            <div class="ulBoard">
+                <div class="item">
+                    <a th:href="@{/allRecipes(category='First Dish')}">
+                        <img alt="First-Dish" class="First-Dish" th:src="@{images/First dish.svg}" src="../../static/images/First dish.svg">
+                        First dishes
+                    </a>
+                </div><hr>
+                <div class="item">
+                    <a th:href="@{/allRecipes(category='Main Dish')}">
+                        <img alt="Main-Dish" class="Main-Dish" th:src="@{images/Main dish.svg}" src="../../static/images/Main dish.svg" >
+                        Main dishes
+                    </a>
+                </div><hr>
+                <div class="item">
+                    <a th:href="@{/allRecipes(category='Salad')}">
+                        <img alt="Salad" class="Salad" th:src="@{images/Salad.svg}" src="../../static/images/Salad.svg" >
+                        Salads
+                    </a>
+                </div><hr>
+                <div class="item">
+                    <a th:href="@{/allRecipes(category='Pastry')}">
+                        <img alt="Pastry" class="Pastry" th:src="@{images/Pastry.svg}" src="../../static/images/Pastry.svg" >
+                        Pastry
+                    </a>
+                </div><hr>
+                <div class="item">
+                    <a th:href="@{/allRecipes(category='Dessert')}">
+                        <img alt="Dessert" class="Dessert" th:src="@{images/Dessert.svg}" src="../../static/images/Dessert.svg" >
+                        Desserts
+                    </a>
+                </div><hr>
+                <div class="item">
+                    <a th:href="@{/allRecipes(category=)}">
+                        <img alt="Drink" class="Drink" th:src="@{images/Drink.svg}" src="../../static/images/Drink.svg" >
+                        Drinks
+                    </a>
+                </div><hr>
+                <div class="item">
+                    <a th:href="@{/allRecipes(category='Fish Dish')}">
+                        <img alt="Fish-Dish" class="Fish-Dish" th:src="@{images/Fish dish.svg}" src="../../static/images/Fish dish.svg" >
+                        Fish dishes
+                    </a>
+                </div><hr>
+                <div class="item">
+                    <a th:href="@{/allRecipes(category='Snack')}">
+                        <img alt="Snack" class="Snack" th:src="@{images/Snack.svg}" src="../../static/images/Snack.svg" >
+                        Snacks
+                    </a>
+                </div><hr>
+                <div class="item">
+                    <a th:href="@{/allRecipes(category='Sauce')}">
+                        <img alt="Sauce" class="Sauce" th:src="@{images/Sauce.svg}" src="../../static/images/Sauce.svg" >
+                        Sauces
+                    </a>
+                </div><hr>
+            </div>
+            <img alt="coffeeBean" class="bean" th:src="@{images/coffeeBean.svg}" src="../../static/images/coffeeBean.svg" >
+        </div>
+
+        <div class="main-bottom">
+            <div class="dessert">
                 <a th:href="@{/allRecipes(category='Dessert')}">
-                    <img alt="Dessert" class="Dessert" th:src="@{images/Dessert.svg}" src="../../static/images/Dessert.svg" >
-                    Desserts
+                    <img alt="cheesecake" class="cheesecake" th:src="@{images/dessert.jpg}" src="../../static/images/dessert.jpg" >
+                    <div class="rectangle rectangle-left-1">
+                        <img alt="Dessert" class="Dessert" th:src="@{images/Dessert.svg}" src="../../static/images/Dessert.svg" >Desserts
+                    </div>
                 </a>
-            </div><hr>
-            <div class="item">
-                <a th:href="@{/allRecipes(category=)}">
-                    <img alt="Drink" class="Drink" th:src="@{images/Drink.svg}" src="../../static/images/Drink.svg" >
-                    Drinks
-                </a>
-            </div><hr>
-            <div class="item">
-                <a th:href="@{/allRecipes(category='Fish Dish')}">
-                    <img alt="Fish-Dish" class="Fish-Dish" th:src="@{images/Fish dish.svg}" src="../../static/images/Fish dish.svg" >
-                    Fish dishes
-                </a>
-            </div><hr>
-            <div class="item">
-                <a th:href="@{/allRecipes(category='Snack')}">
-                    <img alt="Snack" class="Snack" th:src="@{images/Snack.svg}" src="../../static/images/Snack.svg" >
-                    Snacks
-                </a>
-            </div><hr>
-            <div class="item">
-                <a th:href="@{/allRecipes(category='Sauce')}">
-                    <img alt="Sauce" class="Sauce" th:src="@{images/Sauce.svg}" src="../../static/images/Sauce.svg" >
-                    Sauces
-                </a>
-            </div><hr>
-        </div>
-        <img alt="coffeeBean" class="bean" th:src="@{images/coffeeBean.svg}" src="../../static/images/coffeeBean.svg" >
-    </div>
-
-    <div class="main-bottom">
-        <div class="dessert">
-            <a th:href="@{/allRecipes(category='Dessert')}">
-                <img alt="cheesecake" class="cheesecake" th:src="@{images/dessert.jpg}" src="../../static/images/dessert.jpg" >
-                <div class="rectangle rectangle-left-1">
-                    <img alt="Dessert" class="Dessert" th:src="@{images/Dessert.svg}" src="../../static/images/Dessert.svg" >Desserts
-                </div>
-            </a>
-        </div>
-
-        <div class="drink">
-            <a th:href="@{/allRecipes(category='Drink')}">
-                <img alt="fresh" class="fresh" th:src="@{images/drink.jpg}"  src="../../static/images/drink.jpg" >
-                <div class="rectangle rectangle-left-2">
-                    <img alt="Drink" class="Drink" th:src="@{images/Drink.svg}" src="../../static/images/Drink.svg" >Drinks
-                </div>
-            </a>
-        </div>
-
-        <div class="salad">
-            <a th:href="@{/allRecipes(category='Salad')}">
-                <img alt="seafoodSalad" class="seafoodSalad" th:src="@{images/salad.jpg}" src="../../static/images/salad.jpg" >
-                <div class="rectangle rectangle-left-3">
-                    <img alt="Salad" class="Salad" th:src="@{images/Salad.svg}" src="../../static/images/Salad.svg" >Salads
-                </div>
-            </a>
-        </div>
-    </div>
-
-    <div class="firstD">
-        <a th:href="@{/allRecipes(category='First Dish')}">
-            <img alt="firstDish" class="firstDish" th:src="@{images/firstD.jpg}" src="../../static/images/firstD.jpg">
-            <div class="rectangleFD rectangleFD-left">
-                <img alt="First-Dish" class="First-Dish" th:src="@{images/First dish.svg}" src="../../static/images/First dish.svg" >First dishes
             </div>
-        </a>
-    </div>
 
-    <div class="mainD">
-        <a th:href="@{/allRecipes(category='Main Dish')}">
-            <img alt="mainDish" class="mainDish" th:src="@{images/mainD.jpg}" src="../../static/images/Main dishes.jpg">
-            <div class="rectangleMD rectangleMD-left">
-                <img alt="Main-Dish" class="Main-Dish" th:src="@{images/Main dish.svg}" src="../../static/images/Main dish.svg" >Main dishes
+            <div class="drink">
+                <a th:href="@{/allRecipes(category='Drink')}">
+                    <img alt="fresh" class="fresh" th:src="@{images/drink.jpg}"  src="../../static/images/drink.jpg" >
+                    <div class="rectangle rectangle-left-2">
+                        <img alt="Drink" class="Drink" th:src="@{images/Drink.svg}" src="../../static/images/Drink.svg" >Drinks
+                    </div>
+                </a>
             </div>
-        </a>
-    </div>
 
-</div>
+            <div class="salad">
+                <a th:href="@{/allRecipes(category='Salad')}">
+                    <img alt="seafoodSalad" class="seafoodSalad" th:src="@{images/salad.jpg}" src="../../static/images/salad.jpg" >
+                    <div class="rectangle rectangle-left-3">
+                        <img alt="Salad" class="Salad" th:src="@{images/Salad.svg}" src="../../static/images/Salad.svg" >Salads
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="firstD">
+            <a th:href="@{/allRecipes(category='First Dish')}">
+                <img alt="firstDish" class="firstDish" th:src="@{images/firstD.jpg}" src="../../static/images/firstD.jpg">
+                <div class="rectangleFD rectangleFD-left">
+                    <img alt="First-Dish" class="First-Dish" th:src="@{images/First dish.svg}" src="../../static/images/First dish.svg" >First dishes
+                </div>
+            </a>
+        </div>
+
+        <div class="mainD">
+            <a th:href="@{/allRecipes(category='Main Dish')}">
+                <img alt="mainDish" class="mainDish" th:src="@{images/mainD.jpg}" src="../../static/images/Main dishes.jpg">
+                <div class="rectangleMD rectangleMD-left">
+                    <img alt="Main-Dish" class="Main-Dish" th:src="@{images/Main dish.svg}" src="../../static/images/Main dish.svg" >Main dishes
+                </div>
+            </a>
+        </div>
+
+    </div>
 </main>
-
 <footer class="footer">
     <button class="support-button" id="support-btn"><span>Support</span></button>
 
@@ -191,7 +191,7 @@
 
     <div class="window" id="popup-window">
         <div class="inner-window">
-            <input name="query" placeholder="Enter feedback" type="text">
+            <textarea name="query" placeholder="Enter feedback" required></textarea>
         </div>
 
         <button id="send-button">Send</button>
