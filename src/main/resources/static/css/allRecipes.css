@@ -184,14 +184,12 @@ a:visited, a:link {
     position: absolute;
     top: 33.5vh;
     height: 37vh;
-    font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.66667vw;
     overflow-y: auto;
     overflow-x: hidden;
     padding-left: 0.2605vw;
     margin-top: 0.1vh;
     margin-left: 1.7vw;
-
 }
 
 ul {
@@ -674,5 +672,50 @@ table td {
     height: 5.6vh;
 }
 
+.item{
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.5vw;
+    padding-left: 0.2605vw;
+    margin-left: 1.5vw;
+    cursor: pointer;
+}
+
+.item a{
+    color: black;
+    display: block;
+    line-height: 40px;
+}
+
+.item a:hover{
+    background-color: #F2B705;
+    border-radius: 2.7vh;
+}
+
+.item a .dropdown{
+    position: absolute;
+    top: 1.5vh;
+    right: 0;
+    margin-left: 1vw;
+    color: #733506;
+}
+
+.item .sub-menu{
+    background: rgba(255, 255, 255, 0.2);
+    display: none;
+}
+
+.sub-menu a{
+    padding-left: 20px;
+}
+
+.rotate{
+    transform: rotate(180deg);
+}
+
+.ulBoard hr {
+    border: 0.104167vw solid black;
+    width: 10vw;
+    margin-right: 1vw;
+}
 
 

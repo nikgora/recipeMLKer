@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>All recipes</title>
     <link rel="stylesheet" type="text/css" href="../../static/css/allRecipes.css" th:href="@{css/allRecipes.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" charset="UTF-8"></script>
 </head>
 <header>
     <div class="header">
@@ -79,10 +81,33 @@
     <button class="apply-button"><span>Apply</span></button>
     <div class="ulBoard">
         <div class="h1"></div>
+        <div class="item">
+            <a class="sub-btn">
+            <img alt="categoriesI" class="categoriesI" th:src="@{images/Categories.svg}" src="../../static/images/Categories.svg">
+            Categories
+                <i class="fas fa-angle-down dropdown"></i>
+            </a>
+            <div class="sub-menu">
+                <a href="#" class="dish">First dishes</a>
+                <a href="#" class="dish">Main dishes</a>
+                <a href="#" class="dish">Desserts</a>
+                <a href="#" class="dish">Salads</a>
+                <a href="#" class="dish">Pastry</a>
+                <a href="#" class="dish">Drinks</a>
+                <a href="#" class="dish">Snacks</a>
+                <a href="#" class="dish">Fish dishes</a>
+                <a href="#" class="dish">Sauces</a>
+            </div>
+        </div>
+        <hr>
         <ul>
-            <li><img alt="categoriesI" class="categoriesI" th:src="@{images/Categories.svg}"  src="../../static/images/Categories.svg" >
-                Categories</li>
-            <hr>
+            <!--<li>
+                <img alt="categoriesI" class="categoriesI" th:src="@{images/Categories.svg}" src="../../static/images/Categories.svg">
+                Categories
+                <a class="sub-btn">
+                    <i class="fas fa-angle-right dropdown"></i>
+                </a>
+            </li>-->
             <li><img alt="timeI" class="timeI" th:src="@{images/Time.svg}" src="../../static/images/Time.svg" >
                 Time</li>
             <hr>
@@ -91,12 +116,6 @@
             <hr>
             <li><img alt="ratingI" class="ratingI" th:src="@{images/Rating.svg}" src="../../static/images/Rating.svg" >
                 Rating</li>
-            <hr>
-            <li><img alt="ingredientsI" class="ingredientsI" th:src="@{images/ingredients.svg}" src="../../static/images/ingredients.svg" >
-                Ingredients</li>
-            <hr>
-            <li><img alt="devicesI" class="devicesI" th:src="@{images/Mixer.svg}" src="../../static/images/Mixer.svg" >
-                Devices</li>
             <hr>
             <li><img alt="ingredientsI" class="ingredientsI" th:src="@{images/ingredients.svg}" src="../../static/images/ingredients.svg" >
                 Ingredients</li>
@@ -139,7 +158,6 @@
 
 </main>
 
-</body>
 <footer class="footer">
     <button class="support-button" id="support-btn"><span>Support</span></button>
 
@@ -176,7 +194,7 @@
     </div>
 </footer>
 <script th:href="@{js/scripts.js}" src="../../js/scripts.js"></script>
-<script>
+<script type="text/javascript">
     function submitForm() {
         var form = document.getElementById('loginForm');
         var formData = new FormData(form);
@@ -199,5 +217,13 @@
         xhr.send(JSON.stringify(data));
         return false;
     }
+
+    $(document).ready(function (){
+        $('.sub-btn').click(function(){
+            $(this).next('.sub-menu').slideToggle();
+            $(this).find('.dropdown').toggleClass('rotate');
+        });
+    });
 </script>
+</body>
 </html>
