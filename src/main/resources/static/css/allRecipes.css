@@ -107,8 +107,8 @@ a:visited, a:link {
 }
 
 .Main-Dish{
-    width: 2.05vw;
-    height:2.7vh;
+    width: 3vw;
+    height: 4vh;
 }
 
 .Salad{
@@ -116,14 +116,9 @@ a:visited, a:link {
     height:4.167vh;
 }
 
-.pastryI{
-    width: 2.34375vw;
-    height: 3.24075vh;
-}
-
 .Dessert{
-    width: 2.34375vw;
-    height: 3.24075vh;
+    width: 4vw;
+    height: 4.5vh;
 }
 
 .Drink{
@@ -132,8 +127,8 @@ a:visited, a:link {
 }
 
 .Snack{
-    width: 2.34375vw;/*45*/
-    height: 2.7778vh;/*30*/
+    width: 3vw;/*45*/
+    height: 4vh;/*30*/
 }
 
 .Fish-Dish{
@@ -189,14 +184,12 @@ a:visited, a:link {
     position: absolute;
     top: 33.5vh;
     height: 37vh;
-    font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.66667vw;
     overflow-y: auto;
     overflow-x: hidden;
     padding-left: 0.2605vw;
     margin-top: 0.1vh;
     margin-left: 1.7vw;
-
 }
 
 ul {
@@ -679,5 +672,88 @@ table td {
     height: 5.6vh;
 }
 
+.item{
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.5vw;
+    padding-left: 0.2605vw;
+    margin-left: 1.5vw;
+    cursor: pointer;
+}
+
+.item a{
+    color: black;
+    display: block;
+    line-height: 5.5vh;
+}
+
+.item a:hover{
+    background-color: #F2B705;
+    border-radius: 2.7vh;
+}
+
+.item a .dropdown{
+    position: absolute;
+    top: 1.5vh;
+    right: 0;
+    margin-left: 1vw;
+    color: #733506;
+}
+
+.item .sub-menu{
+    background: rgba(255, 255, 255, 0.1);
+    display: none;
+}
+
+.dish-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.dish-container input {
+    margin-right: 10px;
+    background: #733506;
+}
+.dish {
+    text-decoration: none;
+    color: black;
+}
+
+.dish-container input[type="checkbox"] {
+    display: none;
+}
+.dish-container label::before {
+    content: "";
+    display: inline-block;
+    width: 1vw;
+    height: 2vh;
+    border: 0.3vh solid #733506;
+    margin-right: 0.52vw;
+    vertical-align: middle;
+    border-radius: 50%;
+}
+.dish-container input[type="checkbox"]:checked + label::before {
+    background-color: #733506;
+    border-color: #733506;
+    border-radius: 50%;
+}
+
+.dropdown {
+    margin-left: auto;
+}
+
+.sub-menu a{
+    padding-left: 1vw;
+}
+
+.rotate{
+    transform: rotate(180deg);
+}
+
+hr {
+    border: 0.104167vw solid black;
+    width: 9.3vw;
+    margin-right: 0.5vw;
+    margin-left: 2vw;
+}
 
 

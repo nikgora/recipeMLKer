@@ -95,10 +95,9 @@ CREATE table "comment"
 
 CREATE TABLE UserList
 (
-    list_id     SERIAL PRIMARY KEY,
-    title       VARCHAR(255) NOT NULL,
-    description VARCHAR(255) NOT NULL,
-    fk_user     INT REFERENCES "user" (user_id)
+    list_id SERIAL PRIMARY KEY,
+    title   VARCHAR(255) NOT NULL,
+    fk_user INT REFERENCES "user" (user_id)
 );
 
 
@@ -106,7 +105,9 @@ CREATE TABLE Recipe_UserList
 (
     recipe_userList_id SERIAL PRIMARY KEY,
     fk_recipe_id       INT REFERENCES PublishedRecipe (recipe_id),
-    fk_user_list       INT REFERENCES "user" (user_id)
+    fk_user_list       INT REFERENCES UserList (list_id)
 );
 
-ALTER TABLE publishedrecipe ALTER COLUMN cooking_time TYPE integer USING cooking_time::integer;
+ALTER TABLE publishedrecipe
+    ALTER COLUMN cooking_time TYPE integer USING cooking_time::integer;
+

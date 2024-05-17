@@ -22,6 +22,15 @@ function hideOverlay(overlayId, windowId) {
     document.getElementById(windowId).style.display = "none";
 }
 
+function validateInput(inputId) {
+    var input = document.getElementById(inputId).value;
+    if (input.trim() === "") {
+        alert("Input is null.");
+        return false;
+    }
+    return true;
+}
+
 document.getElementById("support-btn").addEventListener("click",
     () => showOverlay("overlay", "popup-window"));
 document.getElementById("overlay").addEventListener("click",

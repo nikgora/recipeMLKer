@@ -6,7 +6,6 @@ VALUES ('Oven'),
        ('Blender');
 
 
-
 -- Inserting Categories
 INSERT INTO Category (title, description)
 VALUES ('Soup', 'Recipes suitable for first dish'),
@@ -78,10 +77,10 @@ VALUES ('Great recipe, loved it!', 1, 1),
        ('Easy to follow instructions, thanks!', 3, 3);
 
 -- Inserting User Lists
-INSERT INTO UserList (title, description, fk_user)
-VALUES ('Favorites', 'My favorite recipes', 1),
-       ('To Try', 'Recipes I want to try soon', 2),
-       ('Healthy Choices', 'Healthy recipes I enjoy', 3);
+INSERT INTO UserList (title, fk_user)
+VALUES ('Favorites', 1),
+       ('To Try', 2),
+       ('Healthy Choices', 3);
 
 -- Inserting Recipes into User Lists
 INSERT INTO Recipe_UserList (fk_recipe_id, fk_user_list)
