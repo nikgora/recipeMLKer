@@ -182,6 +182,15 @@ public class UserController {
         return "redirect:/";
     }
 
+    @GetMapping("/allLists")
+    public String allLists(Model model) {
+        if (jwt == null) return "redirect:/mustBeLogin";
+        model.addAttribute("isLogin", true);
+        model.addAttribute("randomRecipeId", getRandomNumRecipe());
+        model.addAttribute("lists", userListService.getAllByUser(userService.getUserByUsername(jwtService.extractUserName(jwt))));
+        return "user/allLists";
+    }
+
     @GetMapping("/mustBeLogin")
     public String mustBeLogin() {
         return "user/mustBeLogin";
