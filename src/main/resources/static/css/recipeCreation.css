@@ -14,6 +14,7 @@ body {
     padding-right: 2.083vw;
     padding-left: 4.166vw;
 }
+
 .logo1 {
     width: 6.25vw;
     height: 10vh;
@@ -44,7 +45,7 @@ body {
     outline: none;
 }
 
-.magnifier{
+.magnifier {
     height: 3.3333333333vh;
     width: 1.875vw;
 }
@@ -81,7 +82,8 @@ body {
     width: 4.6vw;
     height: 9.2593vh;
 }
-.home{
+
+.home {
     height: 5.55555555vh;
     width: 3.125vw;
 }
@@ -99,7 +101,7 @@ body {
     text-align: center;
 }
 
-.recipeTitle{
+.recipeTitle {
     position: absolute;
     width: 94vw;
     height: 5.5556vh;
@@ -110,7 +112,7 @@ body {
     border-radius: 5vw;
 }
 
-.recipeCookingTime{
+.recipeCookingTime {
     position: absolute;
     width: 44.76vw;
     height: 5.5556vh;
@@ -119,8 +121,9 @@ body {
     top: 27.4vh;
     border-radius: 5vw;
 }
+
 /*4,6875 = 2.3437*/
-.recipeCategory{
+.recipeCategory {
     position: absolute;
     width: 44.76vw;
     height: 5.5556vh;
@@ -130,7 +133,7 @@ body {
     border-radius: 5vw;
 }
 
-.recipeIngredients{
+.recipeIngredients {
     position: absolute;
     width: 44.76vw;
     height: 16.5vh;
@@ -139,8 +142,9 @@ body {
     top: 34.8vh;
     border-radius: 5vh;
 }
+
 /*4,6875 = 2.3437*/
-.recipeIngredientsAmount{
+.recipeIngredientsAmount {
     position: absolute;
     width: 44.76vw;
     height: 16.5vh;
@@ -150,7 +154,7 @@ body {
     border-radius: 5vh;
 }
 
-.recipeDevices{
+.recipeDevices {
     position: absolute;
     width: 94vw;
     height: 5.5556vh;
@@ -160,7 +164,8 @@ body {
     top: 53.2vh;
     border-radius: 5vw;
 }
-.recipeStepByStep{
+
+.recipeStepByStep {
     position: absolute;
     width: 94vw;
     height: 17vh;
@@ -171,7 +176,7 @@ body {
     border-radius: 5vh;
 }
 
-.saveButton{
+.saveButton {
     position: absolute;
     width: 15.625vw;
     height: 7.41vh;
@@ -181,7 +186,7 @@ body {
     border-radius: 5vh;
 }
 
-.buttonText{
+.buttonText {
     position: absolute;
     text-align: center;
     font-family: 'Frank Ruhl Libre', serif;
@@ -191,17 +196,7 @@ body {
     justify-content: center; /* Вирівнювання по горизонталі */
 }
 
-.previewButton{
-    position: absolute;
-    width: 15.625vw;
-    height: 7.41vh;
-    top: 82vh;
-    left: 42vw;
-    background-color: #F28705;
-    border-radius: 5vh;
-}
-
-.publishButton{
+.publishButton {
     position: absolute;
     width: 15.625vw;
     height: 7.41vh;
@@ -211,7 +206,13 @@ body {
     border-radius: 5vh;
 }
 
-.text-form-title{
+.publishButton:hover, .saveButton:hover {
+    background-color: #FBEFC7;
+    border: 1vh solid #F28705;
+    box-sizing: border-box;
+}
+
+.text-form-title {
     position: absolute;
     display: flex;
     align-items: center;
@@ -236,7 +237,7 @@ body {
     outline: none;
 }
 
-.text-form-time{
+.text-form-time {
     position: absolute;
     display: flex;
     align-items: center;
@@ -260,7 +261,7 @@ body {
     outline: none;
 }
 
-.text-form-category{
+.text-form-category {
     position: absolute;
     display: flex;
     align-items: center;
@@ -285,7 +286,7 @@ body {
     outline: none;
 }
 
-.text-form-ingredients{
+.text-form-ingredients {
     position: absolute;
     display: flex;
     align-items: center;
@@ -310,7 +311,7 @@ body {
     outline: none;
 }
 
-.text-form-ingredients-amount{
+.text-form-ingredients-amount {
     position: absolute;
     display: flex;
     align-items: center;
@@ -337,7 +338,7 @@ body {
 }
 
 
-.text-form-devices{
+.text-form-devices {
     position: absolute;
     display: flex;
     align-items: center;
@@ -352,7 +353,7 @@ body {
     width: 90vw;
     height: 4.2vh;
     left: 4vw;
-    top: 53.25vh;/*рухати поле в середині*/
+    top: 53.25vh; /*рухати поле в середині*/
     flex: 2;
     border: none;
     background: #F2E3B3;
@@ -362,7 +363,7 @@ body {
     outline: none;
 }
 
-.text-form-StepByStep{
+.text-form-StepByStep {
     position: absolute;
     display: flex;
     align-items: center;
@@ -377,7 +378,7 @@ body {
     width: 90vw;
     height: 4.2vh;
     left: 1vw;
-    top: 1vh;/*рухати поле в середині*/
+    top: 1vh; /*рухати поле в середині*/
     flex: 2;
     border: none;
     background: #F2E3B3;
@@ -542,7 +543,7 @@ body {
     height: 4.2592vh;
 }
 
-.instagram{
+.instagram {
     width: 2.3vw;
     height: 4.06vh;
 }
@@ -550,6 +551,7 @@ body {
 .telegram-container:hover, .instagram-container:hover {
     background-color: #733506;
 }
+
 .copyright {
     position: static;
     width: 21vw;

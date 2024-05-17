@@ -99,6 +99,21 @@ body {
     width: 3.125vw;
 }
 
+::-webkit-scrollbar {
+    width: 0.78125vw;
+}
+
+::-webkit-scrollbar-track {
+    margin-top: 2.7778vh;
+    margin-bottom: 2.7778vh;
+    border-radius: 4.63vh;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #733506;
+    border-radius: 4.63vh;
+}
+
 /*____________________________________________________________________________________________________________________*/
 .titleForAiPage {
     position: absolute;
@@ -120,19 +135,37 @@ body {
     left: 2.1vw;
 }
 
+.scrollField {
+    position: absolute;
+    width: 92vw;
+    height: 64.5vh;
+    background-color: #3E5902;
+    border-radius: 5vh;
+    top: 3.5vh;
+    margin-bottom: 13vh;
+    left: 2vw;
+    overflow-y: auto; /* Дозволяє вертикальний скрол */
+    overflow-x: hidden; /* Вимикає горизонтальний скрол */
+}
+
+
 .reportField {
     position: absolute;
-    width: 91.6vw;
+    width: 92vw;
     height: 30vh;
     background-color: #FBEFC7;
     border-radius: 5vh;
-    top: 4vh;
-    right: 2.1vw;
+
 }
 
 .report2 {
     position: absolute;
-    top: 37vh;
+    top: 34.5vh;
+}
+
+.report3 {
+    position: absolute;
+    top: 54.5vh;
 }
 
 /*____________________________________________________________________________________________________________________*/
