@@ -152,35 +152,53 @@
             </div>
         </div>
         <hr>
-        <ul>
-            <!--<li>
-                <img alt="categoriesI" class="categoriesI" th:src="@{images/Categories.svg}" src="../../static/images/Categories.svg">
-                Categories
-                <a class="sub-btn">
-                    <i class="fas fa-angle-right dropdown"></i>
-                </a>
-            </li>
-            <li><img alt="timeI" class="timeI" th:src="@{images/Time.svg}" src="../../static/images/Time.svg" >
-                Time</li>
-            <hr>-->
-            <li><img alt="alphabetI" class="alphabetI" src="../../static/images/Alphabet.svg"
+        <div class="item">
+            <a class="sub-btn">
+                <img alt="alphabetI" class="alphabetI" src="../../static/images/Alphabet.svg"
                      th:src="@{images/Alphabet.svg}">
                 Alphabet
-            </li>
-            <hr>
-            <li><img alt="ratingI" class="ratingI" src="../../static/images/Rating.svg" th:src="@{images/Rating.svg}">
+                <i class="fas fa-angle-down dropdown"></i>
+            </a>
+            <div class="sub-menu">
+            </div>
+        </div>
+        <hr>
+        <div class="item">
+            <a class="sub-btn">
+                <img alt="ratingI" class="ratingI" src="../../static/images/Rating.svg" th:src="@{images/Rating.svg}">
                 Rating
-            </li>
-            <hr>
-            <li><img alt="ingredientsI" class="ingredientsI" src="../../static/images/ingredients.svg"
+                <i class="fas fa-angle-down dropdown"></i>
+            </a>
+            <div class="sub-menu">
+            </div>
+        </div>
+        <hr>
+        <div class="item">
+            <a class="sub-btn">
+                <img alt="ingredientsI" class="ingredientsI" src="../../static/images/ingredients.svg"
                      th:src="@{images/ingredients.svg}">
                 Ingredients
-            </li>
-            <hr>
-            <li><img alt="devicesI" class="devicesI" src="../../static/images/Mixer.svg" th:src="@{images/Mixer.svg}">
+                <i class="fas fa-angle-down dropdown"></i>
+            </a>
+            <div class="sub-menu">
+                <div class="ingredient-container" th:each="ingredient: ${ingredients}">
+                    <input name="ingredient" th:value="${ingredient.getName()}" type="checkbox">
+                    <label class="ingredient" th:text="${ingredient.getName()}"></label>
+                </div>
+            </div>
+
+        </div>
+        <hr>
+        <div class="item">
+            <a class="sub-btn">
+                <img alt="devicesI" class="devicesI" src="../../static/images/Mixer.svg" th:src="@{images/Mixer.svg}">
                 Devices
-            </li>
-        </ul>
+                <i class="fas fa-angle-down dropdown"></i>
+            </a>
+            <div class="sub-menu">
+            </div>
+        </div>
+        <hr>
     </div>
     <img alt="coffeeBean" class="bean" src="../../static/images/coffeeBean.svg" th:src="@{images/coffeeBean.svg}">
     <div class="mainField">
@@ -195,13 +213,13 @@
                              th:src="@{'../images/' + ${recipe.getCategory().getTitle()} + '.svg'}">
                     </div>
                     <table>
-                        <tr style="position: relative; left: 1.5625vw; bottom: 5vh;">
-                            <th th:text="${recipe.getCategory().getTitle()}"></th>
-                        </tr>
-                        <tr style="position: relative; left: 1.5625vw; bottom: 4vh;">
-                            <td>
+                        <tr style="position: relative; left: 4.6vw; bottom: 5vh;">
+                            <th>
                                 <a th:href="@{/recipe/{id}(id=${recipe.getId()})}" th:text="${recipe.getTitle()}"></a>
-                            </td>
+                            </th>
+                        </tr>
+                        <tr style="position: relative; left: 1.6vw; bottom: 4vh;">
+                            <td th:text="${recipe.getCategory().getTitle()}"></td>
                             <td th:text="${recipe.getCookingTime()} + ' minutes'"></td>
                             <td th:text="${recipe.getAverageMark()}"></td>
                         </tr>
@@ -213,7 +231,6 @@
             NO SUCH RECIPES!
         </div>
     </div>
-
 </main>
 
 <footer class="footer">
