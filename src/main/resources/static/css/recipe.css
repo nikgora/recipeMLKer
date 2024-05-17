@@ -146,10 +146,6 @@
     box-sizing: border-box;
 }
 
-.IngredientTagsField::-webkit-scrollbar {
-    display: none;
-}
-
 .IngredientTagsTitle{
     position: fixed;
     width: 11.98vw;
@@ -499,9 +495,9 @@
     font-size: 1.3vw;
 }
 
-.amountContent td:first-child {
+/*.amountContent td:first-child {
     white-space: nowrap;
-}
+}*/
 
 
 .ingredientContent {
