@@ -3,73 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <title>All recipes</title>
-    <link rel="stylesheet" type="text/css" href="../../static/css/allRecipes.css" th:href="@{css/allRecipes.css}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" charset="UTF-8"></script>
+    <link href="../../static/css/allRecipes.css" rel="stylesheet" th:href="@{css/allRecipes.css}" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <link href="../../static/css/headerIfooter.css" rel="stylesheet" th:href="@{../css/headerIfooter.css}"
+          type="text/css">
+    <script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
 <header>
     <div class="header">
-        <img th:src="@{images/logo.svg}" src="../../static/images/logo.svg" alt = "logo" class = "logo">
+        <img alt="logo" class="logo" src="../../static/images/logo.svg" th:src="@{images/logo.svg}">
 
         <form class="search-form" th:action="@{/allRecipes}">
-            <img th:src="@{images/magnifier.svg}" src="../../static/images/magnifier.svg" alt = "magnifier" class = "magnifier">
+            <img alt="magnifier" class="magnifier" src="../../static/images/magnifier.svg"
+                 th:src="@{images/magnifier.svg}">
             <input name="startWith" placeholder="Search" type="search">
         </form>
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
         <a class="button-style" href="recipe.html" th:href="@{/recipe/{id1}(id1=${randomRecipeId})}">Random</a>
 
-        <div class="user-container heart-container" th:if ="${isLogin} == false">
+        <div class="user-container heart-container" th:if="${isLogin} == false">
             <div class="heart"
-                 onmouseover="changeImage('heart-img1', '../../images/heart-hover.svg')"
-                 onmouseout="restoreImage('heart-img1', '../../images/heart.svg')">
-                <img id="heart-img1" th:src="@{images/heart.svg}" src="../../images/heart.svg" alt="heart" class="heart">
+                 onmouseout="restoreImage('heart-img1', '../../images/heart.svg')"
+                 onmouseover="changeImage('heart-img1', '../../images/heart-hover.svg')">
+                <img alt="heart" class="heart" id="heart-img1" src="../../images/heart.svg"
+                     th:src="@{images/heart.svg}">
             </div>
         </div>
         <a th:href="@{/user}" th:if="${isLogin} == true">
             <div class="user-container heart-login-container">
                 <div class="heart"
-                     onmouseover="changeImage('heart-img2', '../../images/heart-login-hover.svg')"
-                     onmouseout="restoreImage('heart-img2', '../../images/heart-login.svg')">
-                    <img id="heart-img2" th:src="@{images/heart-login.svg}" src="../../images/heart-login.svg" alt="heart" class="heart">
+                     onmouseout="restoreImage('heart-img2', '../../images/heart-login.svg')"
+                     onmouseover="changeImage('heart-img2', '../../images/heart-login-hover.svg')">
+                    <img alt="heart" class="heart" id="heart-img2"
+                         src="../../images/heart-login.svg" th:src="@{images/heart-login.svg}">
                 </div>
             </div>
         </a>
 
-        <button class="user-container" id="user-btn1"  th:if ="${isLogin} == false">
+        <button class="user-container" id="user-btn1" th:if="${isLogin} == false">
             <div class="user"
-                 onmouseover="changeImage('user-img1', '../../images/user-hover.svg')"
-                 onmouseout="restoreImage('user-img1', '../../images/user.svg')">
+                 onmouseout="restoreImage('user-img1', '../../images/user.svg')"
+                 onmouseover="changeImage('user-img1', '../../images/user-hover.svg')">
 
-                <img id="user-img1" th:src="@{images/user.svg}" src="../../images/user.svg" alt="user" class="user">
+                <img alt="user" class="user" id="user-img1" src="../../images/user.svg" th:src="@{images/user.svg}">
             </div>
         </button>
         <a th:href="@{/user}" th:if="${isLogin} == true">
-            <button class="user-container"  id="user-btn2" >
+            <button class="user-container" id="user-btn2">
                 <div class="user"
-                     onmouseover="changeImage('user-img2', '../../images/user-login-hover.svg')"
-                     onmouseout="restoreImage('user-img2', '../../images/user-login.svg')">
+                     onmouseout="restoreImage('user-img2', '../../images/user-login.svg')"
+                     onmouseover="changeImage('user-img2', '../../images/user-login-hover.svg')">
 
-                    <img id="user-img2" th:src="@{images/user-login.svg}" src="../../images/user-login.svg" alt="user" class="user">
+                    <img alt="user" class="user" id="user-img2" src="../../images/user-login.svg"
+                         th:src="@{images/user-login.svg}">
                 </div>
             </button>
         </a>
         <div id="overlay-user" onclick="hideOverlay()"></div>
         <div class="login-window" id="popup-login-window">
             <h1 class="login-heading">Log in</h1>
-            <form method="post"  id="loginForm"  th:action="@{api/auth/login}" onsubmit="return submitForm()">
+            <form id="loginForm" method="post" onsubmit="return submitForm()" th:action="@{api/auth/login}">
                 <div class="login-form email">
-                    <input name="username" placeholder="Enter email" type="text" required>
+                    <input name="username" placeholder="Enter email" required type="text">
                 </div>
                 <div class="login-form password">
-                    <input name="password" placeholder="Enter password" type="password" required>
+                    <input name="password" placeholder="Enter password" required type="password">
                 </div>
                 <button id="confirm-button">Confirm</button>
             </form>
         </div>
 
-        <a th:href="@{/}" href="main.html">
-            <img th:src="@{images/home.svg}" src="../../images/home.svg" alt="home" class="home">
+        <a href="main.html" th:href="@{/}">
+            <img alt="home" class="home" src="../../images/home.svg" th:src="@{images/home.svg}">
         </a>
 
     </div>
@@ -77,52 +83,71 @@
 
 <main>
     <h1 class="boardTwoTitle">Filters</h1>
-    <img alt="board" class="board" th:src="@{images/CuttingBoard.svg}" src="../../static/images/CuttingBoard.svg" >
+    <img alt="board" class="board" src="../../static/images/CuttingBoard.svg" th:src="@{images/CuttingBoard.svg}">
     <button class="apply-button"><span>Apply</span></button>
     <div class="ulBoard">
         <div class="h1"></div>
         <div class="item">
             <a class="sub-btn">
-            <img alt="categoriesI" class="categoriesI" th:src="@{images/Categories.svg}" src="../../static/images/Categories.svg">
-            Categories
+                <img alt="categoriesI" class="categoriesI" src="../../static/images/Categories.svg"
+                     th:src="@{images/Categories.svg}">
+                Categories
                 <i class="fas fa-angle-down dropdown"></i>
             </a>
             <div class="sub-menu">
                 <div class="dish-container">
-                    <input type="checkbox" name="dish" id="first-dish" value="First Dish">
+                    <input id="first-dish" name="dish" type="checkbox" value="First Dish">
                     <label class="dish" for="first-dish">First dishes</label>
                 </div>
                 <div class="dish-container">
-                    <input type="checkbox" name="dish" id="main-dish" value="Main Dish">
+                    <input id="main-dish" name="dish" type="checkbox" value="Main Dish">
                     <label class="dish" for="main-dish">Main dishes</label>
                 </div>
                 <div class="dish-container">
-                    <input type="checkbox" name="dish" id="desserts" value="Desserts">
+                    <input id="desserts" name="dish" type="checkbox" value="Desserts">
                     <label class="dish" for="desserts">Desserts</label>
                 </div>
                 <div class="dish-container">
-                    <input type="checkbox" name="dish" id="salads" value="Salads">
+                    <input id="salads" name="dish" type="checkbox" value="Salads">
                     <label class="dish" for="salads">Salads</label>
                 </div>
                 <div class="dish-container">
-                    <input type="checkbox" name="dish" id="pastry" value="Pastry">
+                    <input id="pastry" name="dish" type="checkbox" value="Pastry">
                     <label class="dish" for="pastry">Pastry</label>
                 </div>
                 <div class="dish-container">
-                    <input type="checkbox" name="dish" id="drinks" value="Drinks">
+                    <input id="drinks" name="dish" type="checkbox" value="Drinks">
                     <label class="dish" for="drinks">Drinks</label>
                 </div>
                 <div class="dish-container">
-                    <input type="checkbox" name="dish" id="snacks" value="Snacks">
+                    <input id="snacks" name="dish" type="checkbox" value="Snacks">
                     <label class="dish" for="snacks">Snacks</label>
                 </div>
                 <div class="dish-container">
-                    <input type="checkbox" name="dish" id="fish-dishes" value="Fish Dishes">
+                    <input id="fish-dishes" name="dish" type="checkbox" value="Fish Dishes">
                     <label class="dish" for="fish-dishes">Fish dishes</label>
                 </div>
                 <div class="dish-container">
-                    <input type="checkbox" name="dish" id="sauces" value="Sauces">
+                    <input id="sauces" name="dish" type="checkbox" value="Sauces">
                     <label class="dish" for="sauces">Sauces</label>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="item">
+            <a class="sub-btn">
+                <img alt="timeI" class="timeI" src="../../static/images/Time.svg" th:src="@{images/Time.svg}">
+                Time
+                <i class="fas fa-angle-down dropdown"></i>
+            </a>
+            <div class="sub-menu">
+                <div class="timeContainer">
+                    <div class="minTime">
+                        <input name="minTime" placeholder="min" required type="text">
+                    </div>
+                    <div class="maxTime">
+                        <input name="maxTime" placeholder="max" required type="text">
+                    </div>
                 </div>
             </div>
         </div>
@@ -134,34 +159,40 @@
                 <a class="sub-btn">
                     <i class="fas fa-angle-right dropdown"></i>
                 </a>
-            </li>-->
+            </li>
             <li><img alt="timeI" class="timeI" th:src="@{images/Time.svg}" src="../../static/images/Time.svg" >
                 Time</li>
+            <hr>-->
+            <li><img alt="alphabetI" class="alphabetI" src="../../static/images/Alphabet.svg"
+                     th:src="@{images/Alphabet.svg}">
+                Alphabet
+            </li>
             <hr>
-            <li><img alt="alphabetI" class="alphabetI" th:src="@{images/Alphabet.svg}" src="../../static/images/Alphabet.svg" >
-                Alphabet</li>
+            <li><img alt="ratingI" class="ratingI" src="../../static/images/Rating.svg" th:src="@{images/Rating.svg}">
+                Rating
+            </li>
             <hr>
-            <li><img alt="ratingI" class="ratingI" th:src="@{images/Rating.svg}" src="../../static/images/Rating.svg" >
-                Rating</li>
+            <li><img alt="ingredientsI" class="ingredientsI" src="../../static/images/ingredients.svg"
+                     th:src="@{images/ingredients.svg}">
+                Ingredients
+            </li>
             <hr>
-            <li><img alt="ingredientsI" class="ingredientsI" th:src="@{images/ingredients.svg}" src="../../static/images/ingredients.svg" >
-                Ingredients</li>
-            <hr>
-            <li><img alt="devicesI" class="devicesI" th:src="@{images/Mixer.svg}" src="../../static/images/Mixer.svg" >
-                Devices</li>
+            <li><img alt="devicesI" class="devicesI" src="../../static/images/Mixer.svg" th:src="@{images/Mixer.svg}">
+                Devices
+            </li>
         </ul>
     </div>
-    <img alt="coffeeBean" class="bean" th:src="@{images/coffeeBean.svg}" src="../../static/images/coffeeBean.svg" >
+    <img alt="coffeeBean" class="bean" src="../../static/images/coffeeBean.svg" th:src="@{images/coffeeBean.svg}">
     <div class="mainField">
-        <div class="field" id="recipeContainer"  th:if="${recipes.size()!=0}">
+        <div class="field" id="recipeContainer" th:if="${recipes.size()!=0}">
             <div class="ol">
-                <div th:each="recipe, i : ${recipes}"
-                     th:class="${i.index == 0} ? 'smallerField smallerField' : 'smallerField smallerField-down' + (${i.index})">
+                <div th:class="${i.index == 0} ? 'smallerField smallerField' : 'smallerField smallerField-down' + (${i.index})"
+                     th:each="recipe, i : ${recipes}">
                     <div class="comment-user-circle">
-                        <img th:if="${recipe}"
-                             th:src="@{'../images/' + ${recipe.getCategory().getTitle()} + '.svg'}"
-                             th:alt="${recipe.getCategory().getTitle()}"
-                             th:class="${recipe.getCategory().getTitle().replace(' ', '-')}">
+                        <img th:alt="${recipe.getCategory().getTitle()}"
+                             th:class="${recipe.getCategory().getTitle().replace(' ', '-')}"
+                             th:if="${recipe}"
+                             th:src="@{'../images/' + ${recipe.getCategory().getTitle()} + '.svg'}">
                     </div>
                     <table>
                         <tr style="position: relative; left: 1.5625vw; bottom: 5vh;">
@@ -203,37 +234,39 @@
     <div class="circle-container telegram-container">
         <div
                 class="telegram"
-                onmouseover="changeImage('telegram-img', '../../images/telegram-hover.svg')"
                 onmouseout="restoreImage('telegram-img', '../../images/telegram.svg')"
+                onmouseover="changeImage('telegram-img', '../../images/telegram-hover.svg')"
         >
-            <img id="telegram-img" th:src="@{images/telegram.svg}"  src="../../images/telegram.svg" alt="telegram" class="telegram">
+            <img alt="telegram" class="telegram" id="telegram-img" src="../../images/telegram.svg"
+                 th:src="@{images/telegram.svg}">
         </div>
     </div>
 
     <div class="circle-container instagram-container">
         <div
                 class="instagram"
-                onmouseover="changeImage('instagram-img', '../../images/inst-hover.svg')"
                 onmouseout="restoreImage('instagram-img', '../../images/inst.svg')"
+                onmouseover="changeImage('instagram-img', '../../images/inst-hover.svg')"
         >
-            <img id="instagram-img" th:src="@{images/inst.svg}" src="../../images/inst.svg" alt="instagram" class="instagram">
+            <img alt="instagram" class="instagram" id="instagram-img" src="../../images/inst.svg"
+                 th:src="@{images/inst.svg}">
         </div>
     </div>
 </footer>
-<script th:href="@{js/scripts.js}" src="../../js/scripts.js"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script src="../../js/scripts.js" th:href="@{js/scripts.js}"></script>
+<script crossorigin="anonymous" src="https://kit.fontawesome.com/a076d05399.js"></script>
 <script type="text/javascript">
     function submitForm() {
         var form = document.getElementById('loginForm');
         var formData = new FormData(form);
         var data = {};
-        formData.forEach(function(value, key){
+        formData.forEach(function (value, key) {
             data[key] = value;
         });
         var xhr = new XMLHttpRequest();
         xhr.open('POST', form.action, true);
         xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.onreadystatechange = function() {
+        xhr.onreadystatechange = function () {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
                     window.location.href = '/allRecipes';
@@ -246,8 +279,8 @@
         return false;
     }
 
-    $(document).ready(function (){
-        $('.sub-btn').click(function(){
+    $(document).ready(function () {
+        $('.sub-btn').click(function () {
             $(this).next('.sub-menu').slideToggle();
             $(this).find('.dropdown').toggleClass('rotate');
         });
