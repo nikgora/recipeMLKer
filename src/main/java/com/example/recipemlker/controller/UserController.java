@@ -172,7 +172,7 @@ public class UserController {
             newUserList.setUser(user);
             userListService.save(newUserList);
         }
-        if (Objects.equals(id, "0")) return "redirect:/user";
+        if (Objects.equals(id, "")) return "redirect:/user";
         return "redirect:/recipe/" + id;
     }
 
