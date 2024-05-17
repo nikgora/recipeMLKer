@@ -165,14 +165,12 @@ public class UserController {
         if (jwt == null) {
             return "redirect:/403";
         }
-        if (!Objects.equals(userList.getTitle(), "")) {
-            User user = userService.getUserByUsername(jwtService.extractUserName(jwt));
-            UserList newUserList = new UserList();
-            newUserList.setTitle(userList.getTitle());
-            newUserList.setUser(user);
-            userListService.save(newUserList);
-        }
-        if (Objects.equals(id, "0")) return "redirect:/user";
+        User user = userService.getUserByUsername(jwtService.extractUserName(jwt));
+        UserList newUserList = new UserList();
+        newUserList.setTitle(userList.getTitle());
+        newUserList.setUser(user);
+        userListService.save(newUserList);
+        if (Objects.equals(id, "")) return "redirect:/user";
         return "redirect:/recipe/" + id;
     }
 
@@ -290,6 +288,9 @@ public class UserController {
 
         if (recipe == null) {
             return "redirect:/404";
+        }
+        if (Double.isNaN(rating.getMark())) {
+            rating.setMark(10.0);
         }
         Rating newRating = new Rating();
         if (!this.recipeService.getRecipeById(id).isPublished()) return "redirect:/403";
