@@ -13,8 +13,9 @@
     <div class="header">
         <img th:src="@{../images/logo.svg}" src="../../images/logo.svg" alt="logo" class="logo">
 
-        <form class="search-form" th:action="@{/allRecipes}">
-            <img th:src="@{../images/magnifier.svg}" src="../../static/images/magnifier.svg" alt = "magnifier" class = "magnifier">
+        <form class="search-form">
+            <img th:src="@{../images/magnifier.svg}" src="../../static/images/magnifier.svg" alt="magnifier"
+                 class="magnifier">
             <input name="startWith" placeholder="Search" type="search">
         </form>
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
@@ -53,7 +54,8 @@
                      onmouseover="changeImage('user-img2', '../../images/user-login-hover.svg')"
                      onmouseout="restoreImage('user-img2', '../../images/user-login.svg')">
 
-                    <img id="user-img2" th:src="@{../images/user-login.svg}" src="../../images/user-login.svg" alt="user"
+                    <img id="user-img2" th:src="@{../images/user-login.svg}" src="../../images/user-login.svg"
+                         alt="user"
                          class="user">
                 </div>
             </button>
@@ -87,7 +89,9 @@
             <p class="num" th:text="${recipe.getAverageMark()}">8.8</p>
         </a>
     </div>
-    <button id="FavoriteList">Favorite</button>
+    <form method="post" th:action="@{/api/addRecipeToList/{id1}/Favorites(id1=${id})}">
+        <button id="FavoriteList">Favorite</button>
+    </form>
 
     <button class="UserList" id="lists-btn">Lists</button>
     <div th:if="${isLogin} == true">
@@ -106,7 +110,9 @@
         </div>
     </div>
     <div th:if="${isLogin} == false">
-        <button class="UserList" id="user-list-logout" onclick="showAlert('Please, log in to add recipe to the custom list.')">Lists</button>
+        <button class="UserList" id="user-list-logout"
+                onclick="showAlert('Please, log in to add recipe to the custom list.')">Lists
+        </button>
     </div>
 
 
@@ -167,7 +173,8 @@
     <form class="text-form" th:action="@{/api/newComment/{id1}(id1=${id})}"
           method="post" th:object="${comment}" onsubmit="return validateInput('commentInput')">
         <img th:src="@{../images/quill.svg}" src="../../static/images/quill.svg" alt="quill" class="quill">
-        <textarea name="startWith" maxlength="255" th:field="${comment.text}" placeholder="Add comment" id="commentInput"></textarea>
+        <textarea name="startWith" maxlength="255" th:field="${comment.text}" placeholder="Add comment"
+                  id="commentInput"></textarea>
         <button type="submit" id="publish">Publish</button>
     </form>
     <div class="commentField">
@@ -244,6 +251,7 @@
             </div>
         </div>
         <form th:action="@{/api/newRating/{id1}(id1=${id})}" th:object="${rating}" method="post">
+            <input th:value="${rating.mark}" name="mark"/>
             <button id="rate-btn" class="confirmation">
                 <img th:src="@{../images/tick.svg}" src="../../images/tick.svg" alt="quill" class="tick">
             </button>
@@ -290,6 +298,7 @@
     function showAlert(message) {
         alert(message);
     }
+
     /*$(".Report").click(function(){
         Swal.fire('Register to report',);
     });*/

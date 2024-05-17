@@ -7,6 +7,8 @@ import com.example.recipemlker.service.UserListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserListServiceImpl implements UserListService {
     @Autowired
@@ -14,6 +16,11 @@ public class UserListServiceImpl implements UserListService {
 
     public void save(UserList userList) {
         userListRepository.save(userList);
+    }
+
+    @Override
+    public List<UserList> getAllByUser(User user) {
+        return userListRepository.getAllByUser(user);
     }
 
     @Override

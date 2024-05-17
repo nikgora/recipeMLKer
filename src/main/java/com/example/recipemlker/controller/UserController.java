@@ -12,10 +12,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 @Controller
 public class UserController {
+    @Autowired
+    private RecipeUserListService recipeUserListService;
     @Autowired
     private RecipeService recipeService;
     @Autowired
@@ -30,8 +33,8 @@ public class UserController {
     private CommentService commentService;
     @Autowired
     private RatingService ratingService;
-@Autowired
-private UserReportService userReportService;
+    @Autowired
+    private UserReportService userReportService;
     @Autowired
     private UserListService userListService;
 
@@ -110,6 +113,27 @@ private UserReportService userReportService;
         return "user/allRecipes";
     }
 
+    @PostMapping("/api/addRecipeToList/{id}/{name}")
+    public String addRecipetoList(@PathVariable("id") Long id, @PathVariable("name") String name) {
+        if (jwt == null) return "redirect:/mustBeLogin";
+        if (this.recipeService.getRecipeById(id) == null) {
+            return "redirect:/404";
+        }
+        if (!this.recipeService.getRecipeById(id).isPublished()) return "redirect:/403";
+        User user = userService.getUserByUsername(jwtService.extractUserName(jwt));
+        UserList userList = userListService.getFirstByTitleAndUser(name, user);
+        if (userList == null) return "redirect:/404";
+        Recipe recipe = recipeService.getRecipeById(id);
+        RecipeUserList exist = recipeUserListService.getFirstByUserListAndRecipe(userList, recipe);
+        RecipeUserList recipeUserList = new RecipeUserList();
+        if (exist != null) recipeUserList.setId(exist.getId());
+        recipeUserList.setUserList(userList);
+        recipeUserList.setRecipe(recipe);
+        recipeUserListService.save(recipeUserList);
+        String string = "redirect:/recipe/" + id;
+        return string;
+    }
+
 
     @GetMapping("/403")
     public String forbidden() {
@@ -135,23 +159,36 @@ private UserReportService userReportService;
         return "user/user";
     }
 
-    @PostMapping("/api/newList")
-    public String newList(@ModelAttribute UserList userList) {
+    @PostMapping("/api/newList/{id}")
+    /// 0 - user page, some else recipe id
+    public String newList(@ModelAttribute UserList userList, @ModelAttribute Long id) {
         if (jwt == null) {
             return "redirect:/403";
         }
-        User user = userService.getUserByUsername(jwtService.extractUserName(jwt));
-        UserList newUserList = new UserList();
-        newUserList.setTitle(userList.getTitle());
-        newUserList.setUser(user);
-        userListService.save(newUserList);
-        return "redirect:/user";
+        if (!Objects.equals(userList.getTitle(), "")) {
+            User user = userService.getUserByUsername(jwtService.extractUserName(jwt));
+            UserList newUserList = new UserList();
+            newUserList.setTitle(userList.getTitle());
+            newUserList.setUser(user);
+            userListService.save(newUserList);
+        }
+        if (id == 0) return "redirect:/user";
+        return "redirect:/recipe/" + id;
     }
 
     @PostMapping("/api/logout")
     public String logout() {
         jwt = null;
         return "redirect:/";
+    }
+
+    @GetMapping("/allLists")
+    public String allLists(Model model) {
+        if (jwt == null) return "redirect:/mustBeLogin";
+        model.addAttribute("isLogin", true);
+        model.addAttribute("randomRecipeId", getRandomNumRecipe());
+        model.addAttribute("lists", userListService.getAllByUser(userService.getUserByUsername(jwtService.extractUserName(jwt))));
+        return "user/allLists";
     }
 
     @GetMapping("/mustBeLogin")
@@ -170,13 +207,16 @@ private UserReportService userReportService;
             model.addAttribute("isLogin", jwt != null);
             model.addAttribute("randomRecipeId", getRandomNumRecipe());
             Rating existed = null;
-            if (jwt != null)
+            if (jwt != null) {
                 existed = ratingService.getByUserAndRecipe(userService.getUserByUsername(jwtService.extractUserName(jwt)), recipeService.getRecipeById(id));
+                model.addAttribute("user", userService.getUserByUsername(jwtService.extractUserName(jwt)));
+            }
             if (existed == null) {
                 existed = new Rating();
                 existed.setMark(10.0);
             }
             UserReport userReport = new UserReport();
+            model.addAttribute("newList", new UserList());
             model.addAttribute("userReport", userReport);
             model.addAttribute("rating", existed);
             Comment comment = new Comment();
@@ -206,6 +246,7 @@ private UserReportService userReportService;
         recipeService.save(recipe);
         return "redirect:/user";
     }
+
     @PostMapping("/api/newUserReport/{id}")
     public String newUserReport(@ModelAttribute UserReport userReport, @PathVariable("id") Long id) {
         if (jwt == null) return "redirect:/mustBeLogin";
