@@ -2,11 +2,7 @@ package com.example.recipemlker.controller;
 
 import com.example.recipemlker.dto.AuthDTO;
 import com.example.recipemlker.dto.AuthDTO.JwtAuthenticationResponse;
-import com.example.recipemlker.model.Comment;
-import com.example.recipemlker.model.Rating;
-import com.example.recipemlker.model.Recipe;
-import com.example.recipemlker.model.User;
-import com.example.recipemlker.model.UserList;
+import com.example.recipemlker.model.*;
 import com.example.recipemlker.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -33,10 +29,9 @@ public class UserController {
     @Autowired
     private CommentService commentService;
     @Autowired
-
     private RatingService ratingService;
-
-
+@Autowired
+private UserReportService userReportService;
     @Autowired
     private UserListService userListService;
 
@@ -181,7 +176,8 @@ public class UserController {
                 existed = new Rating();
                 existed.setMark(10.0);
             }
-
+            UserReport userReport = new UserReport();
+            model.addAttribute("userReport", userReport);
             model.addAttribute("rating", existed);
             Comment comment = new Comment();
             model.addAttribute("comment", comment);
@@ -209,6 +205,23 @@ public class UserController {
         recipe.setUser(user);
         recipeService.save(recipe);
         return "redirect:/user";
+    }
+    @PostMapping("/api/newUserReport/{id}")
+    public String newUserReport(@ModelAttribute UserReport userReport, @PathVariable("id") Long id) {
+        if (jwt == null) return "redirect:/mustBeLogin";
+        if (this.recipeService.getRecipeById(id) == null) {
+            return "redirect:/404";
+        }
+        if (!this.recipeService.getRecipeById(id).isPublished()) return "redirect:/403";
+        User user = userService.getUserByUsername(jwtService.extractUserName(jwt));
+        UserReport newUserReport = new UserReport();
+        newUserReport.setUser(user);
+        newUserReport.setRecipe(recipeService.getRecipeById(id));
+        newUserReport.setDescription(userReport.getDescription());
+        newUserReport.setIsAccepted(false);
+        userReportService.save(newUserReport);
+        String string = "redirect:/recipe/" + id;
+        return string;
     }
 
     @PostMapping("/api/newComment/{id}")

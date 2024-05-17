@@ -1,5 +1,6 @@
 package com.example.recipemlker.service.impl;
 
+import com.example.recipemlker.model.User;
 import com.example.recipemlker.model.UserList;
 import com.example.recipemlker.repository.UserListRepository;
 import com.example.recipemlker.service.UserListService;
@@ -13,5 +14,10 @@ public class UserListServiceImpl implements UserListService {
 
     public void save(UserList userList) {
         userListRepository.save(userList);
+    }
+
+    @Override
+    public UserList getFirstByTitleAndUser(String title, User user) {
+        return userListRepository.getFirstByTitleAndUser(title, user);
     }
 }

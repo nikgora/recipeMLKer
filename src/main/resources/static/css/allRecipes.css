@@ -63,29 +63,33 @@ body {
     text-decoration: none;
 }
 
-.heart, .user {
+.heart img, .user img{
     width: 3.6458vw;
     height: 5.5555vh;
 }
 
-.heart-container, .user-container {
+.heart-container, .user-container, .heart-login-container, .user-login-container {
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-}
-
-.heart-container:hover {
-    cursor: not-allowed;
-    background-color: #733506;
-    width: 4.6vw;
-    height: 9.2593vh;
+    cursor: pointer;
+    border: none;
+    background-color: #F2E3B3;
 }
 
 .user-container:hover {
     background-color: #733506;
     width: 4.6vw;
     height: 9.2593vh;
+}
+
+.heart-container:hover{
+    cursor: not-allowed;
+}
+
+.heart-login-container:hover{
+    background-color: #B90F0F;
 }
 
 .home{
@@ -95,6 +99,46 @@ body {
 
 a:visited, a:link {
     text-decoration: none;
+}
+
+.First-Dish{
+    width: 2.65625vw;
+    height:5.5556vh;
+}
+
+.Main-Dish{
+    width: 3vw;
+    height: 4vh;
+}
+
+.Salad{
+    width: 2.0833vw;
+    height:4.167vh;
+}
+
+.Dessert{
+    width: 4vw;
+    height: 4.5vh;
+}
+
+.Drink{
+    width: 2.34375vw;
+    height: 4.1667vh;
+}
+
+.Snack{
+    width: 3vw;/*45*/
+    height: 4vh;/*30*/
+}
+
+.Fish-Dish{
+    width: 2.34375vw;
+    height: 3.24075vh; /*35*/
+}
+
+.Sauce{
+    width: 1.927084vw;
+    height: 4.3518vh; /*37*/
 }
 /*____________________________________________________________________________________________________________________*/
 
@@ -140,14 +184,12 @@ a:visited, a:link {
     position: absolute;
     top: 33.5vh;
     height: 37vh;
-    font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.66667vw;
     overflow-y: auto;
     overflow-x: hidden;
     padding-left: 0.2605vw;
     margin-top: 0.1vh;
     margin-left: 1.7vw;
-
 }
 
 ul {
@@ -410,7 +452,7 @@ table td {
     border: 0.46vh solid #3E5902;
 }
 
-#overlay{
+#overlay, #overlay-user{
     position: fixed;
     display: none;
     width: 100%;
@@ -462,6 +504,75 @@ table td {
     autocomplete: off;
     font-size: 2vw;
     scrollbar-width: none;
+}
+
+.login-window {
+    position: fixed;
+    display: none;
+    border-radius: 2.7vw;
+    width: 26vw;
+    height: 30vh;
+    left: 72.9vw;
+    bottom: 59.7vh;
+    background-color: #F2E3B3;
+    z-index: 11;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.login-form {
+    border-radius: 2.7vw;
+    position: absolute;
+    width: 21vw;
+    height: 4.5vh;
+    z-index: 13;
+    left: 1.5vw;
+}
+
+.email {
+    top: 7vh;
+}
+
+.password {
+    top: 14.8vh;
+}
+
+.login-heading {
+    position: absolute;
+    right: 9.58vw;
+    bottom: 21.5vh;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2vw;
+}
+
+.email input, .password input {
+    width: 21.979vw;
+    height: 6.19vh;
+    flex: 1;
+    border: none;
+    background: #FBEFC7;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2vh;
+    font-size: 2vw;
+    border-radius: 5.5vh;
+    outline: none;
+    padding-left: 1vw;
+}
+
+#confirm-button {
+    background-color: #3E5902;
+    position: absolute;
+    width: 15.6vw;
+    height: 5vh;
+    right: 5.2vw;
+    bottom: 1.7vh;
+    z-index: 15;
+    border-radius: 2.7vw;
+    cursor: pointer;
+    text-align: center;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2vw;
+    color: #FBEFC7;
+    border: none;
 }
 
 .support-button {
@@ -561,5 +672,88 @@ table td {
     height: 5.6vh;
 }
 
+.item{
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.5vw;
+    padding-left: 0.2605vw;
+    margin-left: 1.5vw;
+    cursor: pointer;
+}
+
+.item a{
+    color: black;
+    display: block;
+    line-height: 5.5vh;
+}
+
+.item a:hover{
+    background-color: #F2B705;
+    border-radius: 2.7vh;
+}
+
+.item a .dropdown{
+    position: absolute;
+    top: 1.5vh;
+    right: 0;
+    margin-left: 1vw;
+    color: #733506;
+}
+
+.item .sub-menu{
+    background: rgba(255, 255, 255, 0.1);
+    display: none;
+}
+
+.dish-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.dish-container input {
+    margin-right: 10px;
+    background: #733506;
+}
+.dish {
+    text-decoration: none;
+    color: black;
+}
+
+.dish-container input[type="checkbox"] {
+    display: none;
+}
+.dish-container label::before {
+    content: "";
+    display: inline-block;
+    width: 1vw;
+    height: 2vh;
+    border: 0.3vh solid #733506;
+    margin-right: 0.52vw;
+    vertical-align: middle;
+    border-radius: 50%;
+}
+.dish-container input[type="checkbox"]:checked + label::before {
+    background-color: #733506;
+    border-color: #733506;
+    border-radius: 50%;
+}
+
+.dropdown {
+    margin-left: auto;
+}
+
+.sub-menu a{
+    padding-left: 1vw;
+}
+
+.rotate{
+    transform: rotate(180deg);
+}
+
+hr {
+    border: 0.104167vw solid black;
+    width: 9.3vw;
+    margin-right: 0.5vw;
+    margin-left: 2vw;
+}
 
 

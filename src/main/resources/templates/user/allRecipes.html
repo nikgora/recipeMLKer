@@ -4,33 +4,68 @@
     <meta charset="UTF-8">
     <title>All recipes</title>
     <link rel="stylesheet" type="text/css" href="../../static/css/allRecipes.css" th:href="@{css/allRecipes.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" charset="UTF-8"></script>
 </head>
+<body>
 <header>
     <div class="header">
         <img th:src="@{images/logo.svg}" src="../../static/images/logo.svg" alt = "logo" class = "logo">
 
-
-        <form class="search-form">
+        <form class="search-form" th:action="@{/allRecipes}">
             <img th:src="@{images/magnifier.svg}" src="../../static/images/magnifier.svg" alt = "magnifier" class = "magnifier">
             <input name="startWith" placeholder="Search" type="search">
         </form>
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
-        <a class="button-style" href="recipe.html" th:href="@{/recipe/1}">Random</a>
-        <div class="heart-container">
+        <a class="button-style" href="recipe.html" th:href="@{/recipe/{id1}(id1=${randomRecipeId})}">Random</a>
+
+        <div class="user-container heart-container" th:if ="${isLogin} == false">
             <div class="heart"
-                 onmouseover="changeImage('heart-img', '../../images/heart-hover.svg')"
-                 onmouseout="restoreImage('heart-img', '../../images/heart.svg')">
-                <img id="heart-img" th:src="@{images/heart.svg}" src="../../images/heart.svg" alt="heart" class="heart">
+                 onmouseover="changeImage('heart-img1', '../../images/heart-hover.svg')"
+                 onmouseout="restoreImage('heart-img1', '../../images/heart.svg')">
+                <img id="heart-img1" th:src="@{images/heart.svg}" src="../../images/heart.svg" alt="heart" class="heart">
             </div>
         </div>
-
-        <div class="user-container">
-            <div class="user"
-                 onmouseover="changeImage('user-img', '../../images/user-hover.svg')"
-                 onmouseout="restoreImage('user-img', '../../images/user.svg')">
-
-                <img id="user-img" th:src="@{images/user.svg}" src="../../images/user.svg" alt="user" class="user">
+        <a th:href="@{/user}" th:if="${isLogin} == true">
+            <div class="user-container heart-login-container">
+                <div class="heart"
+                     onmouseover="changeImage('heart-img2', '../../images/heart-login-hover.svg')"
+                     onmouseout="restoreImage('heart-img2', '../../images/heart-login.svg')">
+                    <img id="heart-img2" th:src="@{images/heart-login.svg}" src="../../images/heart-login.svg" alt="heart" class="heart">
+                </div>
             </div>
+        </a>
+
+        <button class="user-container" id="user-btn1"  th:if ="${isLogin} == false">
+            <div class="user"
+                 onmouseover="changeImage('user-img1', '../../images/user-hover.svg')"
+                 onmouseout="restoreImage('user-img1', '../../images/user.svg')">
+
+                <img id="user-img1" th:src="@{images/user.svg}" src="../../images/user.svg" alt="user" class="user">
+            </div>
+        </button>
+        <a th:href="@{/user}" th:if="${isLogin} == true">
+            <button class="user-container"  id="user-btn2" >
+                <div class="user"
+                     onmouseover="changeImage('user-img2', '../../images/user-login-hover.svg')"
+                     onmouseout="restoreImage('user-img2', '../../images/user-login.svg')">
+
+                    <img id="user-img2" th:src="@{images/user-login.svg}" src="../../images/user-login.svg" alt="user" class="user">
+                </div>
+            </button>
+        </a>
+        <div id="overlay-user" onclick="hideOverlay()"></div>
+        <div class="login-window" id="popup-login-window">
+            <h1 class="login-heading">Log in</h1>
+            <form method="post"  id="loginForm"  th:action="@{api/auth/login}" onsubmit="return submitForm()">
+                <div class="login-form email">
+                    <input name="username" placeholder="Enter email" type="text" required>
+                </div>
+                <div class="login-form password">
+                    <input name="password" placeholder="Enter password" type="password" required>
+                </div>
+                <button id="confirm-button">Confirm</button>
+            </form>
         </div>
 
         <a th:href="@{/}" href="main.html">
@@ -39,7 +74,6 @@
 
     </div>
 </header>
-<body>
 
 <main>
     <h1 class="boardTwoTitle">Filters</h1>
@@ -47,10 +81,60 @@
     <button class="apply-button"><span>Apply</span></button>
     <div class="ulBoard">
         <div class="h1"></div>
+        <div class="item">
+            <a class="sub-btn">
+            <img alt="categoriesI" class="categoriesI" th:src="@{images/Categories.svg}" src="../../static/images/Categories.svg">
+            Categories
+                <i class="fas fa-angle-down dropdown"></i>
+            </a>
+            <div class="sub-menu">
+                <div class="dish-container">
+                    <input type="checkbox" name="dish" id="first-dish" value="First Dish">
+                    <label class="dish" for="first-dish">First dishes</label>
+                </div>
+                <div class="dish-container">
+                    <input type="checkbox" name="dish" id="main-dish" value="Main Dish">
+                    <label class="dish" for="main-dish">Main dishes</label>
+                </div>
+                <div class="dish-container">
+                    <input type="checkbox" name="dish" id="desserts" value="Desserts">
+                    <label class="dish" for="desserts">Desserts</label>
+                </div>
+                <div class="dish-container">
+                    <input type="checkbox" name="dish" id="salads" value="Salads">
+                    <label class="dish" for="salads">Salads</label>
+                </div>
+                <div class="dish-container">
+                    <input type="checkbox" name="dish" id="pastry" value="Pastry">
+                    <label class="dish" for="pastry">Pastry</label>
+                </div>
+                <div class="dish-container">
+                    <input type="checkbox" name="dish" id="drinks" value="Drinks">
+                    <label class="dish" for="drinks">Drinks</label>
+                </div>
+                <div class="dish-container">
+                    <input type="checkbox" name="dish" id="snacks" value="Snacks">
+                    <label class="dish" for="snacks">Snacks</label>
+                </div>
+                <div class="dish-container">
+                    <input type="checkbox" name="dish" id="fish-dishes" value="Fish Dishes">
+                    <label class="dish" for="fish-dishes">Fish dishes</label>
+                </div>
+                <div class="dish-container">
+                    <input type="checkbox" name="dish" id="sauces" value="Sauces">
+                    <label class="dish" for="sauces">Sauces</label>
+                </div>
+            </div>
+        </div>
+        <hr>
         <ul>
-            <li><img alt="categoriesI" class="categoriesI" th:src="@{images/Categories.svg}"  src="../../static/images/Categories.svg" >
-                Categories</li>
-            <hr>
+            <!--<li>
+                <img alt="categoriesI" class="categoriesI" th:src="@{images/Categories.svg}" src="../../static/images/Categories.svg">
+                Categories
+                <a class="sub-btn">
+                    <i class="fas fa-angle-right dropdown"></i>
+                </a>
+            </li>-->
             <li><img alt="timeI" class="timeI" th:src="@{images/Time.svg}" src="../../static/images/Time.svg" >
                 Time</li>
             <hr>
@@ -59,12 +143,6 @@
             <hr>
             <li><img alt="ratingI" class="ratingI" th:src="@{images/Rating.svg}" src="../../static/images/Rating.svg" >
                 Rating</li>
-            <hr>
-            <li><img alt="ingredientsI" class="ingredientsI" th:src="@{images/ingredients.svg}" src="../../static/images/ingredients.svg" >
-                Ingredients</li>
-            <hr>
-            <li><img alt="devicesI" class="devicesI" th:src="@{images/Mixer.svg}" src="../../static/images/Mixer.svg" >
-                Devices</li>
             <hr>
             <li><img alt="ingredientsI" class="ingredientsI" th:src="@{images/ingredients.svg}" src="../../static/images/ingredients.svg" >
                 Ingredients</li>
@@ -107,7 +185,6 @@
 
 </main>
 
-</body>
 <footer class="footer">
     <button class="support-button" id="support-btn"><span>Support</span></button>
 
@@ -144,4 +221,37 @@
     </div>
 </footer>
 <script th:href="@{js/scripts.js}" src="../../js/scripts.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    function submitForm() {
+        var form = document.getElementById('loginForm');
+        var formData = new FormData(form);
+        var data = {};
+        formData.forEach(function(value, key){
+            data[key] = value;
+        });
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', form.action, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    window.location.href = '/allRecipes';
+                } else {
+                    alert('Login failed. Please try again.');
+                }
+            }
+        };
+        xhr.send(JSON.stringify(data));
+        return false;
+    }
+
+    $(document).ready(function (){
+        $('.sub-btn').click(function(){
+            $(this).next('.sub-menu').slideToggle();
+            $(this).find('.dropdown').toggleClass('rotate');
+        });
+    });
+</script>
+</body>
 </html>

@@ -11,10 +11,9 @@
     <div class="header">
         <img th:src="@{images/logo.svg}" src="../../static/images/logo.svg" alt="logo" class="logo">
 
-        <form class="search-form">
-            <img th:src="@{images/magnifier.svg}" src="../../static/images/magnifier.svg" alt="magnifier"
-                 class="magnifier">
-            <input name="query" placeholder="Search" type="search">
+        <form class="search-form" th:action="@{/allRecipes}">
+            <img th:src="@{images/magnifier.svg}" src="../../static/images/magnifier.svg" alt = "magnifier" class = "magnifier">
+            <input name="startWith" placeholder="Search" type="search">
         </form>
 
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
@@ -49,7 +48,7 @@
         <div class="cooker-circle"></div>
         <img th:src="@{images/cooker.svg}" src="../../static/images/cooker.svg" alt="cooker" class="cooker">
     </div>
-    <div class="user-name">User name</div>
+    <div th:text="${user.getLogin()}" class="user-name">User name</div>
 
     <div class="green-line"></div>
 
@@ -67,8 +66,10 @@
 
     <div class="list-container" id="list-field-popup-window">
         <div class="list-name">
-            <form th:action="@{/api/newList}" method="post"></form>
-            <input type="text" placeholder="Enter list name" id="listName">
+            <form th:action="@{/api/newList}" method="post"
+                  onsubmit="return validateInput('listName')">
+                <input type="text" placeholder="Enter list name" id="listName">
+            </form>
         </div>
         <button class="confirm-list-button" id="confirm-list-btn">Confirm</button>
     </div>
