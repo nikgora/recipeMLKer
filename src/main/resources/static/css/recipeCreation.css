@@ -137,9 +137,9 @@ body {
     position: absolute;
     width: 44.76vw;
     height: 16.5vh;
-    background-color: #F2E3B3;
-    left: 3vw;
-    top: 34.8vh;
+    background-color: #F2E3;
+    left: 0vw;
+    top: 0vh;
     border-radius: 5vh;
 }
 
@@ -148,9 +148,9 @@ body {
     position: absolute;
     width: 44.76vw;
     height: 16.5vh;
-    background-color: #F2E3B3;
-    right: 3vw;
-    top: 34.8vh;
+    background-color: #F2E3;
+    top: 0vh;
+    margin-left: -1vw;
     border-radius: 5vh;
 }
 
@@ -286,6 +286,16 @@ body {
     outline: none;
 }
 
+.ingredientsField {
+    position: absolute;
+    width: 94vw;
+    height: 16.5vh;
+    background-color: #F2E3B3;
+    left: 3vw;
+    top: 34.8vh;
+    border-radius: 5vh;
+}
+
 .text-form-ingredients {
     position: absolute;
     display: flex;
@@ -319,7 +329,7 @@ body {
     padding-left: 1.0415vw;
     border-radius: 2.778vh;
     top: 0vh;
-    right: 0vw;
+    right: 43.8vw;
 }
 
 .text-form-ingredients-amount input, .inner-window input {
