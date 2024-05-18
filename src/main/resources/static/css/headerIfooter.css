@@ -21,7 +21,6 @@ body {
     top: 0.3vw;
 }
 
-
 .search-form {
     display: flex;
     align-items: center;
@@ -114,7 +113,7 @@ body {
     z-index: 5;
 }
 
-#overlay, #overlay-user {
+#overlay, #overlay-user, #overlay-favorite {
     position: fixed;
     display: none;
     width: 100%;
@@ -337,4 +336,48 @@ body {
     line-height: 1vh;
     text-align: left;
     color: #F2E3B3;
+}
+
+.favoriteLists-window {
+    position: absolute;
+    display: none;
+    width: 25vw;
+    height: 53.7vh;
+    right: 6vw;
+    top: 12vh;
+    border-radius: 2.7vw;
+    background-color: #F2E3B3;
+    z-index: 11;
+}
+
+.recipe {
+    position: absolute;
+    top: 2vh;
+    left: 2vw;
+    width: 21vw;
+    height: 6.48vh;
+    border-radius: 2.7vw;
+    border: 0.5vh solid #B90F0F;
+    background-color: #FBEFC7;
+    cursor: pointer;
+    padding: 0.1vh 0 0.1vh 1vw;
+}
+
+.content-wrapper {
+    display: flex;
+    align-items: center;
+    margin-right: 2vw;
+}
+
+.text-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe a {
+    margin-left: 1vw;
+    text-decoration: none;
+    color: inherit;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.5vw;
 }

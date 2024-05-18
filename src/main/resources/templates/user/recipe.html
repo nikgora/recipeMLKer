@@ -99,23 +99,24 @@
         <div id="overlay-lists" onclick="hideOverlay()"></div>
         <div class="lists-container" id="lists-popup-window">
             <button class="create-list" id="create-new-list-btn">Create a new list</button>
-            <!--<form method="post" th:action="@{/api/newList/{id1}(id1=${id})}" th:object="recipe">
+            <form method="post" th:action="@{/api/newList/{id1}(id1=${id})}" th:object="recipe">
                 <button th:class="${i.index == 0} ? 'user-list user-list' : 'user-list user-list' + (${i.index})"
                         th:each="list, i : ${user.getUserLists()}"
                         th:style="'top:' + (${i.index * 8 + 10}) + 'vh'"
                         th:text="${list.getTitle()}">
                 </button>
-            </form>-->
-            <div class="list-container" id="list-field-popup-window">
-                <form method="post" onsubmit="return validateInput('listName')" th:action="@{/api/newList/0}"
-                      th:object="${newList}">
+            </form>
+            <!--<div class="list-container" id="list-field-popup-window">
+                <form method="post" onsubmit="return validateInput('listName')"
+                      th:action="@{/api/addRecipeToList/{id}/{name}(id=${recipe.id}, name=${newList.getTitle()})}"
+                      th:object="${recipe}">
                     <div class="list-name">
                         <input id="listName" name="title" placeholder="Enter list name" th:value="${newList.title}"
                                type="text">
                     </div>
                     <button class="confirm-list-button" id="confirm-list-btn">Confirm</button>
                 </form>
-            </div>
+            </div>-->
         </div>
     </div>
     <div th:if="${isLogin} == false">

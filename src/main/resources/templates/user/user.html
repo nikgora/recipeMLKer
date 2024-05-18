@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link href="../../static/css/user.css" rel="stylesheet" th:href="@{css/user.css}" type="text/css">
+    <link href="../../static/css/headerIfooter.css" rel="stylesheet" th:href="@{../css/headerIfooter.css}"
 </head>
 <body>
 <header>
@@ -20,13 +21,26 @@
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
         <a class="button-style" href="recipe.html" th:href="@{/recipe/{id1}(id1=${randomRecipeId})}">Random</a>
 
-        <div class="user-container heart-container">
+        <div class="user-container heart-login-container" id="heart-btn">
             <div class="heart"
                  onmouseout="restoreImage('heart-img', '../../images/heart-login.svg')"
                  onmouseover="changeImage('heart-img', '../../images/heart-login-hover.svg')">
                 <img alt="heart" class="heart" id="heart-img" src="../../images/heart-login.svg"
                      th:src="@{images/heart-login.svg}">
             </div>
+        </div>
+
+        <div id="overlay-favorite" onclick="hideOverlay()"></div>
+        <div class="favoriteLists-window" id="favorite-popup-window">
+            <button class="recipe">
+                <div class="content-wrapper">
+                    <img alt="First-Dish" class="First-Dish" th:src="@{images/First dish.svg}" src="../../static/images/First dish.svg">
+                    <div class="text-wrapper">
+                        <a style="font-weight: bold;">Scrambled Eggs</a>
+                        <!--<h1 th:text="${user.getRecipes().getCategory().getTitle()}"></h1>-->
+                    </div>
+                </div>
+            </button>
         </div>
 
         <button class="user-container" id="user-btn">
@@ -128,6 +142,11 @@
         () => hideOverlay("overlay-list", "list-field-popup-window"));
     document.getElementById("confirm-list-btn").addEventListener("click",
         () => hideOverlay("overlay-list", "list-field-popup-window"));
+
+    document.getElementById("heart-btn").addEventListener("click",
+        () => showOverlay("overlay-favorite", "favorite-popup-window"));
+    document.getElementById("overlay-favorite").addEventListener("click",
+        () => hideOverlay("overlay-favorite", "favorite-popup-window"));
 </script>
 </body>
 </html>
