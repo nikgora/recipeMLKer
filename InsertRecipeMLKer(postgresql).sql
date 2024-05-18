@@ -69,6 +69,16 @@ VALUES ('Scrambled Eggs', 15,
         Optionally, you can garnish the cake with chopped peanuts and mini chocolate chips if desired.',
         TRUE, 3, 4);
 
+INSERT INTO recipe_ingredient (amount_of_ingredient, fk_ingredient, fk_recipe)
+VALUES ('1 spoon', 5, 2),
+       ('2 cloves', 9, 2),
+       ('200g', 12, 2),
+       ('400g', 8, 2),
+       ('1 cup grated', 10, 2),
+       ('for flavor', 6, 2),
+       ('for flavor', 7, 2);
+
+
 -- Inserting Moderators
 INSERT INTO Moderator (secret_password, fk_user)
 VALUES ('moderator1pass', 1),

@@ -110,6 +110,11 @@ public class UserController {
             }
             recipes.retainAll(recipeWithIngredient);
         }
+        if (jwt != null) {
+            UserList favoriteList = userListService.getFirstByTitleAndUser("Favorites", userService.getUserByUsername(jwtService.extractUserName(jwt)));
+            model.addAttribute("favoriteList", favoriteList);
+        }
+
         model.addAttribute("isLogin", jwt != null);
         model.addAttribute("randomRecipeId", getRandomNumRecipe());
         model.addAttribute("recipes", recipes);
@@ -155,6 +160,11 @@ public class UserController {
         if (jwt == null) {
             return "redirect:/403";
         }
+        if (jwt != null) {
+            UserList favoriteList = userListService.getFirstByTitleAndUser("Favorites", userService.getUserByUsername(jwtService.extractUserName(jwt)));
+            model.addAttribute("favoriteList", favoriteList);
+        }
+
         User user = userService.getUserByUsername(jwtService.extractUserName(jwt));
         model.addAttribute("isLogin", jwt != null);
         model.addAttribute("randomRecipeId", getRandomNumRecipe());
@@ -188,6 +198,11 @@ public class UserController {
     @GetMapping("/allLists")
     public String allLists(Model model) {
         if (jwt == null) return "redirect:/mustBeLogin";
+        if (jwt != null) {
+            UserList favoriteList = userListService.getFirstByTitleAndUser("Favorites", userService.getUserByUsername(jwtService.extractUserName(jwt)));
+            model.addAttribute("favoriteList", favoriteList);
+        }
+
         model.addAttribute("isLogin", true);
         model.addAttribute("randomRecipeId", getRandomNumRecipe());
         model.addAttribute("lists", userListService.getAllByUser(userService.getUserByUsername(jwtService.extractUserName(jwt))));
@@ -204,6 +219,11 @@ public class UserController {
         if (this.recipeService.getRecipeById(id) == null) {
             return "redirect:/404";
         }
+        if (jwt != null) {
+            UserList favoriteList = userListService.getFirstByTitleAndUser("Favorites", userService.getUserByUsername(jwtService.extractUserName(jwt)));
+            model.addAttribute("favoriteList", favoriteList);
+        }
+
         if (this.recipeService.getRecipeById(id).isPublished()) {
             model.addAttribute("recipe", this.recipeService.getRecipeById(id));
             model.addAttribute("id", id);
@@ -232,6 +252,11 @@ public class UserController {
     @GetMapping("/newRecipe")
     public String newRecipePageForm(Model model) {
         if (jwt == null) return "redirect:/mustBeLogin";
+        if (jwt != null) {
+            UserList favoriteList = userListService.getFirstByTitleAndUser("Favorites", userService.getUserByUsername(jwtService.extractUserName(jwt)));
+            model.addAttribute("favoriteList", favoriteList);
+        }
+
         Recipe recipe = new Recipe();
         User user = (userService.getUserByUsername(jwtService.extractUserName(jwt)));
         model.addAttribute("user", user);
