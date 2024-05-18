@@ -25,7 +25,7 @@
     margin-bottom: 44.25vh;
 }
 
-.boardOneTitle{
+.boardOneTitle {
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 2vw; /*42*/
     color: #733506;
@@ -35,6 +35,7 @@
     margin-top: -63.5vh;
     z-index: 5;
 }
+
 /*____________________________________________________________________________________________________________________*/
 ::-webkit-scrollbar {
     width: 0.78125vw;
@@ -53,68 +54,70 @@
     border-radius: 50px;
 }
 
-.board{
+.board {
     width: 14.584vw; /*280*/
-    height:75.926vh; /*820*/
+    height: 75.926vh; /*820*/
     margin-right: 2.5vw;
     margin-top: 1vh;
 }
 
-.fieldForCategory{
+.fieldForCategory {
     width: 12.5vw; /*240*/
-    height:66.67vh; /*720*/
+    height: 66.67vh; /*720*/
     margin-right: 2.344vw;
 }
 
-.First-Dish{
+.First-Dish {
+    position: relative;
     width: 2.65625vw;
     height: 5.5556vh;
+    top: 1vh;
 }
 
-.Main-Dish{
+.Main-Dish {
     width: 2.05vw;
     height: 2.7vh;
 }
 
-.Salad{
+.Salad {
     width: 2.0833vw;
     height: 4.167vh;
 }
 
-.Pastry{
+.Pastry {
     width: 2.34375vw;
     height: 3.24075vh;
 }
 
-.Dessert{
+.Dessert {
     width: 2.34375vw;
     height: 3.24075vh;
 }
 
-.Drink{
+.Drink {
     width: 2.34375vw;
     height: 4.1667vh;
 }
 
-.Snack{
-    width: 2.34375vw;/*45*/
-    height: 2.7778vh;/*30*/
+.Snack {
+    width: 2.34375vw; /*45*/
+    height: 2.7778vh; /*30*/
 }
 
-.Fish-Dish{
+.Fish-Dish {
     width: 2.34375vw;
     height: 3.24075vh; /*35*/
 }
 
-.Sauce{
+.Sauce {
     width: 1.927084vw;
     height: 4.3518vh; /*37*/
 }
 
 .bean {
     position: absolute;
-    width: 2vw;/*35*/
-    height: 4.8vh;/*45*/
+    width: 2vw; /*35*/
+    height: 4.8vh; /*45*/
     left: 6.3vw;
     top: 69vh;
 }
@@ -156,7 +159,7 @@ a:link, a:visited {
     margin-right: 2.344vw;
 }
 
-.firstDish{
+.firstDish {
     position: absolute;
     left: 18.4375vw;
     top: 14.815vh;
@@ -166,7 +169,7 @@ a:link, a:visited {
     border-radius: 5.5vh 5.5vh 7.8vh 7.8vh;
 }
 
-.mainDish{
+.mainDish {
     position: absolute;
     left: 63.931vw;
     top: 14.815vh;
@@ -266,7 +269,7 @@ a:link, a:visited {
     z-index: 10;
 }
 
-.item{
+.item {
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.5vw;
     padding-left: 0.2605vw;
@@ -274,13 +277,13 @@ a:link, a:visited {
     cursor: pointer;
 }
 
-.item a{
+.item a {
     color: black;
     display: block;
     line-height: 3.7vh;
 }
 
-.item a:hover{
+.item a:hover {
     background-color: #F2B705;
     border-radius: 2vh;
     width: 9.95vw;
