@@ -30,7 +30,7 @@ body {
     border-radius: 2.7vw;
 }
 
-.search-form input, .inner-window input{
+.search-form input, .inner-window textarea {
     height: 6.19vh;
     width: 41.67vw;
     margin-left: 1vw;
@@ -45,7 +45,7 @@ body {
     autocomplete: off;
 }
 
-.magnifier{
+.magnifier {
     height: 3.3333333333vh;
     width: 1.875vw;
 }
@@ -65,7 +65,7 @@ body {
     text-decoration: none;
 }
 
-.heart img, .user img{
+.heart img, .user img {
     width: 3.6458vw;
     height: 5.5555vh;
 }
@@ -87,11 +87,11 @@ body {
     height: 9.2593vh;
 }
 
-.heart-container:hover{
+.heart-container:hover {
     background-color: #B90F0F;
 }
 
-.home{
+.home {
     height: 5.55555555vh;
     width: 3.125vw;
 }
@@ -149,7 +149,7 @@ body {
 .allLists,
 .logInModerator,
 .logOut,
-.confirm-list-button{
+.confirm-list-button {
     width: 20.3125vw;
     height: 7.4074vh;
     border-radius: 2.5vh;
@@ -165,7 +165,7 @@ body {
     background-color: #F28705;
 }
 
-.createRecipe{
+.createRecipe {
     top: 34.1vh;
     background-color: #F28705;
 }
@@ -182,12 +182,12 @@ body {
     background-color: #F28705;
 }
 
-.logOut{
+.logOut {
     background-color: #F2B705;
     top: 34.3vh;
 }
 
-.logInModerator{
+.logInModerator {
     background: rgba(242, 183, 5, 0.3);
     top: 34.4vh;
 }
@@ -196,8 +196,9 @@ body {
     background-color: #FBEFC7;
     border: 0.5vh solid #F28705;
 }
+
 /*____________________________________________________________________________________________________________________*/
-.recipesField{
+.recipesField {
     position: absolute;
     top: 15vh;
     width: 55.21vw;
@@ -207,14 +208,14 @@ body {
     margin-left: 42vw;
 }
 
-.recipesFieldHeader{
+.recipesFieldHeader {
     width: 55.21vw;
     height: 5vh;
     background-color: #3E5902;
-    border-radius: 5vh 5vh 0vh 0vh ;
+    border-radius: 5vh 5vh 0vh 0vh;
 }
 
-.c7{
+.c7 {
     position: absolute;
     font-family: 'Frank Ruhl Libre';
     font-size: 2vh;
@@ -295,7 +296,7 @@ body {
     border: 0.5vh solid #3E5902;
 }
 
-#overlay, #overlay-list  {
+#overlay, #overlay-list {
     position: fixed;
     display: none;
     width: 100%;
@@ -390,7 +391,7 @@ body {
     height: 4.2592vh;
 }
 
-.instagram{
+.instagram {
     width: 2.3vw;
     height: 4.06vh;
 }

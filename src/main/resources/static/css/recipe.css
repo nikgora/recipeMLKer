@@ -1,10 +1,11 @@
-.recipeIcon{
+.recipeIcon {
     width: 3.125vw;
     height: 5.556vh;
     margin-top: 4vh;
     margin-left: 0.5vw;
 }
-.RecipeTitle{
+
+.RecipeTitle {
     position: absolute;
     width: 42.7vw;
     height: 5.556vh;
@@ -15,7 +16,7 @@
     background-color: #F2E3B3;
 }
 
-.c3{
+.c3 {
     position: absolute;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 2.3vw; /*48*/
@@ -25,7 +26,7 @@
     margin-top: 0.1vh;
 }
 
-.RecipeRating{
+.RecipeRating {
     position: absolute;
     width: 6.5vw;
     height: 5vh;
@@ -35,7 +36,7 @@
     border-radius: 5vh;
 }
 
-.num{
+.num {
     position: absolute;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 2vw;
@@ -46,13 +47,13 @@
     margin-top: 0.1vh;
 }
 
-#FavoriteList, .UserList, .Report{
+#FavoriteList, .UserList, .Report {
     position: absolute;
     width: 12vw;
     height: 5.556vh;
     left: 61.5vw;
     top: 15.1vh;
-    background-color:  #F28705;
+    background-color: #F28705;
     border-radius: 5vh;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.75vw; /*48*/
@@ -60,11 +61,11 @@
     cursor: pointer;
 }
 
-.UserList{
+.UserList {
     left: 76.5vw;
 }
 
-.Report{
+.Report {
     position: absolute;
     width: 6.5vw;
     left: 91.4834vw;
@@ -74,7 +75,7 @@
     justify-content: center;
 }
 
-.mini{
+.mini {
     position: absolute;
     width: 10vw;
     height: 5.556vh;
@@ -82,7 +83,7 @@
     margin-left: 4vw;
 }
 
-.miniTime{
+.miniTime {
     position: absolute;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.5vw;
@@ -91,7 +92,8 @@
     margin-bottom: 0.3vh;
     margin-top: 0.3vh;
 }
-.Dessert, .Main-Dish, .First-Dish, .Salad, .Sauce, .Drink, .Snack{
+
+.Dessert, .Main-Dish, .First-Dish, .Salad, .Sauce, .Drink, .Snack, .Pastry {
     position: absolute;
     width: 6vw;
     height: 4vh;
@@ -99,14 +101,14 @@
     margin-top: 0.2vh;
 }
 
-.First-Dish{
+.First-Dish {
     margin-top: -0.6vh;
     margin-left: 7.2vw;
     width: 7.5vw;
     height: 5.5vh;
 }
 
-.miniCategories{
+.miniCategories {
     margin-left: 14vw;
     width: 10vw;
 }
@@ -146,11 +148,7 @@
     box-sizing: border-box;
 }
 
-.IngredientTagsField::-webkit-scrollbar {
-    display: none;
-}
-
-.IngredientTagsTitle{
+.IngredientTagsTitle {
     position: fixed;
     width: 11.98vw;
     height: 4.82vh;
@@ -159,7 +157,7 @@
     color: #F2E3B3;
 }
 
-.c7{
+.c7 {
     position: absolute;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.5vw;
@@ -167,7 +165,7 @@
     margin-left: 1.5vw;
 }
 
-.content{
+.content {
     position: absolute;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 1vw; /*48*/
@@ -176,10 +174,11 @@
     color: black;
 }
 
-.DeviceTagsField{
+.DeviceTagsField {
     margin-top: 13.2vh;
 }
-.devices{
+
+.devices {
     margin-left: 2.1vw;
 }
 
@@ -202,7 +201,7 @@
     outline: none;
 }
 
-.text-form textarea{
+.text-form textarea {
     position: absolute;
     height: 4vh;
     width: 75%;
@@ -217,12 +216,12 @@
     scrollbar-width: none;
 }
 
-.quill{
+.quill {
     height: 4.445vh;
     width: 2.5vw;
 }
 
-#publish{
+#publish {
     position: absolute;
     width: 6.5vw;
     height: 6.8vh;
@@ -244,7 +243,7 @@
     border: 0.5vh solid #F28705;
 }
 
-.c8{
+.c8 {
     display: flex;
     align-items: center;
     font-family: 'Frank Ruhl Libre', serif;
@@ -257,7 +256,7 @@
     outline: none;
 }
 
-.commentField{
+.commentField {
     position: absolute;
     width: 46.875vw;
     height: 33.2vh;
@@ -267,10 +266,12 @@
     border-radius: 5vh;
     overflow-y: auto;
 }
+
 .comment-user {
     width: 2vw;
     height: 3vh;
 }
+
 .comment-user-circle {
     position: absolute;
     display: flex;
@@ -325,8 +326,9 @@
     background: #733506;
     border-radius: 4.63vh;
 }
+
 /*____________________________________________________________________________________________________________________*/
-.fullRecipe, .report-container{
+.fullRecipe, .report-container {
     position: absolute;
     width: 46.875vw;
     height: 63vh;
@@ -336,7 +338,7 @@
     border-radius: 5vh;
 }
 
-.fullRecipeHeader, .reportHeader{
+.fullRecipeHeader, .reportHeader {
     width: 46.875vw;
     height: 4.875vh;
     background: #3E5902;
@@ -347,7 +349,7 @@
     text-align: center;
 }
 
-.amountField, .deviceField{
+.amountField, .deviceField {
     width: 14vw;
     height: 39vh;
     border-radius: 5vh;
@@ -357,13 +359,13 @@
     overflow-y: scroll;
 }
 
-.deviceField{
+.deviceField {
     height: 17vh;
     margin-top: -1vh;
     border-radius: 0 0 5vh 5vh;
 }
 
-.stepByStepField{
+.stepByStepField {
     width: 27.8645vw;
     height: 53.7vh;
     border-radius: 5vh;
@@ -374,7 +376,7 @@
     overflow-x: hidden;
 }
 
-.ingredientsHeader{
+.ingredientsHeader {
     position: fixed;
     width: 14vw;
     height: 3.7vh;
@@ -385,26 +387,26 @@
     text-align: center;
 }
 
-.devicesHeader{
+.devicesHeader {
     position: absolute;
     top: 43.5vh;
     border-radius: 0;
 }
 
-.deviceContent{
+.deviceContent {
     position: absolute;
     top: 44vh;
     left: 2vw;
-    width: 1.5vw ;
+    width: 1.5vw;
 }
 
-.stepByStepHeader{
+.stepByStepHeader {
     left: 69.1vw;
     top: 29.39vh;
     width: 27.8645vw;
 }
 
-.dTitle{
+.dTitle {
     top: 38.5vh;
     margin-left: 4.5vw;
 }
@@ -413,7 +415,7 @@
     margin-left: 8vw;
 }
 
-.ratingField{
+.ratingField {
     position: absolute;
     width: 41.7vw;
     height: 5.556vh;
@@ -423,7 +425,7 @@
     margin-left: 51.2vw;
 }
 
-.addRating{
+.addRating {
     position: absolute;
     width: 46.875vw;
     height: 9.5vh;
@@ -433,8 +435,8 @@
     background: #F2B705;
 }
 
-.confirmation{
-    position:fixed;
+.confirmation {
+    position: fixed;
     width: 2.7vw;
     height: 5.4vh;
     border-radius: 50vh;
@@ -446,7 +448,7 @@
     outline: none;
 }
 
-.tick{
+.tick {
     position: absolute;
     width: 1.5625vw;
     height: 2.32vh;
@@ -454,22 +456,22 @@
     bottom: 1.5vh;
 }
 
-.ratingField div{
+.ratingField div {
     font-size: 2.5vw;
     color: #F2B705;
     text-align: center;
     text-transform: uppercase;
 }
 
-.ratingField input{
+.ratingField input {
     display: none;
 }
 
-.ratingField input + label{
+.ratingField input + label {
     cursor: pointer;
 }
 
-.ratingField input:checked + label{
+.ratingField input:checked + label {
     color: #F2B705;
 }
 
@@ -477,12 +479,12 @@
     color: #E0E0E0;
 }
 
-.ratingField label:active{
+.ratingField label:active {
     transform: scale(0.8);
     transition: 0.3s ease;
 }
 
-#overlay-user, #overlay-report, #overlay-lists {
+#overlay-report, #overlay-lists {
     position: fixed;
     display: none;
     width: 100%;
@@ -499,9 +501,9 @@
     font-size: 1.3vw;
 }
 
-.amountContent td:first-child {
+/*.amountContent td:first-child {
     white-space: nowrap;
-}
+}*/
 
 
 .ingredientContent {
@@ -510,7 +512,7 @@
     color: black;
 }
 
-.report-container{
+.report-container {
     z-index: 11;
     display: none;
 }
@@ -540,7 +542,7 @@
     autocomplete: off;
 }
 
-.send-report{
+.send-report {
     position: absolute;
     width: 30vw;
     height: 6vh;
@@ -559,7 +561,7 @@
     justify-content: center;
 }
 
-.lists-container{
+.lists-container {
     position: absolute;
     display: none;
     width: 25vw;
@@ -571,7 +573,7 @@
     z-index: 11;
 }
 
-.create-list, .user-list, .user-list1{
+.create-list {
     position: absolute;
     top: 2vh;
     left: 2vw;
@@ -585,14 +587,19 @@
     cursor: pointer;
 }
 
-.user-list, .user-list1{
+.user-list {
+    position: absolute;
     top: 10vh;
+    left: 2vw;
+    width: 21vw;
+    height: 6.48vh;
+    border-radius: 2.7vw;
     background-color: #3E5902;
     color: #F2F2EB;
-}
-
-.user-list1{
-    top: 18vh;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2vw;
+    border: none;
+    cursor: pointer;
 }
 
 #confirm-list-btn {

@@ -67,51 +67,9 @@
     margin-right: 2.344vw;
 }
 
-.First-Dish {
-    position: relative;
-    width: 2.65625vw;
-    height: 5.5556vh;
-    top: 1vh;
-}
-
-.Main-Dish {
-    width: 2.05vw;
-    height: 2.7vh;
-}
-
-.Salad {
-    width: 2.0833vw;
-    height: 4.167vh;
-}
-
-.Pastry {
-    width: 2.34375vw;
-    height: 3.24075vh;
-}
-
-.Dessert {
-    width: 2.34375vw;
-    height: 3.24075vh;
-}
-
-.Drink {
-    width: 2.34375vw;
-    height: 4.1667vh;
-}
-
-.Snack {
-    width: 2.34375vw; /*45*/
-    height: 2.7778vh; /*30*/
-}
-
-.Fish-Dish {
-    width: 2.34375vw;
-    height: 3.24075vh; /*35*/
-}
-
-.Sauce {
-    width: 1.927084vw;
-    height: 4.3518vh; /*37*/
+.First-Dish, .Fish-Dish, .Main-Dish, .Salad, .Sauce, .Snack, .Pastry, .Drink, .Dessert {
+    width: 2.2vw;
+    height: 4vh;
 }
 
 .bean {
@@ -125,8 +83,6 @@
 a:link, a:visited {
     text-decoration: none;
 }
-
-/*____________________________________________________________________________________________________________________*/
 
 .cheesecake {
     position: absolute;

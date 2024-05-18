@@ -31,7 +31,7 @@ body {
     border-radius: 2.7vw;
 }
 
-.search-form input{
+.search-form input {
     height: 6.19vh;
     width: 41.67vw;
     margin-left: 1vw;
@@ -46,7 +46,7 @@ body {
     autocomplete: off;
 }
 
-.magnifier{
+.magnifier {
     height: 3.3333333333vh;
     width: 1.875vw;
 }
@@ -65,7 +65,7 @@ body {
     text-decoration: none;
 }
 
-.heart img, .user img{
+.heart img, .user img {
     width: 3.6458vw;
     height: 5.5555vh;
 }
@@ -86,15 +86,15 @@ body {
     height: 9.2593vh;
 }
 
-.heart-container:hover{
+.heart-container:hover {
     cursor: not-allowed;
 }
 
-.heart-login-container:hover{
+.heart-login-container:hover {
     background-color: #B90F0F;
 }
 
-.home{
+.home {
     height: 5.55555555vh;
     width: 3.125vw;
 }
@@ -114,7 +114,7 @@ body {
     z-index: 5;
 }
 
-#overlay {
+#overlay, #overlay-user {
     position: fixed;
     display: none;
     width: 100%;
@@ -151,7 +151,7 @@ body {
     z-index: 13;
 }
 
-.inner-window textarea{
+.inner-window textarea {
     width: 53vw;
     height: 27vh;
     margin-left: 1vw;
@@ -317,7 +317,7 @@ body {
     height: 4.2592vh;
 }
 
-.instagram{
+.instagram {
     width: 2.3vw;
     height: 4.06vh;
 }
