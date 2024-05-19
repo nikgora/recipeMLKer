@@ -142,11 +142,11 @@
             <div class="sub-menu">
                 <div class="timeContainer">
                     <div class="minTime">
-                        <input name="minTime" placeholder="min" required type="text">
+                        <input name="minTime" placeholder="min" required type="number">
                     </div>
                     <div class="line"></div>
                     <div class="maxTime">
-                        <input name="maxTime" placeholder="max" required type="text">
+                        <input name="maxTime" placeholder="max" required type="number">
                     </div>
                 </div>
             </div>
@@ -162,40 +162,40 @@
             <div class="sub-menu">
                 <div class="alphabet">
                     <div class="letters-container">
-                        <input id="a" name="a" type="checkbox" value="a">
-                        <label class="a" for="a">A</label>
+                        <input id="A" name="A" type="checkbox" value="A">
+                        <label class="A" for="A">A</label>
                     </div>
                     <div class="letters-container">
-                        <input id="b" name="b" type="checkbox" value="b">
-                        <label class="b" for="b">B</label>
+                        <input id="B" name="B" type="checkbox" value="B">
+                        <label class="B" for="B">B</label>
                     </div>
                     <div class="letters-container">
-                        <input id="c" name="c" type="checkbox" value="c">
-                        <label class="c" for="c">C</label>
+                        <input id="C" name="C" type="checkbox" value="C">
+                        <label class="C" for="C">C</label>
                     </div>
                     <div class="letters-container">
-                        <input id="d" name="d" type="checkbox" value="d">
-                        <label class="d" for="d">D</label>
+                        <input id="D" name="D" type="checkbox" value="D">
+                        <label class="D" for="D">D</label>
                     </div>
                     <div class="letters-container">
-                        <input id="e" name="e" type="checkbox" value="e">
-                        <label class="e" for="e">E</label>
+                        <input id="E" name="E" type="checkbox" value="E">
+                        <label class="E" for="E">E</label>
                     </div>
                     <div class="letters-container">
-                        <input id="f" name="f" type="checkbox" value="f">
-                        <label class="f" for="f">F</label>
+                        <input id="F" name="F" type="checkbox" value="F">
+                        <label class="F" for="F">F</label>
                     </div>
                     <div class="letters-container">
-                        <input id="g" name="g" type="checkbox" value="g">
-                        <label class="g" for="g">G</label>
+                        <input id="G" name="G" type="checkbox" value="G">
+                        <label class="G" for="G">G</label>
                     </div>
                     <div class="letters-container">
-                        <input id="h" name="h" type="checkbox" value="h">
-                        <label class="h" for="h">H</label>
+                        <input id="H" name="H" type="checkbox" value="H">
+                        <label class="H" for="H">H</label>
                     </div>
                     <div class="letters-container">
-                        <input id="i" name="i" type="checkbox" value="i">
-                        <label class="i" for="i">I</label>
+                        <input id="I" name="I" type="checkbox" value="I">
+                        <label class="I" for="I">I</label>
                     </div>
                     <div class="letters-container">
                         <input id="J" name="J" type="checkbox" value="J">
@@ -424,6 +424,41 @@
             $(this).find('.dropdown').toggleClass('rotate');
         });
     });
+
+    document.querySelector('.apply-button').addEventListener('click', function () {
+        let queryParams = new URLSearchParams();
+
+        document.querySelectorAll('.dish-container input:checked').forEach(input => {
+            queryParams.append('category', input.value);
+        });
+
+        let minTime = document.querySelector('input[name="minTime"]').value;
+        let maxTime = document.querySelector('input[name="maxTime"]').value;
+        if (minTime) queryParams.append('minTime', minTime);
+        if (maxTime) queryParams.append('maxTime', maxTime);
+
+        document.querySelectorAll('.letters-container input:checked').forEach(input => {
+            queryParams.append('startWith', input.value);
+        });
+
+        let minRate = document.querySelector('input[name="minRate"]').value;
+        let maxRate = document.querySelector('input[name="maxRate"]').value;
+        if (minRate) queryParams.append('minMark', minRate);
+        if (maxRate) queryParams.append('maxMark', maxRate);
+
+        document.querySelectorAll('.ingredient-container input:checked').forEach(input => {
+            queryParams.append('ingredient', input.value);
+        });
+
+        document.querySelectorAll('.device-container input:checked').forEach(input => {
+            queryParams.append('device', input.value);
+        });
+
+        let queryString = queryParams.toString();
+
+        window.location.href = `/allRecipes?${queryString}`;
+    });
+
 </script>
 </body>
 </html>
