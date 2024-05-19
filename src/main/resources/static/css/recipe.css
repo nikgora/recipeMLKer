@@ -570,6 +570,7 @@
     border-radius: 2.7vw;
     background-color: #F2E3B3;
     z-index: 11;
+    overflow-y: scroll;
 }
 
 .create-list {

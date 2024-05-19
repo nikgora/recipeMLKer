@@ -401,12 +401,19 @@ hr {
 .minTime input, .maxTime input, .minRate input, .maxRate input {
     width: 3vw;
     height: 5vh;
-    flex: 1;
+    flex: none;
     border: none;
     background: #FBEFC7;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.5vw;
     outline: none;
+    autocomplete: off;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .line {

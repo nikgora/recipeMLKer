@@ -71,7 +71,16 @@ public class UserController {
     }
 
     @GetMapping("/allRecipes")
-    public String allRecipePage(Model model, @RequestParam(required = false) List<String> device, @RequestParam(required = false) List<String> category, @RequestParam(required = false) List<String> ingredient, @RequestParam(required = false) List<String> startWith, @RequestParam(required = false) Integer minTime, @RequestParam(required = false) Integer maxTime, @RequestParam(required = false) Double minMark, @RequestParam(required = false) Double maxMark) {
+    public String allRecipePage(Model model,
+                                @RequestParam(required = false) List<String> device,
+                                @RequestParam(required = false) List<String> category,
+                                @RequestParam(required = false) List<String> ingredient,
+                                @RequestParam(required = false) List<String> startWith,
+                                @RequestParam(required = false) Integer minTime,
+                                @RequestParam(required = false) Integer maxTime,
+                                @RequestParam(required = false) Double minMark,
+                                @RequestParam(required = false) Double maxMark,
+                                @RequestParam(required = false) String jwt) {
         List<Recipe> recipes = this.recipeService.getAllRecipeIsPublished();
         if (device != null) {
             List<Recipe> recipeWithDevice = new ArrayList<>();
@@ -139,10 +148,8 @@ public class UserController {
         recipeUserList.setUserList(userList);
         recipeUserList.setRecipe(recipe);
         recipeUserListService.save(recipeUserList);
-        String string = "redirect:/recipe/" + id;
-        return string;
+        return "redirect:/recipe/" + id;
     }
-
 
     @GetMapping("/403")
     public String forbidden() {
@@ -159,12 +166,11 @@ public class UserController {
         if (jwt == null) {
             return "redirect:/403";
         }
-        if (jwt != null) {
-            UserList favoriteList = userListService.getFirstByTitleAndUser("Favorites", userService.getUserByUsername(jwtService.extractUserName(jwt)));
-            model.addAttribute("favoriteList", favoriteList);
-        }
 
-        User user = userService.getUserByUsername(jwtService.extractUserName(jwt));
+        String username = jwtService.extractUserName(jwt);
+        User user = userService.getUserByUsername(username);
+        UserList favoriteList = userListService.getFirstByTitleAndUser("Favorites", user);
+        model.addAttribute("favoriteList", favoriteList);
         model.addAttribute("isLogin", jwt != null);
         model.addAttribute("randomRecipeId", getRandomNumRecipe());
         model.addAttribute("user", user);

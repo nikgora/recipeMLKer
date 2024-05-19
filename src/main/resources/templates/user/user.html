@@ -32,18 +32,25 @@
 
         <div id="overlay-favorite" onclick="hideOverlay()"></div>
         <div class="favoriteLists-window" id="favorite-popup-window">
-            <button class="recipe">
-                <div class="content-wrapper">
-                    <img alt="First-Dish" class="First-Dish" src="../../static/images/First dish.svg"
-                         th:src="@{images/First dish.svg}">
-                    <div class="text-wrapper">
-                        <!--<a th:text="${user}" style="font-weight: bold;">Scrambled Eggs</a>-->
-                        <!--<h1 th:text="${favoriteList.
-                        user.getRecipes().getCategory().getTitle()}"></h1>-->
-                    </div>
+            <div th:if="${favoriteList != null}">
+                <div th:each="recipe, i : ${favoriteList.getUser().getRecipes()}">
+                    <button th:class="${i.index == 0} ? 'recipe' : 'recipe' + i.index">
+                        <div class="content-wrapper">
+                            <div class="comment-user-circle">
+                                <img th:alt="${recipe.getCategory().getTitle()}"
+                                     th:class="${recipe.getCategory().getTitle().replace(' ', '-')}"
+                                     th:if="${recipe}"
+                                     th:src="@{'../images/' + ${recipe.getCategory().getTitle()} + '.svg'}">
+                            </div>
+                            <div class="text-wrapper">
+                                <a style="font-weight: bold;" th:text="${recipe.getTitle()}"></a>
+                            </div>
+                        </div>
+                    </button>
                 </div>
-            </button>
+            </div>
         </div>
+
 
         <button class="user-container" id="user-btn">
             <div class="user"
