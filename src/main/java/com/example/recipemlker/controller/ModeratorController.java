@@ -35,6 +35,7 @@ public class ModeratorController {
         return "moderator/moderatorPage";
     }
 
+
     @GetMapping("/moderator/AIReports")
     public String moderatorAIReports(Model model) {
         if (moderatorId == null) {

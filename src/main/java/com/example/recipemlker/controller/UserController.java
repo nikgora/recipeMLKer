@@ -73,6 +73,18 @@ public class UserController {
         return ResponseEntity.ok(jwt1);
     }
 
+    @GetMapping("/userList/{name}")
+    public String Sfd(Model model, @PathVariable("name") String name) {
+        if (jwt == null) {
+            return "redirect:/403";
+        }
+        model.addAttribute("isLogin", jwt != null);
+        model.addAttribute("randomRecipeId", getRandomNumRecipe());
+        User user = userService.getUserByUsername(jwtService.extractUserName(jwt));
+        model.addAttribute("List", userListService.getFirstByTitleAndUser(name, user));
+        return "user/userlist";
+    }
+
     @GetMapping("/allRecipes")
     public String allRecipePage(Model model, @RequestParam(required = false) List<String> device, @RequestParam(required = false) List<String> category, @RequestParam(required = false) List<String> ingredient, @RequestParam(required = false) List<String> startWith, @RequestParam(required = false) Integer minTime, @RequestParam(required = false) Integer maxTime, @RequestParam(required = false) Double minMark, @RequestParam(required = false) Double maxMark) {
         List<Recipe> recipes = this.recipeService.getAllRecipeIsPublished();
