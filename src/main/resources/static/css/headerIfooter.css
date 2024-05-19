@@ -215,6 +215,7 @@ body {
     border-radius: 5.5vh;
     outline: none;
     padding-left: 1vw;
+    autocomplete: off;
 }
 
 #confirm-button {

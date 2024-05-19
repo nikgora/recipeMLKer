@@ -226,7 +226,7 @@
 
         <div class="stepByStepField">
             <div class="ingredientsHeader stepByStepHeader">Step-by-step instructions</div>
-            <div class="amountContent" th:text="${recipe.getDescription()}"></div>
+            <div class="amountContent" th:utext="${recipe.getDescription()}"></div>
         </div>
     </div>
     <div class="addRatingField">

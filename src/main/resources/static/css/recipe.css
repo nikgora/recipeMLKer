@@ -93,19 +93,12 @@
     margin-top: 0.3vh;
 }
 
-.Dessert, .Main-Dish, .First-Dish, .Salad, .Sauce, .Drink, .Snack, .Pastry {
+.Dessert, .Main-Dish, .First-Dish, .Salad, .Sauce, .Drink, .Snack, .Pastry, .Fish-Dish {
     position: absolute;
     width: 6vw;
     height: 4vh;
     margin-left: 8vw;
     margin-top: 0.2vh;
-}
-
-.First-Dish {
-    margin-top: -0.6vh;
-    margin-left: 7.2vw;
-    width: 7.5vw;
-    height: 5.5vh;
 }
 
 .miniCategories {
@@ -132,10 +125,6 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.5vh;
-}
-
-.ingredientContent div {
-    flex: 1 1 auto;
 }
 
 .ingredientContent a {

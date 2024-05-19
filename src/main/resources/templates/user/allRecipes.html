@@ -27,7 +27,7 @@
                  onmouseout="restoreImage('heart-img1', '../../images/heart.svg')"
                  onmouseover="changeImage('heart-img1', '../../images/heart-hover.svg')">
                 <img alt="heart" class="heart" id="heart-img1" src="../../images/heart.svg"
-                     th:src="@{images/heart.svg}">
+                     th:src="@{../images/heart.svg}">
             </div>
         </div>
         <a th:href="@{/user}" th:if="${isLogin} == true">
@@ -36,7 +36,7 @@
                      onmouseout="restoreImage('heart-img2', '../../images/heart-login.svg')"
                      onmouseover="changeImage('heart-img2', '../../images/heart-login-hover.svg')">
                     <img alt="heart" class="heart" id="heart-img2"
-                         src="../../images/heart-login.svg" th:src="@{images/heart-login.svg}">
+                         src="../../images/heart-login.svg" th:src="@{../images/heart-login.svg}">
                 </div>
             </div>
         </a>
@@ -46,7 +46,7 @@
                  onmouseout="restoreImage('user-img1', '../../images/user.svg')"
                  onmouseover="changeImage('user-img1', '../../images/user-hover.svg')">
 
-                <img alt="user" class="user" id="user-img1" src="../../images/user.svg" th:src="@{images/user.svg}">
+                <img alt="user" class="user" id="user-img1" src="../../images/user.svg" th:src="@{../images/user.svg}">
             </div>
         </button>
         <a th:href="@{/user}" th:if="${isLogin} == true">
@@ -55,8 +55,9 @@
                      onmouseout="restoreImage('user-img2', '../../images/user-login.svg')"
                      onmouseover="changeImage('user-img2', '../../images/user-login-hover.svg')">
 
-                    <img alt="user" class="user" id="user-img2" src="../../images/user-login.svg"
-                         th:src="@{images/user-login.svg}">
+                    <img alt="user" class="user" id="user-img2"
+                         src="../../images/user-login.svg"
+                         th:src="@{../images/user-login.svg}">
                 </div>
             </button>
         </a>
