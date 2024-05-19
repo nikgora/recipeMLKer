@@ -235,8 +235,10 @@ body {
     margin-top: 3vh;
     width: 51vw;
     height: 64vh;
-    background-color: #B90F0F; /*червоний для зручності щоб бачити межі контейнеру*/
+    /*background-color: #B90F0F; !*червоний для зручності щоб бачити межі контейнеру*!*/
     left: 2.2vw; /*2.605vw; - це щоб було рівномірно, але в нас там ще буде скрол, томку поки так*/
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .userRecipeField {
@@ -280,6 +282,10 @@ body {
     justify-content: center
 }
 
+.publishBlocked:hover {
+    cursor: not-allowed;
+}
+
 .userRecipeField2 {
     top: 16.48vh;
 }
@@ -321,7 +327,7 @@ body {
     border: 0.0520834vw solid black;
     border-radius: 50px;
     background: #F2E3B3;
-    margin-left: 0.5vw;
+    margin-left: 2vw;
 }
 
 ::-webkit-scrollbar-thumb {
