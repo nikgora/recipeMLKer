@@ -423,13 +423,7 @@ hr {
 
 .letters-container {
     box-sizing: border-box;
-    margin-right: 0.52vw;
-}
-
-.a, .b, .c, .d, .e, .f, .g, .h,
-.i, .J, .K, .L {
-    width: 0.78vw;
-    height: 1.66vh;
+    margin-right: 0.5vw;
 }
 
 .letters-container input {

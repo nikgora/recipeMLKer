@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Random;
 
 @Controller
@@ -176,7 +175,7 @@ public class UserController {
 
     @PostMapping("/api/newList/{id}")
     /// 0 - user page, some else recipe id
-    public String newList(@ModelAttribute UserList userList, @ModelAttribute String id) {
+    public String newList(@ModelAttribute UserList userList, @PathVariable("id") Long id) {
         if (jwt == null) {
             return "redirect:/403";
         }
@@ -185,8 +184,9 @@ public class UserController {
         newUserList.setTitle(userList.getTitle());
         newUserList.setUser(user);
         userListService.save(newUserList);
-        if (Objects.equals(id, "")) return "redirect:/user";
-        return "redirect:/recipe/" + id;
+        if (id == 0) return "redirect:/user";
+        String newList = "redirect:/recipe/" + id;
+        return newList;
     }
 
     @PostMapping("/api/logout")
