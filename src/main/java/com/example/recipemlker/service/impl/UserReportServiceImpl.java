@@ -23,4 +23,9 @@ public class UserReportServiceImpl implements UserReportService {
     public void save(UserReport userReport) {
         userReportRepository.save(userReport);
     }
+
+    @Override
+    public UserReport getFirstById(Long id) {
+        return userReportRepository.getFirstById(id);
+    }
 }

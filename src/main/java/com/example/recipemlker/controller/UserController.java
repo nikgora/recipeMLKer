@@ -36,6 +36,8 @@ public class UserController {
     @Autowired
     private UserReportService userReportService;
     @Autowired
+    private AiReportService aiReportService;
+    @Autowired
     private UserListService userListService;
     @Autowired
     private DeviceService deviceService;
@@ -194,6 +196,19 @@ public class UserController {
         return "user/allLists";
     }
 
+    @PostMapping("/api/publishRecipe/{id}")
+    public String publishRecipe(@PathVariable("id") Long id) {
+        if (jwt == null) {
+            return "redirect:/mustBeLogin";
+        }
+        Recipe recipe = recipeService.getRecipeById(id);
+        AiReport aiReport = new AiReport();
+        aiReport.setRecipe(recipe);
+        aiReport.setDescription("New recipe in site. Please check");
+        aiReportService.save(aiReport);
+        return "redirect:/user/";
+    }
+
     @GetMapping("/mustBeLogin")
     public String mustBeLogin() {
         return "user/mustBeLogin";
@@ -211,6 +226,8 @@ public class UserController {
             model.addAttribute("randomRecipeId", getRandomNumRecipe());
             Rating existed = null;
             if (jwt != null) {
+                UserList favoriteList = userListService.getFirstByTitleAndUser("Favorites", userService.getUserByUsername(jwtService.extractUserName(jwt)));
+                model.addAttribute("favoriteList", favoriteList);
                 existed = ratingService.getByUserAndRecipe(userService.getUserByUsername(jwtService.extractUserName(jwt)), recipeService.getRecipeById(id));
                 model.addAttribute("user", userService.getUserByUsername(jwtService.extractUserName(jwt)));
             }
