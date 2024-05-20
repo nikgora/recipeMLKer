@@ -30,7 +30,7 @@ CREATE TABLE PublishedRecipe
     recipe_id    SERIAL PRIMARY KEY,
     title        VARCHAR(255) NOT NULL,
     cooking_time INT          NOT NULL,
-    description  VARCHAR(255) NOT NULL,
+    description  VARCHAR(1500) NOT NULL,
     published    BOOLEAN      NOT NULL,
     fk_user      INT REFERENCES "user" (user_id),
     fk_category  INT REFERENCES Category (category_id)
