@@ -84,7 +84,6 @@ public class UserController {
         for (var recipeUserList : recipeUserLists) {
             recipes.add(recipeUserList.getRecipe());
         }
-        // userListService.getFirstByTitleAndUser(name,user);
         if (device != null) {
             List<Recipe> recipeWithDevice = new ArrayList<>();
             for (String deviceName : device) {
