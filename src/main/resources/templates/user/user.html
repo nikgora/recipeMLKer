@@ -78,12 +78,16 @@
 
     <div class="button-container" id="button">
         <button class="createList" id="createList-btn">Create a list</button>
-        <button class="createRecipe">Create a recipe</button>
-        <button class="allLists">All Lists</button>
+        <a class="createRecipe" href="recipeCreation.html" th:href="@{/newRecipe}">Create a recipe</a>
+        <a class="allLists" href="allLists.html" th:href="@{/allLists}">All Lists</a>
         <form method="post" th:action="@{/api/logout}">
             <button class="userButton logOut">Log out</button>
         </form>
-        <button class="userButton logInModerator">Log in as moderator</button>
+        <a class="userButton logInModerator" href="../moderator/moderatorAIReports.html"
+           th:href="@{/moderatorAIReports}">Log
+            in
+            as
+            moderator</a>
     </div>
 
     <div id="overlay-list" onclick="hideOverlay()"></div>
@@ -110,7 +114,6 @@
                 <div class="testForSwitch"> Title</div>
                 <div class="testForSwitch2"> Categories Time for cooking</div>
                 <button class="publishBlocked"> Publish</button>
-                <!--TODO:  будь ласка, додай на заблоковану кнопку анімацію значка блоку як на серце в not lod in user-->
             </div>
             <div class="userRecipeField userRecipeField2">
 
@@ -118,7 +121,6 @@
                 <div class="testForSwitch"> Title</div>
                 <div class="testForSwitch2"> Categories Time for cooking</div>
                 <button class="publish"> Publish</button>
-                <!--TODO:  будь ласка, додай на заблоковану кнопку анімацію значка блоку як на серце в not lod in user-->
             </div>
             <div class="userRecipeField userRecipeField3">
 
@@ -126,7 +128,6 @@
                 <div class="testForSwitch"> Title</div>
                 <div class="testForSwitch2"> Categories Time for cooking</div>
                 <img alt="recipeIcon" class="recipeIcon" src="../../images/Recipe.svg" th:src="@{../images/Recipe.svg}">
-                <!--TODO:  будь ласка, додай на заблоковану кнопку анімацію значка блоку як на серце в not lod in user-->
             </div>
             <div class="userRecipeField userRecipeField4">
 
@@ -135,15 +136,12 @@
                 <div class="testForSwitch2"> Categories Time for cooking</div>
                 <img alt="moderation" class="moderation" src="../../images/moderation.svg"
                      th:src="@{images/moderation.svg}">
-                <!--TODO:  будь ласка, додай на заблоковану кнопку анімацію значка блоку як на серце в not lod in user-->
             </div>
             <div class="userRecipeField userRecipeField5">
-
                 <!--TODO:  текст який треба замінити на теги рецептів як в all recipes тільки +1 заблокований для загалу-->
                 <div class="testForSwitch"> Title</div>
                 <div class="testForSwitch2"> Categories Time for cooking</div>
                 <button class="publish"> Publish</button>
-                <!--TODO:  будь ласка, додай на заблоковану кнопку анімацію значка блоку як на серце в not lod in user-->
             </div>
         </div>
     </div>

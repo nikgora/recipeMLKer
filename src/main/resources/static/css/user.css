@@ -73,6 +73,11 @@
 .createRecipe {
     top: 34.1vh;
     background-color: #F28705;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
 }
 
 .confirm-list-button {
@@ -80,11 +85,17 @@
     top: 11vh;
     left: 0.6vh;
     background-color: #F28705;
+
 }
 
 .allLists {
     top: 34.2vh;
     background-color: #F28705;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
 }
 
 .logOut {
@@ -95,6 +106,12 @@
 .logInModerator {
     background: rgba(242, 183, 5, 0.3);
     top: 34.4vh;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
 }
 
 .confirm-list-button:hover {
@@ -137,8 +154,10 @@
     margin-top: 3vh;
     width: 51vw;
     height: 64vh;
-    background-color: #B90F0F; /*червоний для зручності щоб бачити межі контейнеру*/
+    /*background-color: #B90F0F; !*червоний для зручності щоб бачити межі контейнеру*!*/
     left: 2.2vw; /*2.605vw; - це щоб було рівномірно, але в нас там ще буде скрол, томку поки так*/
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .userRecipeField {
@@ -182,6 +201,10 @@
     justify-content: center
 }
 
+.publishBlocked:hover {
+    cursor: not-allowed;
+}
+
 .userRecipeField2 {
     top: 16.48vh;
 }
@@ -223,7 +246,7 @@
     border: 0.0520834vw solid black;
     border-radius: 50px;
     background: #F2E3B3;
-    margin-left: 0.5vw;
+    margin-left: 2vw;
 }
 
 ::-webkit-scrollbar-thumb {
