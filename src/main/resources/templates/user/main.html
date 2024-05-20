@@ -29,8 +29,8 @@
                      th:src="@{images/heart.svg}">
             </div>
         </div>
-        <a th:href="@{/user}" th:if="${isLogin} == true">
-            <div class="user-container heart-login-container">
+        <div th:if="${isLogin} == true">
+            <div class="user-container heart-login-container" id="heart-btn">
                 <div class="heart"
                      onmouseout="restoreImage('heart-img2', '../../images/heart-login.svg')"
                      onmouseover="changeImage('heart-img2', '../../images/heart-login-hover.svg')">
@@ -38,7 +38,29 @@
                          src="../../images/heart-login.svg" th:src="@{images/heart-login.svg}">
                 </div>
             </div>
-        </a>
+        </div>
+
+        <!--<div id="overlay-favorite" onclick="hideOverlay()"></div>
+        <div class="favoriteLists-window" id="favorite-popup-window">
+            <div th:if="${favoriteList != null}">
+                <div th:each="recipe, i : ${favoriteList.getRecipeUserLists()}">
+                    <button th:class="${i.index == 0} ? 'recipe recipe' : 'recipe recipe' + i.index"
+                            th:style="'top:' + (${i.index * 10 + 2}) + 'vh'">
+                        <div class="content-wrapper">
+                            <img th:alt="${recipe.getRecipe().getCategory().getTitle()}"
+                                 th:if="${recipe}"
+                                 th:src="@{'../images/' + ${recipe.getRecipe().getCategory().getTitle()} + '.svg'}">
+
+                            <div class="text-wrapper">
+                                <a style="font-weight: bold;"
+                                   th:href="@{/recipe/{id}(id=${recipe.getRecipe().getId()})}"
+                                   th:text="${recipe.getRecipe().getTitle()}"></a>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>-->
 
         <button class="user-container" id="user-btn1" th:if="${isLogin} == false">
             <div class="user"

@@ -31,6 +31,11 @@ function validateInput(inputId) {
     return true;
 }
 
+document.getElementById("heart-btn").addEventListener("click",
+    () => showOverlay("overlay-favorite", "favorite-popup-window"));
+document.getElementById("overlay-favorite").addEventListener("click",
+    () => hideOverlay("overlay-favorite", "favorite-popup-window"));
+
 document.getElementById("support-btn").addEventListener("click",
     () => showOverlay("overlay", "popup-window"));
 document.getElementById("overlay").addEventListener("click",

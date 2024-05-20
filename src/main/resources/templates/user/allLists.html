@@ -84,17 +84,22 @@
                 <div class="ListField">
                     <div class="ListFieldHeader" th:text="${list.getTitle()}"></div>
                     <div class="containerList">
-                        <div class="userRecipeField">
-                                <!--TODO:  текст який треба замінити на теги рецептів як в all recipes тільки +1 заблокований для загалу-->
-                            <div class="testForSwitch" th:text="list."> Title</div>
-                            <div class="testForSwitch2"> Categories Time for cooking</div>
-                            <button class="publishBlocked"> Publish</button>
+                        <div th:each="recipe: ${list.getRecipeUserLists()}">
+                            <div class="userRecipeField">
+                                <div class="testForSwitch" th:text="${recipe.getRecipe().getTitle()}"></div>
+                                <div class="testForSwitch2"
+                                     th:text="${recipe.getRecipe().getCategory().getTitle()}"></div>
+                                <div class="testForSwitch2"
+                                     th:text="${recipe.getRecipe().getCookingTime()} + ' minutes'"></div>
+                                <div class="testForSwitch2" th:text="${recipe.getRecipe().getAverageMark()}"></div>
+                                <!--<button class="publishBlocked"> Publish</button>-->
+                            </div>
                         </div>
                     </div>
                 </div>
-                </div>
             </div>
         </div>
+    </div>
     </div>
 </main>
 </body>
