@@ -147,16 +147,34 @@
     top: 10.48vh;
 }
 
+.publish {
+    position: absolute;
+    width: 4.511vw;
+    height: 3.556vh;
+    top: 2.5vh;
+    right: 2.5vw;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.2vw;
+    background: rgba(62, 89, 2);
+    border-radius: 5vh;
+    color: #FBEFC7;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+
 .userRecipeField3 {
     top: 20.96vh;
 }
 
 .recipeIcon {
     position: absolute;
-    height: 8vh; /*3.7*/
-    width: 5.6vw; /*2.6*/
-    right: 3vw;
-    top: 2.5vh;
+    height: 5.5vh; /*3.7*/
+    width: 4.2vw; /*2.6*/
+    right: 2.5vw;
+    top: 1.5vh;
 }
 
 .userRecipeField4 {
@@ -165,10 +183,10 @@
 
 .moderation {
     position: absolute;
-    height: 9vh;
-    width: 9vw;
+    height: 6vh;
+    width: 6vw;
     right: 1.5vw;
-    top: 2.5vh;
+    top: 1.5vh;
 }
 
 .userRecipeField5 {
@@ -211,19 +229,3 @@
 }
 
 /*____________________________________________________________________________________________________________________*/
-.publish {
-    position: absolute;
-    width: 4.511vw;
-    height: 3.556vh;
-    top: 3.5vh;
-    right: 3vw;
-    font-family: 'Frank Ruhl Libre', serif;
-    font-size: 1.2vw;
-    background: rgba(62, 89, 2);
-    border-radius: 5vh;
-    color: #FBEFC7;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center
-}
