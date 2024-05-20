@@ -30,10 +30,10 @@
             </div>
         </div>
 
-        <div id="overlay-favorite" onclick="hideOverlay()"></div>
+        <!--<div id="overlay-favorite" onclick="hideOverlay()"></div>
         <div class="favoriteLists-window" id="favorite-popup-window">
             <div th:if="${favoriteList != null}">
-                <div th:each="recipe, i : ${favoriteList.getUser().getRecipes()}">
+                <div th:each="recipe, i : ${favoriteList}">
                     <button th:class="${i.index == 0} ? 'recipe' : 'recipe' + i.index">
                         <div class="content-wrapper">
                             <div class="comment-user-circle">
@@ -49,9 +49,8 @@
                     </button>
                 </div>
             </div>
-        </div>
-
-
+        </div>-->
+        
         <button class="user-container" id="user-btn">
             <div class="user"
                  onmouseout="restoreImage('user-img', '../../images/user-login.svg')"

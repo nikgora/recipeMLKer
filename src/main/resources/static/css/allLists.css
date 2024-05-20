@@ -26,8 +26,8 @@
     /*background-color: #B90F0F;*/
     overflow-y: auto;
     overflow-x: hidden;
+    display: flex;
     flex-wrap: wrap;
-
 }
 
 /*____________________________________________________________________________________________________________________*/
@@ -54,6 +54,8 @@
     height: 41.67vh;
     background-color: #F2E3B3;
     border-radius: 5vh;
+    box-sizing: border-box;
+    margin-right: 1.5vw;
 }
 
 .ListFieldHeader {
@@ -69,20 +71,6 @@
     display: flex;
     align-items: center;
     justify-content: center
-}
-
-.ListField1 {
-    margin-left: 32.5vw;
-    margin-top: -21vw;
-}
-
-.ListField2 {
-    margin-left: 65vw;
-    margin-top: -21vw;
-}
-
-.ListField3 {
-    margin-top: 2.5vh;
 }
 
 /*____________________________________________________________________________________________________________________*/

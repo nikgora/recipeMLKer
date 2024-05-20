@@ -80,61 +80,19 @@
 <main>
     <div class="container">
         <div class="MainField">
-            <div class="ListField">
-                <div class="ListFieldHeader">List name</div>
-                <div class="containerList">
-                    <div class="userRecipeField">
-
-                        <!--TODO:  текст який треба замінити на теги рецептів як в all recipes тільки +1 заблокований для загалу-->
-                        <div class="testForSwitch"> Title</div>
-                        <div class="testForSwitch2"> Categories Time for cooking</div>
-                        <button class="publishBlocked"> Publish</button>
-                    </div>
-                    <div class="userRecipeField userRecipeField2">
-
-                        <!--TODO:  текст який треба замінити на теги рецептів як в all recipes тільки +1 заблокований для загалу-->
-                        <div class="testForSwitch"> Title</div>
-                        <div class="testForSwitch2"> Categories Time for cooking</div>
-                        <button class="publish"> Publish</button>
-                    </div>
-                    <div class="userRecipeField userRecipeField3">
-
-                        <!--TODO:  текст який треба замінити на теги рецептів як в all recipes тільки +1 заблокований для загалу-->
-                        <div class="testForSwitch"> Title</div>
-                        <div class="testForSwitch2"> Categories Time for cooking</div>
-                        <img alt="recipeIcon" class="recipeIcon" src="../../images/Recipe.svg"
-                             th:src="@{../images/Recipe.svg}">
-                    </div>
-                    <div class="userRecipeField userRecipeField4">
-
-                        <!--TODO:  текст який треба замінити на теги рецептів як в all recipes тільки +1 заблокований для загалу-->
-                        <div class="testForSwitch"> Title</div>
-                        <div class="testForSwitch2"> Categories Time for cooking</div>
-                        <img alt="moderation" class="moderation" src="../../images/moderation.svg"
-                             th:src="@{images/moderation.svg}">
-                    </div>
-                    <div class="userRecipeField userRecipeField5">
-                        <!--TODO:  текст який треба замінити на теги рецептів як в all recipes тільки +1 заблокований для загалу-->
-                        <div class="testForSwitch"> Title</div>
-                        <div class="testForSwitch2"> Categories Time for cooking</div>
-                        <button class="publish"> Publish</button>
+            <div th:each="list, i : ${lists}">
+                <div class="ListField">
+                    <div class="ListFieldHeader" th:text="${list.getTitle()}"></div>
+                    <div class="containerList">
+                        <div class="userRecipeField">
+                                <!--TODO:  текст який треба замінити на теги рецептів як в all recipes тільки +1 заблокований для загалу-->
+                            <div class="testForSwitch" th:text="list."> Title</div>
+                            <div class="testForSwitch2"> Categories Time for cooking</div>
+                            <button class="publishBlocked"> Publish</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="ListField ListField1">
-                <div class="ListFieldHeader">List name</div>
-            </div>
-            <div class="ListField ListField2">
-                <div class="ListFieldHeader">List name</div>
-            </div>
-            <div class="ListField  ListField3">
-                <div class="ListFieldHeader">List name</div>
-            </div>
-            <div class="ListField  ListField1 ListField4">
-                <div class="ListFieldHeader">List name</div>
-            </div>
-            <div class="ListField  ListField2 ListField5">
-                <div class="ListFieldHeader">List name</div>
+                </div>
             </div>
         </div>
     </div>

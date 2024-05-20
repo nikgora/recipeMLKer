@@ -66,7 +66,7 @@
             <h1 class="login-heading">Log in</h1>
             <form id="loginForm" method="post" onsubmit="return submitForm()" th:action="@{/api/auth/login}">
                 <div class="login-form email">
-                    <input name="username" placeholder="Enter email" required type="text">
+                    <input name="username" placeholder="Enter login" required type="text">
                 </div>
                 <div class="login-form password">
                     <input name="password" placeholder="Enter password" required type="password">
@@ -92,7 +92,8 @@
     </div>
 
     <form method="post" th:action="@{/api/addRecipeToList/{id1}/Favorites(id1=${id})}">
-        <button id="FavoriteList">Favorite</button>
+        <button id="FavoriteList" onclick="showAlert('Please, log in to add this recipe to favorites')">Favorite
+        </button>
     </form>
 
     <button class="UserList" id="lists-btn">Lists</button>
@@ -126,7 +127,6 @@
         </button>
     </div>
 
-
     <button class="Report" id="report-btn">Report</button>
     <div th:if="${isLogin} == true">
         <div id="overlay-report" onclick="hideOverlay()"></div>
@@ -147,7 +147,7 @@
     </div>
 
     <div class="mini">
-        <p class="miniTime" th:text="${recipe.getCookingTime()}  + ' minutes'"> 30 minutes</p>
+        <p class="miniTime" th:text="${recipe.getCookingTime()}  + ' minutes'"></p>
         <img th:alt="${recipe.getCategory().getTitle()}"
              th:class="${recipe.getCategory().getTitle().replace(' ', '-')}"
              th:if="${recipe}"
