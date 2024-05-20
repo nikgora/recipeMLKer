@@ -183,7 +183,7 @@ public class UserController {
 
     @PostMapping("/api/addRecipeToList/{id}/{name}")
     public String addRecipetoList(@PathVariable("id") Long id, @PathVariable("name") String name) {
-        if (jwt == null) return "redirect:/mustBeLogin";
+        if (jwt == null) return "redirect:/recipe/" + id;
         if (this.recipeService.getRecipeById(id) == null) {
             return "redirect:/404";
         }
@@ -368,8 +368,7 @@ public class UserController {
 
     @PostMapping("/api/newComment/{id}")
     public String newComment(@ModelAttribute Comment comment, @PathVariable("id") Long id) {
-
-        if (jwt == null) return "redirect:/mustBeLogin";
+        if (jwt == null) return "redirect:/recipe/" + id;
         if (this.recipeService.getRecipeById(id) == null) {
             return "redirect:/404";
         }
@@ -386,7 +385,7 @@ public class UserController {
     @PostMapping("/api/newRating/{id}")
     public String newMark(@ModelAttribute Rating rating, @PathVariable("id") Long id) {
 
-        if (jwt == null) return "redirect:/mustBeLogin";
+        if (jwt == null) return "redirect:/recipe/" + id;
         Recipe recipe = this.recipeService.getRecipeById(id);
 
         if (recipe == null) {

@@ -195,12 +195,24 @@ a:visited, a:link {
 }
 
 /*____________________________________________________________________________________________________________________*/
+.ListTitle {
+    position: absolute;
+    font-family: 'Frank Ruhl Libre', serif;;
+    font-size: 3vw;
+    font-weight: 400;
+    line-height: 1vh;
+    left: 45vw;
+    top: 15vh;
+    color: black;
+    text-align: center;
+}
+
 .field {
     position: absolute;
     width: 80vw;
-    height: 76vh;
+    height: 70vh;
     right: 2vw;
-    top: 14.6vh;
+    top: 20.6vh;
     bottom: 8vh;
     border-radius: 5.5vh;
     padding-left: 1.5vw;
@@ -210,7 +222,7 @@ a:visited, a:link {
 .ol {
     position: absolute;
     width: 79vw;
-    height: 74vh;
+    height: 68vh;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.66667vw;
     overflow-y: auto;
@@ -245,6 +257,23 @@ a:visited, a:link {
     bottom: 8vh;
     border-radius: 5.5vh;
     background-color: #FBEFC7;
+}
+
+.smallerField-down1 {
+    top: 22vh;
+}
+
+.smallerField-down2 {
+    top: 40vh;
+}
+
+.smallerField-down3 {
+    top: 58vh;
+}
+
+.smallerField-down4 {
+    top: 76vh;
+    bottom: 4vh;
 }
 
 table td {
@@ -358,7 +387,7 @@ table td {
 }
 
 hr {
-    border: 0.09vw solid black;
+    border: 0.104167vw solid black;
     width: 9.3vw;
     margin-right: 0.5vw;
     margin-left: 2vw;

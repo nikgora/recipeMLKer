@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Recipe Creation</title>
-    <link rel="stylesheet" type="text/css" href="../../static/css/recipeCreation.css" >
+    <link rel="stylesheet" type="text/css" href="../../static/css/recipeCreation.css"  th:href="@{css/recipeCreation.css}" >
 </head>
 <header>
     <div class="header">
@@ -16,52 +16,72 @@
         </form>
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
         <a class="button-style" href="recipe.html" th:href="@{/recipe/1}">Random</a>
+
         <div class="heart-container">
             <div class="heart"
-                 onmouseover="changeImage('heart-img', '../../static/images/heart-hover.svg')"
-                 onmouseout="restoreImage('heart-img', '../../static/images/heart.svg')">
-                <img id="heart-img" th:src="@{images/heart.svg}" src="../../static/images/heart.svg" alt="heart" class="heart">
+                 onmouseover="changeImage('heart-img', '../../images/heart-hover.svg')"
+                 onmouseout="restoreImage('heart-img', '../../images/heart.svg')">
+                <img id="heart-img" th:src="@{images/heart.svg}" src="../../images/heart.svg" alt="heart" class="heart">
             </div>
         </div>
 
         <div class="user-container">
             <div class="user"
-                 onmouseover="changeImage('user-img', '../../static/images/user-hover.svg')"
-                 onmouseout="restoreImage('user-img', '../../static/images/user.svg')">
+                 onmouseover="changeImage('user-img', '../../images/user-hover.svg')"
+                 onmouseout="restoreImage('user-img', '../../images/user.svg')">
 
-                <img id="user-img" th:src="@{images/user.svg}" src="../../static/images/user.svg" alt="user" class="user">
+                <img id="user-img" th:src="@{images/user.svg}" src="../../images/user.svg" alt="user" class="user">
             </div>
         </div>
-
         <a th:href="@{/}" href="main.html">
             <img th:src="@{images/home.svg}" src="../../images/home.svg" alt="home" class="home">
         </a>
-
-
     </div>
 </header>
 <body>
     <div class="title">Create a recipe</div>
     <main>
-        <form class="text-form">
-        <div class="recipeTitle">
-            <input name="query" placeholder="Recipe title" type="text">
-        </div>
-        </form>
-        <div class="recipeCookingTime"></div>
-        <div class="recipeCategory"></div>
-        <div class="recipeIngredients"></div>
-        <div class="recipeIngredientsAmount"></div>
-        <form class="text-form">
-            <div class="recipeDevices"></div>
+        <form class="text-form-title">
+            <div class="recipeTitle">
                 <input name="query" placeholder="Recipe title" type="text">
             </div>
         </form>
-        <div class="recipeStepByStep"></div>
+        <form class="text-form-time">
+            <div class="recipeCookingTime">
+                <input name="query" placeholder="Cooking time" type="number">
+<!-- TODO               min value 1-->
+            </div>
+        </form>
+        <form class="text-form-category">
+            <div class="recipeCategory">
+                <input name="query" placeholder="Category" type="text">
+            </div>
+        </form>
+        <div class="ingredientsField">
+        <form class="text-form-ingredients">
+            <div class="recipeIngredients">
+                <input name="query" placeholder="Ingredients" type="text">
+            </div>
+        </form>
+        <form class="text-form-ingredients-amount">
+            <div class="recipeIngredientsAmount">
+                <input name="query" placeholder="Ingredients amount" type="text">
+            </div>
+        </form>
+        </div>
+        <form class="text-form-devices">
+            <div class="recipeDevices"></div>
+                <input name="query" placeholder="Recipe devices" type="text">
+            </div>
+        </form>
+        <form class="text-form-StepByStep">
+            <div class="recipeStepByStep">
+                <input name="query" placeholder="Step by step" type="text">
+            </div>
+        </form>
 
-        <div class="previewButton"></div>
-        <div class="saveButton"></div>
-        <div class="publishButton"></div>
+        <div class="saveButton buttonText">Save</div>
+        <div class="publishButton buttonText">Publish</div>
         <div class="stick"></div>
     </main>
 

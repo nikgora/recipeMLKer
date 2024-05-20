@@ -2,8 +2,9 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>All recipes</title>
-    <link href="../../static/css/allRecipes.css" rel="stylesheet" th:href="@{css/allRecipes.css}" type="text/css">
+    <title>User List</title>
+    <!--TODO: навіть не знаю як краще назвати цб сторінку, просто user list чи адаптивна назва самого користувача...-->
+    <link href="../../static/css/userList.css" rel="stylesheet" th:href="@{css/userList.css}" type="text/css">
     <link href="../../static/css/headerIfooter.css" rel="stylesheet" th:href="@{../css/headerIfooter.css}"
           type="text/css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
@@ -81,7 +82,8 @@
 
     </div>
 </header>
-
+<div class="ListTitle">User list</div>
+<!--TODO: отут точно вже треба адаптувати назву-->
 <main>
     <h1 class="boardTwoTitle">Filters</h1>
     <img alt="board" class="board" src="../../static/images/CuttingBoard.svg" th:src="@{images/CuttingBoard.svg}">
@@ -329,8 +331,7 @@
         <div class="field" id="recipeContainer" th:if="${recipes.size()!=0}">
             <div class="ol">
                 <div th:class="${i.index == 0} ? 'smallerField smallerField' : 'smallerField smallerField-down' + (${i.index})"
-                     th:each="recipe, i : ${recipes}"
-                     th:style="'top:' + (${i.index * 18 + 4}) + 'vh'">
+                     th:each="recipe, i : ${recipes}">
                     <div class="comment-user-circle">
                         <img th:alt="${recipe.getCategory().getTitle()}"
                              th:class="${recipe.getCategory().getTitle().replace(' ', '-')}"

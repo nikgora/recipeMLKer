@@ -1,63 +1,67 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
-    <title>User page</title>
+    <title>Moderator page</title>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link rel="stylesheet" type="text/css" href="../../static/css/moderatorPage.css" th:href="@{css/moderatorPage.css}">
+    <link href="../../static/css/moderatorPage.css" rel="stylesheet" th:href="@{css/moderatorPage.css}" type="text/css">
+    <link href="../../static/css/headerIfooter.css" rel="stylesheet" th:href="@{../css/headerIfooter.css}">
 </head>
 <body>
 <header>
     <div class="header">
-        <img th:src="@{images/logo1.svg}" src="../../static/images/logo1.svg" alt = "logo1" class = "logo1">
+        <img alt="logo1" class="logo1" src="../../static/images/logo1.svg" th:src="@{images/logo1.svg}">
 
 
         <form class="search-form">
-            <img th:src="@{images/magnifier.svg}" src="../../static/images/magnifier.svg" alt = "magnifier" class = "magnifier">
+            <img alt="magnifier" class="magnifier" src="../../static/images/magnifier.svg"
+                 th:src="@{images/magnifier.svg}">
             <input name="query" placeholder="Search" type="search">
         </form>
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
         <a class="button-style" href="recipe.html" th:href="@{/recipe/1}">Random</a>
 
-        <div class="heart-container">
+        <div class="user-container heart-login-container" id="heart-btn">
             <div class="heart"
-                 onmouseover="changeImage('heart-img', '../../images/heart-hover.svg')"
-                 onmouseout="restoreImage('heart-img', '../../images/heart.svg')">
-                <img id="heart-img" th:src="@{images/heart.svg}" src="../../images/heart.svg" alt="heart" class="heart">
+                 onmouseout="restoreImage('heart-img', '../../images/heart-login.svg')"
+                 onmouseover="changeImage('heart-img', '../../images/heart-login-hover.svg')">
+                <img alt="heart" class="heart" id="heart-img" src="../../images/heart-login.svg"
+                     th:src="@{images/heart-login.svg}">
             </div>
         </div>
 
-        <div class="user-container">
+        <button class="user-container" id="user-btn">
             <div class="user"
-                 onmouseover="changeImage('user-img', '../../images/user-hover.svg')"
-                 onmouseout="restoreImage('user-img', '../../images/user.svg')">
-
-                <img id="user-img" th:src="@{images/user.svg}" src="../../images/user.svg" alt="user" class="user">
+                 onmouseout="restoreImage('user-img', '../../images/user-login.svg')"
+                 onmouseover="changeImage('user-img', '../../images/user-login-hover.svg')">
+                <img alt="user" class="user" id="user-img" src="../../images/user-login.svg"
+                     th:src="@{images/user-login.svg}">
             </div>
-        </div>
+        </button>
 
-        <a th:href="@{/main.page}" href="main.html">
-            <img th:src="@{images/home.svg}" src="../../images/home.svg" alt="home" class="home">
+        <a href="../user/main.html" th:href="@{/}">
+            <img alt="home" class="home" src="../../images/home.svg" th:src="@{images/home.svg}">
         </a>
     </div>
-
 </header>
+
 <main>
     <div class="avatarField">
-        <img th:src="@{images/Chef.svg}" src="../../static/images/Moderator.svg" alt = "moder" class = "moder">
+        <img alt="moder" class="moder" src="../../images/Moderator.svg" th:src="@{images/Chef.svg}">
     </div>
     <div class="line">
         <div class="nikText">Moderator name</div>
     </div>
     <div class="AIReport">
-    <p class="reportAI">Recipe publishing (AI)</p>
+        <a class="reportAI" href="../moderator/moderatorPage.html" th:href="@{/moderator/AIReports}">Recipe publishing
+            (AI)</a>
     </div>
 
     <div class="UserReport">
         <p class="reportUser">User report</p>
     </div>
-    <div class="returnB">Return to the user account
-    </div>
+    <a class="returnB" href="../user/user.html" th:href="@{/user}">Return to the user account
+    </a>
     <div class="stick"></div>
 
 </main>
@@ -80,23 +84,25 @@
     <div class="circle-container telegram-container">
         <div
                 class="telegram"
-                onmouseover="changeImage('telegram-img', '../../images/telegram-hover.svg')"
                 onmouseout="restoreImage('telegram-img', '../../images/telegram.svg')"
+                onmouseover="changeImage('telegram-img', '../../images/telegram-hover.svg')"
         >
-            <img id="telegram-img" th:src="@{images/telegram.svg}"  src="../../images/telegram.svg" alt="telegram" class="telegram">
+            <img alt="telegram" class="telegram" id="telegram-img" src="../../images/telegram.svg"
+                 th:src="@{images/telegram.svg}">
         </div>
     </div>
 
     <div class="circle-container instagram-container">
         <div
                 class="instagram"
-                onmouseover="changeImage('instagram-img', '../../images/inst-hover.svg')"
                 onmouseout="restoreImage('instagram-img', '../../images/inst.svg')"
+                onmouseover="changeImage('instagram-img', '../../images/inst-hover.svg')"
         >
-            <img id="instagram-img" th:src="@{images/inst.svg}" src="../../images/inst.svg" alt="instagram" class="instagram">
+            <img alt="instagram" class="instagram" id="instagram-img" src="../../images/inst.svg"
+                 th:src="@{images/inst.svg}">
         </div>
     </div>
 </footer>
-<script th:href="@{js/scripts.js}" src="../../js/scripts.js"></script>
+<script src="../../js/scripts.js" th:href="@{js/scripts.js}"></script>
 </body>
 </html>

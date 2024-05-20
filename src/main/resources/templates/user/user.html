@@ -30,10 +30,10 @@
             </div>
         </div>
 
-        <div id="overlay-favorite" onclick="hideOverlay()"></div>
+        <!--<div id="overlay-favorite" onclick="hideOverlay()"></div>
         <div class="favoriteLists-window" id="favorite-popup-window">
             <div th:if="${favoriteList != null}">
-                <div th:each="recipe, i : ${favoriteList.getUser().getRecipes()}">
+                <div th:each="recipe, i : ${favoriteList}">
                     <button th:class="${i.index == 0} ? 'recipe' : 'recipe' + i.index">
                         <div class="content-wrapper">
                             <div class="comment-user-circle">
@@ -49,9 +49,8 @@
                     </button>
                 </div>
             </div>
-        </div>
-
-
+        </div>-->
+        
         <button class="user-container" id="user-btn">
             <div class="user"
                  onmouseout="restoreImage('user-img', '../../images/user-login.svg')"
@@ -78,12 +77,13 @@
 
     <div class="button-container" id="button">
         <button class="createList" id="createList-btn">Create a list</button>
-        <button class="createRecipe">Create a recipe</button>
-        <button class="allLists">All Lists</button>
+        <a class="createRecipe" href="recipeCreation.html" th:href="@{/newRecipe}">Create a recipe</a>
+        <a class="allLists" href="allLists.html" th:href="@{/allLists}">All Lists</a>
         <form method="post" th:action="@{/api/logout}">
-            <button class="logOut">Log out</button>
+            <button class="userButton logOut">Log out</button>
         </form>
-        <button class="logInModerator">Log in as moderator</button>
+        <a class="userButton logInModerator" href="../moderator/moderatorPage.html"
+           th:href="@{/moderator}">Log in as moderator</a>
     </div>
 
     <div id="overlay-list" onclick="hideOverlay()"></div>
@@ -102,6 +102,43 @@
     <div class="recipesField">
         <div class="recipesFieldHeader">
             <p class="c7">User notes</p>
+        </div>
+        <div class="container">
+            <div class="userRecipeField">
+
+                <!--TODO:  текст який треба замінити на теги рецептів як в all recipes тільки +1 заблокований для загалу-->
+                <div class="testForSwitch"> Title</div>
+                <div class="testForSwitch2"> Categories Time for cooking</div>
+                <button class="publishBlocked"> Publish</button>
+            </div>
+            <div class="userRecipeField userRecipeField2">
+
+                <!--TODO:  текст який треба замінити на теги рецептів як в all recipes тільки +1 заблокований для загалу-->
+                <div class="testForSwitch"> Title</div>
+                <div class="testForSwitch2"> Categories Time for cooking</div>
+                <button class="publish"> Publish</button>
+            </div>
+            <div class="userRecipeField userRecipeField3">
+
+                <!--TODO:  текст який треба замінити на теги рецептів як в all recipes тільки +1 заблокований для загалу-->
+                <div class="testForSwitch"> Title</div>
+                <div class="testForSwitch2"> Categories Time for cooking</div>
+                <img alt="recipeIcon" class="recipeIcon" src="../../images/Recipe.svg" th:src="@{../images/Recipe.svg}">
+            </div>
+            <div class="userRecipeField userRecipeField4">
+
+                <!--TODO:  текст який треба замінити на теги рецептів як в all recipes тільки +1 заблокований для загалу-->
+                <div class="testForSwitch"> Title</div>
+                <div class="testForSwitch2"> Categories Time for cooking</div>
+                <img alt="moderation" class="moderation" src="../../images/moderation.svg"
+                     th:src="@{images/moderation.svg}">
+            </div>
+            <div class="userRecipeField userRecipeField5">
+                <!--TODO:  текст який треба замінити на теги рецептів як в all recipes тільки +1 заблокований для загалу-->
+                <div class="testForSwitch"> Title</div>
+                <div class="testForSwitch2"> Categories Time for cooking</div>
+                <button class="publish"> Publish</button>
+            </div>
         </div>
     </div>
 </main>

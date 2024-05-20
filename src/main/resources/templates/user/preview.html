@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Recipe</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="stylesheet" type="text/css" th:href="@{../css/preview.css}" href="../../static/css/preview.css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<header>
+    <div class="header">
+        <img th:src="@{../images/logo.svg}" src="../../images/logo.svg" alt = "logo" class = "logo">
+
+        <form class="search-form">
+            <img th:src="@{../images/magnifier.svg}" src="../../static/images/magnifier.svg" alt = "magnifier" class = "magnifier">
+            <input name="startWith" placeholder="Search" type="search">
+        </form>
+        <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
+        <a class="button-style" href="recipe.html" th:href="@{/recipe/{id1}(id1=${randomRecipeId})}">Random</a>
+
+        <div class="user-container heart-container" th:if ="${isLogin} == false">
+            <div class="heart"
+                 onmouseover="changeImage('heart-img1', '../../images/heart-hover.svg')"
+                 onmouseout="restoreImage('heart-img1', '../../images/heart.svg')">
+                <img id="heart-img1" th:src="@{images/heart.svg}" src="../../images/heart.svg" alt="heart" class="heart">
+            </div>
+        </div>
+        <a th:href="@{/user}" th:if="${isLogin} == true">
+            <div class="user-container heart-login-container">
+                <div class="heart"
+                     onmouseover="changeImage('heart-img2', '../../images/heart-login-hover.svg')"
+                     onmouseout="restoreImage('heart-img2', '../../images/heart-login.svg')">
+                    <img id="heart-img2" th:src="@{images/heart-login.svg}" src="../../images/heart-login.svg" alt="heart" class="heart">
+                </div>
+            </div>
+        </a>
+
+        <button class="user-container" id="user-btn1"  th:if ="${isLogin} == false">
+            <div class="user"
+                 onmouseover="changeImage('user-img1', '../../images/user-hover.svg')"
+                 onmouseout="restoreImage('user-img1', '../../images/user.svg')">
+
+                <img id="user-img1" th:src="@{images/user.svg}" src="../../images/user.svg" alt="user" class="user">
+            </div>
+        </button>
+        <a th:href="@{/user}" th:if="${isLogin} == true">
+            <button class="user-container"  id="user-btn2" >
+                <div class="user"
+                     onmouseover="changeImage('user-img2', '../../images/user-login-hover.svg')"
+                     onmouseout="restoreImage('user-img2', '../../images/user-login.svg')">
+
+                    <img id="user-img2" th:src="@{images/user-login.svg}" src="../../images/user-login.svg" alt="user" class="user">
+                </div>
+            </button>
+        </a>
+        <div id="overlay-user" onclick="hideOverlay()"></div>
+        <div class="login-window" id="popup-login-window">
+            <h1 class="login-heading">Log in</h1>
+            <form method="post"  id="loginForm"  th:action="@{api/auth/login}" onsubmit="return submitForm()">
+                <div class="login-form email">
+                    <input name="username" placeholder="Enter email" type="text" required>
+                </div>
+                <div class="login-form password">
+                    <input name="password" placeholder="Enter password" type="password" required>
+                </div>
+                <button id="confirm-button">Confirm</button>
+            </form>
+        </div>
+
+        <a th:href="@{/}" href="main.html">
+            <img th:src="@{../images/home.svg}" src="../../images/home.svg" alt="home" class="home">
+        </a>
+    </div>
+</header>
+<main>
+    <img alt="recipeIcon" class="recipeIcon" th:src="@{../images/Recipe.svg}" src="../../images/Recipe.svg" >
+    <div class = "RecipeTitle">
+        <p class="c3" th:text="${recipe.getTitle()}">Pancakes</p>
+    </div>
+
+    <button id="FavoriteList">Favorite</button>
+    <button id="UserList">Lists</button>
+
+    <a th:href="@{/user}" th:if="${isLogin} == true">
+        <div id="overlay-report" onclick="hideOverlay()"></div>
+
+        <div class="report-container" id="report-field-popup-window">
+            <div class="reportHeader">Report</div>
+            <div class="report-inner-window">
+                <textarea name="report" placeholder="Please, enter the reason for the report" required></textarea>
+            </div>
+            <button class="send-report" id="send-report-btn">Send a report</button>
+        </div>
+    </a>
+
+    <div class="mini">
+        <p class="miniTime" th:text="${recipe.getCookingTime()}  + ' minutes'"> 30 minutes</p>
+        <img th:if="${recipe}"
+             th:src="@{'../images/' + ${recipe.getCategory().getTitle()} + '.svg'}"
+             th:alt="${recipe.getCategory().getTitle()}"
+             th:class="${recipe.getCategory().getTitle().replace(' ', '-')}">
+        <p class="miniTime miniCategories" th:text="${recipe.getCategory().getTitle()}">
+    </div>
+
+    <div class="IngredientTagsField">
+        <div class="IngredientTagsTitle">
+            <p class = "c7">Ingredient tags</p>
+            <div class="ingredientContent">
+                <table th:each="ingedients: ${recipe.getRecipeIngredients()}">
+                    <tr>
+                        <td>
+                            <a th:href="@{/allRecipes(ingredient=${ingedients.ingredient.getName()})}" th:text="'#' + ${ingedients.ingredient.getName()}"></a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="IngredientTagsField DeviceTagsField ">
+        <div class="IngredientTagsTitle">
+            <p class = "c7 devices">Devices tags</p>
+        </div>
+        <div class="ingredientContent">
+            <table th:each="devices: ${recipe.getRecipeDevices()}">
+                <tr>
+                    <td>
+                        <a th:href="@{/allRecipes(device=${devices.cookingDevice.getName()})}" th:text="'#' + ${devices.cookingDevice.getName()}"></a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <button id="Save">Save</button>
+    <button id="Preview">Preview</button>
+    <button id="Publish">Publish</button>
+
+    <div class="fullRecipe">
+        <div class="fullRecipeHeader">Recipe</div>
+        <div class="amountField">
+            <div class="ingredientsHeader">Ingredient amount</div>
+            <div class="amountContent">
+                <table th:each="ingedients: ${recipe.getRecipeIngredients()}">
+                    <tr>
+                        <td th:text="${ingedients.ingredient.getName()}"></td>
+                        <td th:text="' - ' + ${ingedients.getAmountOfIngredient()}">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="ingredientsHeader devicesHeader">Cooking devices</div>
+            <div class="amountContent deviceContent">
+                <table th:each="devices: ${recipe.getRecipeDevices()}">
+                    <tr>
+                        <td th:text="${devices.cookingDevice.getName()}"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="stepByStepField">
+            <div class="ingredientsHeader stepByStepHeader">Step-by-step instructions</div>
+            <div class="amountContent" th:text="${recipe.getDescription()}"></div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <button class="support-button" id="support-btn"><span>Support</span></button>
+
+    <div id="overlay" onclick="hideOverlay()"></div>
+
+    <div class="window" id="popup-window">
+        <div class="inner-window">
+            <textarea name="query" placeholder="Enter feedback" required></textarea>
+        </div>
+
+        <button id="send-button">Send</button>
+    </div>
+
+    <div class="copyright">© Company policy and privacy rules</div>
+
+    <div class="circle-container telegram-container">
+        <div class="telegram"
+             onmouseover="changeImage('telegram-img', '../../images/telegram-hover.svg')"
+             onmouseout="restoreImage('telegram-img', '../../images/telegram.svg')"
+        >
+            <img id="telegram-img" src="../../images/telegram.svg" alt="telegram" class="telegram">
+        </div>
+    </div>
+
+    <div class="circle-container instagram-container">
+        <div class="instagram"
+             onmouseover="changeImage('instagram-img', '../../images/inst-hover.svg')"
+             onmouseout="restoreImage('instagram-img', '../../images/inst.svg')"
+        >
+            <img id="instagram-img" src="../../images/inst.svg" alt="instagram" class="instagram">
+        </div>
+    </div>
+</footer>
+<script th:href="@{js/scripts.js}" src="../../js/scripts.js"></script>
+<script>
+    function getRating() {
+        var ratingInputs = document.querySelectorAll('input[name="rating"]');
+        var selectedRating = null;
+
+        for (var i = 0; i < ratingInputs.length; i++) {
+            if (ratingInputs[i].checked) {
+                selectedRating = ratingInputs[i].id;
+                break;
+            }
+        }
+        return selectedRating;
+    }
+
+    var button = document.getElementById("rate-btn");
+
+    button.addEventListener("click", function () {
+        var selectedRating = getRating();
+        alert("Selected rating: " + selectedRating)
+    });
+
+    function submitForm() {
+        var form = document.getElementById('loginForm');
+        var formData = new FormData(form);
+        var data = {};
+        formData.forEach(function(value, key){
+            data[key] = value;
+        });
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', form.action, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    alert('Login successful. You are now logged in.');
+                } else {
+                    alert('Login failed. Please try again.'); // Show an alert or handle error
+                }
+            }
+        };
+        xhr.send(JSON.stringify(data));
+        return false; // Prevent the form from submitting in the traditional way
+    }
+
+    document.getElementById("report-btn").addEventListener("click",
+        () => showOverlay("overlay-report", "report-field-popup-window"));
+    document.getElementById("overlay-report").addEventListener("click",
+        () => hideOverlay("overlay-report", "report-field-popup-window"));
+    document.getElementById("send-report-btn").addEventListener("click",
+        () => hideOverlay("overlay-report", "report-field-popup-window"));
+</script>
+</body>
+</html>
