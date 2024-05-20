@@ -15,13 +15,13 @@
 }
 
 /*____________________________________________________________________________________________________________________*/
-.titleForAiPage {
+.titleForUserPage {
     position: absolute;
     text-align: center;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 2.2vw;
     text-decoration: none;
-    left: 37vw;
+    left: 45vw;
     top: 12.2vh;
 }
 
