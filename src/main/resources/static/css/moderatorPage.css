@@ -149,7 +149,11 @@
     text-align: left;
     color: black;
     left: 21vw;
-    top: 47vh;
+    top: 52vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 
 .reportAI:hover, .AIReport:hover {
@@ -175,7 +179,11 @@
     text-align: left;
     color: black;
     left: 61.5vw;
-    top: 47vh;
+    top: 52vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 
 .UserReport:hover, .reportUser:hover {
