@@ -40,7 +40,7 @@
             </div>
         </div>
 
-        <!--<div id="overlay-favorite" onclick="hideOverlay()"></div>
+        <div id="overlay-favorite" onclick="hideOverlay()"></div>
         <div class="favoriteLists-window" id="favorite-popup-window">
             <div th:if="${favoriteList != null}">
                 <div th:each="recipe, i : ${favoriteList.getRecipeUserLists()}">
@@ -60,7 +60,7 @@
                     </button>
                 </div>
             </div>
-        </div>-->
+        </div>
 
         <button class="user-container" id="user-btn1" th:if="${isLogin} == false">
             <div class="user"
@@ -297,6 +297,11 @@
         xhr.send(JSON.stringify(data));
         return false; // Prevent the form from submitting in the traditional way
     }
+
+    document.getElementById("heart-btn").addEventListener("click",
+        () => showOverlay("overlay-favorite", "favorite-popup-window"));
+    document.getElementById("overlay-favorite").addEventListener("click",
+        () => hideOverlay("overlay-favorite", "favorite-popup-window"));
 </script>
 </body>
 </html>
