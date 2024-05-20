@@ -100,7 +100,7 @@ VALUES ('Scrambled Eggs', 15,
         <br><br>Flip and cook until browned on the other side.
         <br><br>Repeat with remaining butter.',
         TRUE, 4, 5),
-        ('Green tahini', 5,
+        ('Green Tahini', 5,
         'Blend up all your sauce ingredients in a food processor or blender until smooth. Taste and adjust. If the sauce is too runny, add a little more tahini.
         <br><br>Pour over roasted vegetables, beans, grains, protein… anything that needs to be woken up with some rich and creamy flavor!',
         TRUE, 2, 9);
