@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ModeratorRepository extends JpaRepository<Moderator, Long> {
-    Moderator getById(long id);
+    Moderator getFirstModeratorById(long id);
 }

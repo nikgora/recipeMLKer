@@ -13,6 +13,6 @@ public class ModeratorServiceImpl implements ModeratorService {
 
     @Override
     public Moderator getModeratorById(Long id) {
-        return moderatorRepository.getById(id);
+        return moderatorRepository.getFirstModeratorById(id);
     }
 }

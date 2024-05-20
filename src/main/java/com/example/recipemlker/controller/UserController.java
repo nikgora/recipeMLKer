@@ -74,14 +74,60 @@ public class UserController {
     }
 
     @GetMapping("/userList/{name}")
-    public String Sfd(Model model, @PathVariable("name") String name) {
+    public String Sfd(Model model, @PathVariable("name") String name, @RequestParam(required = false) List<String> device, @RequestParam(required = false) List<String> category, @RequestParam(required = false) List<String> ingredient, @RequestParam(required = false) List<String> startWith, @RequestParam(required = false) Integer minTime, @RequestParam(required = false) Integer maxTime, @RequestParam(required = false) Double minMark, @RequestParam(required = false) Double maxMark) {
         if (jwt == null) {
             return "redirect:/403";
         }
+        User user = userService.getUserByUsername(jwtService.extractUserName(jwt));
+        UserList userList = userListService.getFirstByTitleAndUser(name, user);
+        List<Recipe> recipes = new ArrayList<>();
+        List<RecipeUserList> recipeUserLists = recipeUserListService.getAllByUserList(userList);
+        for (var recipeUserList : recipeUserLists) {
+            recipes.add(recipeUserList.getRecipe());
+        }
+        // userListService.getFirstByTitleAndUser(name,user);
+        if (device != null) {
+            List<Recipe> recipeWithDevice = new ArrayList<>();
+            for (String deviceName : device) {
+                recipeWithDevice.addAll(this.recipeService.getAllByDevice(deviceName));
+            }
+            recipes.retainAll(recipeWithDevice);
+        }
+        if (category != null) {
+            List<Recipe> recipeWithCategory = new ArrayList<>();
+            for (String categoryName : category) {
+                recipeWithCategory.addAll(this.recipeService.getAllByCategory(this.categoryService.getCategoryByTitle(categoryName)));
+            }
+            recipes.retainAll(recipeWithCategory);
+        }
+        if (startWith != null) {
+            List<Recipe> recipeWithAlphabet = new ArrayList<>();
+            for (String letter : startWith) {
+                recipeWithAlphabet.addAll(this.recipeService.getAllStartWith(letter));
+            }
+            recipes.retainAll(recipeWithAlphabet);
+        }
+        if (minTime != null && maxTime != null) {
+            List<Recipe> recipeWithTime = new ArrayList<>(this.recipeService.getAllByTimeBetween(minTime, maxTime));
+            recipes.retainAll(recipeWithTime);
+        }
+        if (minMark != null && maxMark != null) {
+            List<Recipe> recipeWithMark = new ArrayList<>(this.recipeService.getAllByAverageRatingBetween(minMark, maxMark));
+            recipes.retainAll(recipeWithMark);
+        }
+        if (ingredient != null) {
+            List<Recipe> recipeWithIngredient = new ArrayList<>();
+            for (String ingredientName : ingredient) {
+                recipeWithIngredient.addAll(this.recipeService.getAllByIngredient(ingredientName));
+            }
+            recipes.retainAll(recipeWithIngredient);
+        }
         model.addAttribute("isLogin", jwt != null);
         model.addAttribute("randomRecipeId", getRandomNumRecipe());
-        User user = userService.getUserByUsername(jwtService.extractUserName(jwt));
-        model.addAttribute("List", userListService.getFirstByTitleAndUser(name, user));
+        model.addAttribute("recipes", recipes);
+        model.addAttribute("ingredients", ingredientService.findAll());
+        model.addAttribute("devices", deviceService.findAll());
+
         return "user/userlist";
     }
 

@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Table(name = "userlist")
 @Data
@@ -18,7 +20,9 @@ public class UserList {
     @Column(name = "title")
     private String title;
     @ManyToOne
-    @JoinColumn(name="fk_user", referencedColumnName = "user_id")
+    @JoinColumn(name = "fk_user", referencedColumnName = "user_id")
     private User user;
+    @OneToMany(mappedBy = "userList")
+    private List<RecipeUserList> recipeUserLists;
 
 }
