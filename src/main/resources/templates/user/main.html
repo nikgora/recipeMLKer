@@ -4,161 +4,186 @@
     <title>Main page</title>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link rel="stylesheet" type="text/css" href="../../static/css/main.css" th:href="@{css/main.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{../css/headerIfooter.css}" href="../../static/css/headerIfooter.css">
+    <link href="../../static/css/main.css" rel="stylesheet" th:href="@{css/main.css}" type="text/css">
+    <link href="../../static/css/headerIfooter.css" rel="stylesheet" th:href="@{../css/headerIfooter.css}"
+          type="text/css">
 </head>
 <body>
 <header>
     <div class="header">
-        <img th:src="@{images/logo.svg}" src="../../static/images/logo.svg" alt = "logo" class = "logo">
+        <img alt="logo" class="logo" src="../../static/images/logo.svg" th:src="@{images/logo.svg}">
 
         <form class="search-form" th:action="@{/allRecipes}">
-            <img th:src="@{images/magnifier.svg}" src="../../static/images/magnifier.svg" alt = "magnifier" class = "magnifier">
+            <img alt="magnifier" class="magnifier" src="../../static/images/magnifier.svg"
+                 th:src="@{images/magnifier.svg}">
             <input name="startWith" placeholder="Search" type="search">
         </form>
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
         <a class="button-style" href="recipe.html" th:href="@{/recipe/{id1}(id1=${randomRecipeId})}">Random</a>
 
-        <div class="user-container heart-container" th:if ="${isLogin} == false">
+        <div class="user-container heart-container" th:if="${isLogin} == false">
             <div class="heart"
-                    onmouseover="changeImage('heart-img1', '../../images/heart-hover.svg')"
-                    onmouseout="restoreImage('heart-img1', '../../images/heart.svg')">
-                <img id="heart-img1" th:src="@{images/heart.svg}" src="../../images/heart.svg" alt="heart" class="heart">
+                 onmouseout="restoreImage('heart-img1', '../../images/heart.svg')"
+                 onmouseover="changeImage('heart-img1', '../../images/heart-hover.svg')">
+                <img alt="heart" class="heart" id="heart-img1" src="../../images/heart.svg"
+                     th:src="@{images/heart.svg}">
             </div>
         </div>
         <a th:href="@{/user}" th:if="${isLogin} == true">
             <div class="user-container heart-login-container">
                 <div class="heart"
-                     onmouseover="changeImage('heart-img2', '../../images/heart-login-hover.svg')"
-                     onmouseout="restoreImage('heart-img2', '../../images/heart-login.svg')">
-                    <img id="heart-img2" th:src="@{images/heart-login.svg}" src="../../images/heart-login.svg" alt="heart" class="heart">
+                     onmouseout="restoreImage('heart-img2', '../../images/heart-login.svg')"
+                     onmouseover="changeImage('heart-img2', '../../images/heart-login-hover.svg')">
+                    <img alt="heart" class="heart" id="heart-img2"
+                         src="../../images/heart-login.svg" th:src="@{images/heart-login.svg}">
                 </div>
             </div>
         </a>
 
-        <button class="user-container" id="user-btn1"  th:if ="${isLogin} == false">
+        <button class="user-container" id="user-btn1" th:if="${isLogin} == false">
             <div class="user"
-                 onmouseover="changeImage('user-img1', '../../images/user-hover.svg')"
-                 onmouseout="restoreImage('user-img1', '../../images/user.svg')">
+                 onmouseout="restoreImage('user-img1', '../../images/user.svg')"
+                 onmouseover="changeImage('user-img1', '../../images/user-hover.svg')">
 
-                <img id="user-img1" th:src="@{images/user.svg}" src="../../images/user.svg" alt="user" class="user">
+                <img alt="user" class="user" id="user-img1" src="../../images/user.svg" th:src="@{images/user.svg}">
             </div>
         </button>
         <a th:href="@{/user}" th:if="${isLogin} == true">
-            <button class="user-container"  id="user-btn2" >
+            <button class="user-container" id="user-btn2">
                 <div class="user"
-                     onmouseover="changeImage('user-img2', '../../images/user-login-hover.svg')"
-                     onmouseout="restoreImage('user-img2', '../../images/user-login.svg')">
+                     onmouseout="restoreImage('user-img2', '../../images/user-login.svg')"
+                     onmouseover="changeImage('user-img2', '../../images/user-login-hover.svg')">
 
-                    <img id="user-img2" th:src="@{images/user-login.svg}" src="../../images/user-login.svg" alt="user" class="user">
+                    <img alt="user" class="user" id="user-img2" src="../../images/user-login.svg"
+                         th:src="@{images/user-login.svg}">
                 </div>
             </button>
         </a>
         <div id="overlay-user" onclick="hideOverlay()"></div>
         <div class="login-window" id="popup-login-window">
             <h1 class="login-heading">Log in</h1>
-            <form method="post"  id="loginForm"  th:action="@{api/auth/login}" onsubmit="return submitForm()">
+            <form autocomplete="off" id="loginForm" method="post" onsubmit="return submitForm()"
+                  th:action="@{api/auth/login}">
                 <div class="login-form email">
-                    <input name="username" placeholder="Enter email" type="text" required>
+                    <input name="username" placeholder="Enter email" required type="text">
                 </div>
                 <div class="login-form password">
-                    <input name="password" placeholder="Enter password" type="password" required>
+                    <input name="password" placeholder="Enter password" required type="password">
                 </div>
                 <button id="confirm-button">Confirm</button>
             </form>
         </div>
 
-        <img th:src="@{images/home.svg}" src="../../images/home.svg" alt = "home" class = "home">
+        <img alt="home" class="home" src="../../images/home.svg" th:src="@{images/home.svg}">
     </div>
 </header>
 <main>
     <div class="container">
         <div class="menu">
-            <img alt="board" class="board" th:src="@{images/CuttingBoard.svg}" src="../../static/images/CuttingBoard.svg" >
+            <img alt="board" class="board" src="../../static/images/CuttingBoard.svg"
+                 th:src="@{images/CuttingBoard.svg}">
             <h1 class="boardOneTitle">Categories</h1>
             <div class="ulBoard">
                 <div class="item">
                     <a th:href="@{/allRecipes(category='First Dish')}">
-                        <img alt="First-Dish" class="First-Dish" th:src="@{images/First dish.svg}" src="../../static/images/First dish.svg">
+                        <img alt="First-Dish" class="First-Dish" src="../../static/images/First dish.svg"
+                             th:src="@{images/First dish.svg}">
                         First dishes
                     </a>
-                </div><hr>
+                </div>
+                <hr>
                 <div class="item">
                     <a th:href="@{/allRecipes(category='Main Dish')}">
-                        <img alt="Main-Dish" class="Main-Dish" th:src="@{images/Main dish.svg}" src="../../static/images/Main dish.svg" >
+                        <img alt="Main-Dish" class="Main-Dish" src="../../static/images/Main dish.svg"
+                             th:src="@{images/Main dish.svg}">
                         Main dishes
                     </a>
-                </div><hr>
+                </div>
+                <hr>
                 <div class="item">
                     <a th:href="@{/allRecipes(category='Salad')}">
-                        <img alt="Salad" class="Salad" th:src="@{images/Salad.svg}" src="../../static/images/Salad.svg" >
+                        <img alt="Salad" class="Salad" src="../../static/images/Salad.svg" th:src="@{images/Salad.svg}">
                         Salads
                     </a>
-                </div><hr>
+                </div>
+                <hr>
                 <div class="item">
                     <a th:href="@{/allRecipes(category='Pastry')}">
-                        <img alt="Pastry" class="Pastry" th:src="@{images/Pastry.svg}" src="../../static/images/Pastry.svg" >
+                        <img alt="Pastry" class="Pastry" src="../../static/images/Pastry.svg"
+                             th:src="@{images/Pastry.svg}">
                         Pastry
                     </a>
-                </div><hr>
+                </div>
+                <hr>
                 <div class="item">
                     <a th:href="@{/allRecipes(category='Dessert')}">
-                        <img alt="Dessert" class="Dessert" th:src="@{images/Dessert.svg}" src="../../static/images/Dessert.svg" >
+                        <img alt="Dessert" class="Dessert" src="../../static/images/Dessert.svg"
+                             th:src="@{images/Dessert.svg}">
                         Desserts
                     </a>
-                </div><hr>
+                </div>
+                <hr>
                 <div class="item">
                     <a th:href="@{/allRecipes(category=)}">
-                        <img alt="Drink" class="Drink" th:src="@{images/Drink.svg}" src="../../static/images/Drink.svg" >
+                        <img alt="Drink" class="Drink" src="../../static/images/Drink.svg" th:src="@{images/Drink.svg}">
                         Drinks
                     </a>
-                </div><hr>
+                </div>
+                <hr>
                 <div class="item">
                     <a th:href="@{/allRecipes(category='Fish Dish')}">
-                        <img alt="Fish-Dish" class="Fish-Dish" th:src="@{images/Fish dish.svg}" src="../../static/images/Fish dish.svg" >
+                        <img alt="Fish-Dish" class="Fish-Dish" src="../../static/images/Fish dish.svg"
+                             th:src="@{images/Fish dish.svg}">
                         Fish dishes
                     </a>
-                </div><hr>
+                </div>
+                <hr>
                 <div class="item">
                     <a th:href="@{/allRecipes(category='Snack')}">
-                        <img alt="Snack" class="Snack" th:src="@{images/Snack.svg}" src="../../static/images/Snack.svg" >
+                        <img alt="Snack" class="Snack" src="../../static/images/Snack.svg" th:src="@{images/Snack.svg}">
                         Snacks
                     </a>
-                </div><hr>
+                </div>
+                <hr>
                 <div class="item">
                     <a th:href="@{/allRecipes(category='Sauce')}">
-                        <img alt="Sauce" class="Sauce" th:src="@{images/Sauce.svg}" src="../../static/images/Sauce.svg" >
+                        <img alt="Sauce" class="Sauce" src="../../static/images/Sauce.svg" th:src="@{images/Sauce.svg}">
                         Sauces
                     </a>
-                </div><hr>
+                </div>
+                <hr>
             </div>
-            <img alt="coffeeBean" class="bean" th:src="@{images/coffeeBean.svg}" src="../../static/images/coffeeBean.svg" >
+            <img alt="coffeeBean" class="bean" src="../../static/images/coffeeBean.svg"
+                 th:src="@{images/coffeeBean.svg}">
         </div>
 
         <div class="main-bottom">
             <div class="dessert">
                 <a th:href="@{/allRecipes(category='Dessert')}">
-                    <img alt="cheesecake" class="cheesecake" th:src="@{images/dessert.jpg}" src="../../static/images/dessert.jpg" >
+                    <img alt="cheesecake" class="cheesecake" src="../../static/images/dessert.jpg"
+                         th:src="@{images/dessert.jpg}">
                     <div class="rectangle rectangle-left-1">
-                        <img alt="Dessert" class="Dessert" th:src="@{images/Dessert.svg}" src="../../static/images/Dessert.svg" >Desserts
+                        <img alt="Dessert" class="Dessert" src="../../static/images/Dessert.svg"
+                             th:src="@{images/Dessert.svg}">Desserts
                     </div>
                 </a>
             </div>
 
             <div class="drink">
                 <a th:href="@{/allRecipes(category='Drink')}">
-                    <img alt="fresh" class="fresh" th:src="@{images/drink.jpg}"  src="../../static/images/drink.jpg" >
+                    <img alt="fresh" class="fresh" src="../../static/images/drink.jpg" th:src="@{images/drink.jpg}">
                     <div class="rectangle rectangle-left-2">
-                        <img alt="Drink" class="Drink" th:src="@{images/Drink.svg}" src="../../static/images/Drink.svg" >Drinks
+                        <img alt="Drink" class="Drink" src="../../static/images/Drink.svg" th:src="@{images/Drink.svg}">Drinks
                     </div>
                 </a>
             </div>
 
             <div class="salad">
                 <a th:href="@{/allRecipes(category='Salad')}">
-                    <img alt="seafoodSalad" class="seafoodSalad" th:src="@{images/salad.jpg}" src="../../static/images/salad.jpg" >
+                    <img alt="seafoodSalad" class="seafoodSalad" src="../../static/images/salad.jpg"
+                         th:src="@{images/salad.jpg}">
                     <div class="rectangle rectangle-left-3">
-                        <img alt="Salad" class="Salad" th:src="@{images/Salad.svg}" src="../../static/images/Salad.svg" >Salads
+                        <img alt="Salad" class="Salad" src="../../static/images/Salad.svg" th:src="@{images/Salad.svg}">Salads
                     </div>
                 </a>
             </div>
@@ -166,18 +191,22 @@
 
         <div class="firstD">
             <a th:href="@{/allRecipes(category='First Dish')}">
-                <img alt="firstDish" class="firstDish" th:src="@{images/firstD.jpg}" src="../../static/images/firstD.jpg">
+                <img alt="firstDish" class="firstDish" src="../../static/images/firstD.jpg"
+                     th:src="@{images/firstD.jpg}">
                 <div class="rectangleFD rectangleFD-left">
-                    <img alt="First-Dish" class="First-Dish" th:src="@{images/First dish.svg}" src="../../static/images/First dish.svg" >First dishes
+                    <img alt="First-Dish" class="First-Dish" src="../../static/images/First dish.svg"
+                         th:src="@{images/First dish.svg}">First dishes
                 </div>
             </a>
         </div>
 
         <div class="mainD">
             <a th:href="@{/allRecipes(category='Main Dish')}">
-                <img alt="mainDish" class="mainDish" th:src="@{images/mainD.jpg}" src="../../static/images/Main dishes.jpg">
+                <img alt="mainDish" class="mainDish" src="../../static/images/Main dishes.jpg"
+                     th:src="@{images/mainD.jpg}">
                 <div class="rectangleMD rectangleMD-left">
-                    <img alt="Main-Dish" class="Main-Dish" th:src="@{images/Main dish.svg}" src="../../static/images/Main dish.svg" >Main dishes
+                    <img alt="Main-Dish" class="Main-Dish" src="../../static/images/Main dish.svg"
+                         th:src="@{images/Main dish.svg}">Main dishes
                 </div>
             </a>
         </div>
@@ -202,36 +231,38 @@
     <div class="circle-container telegram-container">
         <div
                 class="telegram"
-                onmouseover="changeImage('telegram-img', '../../images/telegram-hover.svg')"
                 onmouseout="restoreImage('telegram-img', '../../images/telegram.svg')"
+                onmouseover="changeImage('telegram-img', '../../images/telegram-hover.svg')"
         >
-            <img id="telegram-img" th:src="@{images/telegram.svg}"  src="../../images/telegram.svg" alt="telegram" class="telegram">
+            <img alt="telegram" class="telegram" id="telegram-img" src="../../images/telegram.svg"
+                 th:src="@{images/telegram.svg}">
         </div>
     </div>
 
     <div class="circle-container instagram-container">
         <div
                 class="instagram"
-                onmouseover="changeImage('instagram-img',  '../../images/inst-hover.svg')"
                 onmouseout="restoreImage('instagram-img',  '../../images/inst.svg')"
+                onmouseover="changeImage('instagram-img',  '../../images/inst-hover.svg')"
         >
-            <img id="instagram-img" th:src="@{images/inst.svg}" src="../../images/inst.svg" alt="instagram" class="instagram">
+            <img alt="instagram" class="instagram" id="instagram-img" src="../../images/inst.svg"
+                 th:src="@{images/inst.svg}">
         </div>
     </div>
 </footer>
-<script th:href="@{js/scripts.js}" src="../../js/scripts.js"></script>
+<script src="../../js/scripts.js" th:href="@{js/scripts.js}"></script>
 <script>
     function submitForm() {
         var form = document.getElementById('loginForm');
         var formData = new FormData(form);
         var data = {};
-        formData.forEach(function(value, key){
+        formData.forEach(function (value, key) {
             data[key] = value;
         });
         var xhr = new XMLHttpRequest();
         xhr.open('POST', form.action, true);
         xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.onreadystatechange = function() {
+        xhr.onreadystatechange = function () {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
                     window.location.href = '/'; // Redirect to success page

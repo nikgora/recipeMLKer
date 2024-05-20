@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns:th="https://www.thymeleaf.org">
 <head>
     <title>Recipe</title>
     <meta charset="UTF-8">
@@ -90,6 +90,7 @@
             <p class="num" th:text="${recipe.getAverageMark()}">8.8</p>
         </a>
     </div>
+
     <form method="post" th:action="@{/api/addRecipeToList/{id1}/Favorites(id1=${id})}">
         <button id="FavoriteList">Favorite</button>
     </form>
@@ -99,14 +100,23 @@
         <div id="overlay-lists" onclick="hideOverlay()"></div>
         <div class="lists-container" id="lists-popup-window">
             <button class="create-list" id="create-new-list-btn">Create a new list</button>
-            <button class="user-list">UserList</button>
-            <button class="user-list1">Userlist</button>
+            <form method="post" th:action="@{/api/addRecipeToList/{id1}/{name}(id1=${id}, name=${list.getTitle()})}"
+                  th:each="list, i : ${user.getUserLists()}">
+                <button th:class="${i.index == 0} ? 'user-list user-list' : 'user-list user-list' + (${i.index})"
+                        th:style="'top:' + (${i.index * 8 + 10}) + 'vh'"
+                        th:text="${list.getTitle()}">
+                </button>
+            </form>
             <div class="list-container" id="list-field-popup-window">
-                <div class="list-name">
-                    <form method="post" th:action="@{/api/newList}"></form>
-                    <input id="listName" placeholder="Enter list name" type="text">
-                </div>
-                <button id="confirm-list-btn">Confirm</button>
+                <form method="post" onsubmit="return validateInput('listName')"
+                      th:action="@{/api/newList/{id1}(id1=${id})}"
+                      th:object="${newList}">
+                    <div class="list-name">
+                        <input id="listName" name="title" placeholder="Enter list name" th:value="${newList.title}"
+                               type="text">
+                    </div>
+                    <button class="confirm-list-button" id="confirm-list-btn">Confirm</button>
+                </form>
             </div>
         </div>
     </div>
@@ -216,7 +226,7 @@
 
         <div class="stepByStepField">
             <div class="ingredientsHeader stepByStepHeader">Step-by-step instructions</div>
-            <div class="amountContent" th:text="${recipe.getDescription()}"></div>
+            <div class="amountContent" th:utext="${recipe.getDescription()}"></div>
         </div>
     </div>
     <div class="addRatingField">
