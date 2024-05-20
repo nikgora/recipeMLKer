@@ -124,7 +124,7 @@ public class UserController {
 
     @PostMapping("/api/addRecipeToList/{id}/{name}")
     public String addRecipetoList(@PathVariable("id") Long id, @PathVariable("name") String name) {
-        if (jwt == null) return "redirect:/mustBeLogin";
+        if (jwt == null) return "redirect:/recipe/" + id;
         if (this.recipeService.getRecipeById(id) == null) {
             return "redirect:/404";
         }
