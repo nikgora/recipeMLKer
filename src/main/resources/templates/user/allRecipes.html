@@ -329,7 +329,8 @@
         <div class="field" id="recipeContainer" th:if="${recipes.size()!=0}">
             <div class="ol">
                 <div th:class="${i.index == 0} ? 'smallerField smallerField' : 'smallerField smallerField-down' + (${i.index})"
-                     th:each="recipe, i : ${recipes}">
+                     th:each="recipe, i : ${recipes}"
+                     th:style="'top:' + (${i.index * 18 + 4}) + 'vh'">
                     <div class="comment-user-circle">
                         <img th:alt="${recipe.getCategory().getTitle()}"
                              th:class="${recipe.getCategory().getTitle().replace(' ', '-')}"

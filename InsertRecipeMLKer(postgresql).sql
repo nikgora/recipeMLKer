@@ -52,7 +52,12 @@ VALUES ('Eggs', FALSE),
        ('Salmon', FALSE),
        ('Soy Sauce', TRUE),
        ('Parsley', FALSE),
-       ('Tahini', FALSE);
+       ('Tahini', FALSE),
+       ('Blueberry', TRUE),
+       ('Banana', FALSE),
+       ('Greek yogurt', FALSE),
+       ('Apple juice', FALSE),
+       ('Mint', FALSE);
 
 -- Inserting Published Recipes
 INSERT INTO PublishedRecipe (title, cooking_time, description, published, fk_user, fk_category)
@@ -103,7 +108,11 @@ VALUES ('Scrambled Eggs', 15,
         ('Green Tahini', 5,
         'Blend up all your sauce ingredients in a food processor or blender until smooth. Taste and adjust. If the sauce is too runny, add a little more tahini.
         <br><br>Pour over roasted vegetables, beans, grains, protein… anything that needs to be woken up with some rich and creamy flavor!',
-        TRUE, 2, 9);
+        TRUE, 2, 9),
+        ('Blueberry smoothie', 5,
+	   'Put the blueberries, banana, yogurt, apple juice and mint, if using, in a blender and blitz until smooth. Add a splash of water if it seems too thick.
+	<br><br>Pour the smoothie into a tall glass with a glass straw to serve. Garnish with a sprig of mint, if you like.',
+	   TRUE, 1, 6);
 
 INSERT INTO recipe_ingredient (amount_of_ingredient, fk_ingredient, fk_recipe)
 VALUES ('2', 1, 1),
@@ -151,7 +160,12 @@ VALUES ('2', 1, 1),
        ('1/2 cup', 18, 6),
        ('1 clove', 9, 6),
        ('2 tablespoon', 21, 6),
-       ('1/2 tablespoon', 6, 6);
+       ('1/2 tablespoon', 6, 6),
+       ('175 g', 26, 7),
+       ('1 small', 27, 7),
+       ('1 tbsp', 28, 7),
+       ('100 ml', 29, 7),
+       ('3-4 leaves', 30, 7);
 
 INSERT INTO Recipe_Device (fk_device, fk_recipe)
 VALUES (1, 1),
@@ -161,7 +175,8 @@ VALUES (1, 1),
        (6, 4),
        (5, 5),
        (1, 5),
-       (4, 6);
+       (4, 6),
+       (4, 7);
 
 -- Inserting Ratings
 INSERT INTO Rating (mark, fk_user, fk_recipe)

@@ -247,23 +247,6 @@ a:visited, a:link {
     background-color: #FBEFC7;
 }
 
-.smallerField-down1 {
-    top: 22vh;
-}
-
-.smallerField-down2 {
-    top: 40vh;
-}
-
-.smallerField-down3 {
-    top: 58vh;
-}
-
-.smallerField-down4 {
-    top: 76vh;
-    bottom: 4vh;
-}
-
 table td {
     padding-left: 3vw;
 }
