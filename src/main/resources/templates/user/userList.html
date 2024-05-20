@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-    <title>All Lists</title>
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link href="../../static/css/allLists.css" rel="stylesheet" th:href="@{css/allLists.css}" type="text/css">
+    <title>User List</title>
+    <!--TODO: навіть не знаю як краще назвати цб сторінку, просто user list чи адаптивна назва самого користувача...-->
+    <link href="../../static/css/userList.css" rel="stylesheet" th:href="@{css/userList.css}" type="text/css">
     <link href="../../static/css/headerIfooter.css" rel="stylesheet" th:href="@{../css/headerIfooter.css}"
           type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
 <header>
@@ -26,7 +28,7 @@
                  onmouseout="restoreImage('heart-img1', '../../images/heart.svg')"
                  onmouseover="changeImage('heart-img1', '../../images/heart-hover.svg')">
                 <img alt="heart" class="heart" id="heart-img1" src="../../images/heart.svg"
-                     th:src="@{images/heart.svg}">
+                     th:src="@{../images/heart.svg}">
             </div>
         </div>
         <a th:href="@{/user}" th:if="${isLogin} == true">
@@ -35,7 +37,7 @@
                      onmouseout="restoreImage('heart-img2', '../../images/heart-login.svg')"
                      onmouseover="changeImage('heart-img2', '../../images/heart-login-hover.svg')">
                     <img alt="heart" class="heart" id="heart-img2"
-                         src="../../images/heart-login.svg" th:src="@{images/heart-login.svg}">
+                         src="../../images/heart-login.svg" th:src="@{../images/heart-login.svg}">
                 </div>
             </div>
         </a>
@@ -45,7 +47,7 @@
                  onmouseout="restoreImage('user-img1', '../../images/user.svg')"
                  onmouseover="changeImage('user-img1', '../../images/user-hover.svg')">
 
-                <img alt="user" class="user" id="user-img1" src="../../images/user.svg" th:src="@{images/user.svg}">
+                <img alt="user" class="user" id="user-img1" src="../../images/user.svg" th:src="@{../images/user.svg}">
             </div>
         </button>
         <a th:href="@{/user}" th:if="${isLogin} == true">
@@ -54,7 +56,8 @@
                      onmouseout="restoreImage('user-img2', '../../images/user-login.svg')"
                      onmouseover="changeImage('user-img2', '../../images/user-login-hover.svg')">
 
-                    <img alt="user" class="user" id="user-img2" src="../../images/user-login.svg"
+                    <img alt="user" class="user" id="user-img2"
+                         src="../../images/user-login.svg"
                          th:src="@{images/user-login.svg}">
                 </div>
             </button>
@@ -73,73 +76,288 @@
             </form>
         </div>
 
-        <img alt="home" class="home" src="../../images/home.svg" th:src="@{images/home.svg}">
+        <a href="main.html" th:href="@{/}">
+            <img alt="home" class="home" src="../../images/home.svg" th:src="@{images/home.svg}">
+        </a>
+
     </div>
 </header>
-<div class="ListTitle">All lists</div>
+<div class="ListTitle">User list</div>
+<!--TODO: отут точно вже треба адаптувати назву-->
 <main>
-    <div class="container">
-        <div class="MainField">
-            <div class="ListField">
-                <div class="ListFieldHeader">List name</div>
-                <div class="containerList">
-                    <div class="userRecipeField">
-
-                        <!--TODO:  текст який треба замінити на теги рецептів як в all recipes тільки +1 заблокований для загалу-->
-                        <div class="testForSwitch"> Title</div>
-                        <div class="testForSwitch2"> Categories Time for cooking</div>
-                        <button class="publishBlocked"> Publish</button>
+    <h1 class="boardTwoTitle">Filters</h1>
+    <img alt="board" class="board" src="../../static/images/CuttingBoard.svg" th:src="@{images/CuttingBoard.svg}">
+    <div class="ulBoard">
+        <div class="h1"></div>
+        <div class="item">
+            <a class="sub-btn">
+                <img alt="categoriesI" class="categoriesI" src="../../static/images/Categories.svg"
+                     th:src="@{images/Categories.svg}">
+                Categories
+                <i class="fas fa-angle-down dropdown"></i>
+            </a>
+            <div class="sub-menu">
+                <div class="dish-container">
+                    <input id="first-dish" name="dish" type="checkbox" value="First Dish">
+                    <label class="dish" for="first-dish">First dishes</label>
+                </div>
+                <div class="dish-container">
+                    <input id="main-dish" name="dish" type="checkbox" value="Main Dish">
+                    <label class="dish" for="main-dish">Main dishes</label>
+                </div>
+                <div class="dish-container">
+                    <input id="desserts" name="dish" type="checkbox" value="Dessert">
+                    <label class="dish" for="desserts">Desserts</label>
+                </div>
+                <div class="dish-container">
+                    <input id="salads" name="dish" type="checkbox" value="Salad">
+                    <label class="dish" for="salads">Salads</label>
+                </div>
+                <div class="dish-container">
+                    <input id="pastry" name="dish" type="checkbox" value="Pastry">
+                    <label class="dish" for="pastry">Pastry</label>
+                </div>
+                <div class="dish-container">
+                    <input id="drinks" name="dish" type="checkbox" value="Drink">
+                    <label class="dish" for="drinks">Drinks</label>
+                </div>
+                <div class="dish-container">
+                    <input id="snacks" name="dish" type="checkbox" value="Snack">
+                    <label class="dish" for="snacks">Snacks</label>
+                </div>
+                <div class="dish-container">
+                    <input id="fish-dishes" name="dish" type="checkbox" value="Fish Dish">
+                    <label class="dish" for="fish-dishes">Fish dishes</label>
+                </div>
+                <div class="dish-container">
+                    <input id="sauces" name="dish" type="checkbox" value="Sauce">
+                    <label class="dish" for="sauces">Sauces</label>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="item">
+            <a class="sub-btn">
+                <img alt="timeI" class="timeI" src="../../static/images/Time.svg" th:src="@{images/Time.svg}">
+                Time
+                <i class="fas fa-angle-down dropdown"></i>
+            </a>
+            <div class="sub-menu">
+                <div class="timeContainer">
+                    <div class="minTime">
+                        <input min="0" name="minTime" placeholder="min" required type="number">
                     </div>
-                    <div class="userRecipeField userRecipeField2">
-
-                        <!--TODO:  текст який треба замінити на теги рецептів як в all recipes тільки +1 заблокований для загалу-->
-                        <div class="testForSwitch"> Title</div>
-                        <div class="testForSwitch2"> Categories Time for cooking</div>
-                        <button class="publish"> Publish</button>
-                    </div>
-                    <div class="userRecipeField userRecipeField3">
-
-                        <!--TODO:  текст який треба замінити на теги рецептів як в all recipes тільки +1 заблокований для загалу-->
-                        <div class="testForSwitch"> Title</div>
-                        <div class="testForSwitch2"> Categories Time for cooking</div>
-                        <img alt="recipeIcon" class="recipeIcon" src="../../images/Recipe.svg"
-                             th:src="@{../images/Recipe.svg}">
-                    </div>
-                    <div class="userRecipeField userRecipeField4">
-
-                        <!--TODO:  текст який треба замінити на теги рецептів як в all recipes тільки +1 заблокований для загалу-->
-                        <div class="testForSwitch"> Title</div>
-                        <div class="testForSwitch2"> Categories Time for cooking</div>
-                        <img alt="moderation" class="moderation" src="../../images/moderation.svg"
-                             th:src="@{images/moderation.svg}">
-                    </div>
-                    <div class="userRecipeField userRecipeField5">
-                        <!--TODO:  текст який треба замінити на теги рецептів як в all recipes тільки +1 заблокований для загалу-->
-                        <div class="testForSwitch"> Title</div>
-                        <div class="testForSwitch2"> Categories Time for cooking</div>
-                        <button class="publish"> Publish</button>
+                    <div class="line"></div>
+                    <div class="maxTime">
+                        <input min="0" name="maxTime" placeholder="max" required step="any" type="number">
                     </div>
                 </div>
             </div>
-            <div class="ListField ListField1">
-                <div class="ListFieldHeader">List name</div>
+        </div>
+        <hr>
+        <div class="item">
+            <a class="sub-btn">
+                <img alt="alphabetI" class="alphabetI" src="../../static/images/Alphabet.svg"
+                     th:src="@{images/Alphabet.svg}">
+                Alphabet
+                <i class="fas fa-angle-down dropdown"></i>
+            </a>
+            <div class="sub-menu">
+                <div class="alphabet">
+                    <div class="letters-container">
+                        <input id="A" name="A" type="checkbox" value="A">
+                        <label class="A" for="A">A</label>
+                    </div>
+                    <div class="letters-container">
+                        <input id="B" name="B" type="checkbox" value="B">
+                        <label class="B" for="B">B</label>
+                    </div>
+                    <div class="letters-container">
+                        <input id="C" name="C" type="checkbox" value="C">
+                        <label class="C" for="C">C</label>
+                    </div>
+                    <div class="letters-container">
+                        <input id="D" name="D" type="checkbox" value="D">
+                        <label class="D" for="D">D</label>
+                    </div>
+                    <div class="letters-container">
+                        <input id="E" name="E" type="checkbox" value="E">
+                        <label class="E" for="E">E</label>
+                    </div>
+                    <div class="letters-container">
+                        <input id="F" name="F" type="checkbox" value="F">
+                        <label class="F" for="F">F</label>
+                    </div>
+                    <div class="letters-container">
+                        <input id="G" name="G" type="checkbox" value="G">
+                        <label class="G" for="G">G</label>
+                    </div>
+                    <div class="letters-container">
+                        <input id="H" name="H" type="checkbox" value="H">
+                        <label class="H" for="H">H</label>
+                    </div>
+                    <div class="letters-container">
+                        <input id="I" name="I" type="checkbox" value="I">
+                        <label class="I" for="I">I</label>
+                    </div>
+                    <div class="letters-container">
+                        <input id="J" name="J" type="checkbox" value="J">
+                        <label class="J" for="J">J</label>
+                    </div>
+                    <div class="letters-container">
+                        <input id="K" name="K" type="checkbox" value="K">
+                        <label class="K" for="K">K</label>
+                    </div>
+                    <div class="letters-container">
+                        <input id="L" name="L" type="checkbox" value="L">
+                        <label class="L" for="L">L</label>
+                    </div>
+                    <div class="letters-container">
+                        <input id="M" name="M" type="checkbox" value="M">
+                        <label class="M" for="M">M</label>
+                    </div>
+                    <div class="letters-container">
+                        <input id="N" name="N" type="checkbox" value="N">
+                        <label class="N" for="N">N</label>
+                    </div>
+                    <div class="letters-container">
+                        <input id="O" name="O" type="checkbox" value="O">
+                        <label class="O" for="O">O</label>
+                    </div>
+                    <div class="letters-container">
+                        <input id="P" name="P" type="checkbox" value="P">
+                        <label class="P" for="P">P</label>
+                    </div>
+                    <div class="letters-container">
+                        <input id="Q" name="Q" type="checkbox" value="Q">
+                        <label class="Q" for="Q">Q</label>
+                    </div>
+                    <div class="letters-container">
+                        <input id="R" name="R" type="checkbox" value="R">
+                        <label class="R" for="R">R</label>
+                    </div>
+                    <div class="letters-container">
+                        <input id="S" name="S" type="checkbox" value="S">
+                        <label class="S" for="S">S</label>
+                    </div>
+                    <div class="letters-container">
+                        <input id="T" name="T" type="checkbox" value="T">
+                        <label class="T" for="T">T</label>
+                    </div>
+                    <div class="letters-container">
+                        <input id="U" name="U" type="checkbox" value="U">
+                        <label class="U" for="U">U</label>
+                    </div>
+                    <div class="letters-container">
+                        <input id="V" name="V" type="checkbox" value="V">
+                        <label class="V" for="V">V</label>
+                    </div>
+                    <div class="letters-container">
+                        <input id="W" name="W" type="checkbox" value="W">
+                        <label class="W" for="W">W</label>
+                    </div>
+                    <div class="letters-container">
+                        <input id="X" name="X" type="checkbox" value="X">
+                        <label class="X" for="X">X</label>
+                    </div>
+                    <div class="letters-container">
+                        <input id="Y" name="Y" type="checkbox" value="Y">
+                        <label class="Y" for="Y">Y</label>
+                    </div>
+                    <div class="letters-container">
+                        <input id="Z" name="Z" type="checkbox" value="Z">
+                        <label class="Z" for="Z">Z</label>
+                    </div>
+                </div>
             </div>
-            <div class="ListField ListField2">
-                <div class="ListFieldHeader">List name</div>
+        </div>
+        <hr>
+        <div class="item">
+            <a class="sub-btn">
+                <img alt="ratingI" class="ratingI" src="../../static/images/Rating.svg" th:src="@{images/Rating.svg}">
+                Rating
+                <i class="fas fa-angle-down dropdown"></i>
+            </a>
+            <div class="sub-menu">
+                <div class="ratingContainer">
+                    <div class="minRate">
+                        <input name="minRate" placeholder="min" required type="text">
+                    </div>
+                    <div class="line"></div>
+                    <div class="maxRate">
+                        <input name="maxRate" placeholder="max" required type="text">
+                    </div>
+                </div>
             </div>
-            <div class="ListField  ListField3">
-                <div class="ListFieldHeader">List name</div>
+        </div>
+        <hr>
+        <div class="item">
+            <a class="sub-btn">
+                <img alt="ingredientsI" class="ingredientsI" src="../../static/images/ingredients.svg"
+                     th:src="@{images/ingredients.svg}">
+                Ingredients
+                <i class="fas fa-angle-down dropdown"></i>
+            </a>
+            <div class="sub-menu">
+                <div class="ingredient-container" th:each="ingredient: ${ingredients}">
+                    <input name="ingredients" th:id="${ingredient.getName()}" th:value="${ingredient.getName()}"
+                           type="checkbox">
+                    <label class="ingredient" th:for="${ingredient.getName()}"
+                           th:text="${ingredient.getName()}"></label>
+                </div>
             </div>
-            <div class="ListField  ListField1 ListField4">
-                <div class="ListFieldHeader">List name</div>
+        </div>
+        <hr>
+        <div class="item">
+            <a class="sub-btn">
+                <img alt="devicesI" class="devicesI" src="../../static/images/Mixer.svg" th:src="@{images/Mixer.svg}">
+                Devices
+                <i class="fas fa-angle-down dropdown"></i>
+            </a>
+            <div class="sub-menu">
+                <div class="device-container" th:each="device: ${devices}">
+                    <input name="devices" th:id="${device.getName()}" th:value="${device.getName()}"
+                           type="checkbox">
+                    <label class="device" th:for="${device.getName()}"
+                           th:text="${device.getName()}"></label>
+                </div>
             </div>
-            <div class="ListField  ListField2 ListField5">
-                <div class="ListFieldHeader">List name</div>
+        </div>
+        <hr>
+    </div>
+    <button class="apply-button"><span>Apply</span></button>
+    <img alt="coffeeBean" class="bean" src="../../static/images/coffeeBean.svg" th:src="@{images/coffeeBean.svg}">
+    <div class="mainField">
+        <div class="field" id="recipeContainer" th:if="${recipes.size()!=0}">
+            <div class="ol">
+                <div th:class="${i.index == 0} ? 'smallerField smallerField' : 'smallerField smallerField-down' + (${i.index})"
+                     th:each="recipe, i : ${recipes}">
+                    <div class="comment-user-circle">
+                        <img th:alt="${recipe.getCategory().getTitle()}"
+                             th:class="${recipe.getCategory().getTitle().replace(' ', '-')}"
+                             th:if="${recipe}"
+                             th:src="@{'../images/' + ${recipe.getCategory().getTitle()} + '.svg'}">
+                    </div>
+                    <table>
+                        <tr style="position: relative; left: 4.6vw; bottom: 5vh;">
+                            <th>
+                                <a th:href="@{/recipe/{id}(id=${recipe.getId()})}" th:text="${recipe.getTitle()}"></a>
+                            </th>
+                        </tr>
+                        <tr style="position: relative; left: 1.6vw; bottom: 4vh;">
+                            <td th:text="${recipe.getCategory().getTitle()}"></td>
+                            <td th:text="${recipe.getCookingTime()} + ' minutes'"></td>
+                            <td th:text="${recipe.getAverageMark()}"></td>
+                        </tr>
+                    </table>
+                </div>
             </div>
+        </div>
+        <div class="field" id="recipeContainer1" th:if="${recipes.size()==0}">
+            NO SUCH RECIPES!
         </div>
     </div>
 </main>
-</body>
 <footer class="footer">
     <button class="support-button" id="support-btn"><span>Support</span></button>
 
@@ -169,8 +387,8 @@
     <div class="circle-container instagram-container">
         <div
                 class="instagram"
-                onmouseout="restoreImage('instagram-img',  '../../images/inst.svg')"
-                onmouseover="changeImage('instagram-img',  '../../images/inst-hover.svg')"
+                onmouseout="restoreImage('instagram-img', '../../images/inst.svg')"
+                onmouseover="changeImage('instagram-img', '../../images/inst-hover.svg')"
         >
             <img alt="instagram" class="instagram" id="instagram-img" src="../../images/inst.svg"
                  th:src="@{images/inst.svg}">
@@ -178,4 +396,72 @@
     </div>
 </footer>
 <script src="../../js/scripts.js" th:href="@{js/scripts.js}"></script>
+<script crossorigin="anonymous" src="https://kit.fontawesome.com/a076d05399.js"></script>
+<script type="text/javascript">
+    function submitForm() {
+        var form = document.getElementById('loginForm');
+        var formData = new FormData(form);
+        var data = {};
+        formData.forEach(function (value, key) {
+            data[key] = value;
+        });
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', form.action, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    window.location.href = '/allRecipes';
+                } else {
+                    alert('Login failed. Please try again.');
+                }
+            }
+        };
+        xhr.send(JSON.stringify(data));
+        return false;
+    }
+
+    $(document).ready(function () {
+        $('.sub-btn').click(function () {
+            $(this).next('.sub-menu').slideToggle();
+            $(this).find('.dropdown').toggleClass('rotate');
+        });
+    });
+
+    document.querySelector('.apply-button').addEventListener('click', function () {
+        let queryParams = new URLSearchParams();
+
+        document.querySelectorAll('.dish-container input:checked').forEach(input => {
+            queryParams.append('category', input.value);
+        });
+
+        let minTime = document.querySelector('input[name="minTime"]').value;
+        let maxTime = document.querySelector('input[name="maxTime"]').value;
+        if (minTime) queryParams.append('minTime', minTime);
+        if (maxTime) queryParams.append('maxTime', maxTime);
+
+        document.querySelectorAll('.letters-container input:checked').forEach(input => {
+            queryParams.append('startWith', input.value);
+        });
+
+        let minRate = document.querySelector('input[name="minRate"]').value;
+        let maxRate = document.querySelector('input[name="maxRate"]').value;
+        if (minRate) queryParams.append('minMark', minRate);
+        if (maxRate) queryParams.append('maxMark', maxRate);
+
+        document.querySelectorAll('.ingredient-container input:checked').forEach(input => {
+            queryParams.append('ingredient', input.value);
+        });
+
+        document.querySelectorAll('.device-container input:checked').forEach(input => {
+            queryParams.append('device', input.value);
+        });
+
+        let queryString = queryParams.toString();
+
+        window.location.href = `/allRecipes?${queryString}`;
+    });
+
+</script>
+</body>
 </html>
