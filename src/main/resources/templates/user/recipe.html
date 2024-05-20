@@ -103,10 +103,8 @@
     </div>
 </header>
 <main>
-    <img alt="recipeIcon" class="recipeIcon" src="../../images/Recipe.svg" th:src="@{../images/Recipe.svg}">
-    <div class="RecipeTitle">
-        <p class="c3" th:text="${recipe.getTitle()}">Pancakes</p>
-    </div>
+    <!-- <img alt="recipeIcon" class="recipeIcon" src="../../images/Recipe.svg" th:src="@{../images/Recipe.svg}">-->
+    <div class="RecipeTitle" th:text="${recipe.getTitle()}"></div>
     <div class="RecipeRating">
         <a th:href="@{/allRecipes(rating=${recipe.getAverageMark()})}">
             <p class="num" th:text="${recipe.getAverageMark()}">8.8</p>
@@ -115,12 +113,12 @@
 
     <div th:if="${isLogin} == true">
         <form method="post" th:action="@{/api/addRecipeToList/{id1}/Favorites(id1=${id})}">
-            <button id="FavoriteList">Favorite
+            <button id="FavoriteList-login">Favorite
             </button>
         </form>
     </div>
     <div th:if="${isLogin} == false">
-        <button id="FavoriteList1" onclick="showAlert('Please, log in to add this recipe to favorites')">Favorite
+        <button id="FavoriteList-logout" onclick="showAlert('Please, log in to add this recipe to favorites')">Favorite
         </button>
     </div>
 
@@ -434,6 +432,10 @@
         hideOverlay("list-field-popup-window", "confirm-list-btn");
     });
 
+    document.getElementById("heart-btn").addEventListener("click",
+        () => showOverlay("overlay-favorite", "favorite-popup-window"));
+    document.getElementById("overlay-favorite").addEventListener("click",
+        () => hideOverlay("overlay-favorite", "favorite-popup-window"));
 </script>
 </body>
 </html>

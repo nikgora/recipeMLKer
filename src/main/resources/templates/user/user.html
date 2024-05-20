@@ -191,6 +191,11 @@
         () => hideOverlay("overlay-list", "list-field-popup-window"));
     document.getElementById("confirm-list-btn").addEventListener("click",
         () => hideOverlay("overlay-list", "list-field-popup-window"));
+
+    document.getElementById("heart-btn").addEventListener("click",
+        () => showOverlay("overlay-favorite", "favorite-popup-window"));
+    document.getElementById("overlay-favorite").addEventListener("click",
+        () => hideOverlay("overlay-favorite", "favorite-popup-window"));
 </script>
 </body>
 </html>
