@@ -19,7 +19,7 @@ public class ModeratorController {
     public String moderatorAccount(Model model) {
         //TODO ADD NAME as Moderator Name
         //TODO model.addAttribute("moderator", new Moderator());
-        return "moderator/moderatorAccount";
+        return "moderator/moderatorPage";
     }
 
     @GetMapping("/moderator/AIReports")
