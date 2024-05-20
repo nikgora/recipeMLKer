@@ -83,11 +83,8 @@
         <form method="post" th:action="@{/api/logout}">
             <button class="userButton logOut">Log out</button>
         </form>
-        <a class="userButton logInModerator" href="../moderator/moderatorAIReports.html"
-           th:href="@{/moderatorAIReports}">Log
-            in
-            as
-            moderator</a>
+        <a class="userButton logInModerator" href="../moderator/moderatorPage.html"
+           th:href="@{/moderator}">Log in as moderator</a>
     </div>
 
     <div id="overlay-list" onclick="hideOverlay()"></div>
