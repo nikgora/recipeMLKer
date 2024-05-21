@@ -446,8 +446,8 @@ table th {
     width: 78vw;
     height: 67vh;
     top: 5%;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.2);
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 2vw;
-    color: #F2E3B3;
+    color: antiquewhite;
 }
