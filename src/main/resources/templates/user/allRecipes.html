@@ -359,12 +359,12 @@
                              th:src="@{'../images/' + ${recipe.getCategory().getTitle()} + '.svg'}">
                     </div>
                     <table>
-                        <tr style="position: relative; bottom: 5vh;">
+                        <tr style="position: relative; bottom: 5vh; left: 5vw;">
                             <th>
                                 <a th:href="@{/recipe/{id}(id=${recipe.getId()})}" th:text="${recipe.getTitle()}"></a>
                             </th>
                         </tr>
-                        <tr style="position: relative; left: 1.6vw; bottom: 4vh;">
+                        <tr style="position: relative; left: 5vw; bottom: 4vh;">
                             <td>
                                 <div class="recipeInfo">
                                     <span th:text="${recipe.getCategory().getTitle()}"></span>

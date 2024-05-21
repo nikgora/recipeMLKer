@@ -247,13 +247,6 @@ a:visited, a:link {
     background-color: #FBEFC7;
 }
 
-table td {
-    padding-left: 3vw;
-}
-
-table tr th {
-}
-
 .spacer {
     margin-right: 0.8vw;
 }
@@ -439,4 +432,9 @@ input::-webkit-inner-spin-button {
 .letters-container input:checked + label {
     background-color: #F2B705;
     border-radius: 30%;
+}
+
+table th {
+    display: flex;
+    justify-content: left;
 }
