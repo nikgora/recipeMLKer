@@ -86,13 +86,15 @@
                     <div class="containerList">
                         <div th:each="recipe: ${list.getRecipeUserLists()}">
                             <div class="userRecipeField">
-                                <img th:alt="${recipe.getRecipe().getCategory().getTitle()}"
-                                     th:class="${recipe.getRecipe().getCategory().getTitle().replace(' ', '-')}"
-                                     th:if="${recipe}"
-                                     th:src="@{'../images/' + ${recipe.getRecipe().getCategory().getTitle()} + '.svg'}">
-                                <a class="testForSwitch" style="font-weight: bold;"
-                                   th:href="@{/recipe/{id}(id=${recipe.getRecipe().getId()})}"
-                                   th:text="${recipe.getRecipe().getTitle()}"></a>
+                                <div class="recipeInfoContainer">
+                                    <img th:alt="${recipe.getRecipe().getCategory().getTitle()}"
+                                         th:class="${recipe.getRecipe().getCategory().getTitle().replace(' ', '-')}"
+                                         th:if="${recipe}"
+                                         th:src="@{'../images/' + ${recipe.getRecipe().getCategory().getTitle()} + '.svg'}">
+                                    <a class="testForSwitch" style="font-weight: bold;"
+                                       th:href="@{/recipe/{id}(id=${recipe.getRecipe().getId()})}"
+                                       th:text="${recipe.getRecipe().getTitle()}"></a>
+                                </div>
                                 <div class="testForSwitch2">
                                     <span th:text="${recipe.getRecipe().getCategory().getTitle()}"></span>
                                     <span class="spacer"> </span>
