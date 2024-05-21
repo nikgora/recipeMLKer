@@ -251,12 +251,24 @@ table td {
     padding-left: 3vw;
 }
 
+table tr th {
+}
+
+.spacer {
+    margin-right: 0.8vw;
+}
+
+.recipeInfo span {
+    display: inline-block;
+}
+
 .comment-user-circle {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-left: 1vw;
     margin-top: 1vh;
+    margin-right: 1vw;
     width: 3.6vw;
     height: 5.6vh;
 }

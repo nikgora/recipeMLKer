@@ -69,7 +69,11 @@ VALUES ('Eggs', FALSE),
        ('Yeast', FALSE),
        ('Cinnamon', TRUE),
        ('Cream Cheese', FALSE),
-       ('Powdered sugar', FALSE);;
+       ('Powdered sugar', FALSE),
+       ('Wholegrain Mustard', FALSE),
+       ('Spinach', FALSE),
+       ('Corn flakes', FALSE),
+       ('Marshmallow', FALSE);
 
 -- Inserting Published Recipes
 INSERT INTO PublishedRecipe (title, cooking_time, description, published, fk_user, fk_category)
@@ -142,7 +146,21 @@ From the long end, carefully roll the dough into a log. With a knife or floss, c
 <br><br>Preheat oven to 350 degrees. Bake the cinnamon rolls for 15 minutes with the foil tent.
 <br><br>In a mixing bowl, whip the butter, cream cheese, powdered sugar, salt and vanilla until light and fluffy.
 Using an icing spatula, frost the baked cinnamon rolls with icing while they’re still warm.',
-	   TRUE, 3, 4);
+	   TRUE, 3, 4),
+        ('Warm Potato Salad', 45,
+	   'Preheat oven to 180°C. Line 2 baking trays with baking paper. Place the potato and garlic on 1 lined tray. Spray with olive oil spray. Season. Bake for 45 mins or until potato is tender and the skin is crispy. Arrange the bacon on remaining lined tray. Bake with potato for the last 15 mins of cooking. Cool slightly. Tear bacon into pieces.
+<br><br>Meanwhile, cook the eggs in a saucepan of boiling water for 8 mins for set yolks. Refresh under cold water. Peel each egg and cut in half.
+<br><br>Squeeze the garlic into a small bowl and discard skins. Stir in the yoghurt, mustard and half the chives. Season.
+<br><br>Combine the potato, bacon, onion, spinach, egg and yoghurt mixture in a large bowl. Sprinkle with the remaining chives. Season.',
+	   TRUE, 2, 3),
+        ('Cornflake Marshmallow Treats', 65,
+	   'Preheat oven to 160ºC. Line two rimmed baking sheets with parchment and divide cereal evenly between the two sheets. Gently crumble the cornflakes to break them up into smaller pieces.
+<br><br>Toast in the oven, using a spatula to stir the grains occasionally, until deep golden brown, about 10 minutes. Remove from oven and cool for 5 minutes. When cool, lift both sides of the parchment to form a “sleeve” and transfer corn flakes to a large bowl.
+<br><br>While the corn flakes toast, line a 9-by 9-inch baking dish with parchment and coat evenly with nonstick baking spray.
+<br><br>In a large pot, melt 4 tablespoons unsalted butter over medium heat, stirring until solids turn golden brown, 3 to 4 minutes. Reduce heat to low. Add salt, followed by marshmallows. Using a rubber spatula, stir until the marshmallows have just melted, about 4 minutes. Stir in toasted corn flakes, folding well to incorporate.
+<br><br>Transfer to prepared baking dish, using a rubber spatula greased with nonstick baking spray to coax the mixture into the pan.  Allow bars to cool for 30 minutes before portioning.
+<br><br>To portion, remove bars from the baking dish and place on a cutting board. Use a serrated knife to cut bars into squares, rectangles, or your desired shape.',
+	   TRUE, 2, 7);
 
 INSERT INTO recipe_ingredient (amount_of_ingredient, fk_ingredient, fk_recipe)
 VALUES ('2', 1, 1),
@@ -217,7 +235,19 @@ VALUES ('2', 1, 1),
        ('3 spoons', 40, 9),
        ('1/4 cup', 41, 9),
        ('1 and 1/2 tsps', 19, 9),
-       ('1 and 1/2 tsps', 42, 9);;
+       ('1 and 1/2 tsps', 42, 9),
+       ('1kg', 36, 10),
+       ('3 cloves', 9, 10),
+       ('4', 1, 10),
+       ('4 pieces', 12, 10),
+       ('210g', 28, 10),
+       ('3 tsp', 43, 10),
+       ('1 red', 31, 10),
+       ('60g', 44, 10),
+       ('252g', 45, 11),
+       ('56g', 5, 11),
+       ('for flavor', 6, 11),
+       ('1 bag', 46, 11);
 
 INSERT INTO Recipe_Device (fk_device, fk_recipe)
 VALUES (1, 1),
@@ -232,7 +262,9 @@ VALUES (1, 1),
        (2, 8),
        (4, 8),
        (2, 9),
-       (5, 9);
+       (5, 9),
+       (1, 10),
+       (1, 11);
 
 -- Inserting Ratings
 INSERT INTO Rating (mark, fk_user, fk_recipe)
@@ -241,7 +273,9 @@ VALUES (3, 1, 1),
        (7, 2, 3),
        (9, 3, 4),
        (8, 3, 5),
-       (6, 2, 6);
+       (6, 2, 6),
+       (4, 1, 10),
+       (10, 3, 11);
 
 -- Inserting Comments
 INSERT INTO "comment" ("text", fk_user, fk_recipe)
@@ -262,7 +296,13 @@ VALUES ('Great recipe, loved it!', 1, 1),
        ('The flavors in this pumpkin soup were a bit too subtle for my taste. I ended up adding extra spices and a splash of hot sauce for some extra kick.', 1, 8),
        ('We need to know if thought can make the night before and roll out the next morning? Thanks!', 1, 9),
        ('Thanks so much for putting up this recipe. It was so easy and they turned out great. I would recommend your recipe to All first timers wanting to make these cinnamon buns. So delicious too.', 2, 9),
-       ('In my search for Cinnabon Cinnamon Rolls I found this website. I made these cinnamon rolls for a friend of mine for her birthday. The rolls are very light and fluffy. And it was the very first time that a yeast dough turned out so perfectly for me.', 3, 9);
+       ('In my search for Cinnabon Cinnamon Rolls I found this website. I made these cinnamon rolls for a friend of mine for her birthday. The rolls are very light and fluffy. And it was the very first time that a yeast dough turned out so perfectly for me.', 3, 9),
+       ('I can''t wait to try this recipe! The combination of crispy potato, savory bacon, and creamy yogurt sauce sounds absolutely mouthwatering.', 1, 10),
+       ('Didn''t have spinach, still amazing!', 2, 10),
+       ('Love how versatile this recipe is, you can customize it with different cereals and add-ins.', 3, 11),
+       ('Perfect snack for on-the-go or for a quick breakfast.', 1, 11),
+       ('I bet adding a sprinkle of cinnamon would be delicious.', 2, 11),
+       ('So much better than store-bought cereal bars, and healthier too!', 1, 11);
 
 -- Inserting Moderators
 INSERT INTO Moderator (secret_password, fk_user)
@@ -278,7 +318,6 @@ VALUES ('Offensive language in comments', TRUE, 1, 2, 1),
 INSERT INTO AIReport (description, is_accepted, fk_recipe, fk_moderator)
 VALUES ('Possible copyright infringement', FALSE, 3, 1),
        ('Inappropriate content', TRUE, 1, 2);
-
 
 -- Inserting User Lists
 INSERT INTO UserList (title, fk_user)
