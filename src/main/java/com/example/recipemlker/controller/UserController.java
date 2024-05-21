@@ -46,6 +46,10 @@ public class UserController {
 
     @GetMapping("/")
     public String mainPage(Model model) {
+        if (jwt != null) {
+            UserList favoriteList = userListService.getFirstByTitleAndUser("Favorites", userService.getUserByUsername(jwtService.extractUserName(jwt)));
+            model.addAttribute("favoriteList", favoriteList);
+        }
         model.addAttribute("isLogin", jwt != null);
         model.addAttribute("randomRecipeId", getRandomNumRecipe());
         return "user/main";
