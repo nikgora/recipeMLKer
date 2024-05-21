@@ -438,3 +438,16 @@ table th {
     display: flex;
     justify-content: left;
 }
+
+.noRecipes {
+    position: absolute;
+    border: none;
+    border-radius: 5vh;
+    width: 78vw;
+    height: 67vh;
+    top: 5%;
+    background-color: rgba(0, 0, 0, 0.3);
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2vw;
+    color: #F2E3B3;
+}
