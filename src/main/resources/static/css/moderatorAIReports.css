@@ -116,6 +116,49 @@
     justify-content: center;
 }
 
+#processing:hover, #processing1:hover, #processing2:hover {
+    border: 0.5vh solid #3E5902;
+    background-color: #F2E3B3;
+    color: #3E5902;
+}
+
+#accept {
+    position: absolute;
+    width: 15vw;
+    height: 6vh;
+    background-color: #3E5902;
+    right: 18vw;
+    border-radius: 5vh;
+    top: 14.5vh;
+
+    text-align: center;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2vw;
+    color: #F2E3B3;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#reject {
+    position: absolute;
+    width: 15vw;
+    height: 6vh;
+    background-color: #3E5902;
+    right: 0vw;
+    border-radius: 5vh;
+    top: 14.5vh;
+
+    text-align: center;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2vw;
+    color: #F2E3B3;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 /*____________________________________________________________________________________________________________________*/
 .footer {

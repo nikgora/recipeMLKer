@@ -116,6 +116,11 @@
     justify-content: center;
 }
 
+#processing:hover, #processing1:hover, #processing2:hover {
+    border: 0.5vh solid #3E5902;
+    background-color: #F2E3B3;
+    color: #3E5902;
+}
 
 /*____________________________________________________________________________________________________________________*/
 .footer {
