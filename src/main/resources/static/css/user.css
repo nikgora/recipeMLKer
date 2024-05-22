@@ -84,7 +84,6 @@
     top: 11vh;
     left: 0.6vh;
     background-color: #F28705;
-
 }
 
 .allLists {
@@ -298,7 +297,7 @@
     font-size: 2.1875vw;
 }
 
-#overlay-list {
+#overlay-list, #overlay-password {
     position: fixed;
     display: none;
     width: 100%;
