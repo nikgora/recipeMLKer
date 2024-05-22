@@ -1,14 +1,166 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
+    <title>User Reports</title>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../../static/css/moderatorUserReports.css" rel="stylesheet" th:href="@{../css/moderatorUserReports.css}"
+          type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../../static/css/headerIfooter.css" rel="stylesheet" th:href="@{../css/headerIfooter.css}">
 </head>
+<header>
+    <div class="header">
+        <img alt="logo" class="logo" src="../../static/images/logo.svg" th:src="@{../images/logo.svg}">
+
+        <form class="search-form" th:action="@{/allRecipes}">
+            <img alt="magnifier" class="magnifier" src="../../static/images/magnifier.svg"
+                 th:src="@{../images/magnifier.svg}">
+            <input name="startWith" placeholder="Search" type="search">
+        </form>
+
+        <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
+        <a class="button-style" href="recipe.html" th:href="@{/recipe/{id1}(id1=${randomRecipeId})}">Random</a>
+
+        <div class="user-container heart-login-container" id="heart-btn">
+            <div class="heart"
+                 onmouseout="restoreImage('heart-img', '../../images/heart-login.svg')"
+                 onmouseover="changeImage('heart-img', '../../images/heart-login-hover.svg')">
+                <img alt="heart" class="heart" id="heart-img" src="../../images/heart-login.svg"
+                     th:src="@{../images/heart-login.svg}">
+            </div>
+        </div>
+
+        <div id="overlay-favorite" onclick="hideOverlay()"></div>
+        <div class="favoriteLists-window" id="favorite-popup-window">
+            <div th:if="${favoriteList != null}">
+                <div th:each="recipe, i : ${favoriteList.getUser().getRecipes()}">
+                    <button th:class="${i.index == 0} ? 'recipe' : 'recipe' + i.index">
+                        <div class="content-wrapper">
+                            <div class="comment-user-circle">
+                                <img th:alt="${recipe.getCategory().getTitle()}"
+                                     th:class="${recipe.getCategory().getTitle().replace(' ', '-')}"
+                                     th:if="${recipe}"
+                                     th:src="@{'../images/' + ${recipe.getCategory().getTitle()} + '.svg'}">
+                            </div>
+                            <div class="text-wrapper">
+                                <a style="font-weight: bold;" th:text="${recipe.getTitle()}"></a>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <button class="user-container" id="user-btn">
+            <a href="moderatorPage.html" th:href="@{/moderator}">
+                <div class="user"
+                     onmouseout="restoreImage('user-img', '../../images/user-login.svg')"
+                     onmouseover="changeImage('user-img', '../../images/user-login-hover.svg')">
+                    <img alt="user" class="user" id="user-img" src="../../images/user-login.svg"
+                         th:src="@{../images/user-login.svg}">
+                </div>
+            </a>
+        </button>
+
+        <a href="main.html" th:href="@{/}">
+            <img alt="home" class="home" src="../../images/home.svg" th:src="@{../images/home.svg}">
+        </a>
+    </div>
+</header>
 <body>
+<div class="titleForUserPage">User reports</div>
+<div class="AIReportField">
+    <div class="scrollField">
+        <div class="reportField">
+            <div class="linkField">
+                <div class="notInBD">Request for recipe review:</div>
+                <!--TODO: А далі треба взяти категорії, назву та час приготування з бд -->
+                <div class=" notInBD InBD">Categories Title Time for cooking</div>
+                <div class="informationField">
+                    <button id="processing">Take for processing</button>
+                </div>
+            </div>
+        </div>
+        <div class="reportField report2">
+            <div class="linkField">
+                <div class="notInBD">Request for recipe review:</div>
+                <!--TODO: А далі треба взяти категорії, назву та час приготування з бд -->
+                <div class=" notInBD InBD">Categories Title Time for cooking</div>
+                <div class="informationField">
+                    <button id="processing1">Take for processing</button>
+                </div>
+            </div>
+        </div>
+        <div class="reportField report3">
+            <div class="linkField">
+                <div class="notInBD">Request for recipe review:</div>
+                <!--TODO: А далі треба взяти категорії, назву та час приготування з бд -->
+                <div class=" notInBD InBD">Categories Title Time for cooking</div>
+                <div class="informationField">
+                    <button id="processing2">Take for processing</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <table th:each="report: ${reports}">
     <tr>
         <td th:text="${report.getDescription()}"></td>
     </tr>
 </table>
 </body>
+<footer class="footer">
+    <button class="support-button" id="support-btn"><span>Support</span></button>
+
+    <div id="overlay" onclick="hideOverlay()"></div>
+
+    <div class="window" id="popup-window">  <!-- Вікно, яке з'являється при натисканні -->
+        <div class="inner-window">
+            <input name="query" placeholder="Enter feedback" type="search">
+        </div>
+
+        <button id="send-button">Send</button>
+    </div>
+
+    <div class="copyright">© Company policy and privacy rules</div>
+
+    <div class="circle-container telegram-container">
+        <div
+                class="telegram"
+                onmouseout="restoreImage('telegram-img', '../../static/images/telegram.svg')"
+                onmouseover="changeImage('telegram-img', '../../static/images/telegram-hover.svg')"
+        >
+            <img alt="telegram" class="telegram" id="telegram-img" src="../../static/images/telegram.svg"
+                 th:src="@{images/telegram.svg}">
+        </div>
+    </div>
+
+    <div class="circle-container instagram-container">
+        <div
+                class="instagram"
+                onmouseout="restoreImage('instagram-img', '../../static/images/inst.svg')"
+                onmouseover="changeImage('instagram-img', '../../static/images/inst-hover.svg')"
+        >
+            <img alt="instagram" class="instagram" id="instagram-img" src="../../static/images/inst.svg"
+                 th:src="@{images/inst.svg}">
+        </div>
+    </div>
+</footer>
+<script src="../../static/js/scripts.js" th:href="@{js/scripts.js}"></script>
 </html>
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<table th:each="report: ${reports}">-->
+<!--    <tr>-->
+<!--        <td th:text="${report.getDescription()}"></td>-->
+<!--    </tr>-->
+<!--</table>-->
+<!--</body>-->
+<!--</html>-->

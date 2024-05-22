@@ -84,11 +84,12 @@
         <div id="overlay-user" onclick="hideOverlay()"></div>
         <div class="login-window" id="popup-login-window">
             <!--            <button class="login-heading loginStyles">Log in</button>-->
-            <h1 class="login-heading">Log in</h1>
+            <button class="login-heading" id="Login">Log in</button>
+            <button class="signIn-heading" id="SignIn">Sign in</button>
             <form autocomplete="off" id="loginForm" method="post" onsubmit="return submitForm()"
                   th:action="@{api/auth/login}">
                 <div class="login-form email">
-                    <input autocomplete="off" name="username" placeholder="Enter login">
+                    <input name="username" placeholder="Enter username" required type="text">
                 </div>
                 <div class="login-form password">
                     <input name="password" placeholder="Enter password" required type="password">

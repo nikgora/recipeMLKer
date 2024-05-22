@@ -87,6 +87,7 @@
     </div>
 
     <div id="overlay-list" onclick="hideOverlay()"></div>
+
     <div class="list-container" id="list-field-popup-window">
         <form method="post" onsubmit="return validateInput('listName')"
               th:action="@{/api/newList/0}"
@@ -100,11 +101,12 @@
 
 
     <div id="overlay-password" onclick="hideOverlay()"></div>
+
     <div class="list-container" id="password-popup-window" style="top: 69vh;">
         <div class="list-name">
             <input id="password" name="title" placeholder="Enter password" type="text">
         </div>
-        <a class="confirm-list-button" href="../moderator/moderatorPage.html"
+        <a class="confirm-list-button text-confirm" href="../moderator/moderatorPage.html" id="confirm-password-btn"
            style="top: 10vh;" th:href="@{/moderator}">Confirm</a>
     </div>
 

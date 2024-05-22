@@ -83,8 +83,20 @@
     position: absolute;
     top: 11vh;
     left: 0.6vh;
-    background-color: #F28705;
+    background-color: #F2B705;
+}
+
+.text-confirm {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
+    color: black;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2vw;
+    font-weight: 400;
+    top: 3vh;
 }
 
 .allLists {
@@ -117,7 +129,7 @@
 
 .confirm-list-button:hover {
     background-color: #FBEFC7;
-    border: 0.5vh solid #F28705;
+    border: 0.5vh solid #F2B705;
 }
 
 /*____________________________________________________________________________________________________________________*/

@@ -54,13 +54,16 @@
         </div>
 
         <button class="user-container" id="user-btn">
-            <div class="user"
-                 onmouseout="restoreImage('user-img', '../../images/user-login.svg')"
-                 onmouseover="changeImage('user-img', '../../images/user-login-hover.svg')">
-                <img alt="user" class="user" id="user-img" src="../../images/user-login.svg"
-                     th:src="@{images/user-login.svg}">
-            </div>
+            <a th:href="@{/user}" th:if="${isLogin} == true">
+                <div class="user"
+                     onmouseout="restoreImage('user-img', '../../images/user-login.svg')"
+                     onmouseover="changeImage('user-img', '../../images/user-login-hover.svg')">
+                    <img alt="user" class="user" id="user-img" src="../../images/user-login.svg"
+                         th:src="@{images/user-login.svg}">
+                </div>
+            </a>
         </button>
+
         <a href="main.html" th:href="@{/}">
             <img alt="home" class="home" src="../../images/home.svg" th:src="@{images/home.svg}">
         </a>
