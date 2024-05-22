@@ -21,14 +21,6 @@
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
         <a class="button-style" href="recipe.html" th:href="@{/recipe/{id1}(id1=${randomRecipeId})}">Random</a>
 
-        <div class="user-container heart-container" th:if="${isLogin} == false">
-            <div class="heart"
-                 onmouseout="restoreImage('heart-img1', '../../images/heart.svg')"
-                 onmouseover="changeImage('heart-img1', '../../images/heart-hover.svg')">
-                <img alt="heart" class="heart" id="heart-img1" src="../../images/heart.svg"
-                     th:src="@{images/heart.svg}">
-            </div>
-        </div>
         <a th:href="@{/user}" th:if="${isLogin} == true">
             <div class="user-container heart-login-container">
                 <div class="heart"
@@ -39,15 +31,6 @@
                 </div>
             </div>
         </a>
-
-        <button class="user-container" id="user-btn1" th:if="${isLogin} == false">
-            <div class="user"
-                 onmouseout="restoreImage('user-img1', '../../images/user.svg')"
-                 onmouseover="changeImage('user-img1', '../../images/user-hover.svg')">
-
-                <img alt="user" class="user" id="user-img1" src="../../images/user.svg" th:src="@{images/user.svg}">
-            </div>
-        </button>
         <a th:href="@{/user}" th:if="${isLogin} == true">
             <button class="user-container" id="user-btn2">
                 <div class="user"
@@ -59,19 +42,6 @@
                 </div>
             </button>
         </a>
-        <div id="overlay-user" onclick="hideOverlay()"></div>
-        <div class="login-window" id="popup-login-window">
-            <h1 class="login-heading">Log in</h1>
-            <form id="loginForm" method="post" onsubmit="return submitForm()" th:action="@{api/auth/login}">
-                <div class="login-form email">
-                    <input name="username" placeholder="Enter email" required type="text">
-                </div>
-                <div class="login-form password">
-                    <input name="password" placeholder="Enter password" required type="password">
-                </div>
-                <button id="confirm-button">Confirm</button>
-            </form>
-        </div>
 
         <img alt="home" class="home" src="../../images/home.svg" th:src="@{images/home.svg}">
     </div>

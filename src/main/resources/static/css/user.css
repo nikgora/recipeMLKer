@@ -84,7 +84,6 @@
     top: 11vh;
     left: 0.6vh;
     background-color: #F28705;
-
 }
 
 .allLists {
@@ -155,8 +154,7 @@
     margin-top: 3vh;
     width: 51vw;
     height: 64vh;
-    /*background-color: #B90F0F; !*червоний для зручності щоб бачити межі контейнеру*!*/
-    left: 2.2vw; /*2.605vw; - це щоб було рівномірно, але в нас там ще буде скрол, томку поки так*/
+    left: 2.2vw;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -243,16 +241,14 @@
 }
 
 ::-webkit-scrollbar-track {
-    margin-top: 2.7778vh;
-    border: 0.0520834vw solid black;
-    border-radius: 50px;
-    background: #F2E3B3;
-    margin-left: 2vw;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    border-radius: 4.63vh;
 }
 
 ::-webkit-scrollbar-thumb {
     background: #733506;
-    border-radius: 50px;
+    border-radius: 4.63vh;
 }
 
 .publish {
@@ -301,7 +297,7 @@
     font-size: 2.1875vw;
 }
 
-#overlay-list {
+#overlay-list, #overlay-password {
     position: fixed;
     display: none;
     width: 100%;

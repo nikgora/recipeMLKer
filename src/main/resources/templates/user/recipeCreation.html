@@ -111,8 +111,8 @@
         </div>
     </form>
 
-    <div class="saveButton buttonText">Save</div>
-    <div class="publishButton buttonText">Publish</div>
+    <button class="saveButton">Save</button>
+    <button class="publishButton">Publish</button>
 </main>
 <footer class="footer">
     <button class="support-button" id="support-btn"><span>Support</span></button>
@@ -130,22 +130,18 @@
     <div class="copyright">© Company policy and privacy rules</div>
 
     <div class="circle-container telegram-container">
-        <div
-                class="telegram"
-                onmouseout="restoreImage('telegram-img', '../../static/images/telegram.svg')"
-                onmouseover="changeImage('telegram-img', '../../static/images/telegram-hover.svg')"
-        >
+        <div class="telegram"
+             onmouseout="restoreImage('telegram-img', '../../static/images/telegram.svg')"
+             onmouseover="changeImage('telegram-img', '../../static/images/telegram-hover.svg')">
             <img alt="telegram" class="telegram" id="telegram-img" src="../../static/images/telegram.svg"
                  th:src="@{images/telegram.svg}">
         </div>
     </div>
 
     <div class="circle-container instagram-container">
-        <div
-                class="instagram"
-                onmouseout="restoreImage('instagram-img', '../../static/images/inst.svg')"
-                onmouseover="changeImage('instagram-img', '../../static/images/inst-hover.svg')"
-        >
+        <div class="instagram"
+             onmouseout="restoreImage('instagram-img', '../../static/images/inst.svg')"
+             onmouseover="changeImage('instagram-img', '../../static/images/inst-hover.svg')">
             <img alt="instagram" class="instagram" id="instagram-img" src="../../static/images/inst.svg"
                  th:src="@{images/inst.svg}">
         </div>
