@@ -10,7 +10,7 @@
 <body>
 <header>
     <div class="header">
-        <img alt="logo1" class="logo1" src="../../static/images/logo1.svg" th:src="@{images/logo1.svg}">
+        <img alt="logo" class="logo" src="../../static/images/logo.svg" th:src="@{images/logo.svg}">
 
 
         <form class="search-form">
@@ -44,28 +44,20 @@
         </a>
     </div>
 </header>
-
 <main>
     <div class="avatarField">
-        <img alt="moder" class="moder" src="../../images/Moderator.svg" th:src="@{images/Chef.svg}">
+        <img alt="moder" class="moder" src="../../images/Moderator.svg" th:src="@{images/Moderator.svg}">
     </div>
     <div class="line">
         <div class="nikText">Moderator name</div>
     </div>
-    <div class="AIReport">
-        <a class="reportAI" href="../moderator/moderatorPage.html" th:href="@{/moderator/AIReports}">Recipe publishing
-            (AI)</a>
-    </div>
+    <a class="AIReport" href="moderatorAIReports.html" th:href="@{/moderator/AIReports}">Recipe publishing (AI)
+    </a>
 
-    <div class="UserReport">
-        <p class="reportUser">User report</p>
-    </div>
+    <a class="UserReport" href="moderatorUserReports.html" th:href="@{/moderator/UserReports}">User report</a>
     <a class="returnB" href="../user/user.html" th:href="@{/user}">Return to the user account
     </a>
-    <div class="stick"></div>
-
 </main>
-
 <footer class="footer">
     <button class="support-button" id="support-btn"><span>Support</span></button>
 

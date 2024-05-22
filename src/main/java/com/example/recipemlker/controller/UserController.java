@@ -4,6 +4,7 @@ import com.example.recipemlker.dto.AuthDTO;
 import com.example.recipemlker.dto.AuthDTO.JwtAuthenticationResponse;
 import com.example.recipemlker.model.*;
 import com.example.recipemlker.service.*;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -39,13 +40,21 @@ public class UserController {
     @Autowired
     private UserListService userListService;
     @Autowired
+    private ModeratorService moderatorService;
+
+    @Autowired
     private DeviceService deviceService;
     @Autowired
     private IngredientService ingredientService;
+    @Getter
     private String jwt = null;
 
     @GetMapping("/")
     public String mainPage(Model model) {
+        if (jwt != null) {
+            UserList favoriteList = userListService.getFirstByTitleAndUser("Favorites", userService.getUserByUsername(jwtService.extractUserName(jwt)));
+            model.addAttribute("favoriteList", favoriteList);
+        }
         model.addAttribute("isLogin", jwt != null);
         model.addAttribute("randomRecipeId", getRandomNumRecipe());
         return "user/main";
@@ -226,6 +235,7 @@ public class UserController {
         model.addAttribute("user", user);
         model.addAttribute("notes", recipeService.getAllByUser(user));
         model.addAttribute("newList", new UserList());
+        model.addAttribute("isAdmin", moderatorService.existsByUser(user));
         return "user/user";
     }
 
