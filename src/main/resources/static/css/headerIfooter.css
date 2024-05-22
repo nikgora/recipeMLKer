@@ -69,6 +69,7 @@ body {
     height: 5.5555vh;
 }
 
+
 .heart-container, .user-container, .heart-login-container, .user-login-container {
     display: flex;
     justify-content: center;
@@ -94,8 +95,11 @@ body {
 }
 
 .home {
+    /*position: absolute;*/
     height: 5.55555555vh;
     width: 3.125vw;
+    /*top: 2.4vh;*/
+    /*right: 1.5vw;*/
 }
 
 /*____________________________________________________________________________________________________________________*/
@@ -364,11 +368,13 @@ body {
 }
 
 .telegram {
+    position: absolute;
     width: 2.39583vw;
     height: 4.2592vh;
 }
 
 .instagram {
+    position: absolute;
     width: 2.3vw;
     height: 4.06vh;
 }

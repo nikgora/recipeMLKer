@@ -54,12 +54,14 @@
 
 
         <button class="user-container" id="user-btn">
-            <div class="user"
-                 onmouseout="restoreImage('user-img', '../../images/user-login.svg')"
-                 onmouseover="changeImage('user-img', '../../images/user-login-hover.svg')">
-                <img alt="user" class="user" id="user-img" src="../../images/user-login.svg"
-                     th:src="@{../images/user-login.svg}">
-            </div>
+            <a href="moderatorPage.html" th:href="@{/moderator}">
+                <div class="user"
+                     onmouseout="restoreImage('user-img', '../../images/user-login.svg')"
+                     onmouseover="changeImage('user-img', '../../images/user-login-hover.svg')">
+                    <img alt="user" class="user" id="user-img" src="../../images/user-login.svg"
+                         th:src="@{../images/user-login.svg}">
+                </div>
+            </a>
         </button>
 
         <a href="main.html" th:href="@{/}">
