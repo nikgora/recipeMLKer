@@ -35,6 +35,8 @@ public class UserController {
     @Autowired
     private UserReportService userReportService;
     @Autowired
+    private AiReportService aiReportService;
+    @Autowired
     private UserListService userListService;
     @Autowired
     private DeviceService deviceService;
@@ -44,6 +46,10 @@ public class UserController {
 
     @GetMapping("/")
     public String mainPage(Model model) {
+        if (jwt != null) {
+            UserList favoriteList = userListService.getFirstByTitleAndUser("Favorites", userService.getUserByUsername(jwtService.extractUserName(jwt)));
+            model.addAttribute("favoriteList", favoriteList);
+        }
         model.addAttribute("isLogin", jwt != null);
         model.addAttribute("randomRecipeId", getRandomNumRecipe());
         return "user/main";
@@ -68,6 +74,63 @@ public class UserController {
         var jwt1 = authService.signin(request);
         jwt = jwt1.token();
         return ResponseEntity.ok(jwt1);
+    }
+
+    @GetMapping("/userList/{name}")
+    public String Sfd(Model model, @PathVariable("name") String name, @RequestParam(required = false) List<String> device, @RequestParam(required = false) List<String> category, @RequestParam(required = false) List<String> ingredient, @RequestParam(required = false) List<String> startWith, @RequestParam(required = false) Integer minTime, @RequestParam(required = false) Integer maxTime, @RequestParam(required = false) Double minMark, @RequestParam(required = false) Double maxMark) {
+        if (jwt == null) {
+            return "redirect:/403";
+        }
+        User user = userService.getUserByUsername(jwtService.extractUserName(jwt));
+        UserList userList = userListService.getFirstByTitleAndUser(name, user);
+        List<Recipe> recipes = new ArrayList<>();
+        List<RecipeUserList> recipeUserLists = recipeUserListService.getAllByUserList(userList);
+        for (var recipeUserList : recipeUserLists) {
+            recipes.add(recipeUserList.getRecipe());
+        }
+        if (device != null) {
+            List<Recipe> recipeWithDevice = new ArrayList<>();
+            for (String deviceName : device) {
+                recipeWithDevice.addAll(this.recipeService.getAllByDevice(deviceName));
+            }
+            recipes.retainAll(recipeWithDevice);
+        }
+        if (category != null) {
+            List<Recipe> recipeWithCategory = new ArrayList<>();
+            for (String categoryName : category) {
+                recipeWithCategory.addAll(this.recipeService.getAllByCategory(this.categoryService.getCategoryByTitle(categoryName)));
+            }
+            recipes.retainAll(recipeWithCategory);
+        }
+        if (startWith != null) {
+            List<Recipe> recipeWithAlphabet = new ArrayList<>();
+            for (String letter : startWith) {
+                recipeWithAlphabet.addAll(this.recipeService.getAllStartWith(letter));
+            }
+            recipes.retainAll(recipeWithAlphabet);
+        }
+        if (minTime != null && maxTime != null) {
+            List<Recipe> recipeWithTime = new ArrayList<>(this.recipeService.getAllByTimeBetween(minTime, maxTime));
+            recipes.retainAll(recipeWithTime);
+        }
+        if (minMark != null && maxMark != null) {
+            List<Recipe> recipeWithMark = new ArrayList<>(this.recipeService.getAllByAverageRatingBetween(minMark, maxMark));
+            recipes.retainAll(recipeWithMark);
+        }
+        if (ingredient != null) {
+            List<Recipe> recipeWithIngredient = new ArrayList<>();
+            for (String ingredientName : ingredient) {
+                recipeWithIngredient.addAll(this.recipeService.getAllByIngredient(ingredientName));
+            }
+            recipes.retainAll(recipeWithIngredient);
+        }
+        model.addAttribute("isLogin", jwt != null);
+        model.addAttribute("randomRecipeId", getRandomNumRecipe());
+        model.addAttribute("recipes", recipes);
+        model.addAttribute("ingredients", ingredientService.findAll());
+        model.addAttribute("devices", deviceService.findAll());
+
+        return "user/userlist";
     }
 
     @GetMapping("/allRecipes")
@@ -124,7 +187,7 @@ public class UserController {
 
     @PostMapping("/api/addRecipeToList/{id}/{name}")
     public String addRecipetoList(@PathVariable("id") Long id, @PathVariable("name") String name) {
-        if (jwt == null) return "redirect:/mustBeLogin";
+        if (jwt == null) return "redirect:/recipe/" + id;
         if (this.recipeService.getRecipeById(id) == null) {
             return "redirect:/404";
         }
@@ -206,6 +269,19 @@ public class UserController {
         return "user/allLists";
     }
 
+    @PostMapping("/api/publishRecipe/{id}")
+    public String publishRecipe(@PathVariable("id") Long id) {
+        if (jwt == null) {
+            return "redirect:/mustBeLogin";
+        }
+        Recipe recipe = recipeService.getRecipeById(id);
+        AiReport aiReport = new AiReport();
+        aiReport.setRecipe(recipe);
+        aiReport.setDescription("New recipe in site. Please check");
+        aiReportService.save(aiReport);
+        return "redirect:/user/";
+    }
+
     @GetMapping("/mustBeLogin")
     public String mustBeLogin() {
         return "user/mustBeLogin";
@@ -228,6 +304,8 @@ public class UserController {
             model.addAttribute("randomRecipeId", getRandomNumRecipe());
             Rating existed = null;
             if (jwt != null) {
+                UserList favoriteList = userListService.getFirstByTitleAndUser("Favorites", userService.getUserByUsername(jwtService.extractUserName(jwt)));
+                model.addAttribute("favoriteList", favoriteList);
                 existed = ratingService.getByUserAndRecipe(userService.getUserByUsername(jwtService.extractUserName(jwt)), recipeService.getRecipeById(id));
                 model.addAttribute("user", userService.getUserByUsername(jwtService.extractUserName(jwt)));
             }
@@ -294,8 +372,7 @@ public class UserController {
 
     @PostMapping("/api/newComment/{id}")
     public String newComment(@ModelAttribute Comment comment, @PathVariable("id") Long id) {
-
-        if (jwt == null) return "redirect:/mustBeLogin";
+        if (jwt == null) return "redirect:/recipe/" + id;
         if (this.recipeService.getRecipeById(id) == null) {
             return "redirect:/404";
         }
@@ -312,7 +389,7 @@ public class UserController {
     @PostMapping("/api/newRating/{id}")
     public String newMark(@ModelAttribute Rating rating, @PathVariable("id") Long id) {
 
-        if (jwt == null) return "redirect:/mustBeLogin";
+        if (jwt == null) return "redirect:/recipe/" + id;
         Recipe recipe = this.recipeService.getRecipeById(id);
 
         if (recipe == null) {

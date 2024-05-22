@@ -18,4 +18,14 @@ public class AiReportServiceImpl implements AiReportService {
     public List<AiReport> findAvailableForModer(boolean accepted, Long id) {
         return aIReportRepository.findAllByIsAcceptedOrModeratorId(accepted, id);
     }
+
+    @Override
+    public AiReport getFirstById(Long id) {
+        return aIReportRepository.getFirstById(id);
+    }
+
+    @Override
+    public void save(AiReport aiReport) {
+        aIReportRepository.save(aiReport);
+    }
 }

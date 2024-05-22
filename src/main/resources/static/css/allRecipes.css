@@ -236,6 +236,21 @@ a:visited, a:link {
     border-radius: 50px;
 }
 
+::-webkit-scrollbar {
+    width: 0.78125vw;
+}
+
+::-webkit-scrollbar-track {
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    border-radius: 4.63vh;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #733506;
+    border-radius: 4.63vh;
+}
+
 .smallerField {
     position: absolute;
     width: 74vw;
@@ -247,25 +262,12 @@ a:visited, a:link {
     background-color: #FBEFC7;
 }
 
-.smallerField-down1 {
-    top: 22vh;
+.spacer {
+    margin-right: 0.8vw;
 }
 
-.smallerField-down2 {
-    top: 40vh;
-}
-
-.smallerField-down3 {
-    top: 58vh;
-}
-
-.smallerField-down4 {
-    top: 76vh;
-    bottom: 4vh;
-}
-
-table td {
-    padding-left: 3vw;
+.recipeInfo span {
+    display: inline-block;
 }
 
 .comment-user-circle {
@@ -274,6 +276,7 @@ table td {
     align-items: center;
     margin-left: 1vw;
     margin-top: 1vh;
+    margin-right: 1vw;
     width: 3.6vw;
     height: 5.6vh;
 }
@@ -375,7 +378,7 @@ table td {
 }
 
 hr {
-    border: 0.104167vw solid black;
+    border: 0.09vw solid black;
     width: 9.3vw;
     margin-right: 0.5vw;
     margin-left: 2vw;
@@ -444,4 +447,22 @@ input::-webkit-inner-spin-button {
 .letters-container input:checked + label {
     background-color: #F2B705;
     border-radius: 30%;
+}
+
+table th {
+    display: flex;
+    justify-content: left;
+}
+
+.noRecipes {
+    position: absolute;
+    border: none;
+    border-radius: 5vh;
+    width: 78vw;
+    height: 67vh;
+    top: 5%;
+    background-color: rgba(0, 0, 0, 0.3);
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2vw;
+    color: #F2E3B3;
 }

@@ -10,7 +10,9 @@
 <body>
 <header>
     <div class="header">
-        <img alt="logo" class="logo" src="../../images/logo.svg" th:src="@{../images/logo.svg}">
+        <img alt="logo" class="logo" src="../../static/images/logo.svg" th:src="@{images/logo.svg}">
+
+
         <form class="search-form">
             <img alt="magnifier" class="magnifier" src="../../static/images/magnifier.svg"
                  th:src="@{images/magnifier.svg}">
@@ -42,29 +44,20 @@
         </a>
     </div>
 </header>
-
 <main>
     <div class="avatarField">
-        <img alt="moder" class="moder" src="../../images/Moderator.svg" th:src="@{../images/Moderator.svg}">
+        <img alt="moder" class="moder" src="../../images/Moderator.svg" th:src="@{images/Moderator.svg}">
     </div>
     <div class="line">
         <div class="nikText">Moderator name</div>
     </div>
-    <div class="AIReport">
-        <a class="reportAI" href="../moderator/moderatorPage.html" th:href="@{/moderator/AIReports}">Recipe publishing
-            (AI)</a>
-    </div>
-    <!--TODO: Треба і тут і в сторінці юзера придумати як зробити кнопку поля також інтерактивною для посилання-->
+    <a class="AIReport" href="moderatorAIReports.html" th:href="@{/moderator/AIReports}">Recipe publishing (AI)
+    </a>
 
-    <div class="UserReport">
-        <a class="reportUser" href="../moderator/moderatorPage.html" th:href="@{/moderator/UserReports}">User report</a>
-    </div>
+    <a class="UserReport" href="moderatorUserReports.html" th:href="@{/moderator/UserReports}">User report</a>
     <a class="returnB" href="../user/user.html" th:href="@{/user}">Return to the user account
     </a>
-    <div class="stick"></div>
-
 </main>
-
 <footer class="footer">
     <button class="support-button" id="support-btn"><span>Support</span></button>
 

@@ -30,8 +30,8 @@
                      th:src="@{../images/heart.svg}">
             </div>
         </div>
-        <a th:href="@{/user}" th:if="${isLogin} == true">
-            <div class="user-container heart-login-container">
+        <div th:if="${isLogin} == true">
+            <div class="user-container heart-login-container" id="heart-btn">
                 <div class="heart"
                      onmouseout="restoreImage('heart-img2', '../../images/heart-login.svg')"
                      onmouseover="changeImage('heart-img2', '../../images/heart-login-hover.svg')">
@@ -39,7 +39,29 @@
                          src="../../images/heart-login.svg" th:src="@{../images/heart-login.svg}">
                 </div>
             </div>
-        </a>
+        </div>
+
+        <div id="overlay-favorite" onclick="hideOverlay()"></div>
+        <div class="favoriteLists-window" id="favorite-popup-window">
+            <div th:if="${favoriteList != null}">
+                <div th:each="recipe, i : ${favoriteList.getRecipeUserLists()}">
+                    <button th:class="${i.index == 0} ? 'recipe recipe' : 'recipe recipe' + i.index"
+                            th:style="'top:' + (${i.index * 10 + 2}) + 'vh'">
+                        <div class="content-wrapper">
+                            <img th:alt="${recipe.getRecipe().getCategory().getTitle()}"
+                                 th:if="${recipe}"
+                                 th:src="@{'../images/' + ${recipe.getRecipe().getCategory().getTitle()} + '.svg'}">
+
+                            <div class="text-wrapper">
+                                <a style="font-weight: bold;"
+                                   th:href="@{/recipe/{id}(id=${recipe.getRecipe().getId()})}"
+                                   th:text="${recipe.getRecipe().getTitle()}"></a>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
 
         <button class="user-container" id="user-btn1" th:if="${isLogin} == false">
             <div class="user"
@@ -81,7 +103,6 @@
 
     </div>
 </header>
-
 <main>
     <h1 class="boardTwoTitle">Filters</h1>
     <img alt="board" class="board" src="../../static/images/CuttingBoard.svg" th:src="@{images/CuttingBoard.svg}">
@@ -329,7 +350,8 @@
         <div class="field" id="recipeContainer" th:if="${recipes.size()!=0}">
             <div class="ol">
                 <div th:class="${i.index == 0} ? 'smallerField smallerField' : 'smallerField smallerField-down' + (${i.index})"
-                     th:each="recipe, i : ${recipes}">
+                     th:each="recipe, i : ${recipes}"
+                     th:style="'top:' + (${i.index * 18 + 4}) + 'vh'">
                     <div class="comment-user-circle">
                         <img th:alt="${recipe.getCategory().getTitle()}"
                              th:class="${recipe.getCategory().getTitle().replace(' ', '-')}"
@@ -337,22 +359,28 @@
                              th:src="@{'../images/' + ${recipe.getCategory().getTitle()} + '.svg'}">
                     </div>
                     <table>
-                        <tr style="position: relative; left: 4.6vw; bottom: 5vh;">
+                        <tr style="position: relative; bottom: 5vh; left: 5vw;">
                             <th>
                                 <a th:href="@{/recipe/{id}(id=${recipe.getId()})}" th:text="${recipe.getTitle()}"></a>
                             </th>
                         </tr>
-                        <tr style="position: relative; left: 1.6vw; bottom: 4vh;">
-                            <td th:text="${recipe.getCategory().getTitle()}"></td>
-                            <td th:text="${recipe.getCookingTime()} + ' minutes'"></td>
-                            <td th:text="${recipe.getAverageMark()}"></td>
+                        <tr style="position: relative; left: 5vw; bottom: 4vh;">
+                            <td>
+                                <div class="recipeInfo">
+                                    <span th:text="${recipe.getCategory().getTitle()}"></span>
+                                    <span class="spacer"> </span>
+                                    <span th:text="${recipe.getCookingTime()} + ' minutes'"></span>
+                                    <span class="spacer"> </span>
+                                    <span th:text="${recipe.getAverageMark()}"></span>
+                                </div>
+                            </td>
                         </tr>
                     </table>
                 </div>
             </div>
         </div>
         <div class="field" id="recipeContainer1" th:if="${recipes.size()==0}">
-            NO SUCH RECIPES!
+            <button class="noRecipes">There are no such recipes.</button>
         </div>
     </div>
 </main>
@@ -460,6 +488,10 @@
         window.location.href = `/allRecipes?${queryString}`;
     });
 
+    document.getElementById("heart-btn").addEventListener("click",
+        () => showOverlay("overlay-favorite", "favorite-popup-window"));
+    document.getElementById("overlay-favorite").addEventListener("click",
+        () => hideOverlay("overlay-favorite", "favorite-popup-window"));
 </script>
 </body>
 </html>

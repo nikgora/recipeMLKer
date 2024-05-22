@@ -61,8 +61,8 @@
     border: none;
     margin-bottom: 1.85vh;
     cursor: pointer;
+    text-decoration: none;
 }
-
 
 .createList {
     top: 34vh;
@@ -98,13 +98,15 @@
 }
 
 .logOut {
+    position: absolute;
     background-color: #F2B705;
-    top: 34.3vh;
+    top: 29.5vh;
 }
 
 .logInModerator {
+    position: absolute;
     background: rgba(242, 183, 5, 0.3);
-    top: 34.4vh;
+    top: 39vh;
     border: none;
     display: flex;
     align-items: center;
@@ -153,8 +155,7 @@
     margin-top: 3vh;
     width: 51vw;
     height: 64vh;
-    /*background-color: #B90F0F; !*червоний для зручності щоб бачити межі контейнеру*!*/
-    left: 2.2vw; /*2.605vw; - це щоб було рівномірно, але в нас там ще буде скрол, томку поки так*/
+    left: 2.2vw;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -241,16 +242,14 @@
 }
 
 ::-webkit-scrollbar-track {
-    margin-top: 2.7778vh;
-    border: 0.0520834vw solid black;
-    border-radius: 50px;
-    background: #F2E3B3;
-    margin-left: 2vw;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    border-radius: 4.63vh;
 }
 
 ::-webkit-scrollbar-thumb {
     background: #733506;
-    border-radius: 50px;
+    border-radius: 4.63vh;
 }
 
 .publish {

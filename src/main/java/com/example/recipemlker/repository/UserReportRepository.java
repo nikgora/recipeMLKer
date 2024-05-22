@@ -9,5 +9,7 @@ import java.util.List;
 @Repository
 public interface UserReportRepository extends JpaRepository<UserReport, Long> {
 
+    UserReport getFirstById(Long id);
+
     List<UserReport> findAllByIsAcceptedOrModeratorId(boolean accepted, Long moderator_id);
 }

@@ -3,91 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <title>Recipe Creation</title>
-    <link rel="stylesheet" type="text/css" href="../../static/css/recipeCreation.css" >
-    <link href="../../static/css/headerIfooter.css" rel="stylesheet" th:href="@{../css/headerIfooter.css}"
+    <link href="../../static/css/recipeCreation.css" rel="stylesheet" th:href="@{css/recipeCreation.css}"
+          type="text/css">
+    <link href="../../static/css/headerIfooter.css.css" rel="stylesheet" th:href="@{css/headerIfooter.css}"
           type="text/css">
 </head>
+<body>
 <header>
     <div class="header">
-        <img th:src="@{images/logo1.svg}" src="../../static/images/logo1.svg" alt = "logo1" class = "logo1">
-
+        <img alt="logo" class="logo" src="../../images/logo.svg" th:src="@{images/logo.svg}">
 
         <form class="search-form">
-            <img th:src="@{images/magnifier.svg}" src="../../static/images/magnifier.svg" alt = "magnifier" class = "magnifier">
+            <img alt="magnifier" class="magnifier" src="../../static/images/magnifier.svg"
+                 th:src="@{images/magnifier.svg}">
             <input name="query" placeholder="Search" type="search">
         </form>
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
         <a class="button-style" href="recipe.html" th:href="@{/recipe/1}">Random</a>
 
-        <div class="heart-container">
+        <div class="user-container heart-login-container" id="heart-btn">
             <div class="heart"
-                 onmouseover="changeImage('heart-img', '../../images/heart-hover.svg')"
-                 onmouseout="restoreImage('heart-img', '../../images/heart.svg')">
-                <img id="heart-img" th:src="@{images/heart.svg}" src="../../images/heart.svg" alt="heart" class="heart">
+                 onmouseout="restoreImage('heart-img', '../../images/heart-login.svg')"
+                 onmouseover="changeImage('heart-img', '../../images/heart-login-hover.svg')">
+                <img alt="heart" class="heart" id="heart-img" src="../../images/heart-login.svg"
+                     th:src="@{images/heart-login.svg}">
             </div>
         </div>
 
-        <div class="user-container">
+        <div id="overlay-favorite" onclick="hideOverlay()"></div>
+        <div class="favoriteLists-window" id="favorite-popup-window">
+            <div th:if="${favoriteList != null}">
+                <div th:each="recipe, i : ${favoriteList.getRecipeUserLists()}">
+                    <button th:class="${i.index == 0} ? 'recipe recipe' : 'recipe recipe' + i.index"
+                            th:style="'top:' + (${i.index * 10 + 2}) + 'vh'">
+                        <div class="content-wrapper">
+                            <div class="comment-user-circle">
+                                <img th:alt="${recipe.getRecipe().getCategory().getTitle()}"
+                                     th:if="${recipe}"
+                                     th:src="@{'../images/' + ${recipe.getRecipe().getCategory().getTitle()} + '.svg'}">
+                            </div>
+                            <div class="text-wrapper">
+                                <a style="font-weight: bold;"
+                                   th:href="@{/recipe/{id}(id=${recipe.getRecipe().getId()})}"
+                                   th:text="${recipe.getRecipe().getTitle()}"></a>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <button class="user-container" id="user-btn">
             <div class="user"
-                 onmouseover="changeImage('user-img', '../../images/user-hover.svg')"
-                 onmouseout="restoreImage('user-img', '../../images/user.svg')">
-
-                <img id="user-img" th:src="@{images/user.svg}" src="../../images/user.svg" alt="user" class="user">
+                 onmouseout="restoreImage('user-img', '../../images/user-login.svg')"
+                 onmouseover="changeImage('user-img', '../../images/user-login-hover.svg')">
+                <img alt="user" class="user" id="user-img" src="../../images/user-login.svg"
+                     th:src="@{images/user-login.svg}">
             </div>
-        </div>
-        <a th:href="@{/}" href="main.html">
-            <img th:src="@{images/home.svg}" src="../../images/home.svg" alt="home" class="home">
+        </button>
+        <a href="main.html" th:href="@{/}">
+            <img alt="home" class="home" src="../../images/home.svg" th:src="@{images/home.svg}">
         </a>
     </div>
 </header>
-<body>
+<main>
     <div class="title">Create a recipe</div>
-    <main>
-        <form class="text-form-title">
-            <div class="recipeTitle">
-                <input name="query" placeholder="Recipe title" type="text">
-            </div>
-        </form>
-        <form class="text-form-time">
-            <div class="recipeCookingTime">
-                <input name="query" placeholder="Cooking time" type="number">
-<!-- TODO               min value 1-->
-            </div>
-        </form>
-        <form class="text-form-category">
-            <div class="recipeCategory">
-                <input name="query" placeholder="Category" type="text">
-            </div>
-        </form>
-        <div class="ingredientsField">
-        <form class="text-form-ingredients">
-            <div class="recipeIngredients">
-                <input name="query" placeholder="Ingredients" type="text">
-            </div>
-        </form>
-        <form class="text-form-ingredients-amount">
-            <div class="recipeIngredientsAmount">
-                <input name="query" placeholder="Ingredients amount" type="text">
-            </div>
-        </form>
+
+    <form class="text-form-title">
+        <div class="recipeTitle">
+            <input name="query" placeholder="Recipe title" type="text">
         </div>
-        <form class="text-form-devices">
-            <div class="recipeDevices"></div>
-                <input name="query" placeholder="Recipe devices" type="text">
-            </div>
-        </form>
-        <form class="text-form-StepByStep">
-            <div class="recipeStepByStep">
-                <input name="query" placeholder="Step by step" type="text">
-            </div>
-        </form>
+    </form>
+    <form class="text-form-time">
+        <div class="recipeCookingTime">
+            <input name="query" placeholder="Cooking time" type="number">
+            <!-- TODO               min value 1-->
+        </div>
+    </form>
+    <form class="text-form-category">
+        <div class="recipeCategory">
+            <input name="query" placeholder="Category" type="text">
+        </div>
+    </form>
+    <div class="ingredientsField">
+        <div class="tableContainer">
+            <table id="ingredientsTable">
+                <tbody>
+                <tr>
+                    <td><input name="ingredient" placeholder="Ingredient" type="text"></td>
+                    <td><input name="amount" placeholder="Amount" type="text"></td>
+                    <td>
+                        <button class="deleteRow">Delete</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <button id="addRow">Add</button>
+    </div>
+    <form class="text-form-devices">
+        <div class="recipeDevices"></div>
+        <input name="query" placeholder="Recipe devices" type="text">
+    </form>
+    <form class="text-form-StepByStep">
+        <div class="recipeStepByStep">
+            <textarea name="description" placeholder="Step by step"></textarea>
+        </div>
+    </form>
 
-        <div class="saveButton buttonText">Save</div>
-        <div class="publishButton buttonText">Publish</div>
-        <div class="stick"></div>
-    </main>
-
-</body>
+    <button class="saveButton">Save</button>
+    <button class="publishButton">Publish</button>
+</main>
 <footer class="footer">
     <button class="support-button" id="support-btn"><span>Support</span></button>
 
@@ -104,24 +130,40 @@
     <div class="copyright">© Company policy and privacy rules</div>
 
     <div class="circle-container telegram-container">
-        <div
-                class="telegram"
-                onmouseover="changeImage('telegram-img', '../../static/images/telegram-hover.svg')"
-                onmouseout="restoreImage('telegram-img', '../../static/images/telegram.svg')"
-        >
-            <img id="telegram-img" th:src="@{images/telegram.svg}"  src="../../static/images/telegram.svg" alt="telegram" class="telegram">
+        <div class="telegram"
+             onmouseout="restoreImage('telegram-img', '../../static/images/telegram.svg')"
+             onmouseover="changeImage('telegram-img', '../../static/images/telegram-hover.svg')">
+            <img alt="telegram" class="telegram" id="telegram-img" src="../../static/images/telegram.svg"
+                 th:src="@{images/telegram.svg}">
         </div>
     </div>
 
     <div class="circle-container instagram-container">
-        <div
-                class="instagram"
-                onmouseover="changeImage('instagram-img', '../../static/images/inst-hover.svg')"
-                onmouseout="restoreImage('instagram-img', '../../static/images/inst.svg')"
-        >
-            <img id="instagram-img" th:src="@{images/inst.svg}" src="../../static/images/inst.svg" alt="instagram" class="instagram">
+        <div class="instagram"
+             onmouseout="restoreImage('instagram-img', '../../static/images/inst.svg')"
+             onmouseover="changeImage('instagram-img', '../../static/images/inst-hover.svg')">
+            <img alt="instagram" class="instagram" id="instagram-img" src="../../static/images/inst.svg"
+                 th:src="@{images/inst.svg}">
         </div>
     </div>
 </footer>
-<script th:href="@{js/scripts.js}" src="../../static/js/scripts.js"></script>
+</body>
+<script src="../../js/scripts.js" th:href="@{js/scripts.js}"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#addRow').click(function () {
+            let newRow = `<tr>
+                        <td><input type="text" name="ingredient" placeholder="Ingredient"></td>
+                        <td><input type="text" name="amount" placeholder="Amount"></td>
+                        <td><button class="deleteRow">Delete</button></td>
+                      </tr>`;
+            $('#ingredientsTable tbody').append(newRow);
+        });
+
+        $(document).on('click', '.deleteRow', function () {
+            $(this).closest('tr').remove();
+        });
+    });
+</script>
 </html>

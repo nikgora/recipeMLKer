@@ -52,7 +52,28 @@ VALUES ('Eggs', FALSE),
        ('Salmon', FALSE),
        ('Soy Sauce', TRUE),
        ('Parsley', FALSE),
-       ('Tahini', FALSE);
+       ('Tahini', FALSE),
+       ('Blueberry', TRUE),
+       ('Banana', FALSE),
+       ('Greek yogurt', FALSE),
+       ('Apple juice', FALSE),
+       ('Mint', FALSE),
+       ('Onion', FALSE),
+       ('Leek', FALSE),
+       ('Coriander', FALSE),
+       ('Cumin', FALSE),
+       ('Pumpkin', FALSE),
+       ('Potato', FALSE),
+       ('Chicken broth', FALSE),
+       ('Sour cream', FALSE),
+       ('Yeast', FALSE),
+       ('Cinnamon', TRUE),
+       ('Cream Cheese', FALSE),
+       ('Powdered sugar', FALSE),
+       ('Wholegrain Mustard', FALSE),
+       ('Spinach', FALSE),
+       ('Corn flakes', FALSE),
+       ('Marshmallow', FALSE);
 
 -- Inserting Published Recipes
 INSERT INTO PublishedRecipe (title, cooking_time, description, published, fk_user, fk_category)
@@ -103,7 +124,43 @@ VALUES ('Scrambled Eggs', 15,
         ('Green Tahini', 5,
         'Blend up all your sauce ingredients in a food processor or blender until smooth. Taste and adjust. If the sauce is too runny, add a little more tahini.
         <br><br>Pour over roasted vegetables, beans, grains, protein… anything that needs to be woken up with some rich and creamy flavor!',
-        TRUE, 2, 9);
+        TRUE, 2, 9),
+        ('Blueberry Smoothie', 5,
+	   'Put the blueberries, banana, yogurt, apple juice and mint, if using, in a blender and blitz until smooth. Add a splash of water if it seems too thick.
+	<br><br>Pour the smoothie into a tall glass with a glass straw to serve. Garnish with a sprig of mint, if you like.',
+	   TRUE, 1, 6),
+        ('Pumpkin Soup', 40,
+	   'Heat oil in a large saucepan over low heat, add onion and leek and cook for 2-3 minutes, until softened but not coloured.
+<br><br>Add garlic, coriander, cumin, and nutmeg and cook, stirring, for 30 seconds. Add pumpkin, potato and stock and bring to the boil. Turn heat to low, cover and simmer for 30 minutes. Allow to cool slightly, then blend in batches.
+<br><br>Return soup to pan, stir through cream and reheat gently. Season and add a little more nutmeg if desired.',
+	   TRUE, 2, 1),
+        ('Cinnabon Cinnamon Rolls', 90,
+	   'In the bowl of a stand mixer, dissolve yeast in warm milk until lightly foamy.
+<br><br>Add the rest of the ingredients to the bowl and mix with a wooden spoon until combined.
+<br><br>Attach the bowl to the mixer along with the dough hook. Kneed the dough for about 4 minutes until the dough is soft and smooth.
+Grease a clean with butter. Transfer the dough to the buttered bowl. Allow dough to rise undisturbed for one hour.
+<br><br>In a small bowl, mix the cinnamon and sugar together. Transfer the mixture to a sugar shaker (this will eliminate any lumps from the brown sugar). Put aside.
+Transfer the dough to a clean  lightly dusted with flour. Roll out the dough into a rectangle that’s approximately 12 inches by 16 inches.
+<br><br>With a spatula, spread the softened butter evenly over the dough. Sprinkle the cinnamon sugar evenly over the entire surface of the dough.
+From the long end, carefully roll the dough into a log. With a knife or floss, cut the dough into cinnamon rolls. Transfer cinnamon rolls to the buttered baking dish and cover the baking dish with a towel. Allow cinnamon rolls to rise for 30 minutes.
+<br><br>Preheat oven to 350 degrees. Bake the cinnamon rolls for 15 minutes with the foil tent.
+<br><br>In a mixing bowl, whip the butter, cream cheese, powdered sugar, salt and vanilla until light and fluffy.
+Using an icing spatula, frost the baked cinnamon rolls with icing while they’re still warm.',
+	   TRUE, 3, 4),
+        ('Warm Potato Salad', 45,
+	   'Preheat oven to 180°C. Line 2 baking trays with baking paper. Place the potato and garlic on 1 lined tray. Spray with olive oil spray. Season. Bake for 45 mins or until potato is tender and the skin is crispy. Arrange the bacon on remaining lined tray. Bake with potato for the last 15 mins of cooking. Cool slightly. Tear bacon into pieces.
+<br><br>Meanwhile, cook the eggs in a saucepan of boiling water for 8 mins for set yolks. Refresh under cold water. Peel each egg and cut in half.
+<br><br>Squeeze the garlic into a small bowl and discard skins. Stir in the yoghurt, mustard and half the chives. Season.
+<br><br>Combine the potato, bacon, onion, spinach, egg and yoghurt mixture in a large bowl. Sprinkle with the remaining chives. Season.',
+	   TRUE, 2, 3),
+        ('Cornflake Marshmallow Treats', 65,
+	   'Preheat oven to 160ºC. Line two rimmed baking sheets with parchment and divide cereal evenly between the two sheets. Gently crumble the cornflakes to break them up into smaller pieces.
+<br><br>Toast in the oven, using a spatula to stir the grains occasionally, until deep golden brown, about 10 minutes. Remove from oven and cool for 5 minutes. When cool, lift both sides of the parchment to form a “sleeve” and transfer corn flakes to a large bowl.
+<br><br>While the corn flakes toast, line a 9-by 9-inch baking dish with parchment and coat evenly with nonstick baking spray.
+<br><br>In a large pot, melt 4 tablespoons unsalted butter over medium heat, stirring until solids turn golden brown, 3 to 4 minutes. Reduce heat to low. Add salt, followed by marshmallows. Using a rubber spatula, stir until the marshmallows have just melted, about 4 minutes. Stir in toasted corn flakes, folding well to incorporate.
+<br><br>Transfer to prepared baking dish, using a rubber spatula greased with nonstick baking spray to coax the mixture into the pan.  Allow bars to cool for 30 minutes before portioning.
+<br><br>To portion, remove bars from the baking dish and place on a cutting board. Use a serrated knife to cut bars into squares, rectangles, or your desired shape.',
+	   TRUE, 2, 7);
 
 INSERT INTO recipe_ingredient (amount_of_ingredient, fk_ingredient, fk_recipe)
 VALUES ('2', 1, 1),
@@ -151,7 +208,46 @@ VALUES ('2', 1, 1),
        ('1/2 cup', 18, 6),
        ('1 clove', 9, 6),
        ('2 tablespoon', 21, 6),
-       ('1/2 tablespoon', 6, 6);
+       ('1/2 tablespoon', 6, 6),
+       ('175 g', 26, 7),
+       ('1 small', 27, 7),
+       ('1 tbsp', 28, 7),
+       ('100 ml', 29, 7),
+       ('3-4 leaves', 30, 7),
+       ('2 tbsp', 17, 8),
+       ('1 chopped', 31, 8),
+       ('1 white part', 32, 8),
+       ('1 clove', 9, 8),
+       ('1/2 tbsp', 33, 8),
+       ('1 tbsp', 34, 8),
+       ('1 kg', 35, 8),
+       ('1 large', 36, 8),
+       ('1L', 37, 8),
+       ('1/2 cup', 38, 8),
+       ('1 packet dry', 39, 9),
+       ('1 cup warm', 18, 9),
+       ('2 large', 1, 9),
+       ('1 cup', 5, 9),
+       ('1 tsp', 6, 9),
+       ('1/2 cup', 14, 9),
+       ('5 cups', 3, 9),
+       ('1 cup', 20, 9),
+       ('3 spoons', 40, 9),
+       ('1/4 cup', 41, 9),
+       ('1 and 1/2 tsps', 19, 9),
+       ('1 and 1/2 tsps', 42, 9),
+       ('1kg', 36, 10),
+       ('3 cloves', 9, 10),
+       ('4', 1, 10),
+       ('4 pieces', 12, 10),
+       ('210g', 28, 10),
+       ('3 tsp', 43, 10),
+       ('1 red', 31, 10),
+       ('60g', 44, 10),
+       ('252g', 45, 11),
+       ('56g', 5, 11),
+       ('for flavor', 6, 11),
+       ('1 bag', 46, 11);
 
 INSERT INTO Recipe_Device (fk_device, fk_recipe)
 VALUES (1, 1),
@@ -161,7 +257,14 @@ VALUES (1, 1),
        (6, 4),
        (5, 5),
        (1, 5),
-       (4, 6);
+       (4, 6),
+       (4, 7),
+       (2, 8),
+       (4, 8),
+       (2, 9),
+       (5, 9),
+       (1, 10),
+       (1, 11);
 
 -- Inserting Ratings
 INSERT INTO Rating (mark, fk_user, fk_recipe)
@@ -170,7 +273,9 @@ VALUES (3, 1, 1),
        (7, 2, 3),
        (9, 3, 4),
        (8, 3, 5),
-       (6, 2, 6);
+       (6, 2, 6),
+       (4, 1, 10),
+       (10, 3, 11);
 
 -- Inserting Comments
 INSERT INTO "comment" ("text", fk_user, fk_recipe)
@@ -184,7 +289,20 @@ VALUES ('Great recipe, loved it!', 1, 1),
        ('I usually bake my salmon, but this grilled version was a game-changer. The marinade kept it moist and flavorful. Will definitely make again!', 2, 4),
        ('The combination of brown sugar and soy sauce creates a perfect balance of sweet and savory. My family loved it!', 3, 4),
        ('I used this green tahini sauce as a spread on my sandwiches and it was fantastic. So much better than mayo!', 1, 6),
-       ('So easy to make and packed with flavor. I’ll be keeping a jar of this green tahini sauce in my fridge at all times!', 2, 6);
+       ('So easy to make and packed with flavor. I’ll be keeping a jar of this green tahini sauce in my fridge at all times!', 2, 6),
+       ('The addition of leek and potato really adds a nice depth to the soup. It is become a staple in my fall recipe rotation.', 1, 8),
+       ('The spices in this soup are just right – not too overpowering but still flavorful.', 2, 8),
+       ('Tried making this pumpkin soup for the first time and ended up with a kitchen disaster! Forgot to blend it and ended up with a chunky mess. Lesson learned: read the recipe thoroughly before starting!', 3, 8),
+       ('The flavors in this pumpkin soup were a bit too subtle for my taste. I ended up adding extra spices and a splash of hot sauce for some extra kick.', 1, 8),
+       ('We need to know if thought can make the night before and roll out the next morning? Thanks!', 1, 9),
+       ('Thanks so much for putting up this recipe. It was so easy and they turned out great. I would recommend your recipe to All first timers wanting to make these cinnamon buns. So delicious too.', 2, 9),
+       ('In my search for Cinnabon Cinnamon Rolls I found this website. I made these cinnamon rolls for a friend of mine for her birthday. The rolls are very light and fluffy. And it was the very first time that a yeast dough turned out so perfectly for me.', 3, 9),
+       ('I can''t wait to try this recipe! The combination of crispy potato, savory bacon, and creamy yogurt sauce sounds absolutely mouthwatering.', 1, 10),
+       ('Didn''t have spinach, still amazing!', 2, 10),
+       ('Love how versatile this recipe is, you can customize it with different cereals and add-ins.', 3, 11),
+       ('Perfect snack for on-the-go or for a quick breakfast.', 1, 11),
+       ('I bet adding a sprinkle of cinnamon would be delicious.', 2, 11),
+       ('So much better than store-bought cereal bars, and healthier too!', 1, 11);
 
 -- Inserting Moderators
 INSERT INTO Moderator (secret_password, fk_user)
@@ -200,7 +318,6 @@ VALUES ('Offensive language in comments', TRUE, 1, 2, 1),
 INSERT INTO AIReport (description, is_accepted, fk_recipe, fk_moderator)
 VALUES ('Possible copyright infringement', FALSE, 3, 1),
        ('Inappropriate content', TRUE, 1, 2);
-
 
 -- Inserting User Lists
 INSERT INTO UserList (title, fk_user)
