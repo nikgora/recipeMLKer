@@ -4,6 +4,7 @@ import com.example.recipemlker.dto.AuthDTO;
 import com.example.recipemlker.dto.AuthDTO.JwtAuthenticationResponse;
 import com.example.recipemlker.model.*;
 import com.example.recipemlker.service.*;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -45,6 +46,7 @@ public class UserController {
     private DeviceService deviceService;
     @Autowired
     private IngredientService ingredientService;
+    @Getter
     private String jwt = null;
 
     @GetMapping("/")

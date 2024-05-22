@@ -9,5 +9,7 @@ import org.springframework.stereotype.Repository;
 public interface ModeratorRepository extends JpaRepository<Moderator, Long> {
     Moderator getFirstById(Long id);
 
+    Moderator getFirstByUser(User user);
+
     boolean existsByUser(User user);
 }

@@ -16,6 +16,10 @@ public class ModeratorServiceImpl implements ModeratorService {
         return moderatorRepository.getFirstById(id);
     }
 
+    public Moderator getFirstByUser(User user) {
+        return moderatorRepository.getFirstByUser(user);
+    }
+
     public boolean existsByUser(User user) {
         return moderatorRepository.existsByUser(user);
     }

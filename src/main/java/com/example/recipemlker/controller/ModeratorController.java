@@ -1,12 +1,7 @@
 package com.example.recipemlker.controller;
 
-import com.example.recipemlker.model.AiReport;
-import com.example.recipemlker.model.Recipe;
-import com.example.recipemlker.model.UserReport;
-import com.example.recipemlker.service.AiReportService;
-import com.example.recipemlker.service.ModeratorService;
-import com.example.recipemlker.service.RecipeService;
-import com.example.recipemlker.service.UserReportService;
+import com.example.recipemlker.model.*;
+import com.example.recipemlker.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class ModeratorController {
-    private final Long moderatorId = 1L;
+    private Long moderatorId;
+    @Autowired
+    private JwtService jwtService;
     @Autowired
     private AiReportService aiReportService;
     @Autowired
@@ -24,17 +21,29 @@ public class ModeratorController {
     @Autowired
     private UserReportService userReportService;
     @Autowired
+    private UserService userService;
+    @Autowired
     private RecipeService recipeService;
+    private UserController userController;
 
     @GetMapping("/moderator")
     public String moderatorAccount(Model model) {
         if (moderatorId == null) {
             return "redirect:/user/403";
         }
-        model.addAttribute("moderator", moderatorService.getModeratorById(moderatorId));
+        model.addAttribute("moderator", moderatorService.getFirstById(moderatorId));
         return "moderator/moderatorPage";
     }
 
+    @PostMapping("/api/moderator/login")
+    public String LoginModerator() {
+        String jwt = userController.getJwt();
+        if (jwt == null) return "redirect:/403";
+        User user = userService.getUserByUsername(jwtService.extractUserName(jwt));
+        Moderator modUser = moderatorService.getFirstByUser(user);
+        moderatorId = modUser.getId();
+        return "redirect:/moderator";
+    }
 
     @GetMapping("/moderator/AIReports")
     public String moderatorAIReports(Model model) {
@@ -60,7 +69,7 @@ public class ModeratorController {
             return "redirect:/user/403";
         }
         UserReport userReport = userReportService.getFirstById(idReport);
-        userReport.setModerator(moderatorService.getModeratorById(moderatorId));
+        userReport.setModerator(moderatorService.getFirstById(moderatorId));
         userReport.setIsAccepted(true);
         userReportService.save(userReport);
         return "redirect:/moderator/moderatorUserReport";
@@ -72,7 +81,7 @@ public class ModeratorController {
             return "redirect:/user/403";
         }
         AiReport aiReport = aiReportService.getFirstById(idReport);
-        aiReport.setModerator(moderatorService.getModeratorById(moderatorId));
+        aiReport.setModerator(moderatorService.getFirstById(moderatorId));
         aiReport.setAccepted(true);
         aiReportService.save(aiReport);
         return "redirect:/moderator/moderatorAiReport";
