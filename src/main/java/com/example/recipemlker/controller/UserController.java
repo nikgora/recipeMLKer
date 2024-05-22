@@ -39,6 +39,9 @@ public class UserController {
     @Autowired
     private UserListService userListService;
     @Autowired
+    private ModeratorService moderatorService;
+
+    @Autowired
     private DeviceService deviceService;
     @Autowired
     private IngredientService ingredientService;
@@ -226,6 +229,7 @@ public class UserController {
         model.addAttribute("user", user);
         model.addAttribute("notes", recipeService.getAllByUser(user));
         model.addAttribute("newList", new UserList());
+        model.addAttribute("isAdmin", moderatorService.existsByUser(user));
         return "user/user";
     }
 
