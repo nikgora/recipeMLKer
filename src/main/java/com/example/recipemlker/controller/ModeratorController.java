@@ -138,7 +138,7 @@ public class ModeratorController {
     }
 
     @PostMapping("/api/moderator/declineUserReport/{idReport}")
-    public String moderatorDeclineuserReport(@PathVariable Long idReport) {
+    public String moderatorDeclineUserReport(@PathVariable Long idReport) {
         if (moderatorId == null) {
             return "redirect:/user/403";
         }
