@@ -236,6 +236,21 @@ a:visited, a:link {
     border-radius: 50px;
 }
 
+::-webkit-scrollbar {
+    width: 0.78125vw;
+}
+
+::-webkit-scrollbar-track {
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    border-radius: 4.63vh;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #733506;
+    border-radius: 4.63vh;
+}
+
 .smallerField {
     position: absolute;
     width: 74vw;
@@ -446,8 +461,8 @@ table th {
     width: 78vw;
     height: 67vh;
     top: 5%;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.3);
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 2vw;
-    color: antiquewhite;
+    color: #F2E3B3;
 }

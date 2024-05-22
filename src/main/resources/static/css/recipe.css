@@ -298,8 +298,8 @@
 }
 
 ::-webkit-scrollbar-track {
-    margin-top: 2.7778vh;
-    margin-bottom: 2.7778vh;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
     border-radius: 4.63vh;
 }
 
