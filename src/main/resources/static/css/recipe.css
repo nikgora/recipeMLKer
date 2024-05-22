@@ -7,23 +7,16 @@
 
 .RecipeTitle {
     position: absolute;
-    width: 42.7vw;
+    width: 45.6vw;
     height: 5.556vh;
     margin-top: 4vh;
-    margin-left: 4vw;
+    margin-left: 2.1vw;
     top: 11.1vh;
+    padding-left: 1vw;
     border-radius: 5.5vh;
     background-color: #F2E3B3;
-}
-
-.c3 {
-    position: absolute;
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 2.3vw; /*48*/
-    color: black;
-    left: 1.6vw;
-    margin-bottom: 0.5vh;
-    margin-top: 0.1vh;
+    font-size: 2.1vw;
 }
 
 .RecipeRating {
@@ -47,7 +40,7 @@
     margin-top: 0.1vh;
 }
 
-#FavoriteList, .UserList, .Report {
+#FavoriteList-login, #FavoriteList-logout, .UserList, .Report {
     position: absolute;
     width: 12vw;
     height: 5.556vh;

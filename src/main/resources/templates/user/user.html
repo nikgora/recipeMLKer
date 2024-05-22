@@ -33,24 +33,25 @@
         <div id="overlay-favorite" onclick="hideOverlay()"></div>
         <div class="favoriteLists-window" id="favorite-popup-window">
             <div th:if="${favoriteList != null}">
-                <div th:each="recipe, i : ${favoriteList.getUser().getRecipes()}">
-                    <button th:class="${i.index == 0} ? 'recipe' : 'recipe' + i.index">
+                <div th:each="recipe, i : ${favoriteList.getRecipeUserLists()}">
+                    <button th:class="${i.index == 0} ? 'recipe recipe' : 'recipe recipe' + i.index"
+                            th:style="'top:' + (${i.index * 10 + 2}) + 'vh'">
                         <div class="content-wrapper">
                             <div class="comment-user-circle">
-                                <img th:alt="${recipe.getCategory().getTitle()}"
-                                     th:class="${recipe.getCategory().getTitle().replace(' ', '-')}"
+                                <img th:alt="${recipe.getRecipe().getCategory().getTitle()}"
                                      th:if="${recipe}"
-                                     th:src="@{'../images/' + ${recipe.getCategory().getTitle()} + '.svg'}">
+                                     th:src="@{'../images/' + ${recipe.getRecipe().getCategory().getTitle()} + '.svg'}">
                             </div>
                             <div class="text-wrapper">
-                                <a style="font-weight: bold;" th:text="${recipe.getTitle()}"></a>
+                                <a style="font-weight: bold;"
+                                   th:href="@{/recipe/{id}(id=${recipe.getRecipe().getId()})}"
+                                   th:text="${recipe.getRecipe().getTitle()}"></a>
                             </div>
                         </div>
                     </button>
                 </div>
             </div>
         </div>
-
 
         <button class="user-container" id="user-btn">
             <div class="user"
@@ -66,7 +67,6 @@
         </a>
     </div>
 </header>
-
 <main>
     <div class="cooker">
         <div class="cooker-circle"></div>
@@ -78,12 +78,13 @@
 
     <div class="button-container" id="button">
         <button class="createList" id="createList-btn">Create a list</button>
-        <button class="createRecipe">Create a recipe</button>
-        <button class="allLists">All Lists</button>
+        <a class="createRecipe" href="recipeCreation.html" th:href="@{/newRecipe}">Create a recipe</a>
+        <a class="allLists" href="allLists.html" th:href="@{/allLists}">All Lists</a>
         <form method="post" th:action="@{/api/logout}">
-            <button class="logOut">Log out</button>
+            <button class="userButton logOut">Log out</button>
         </form>
-        <button class="logInModerator">Log in as moderator</button>
+        <a class="userButton logInModerator" href="../moderator/moderatorPage.html"
+           th:href="@{/moderator}">Log in as moderator</a>
     </div>
 
     <div id="overlay-list" onclick="hideOverlay()"></div>
@@ -102,6 +103,16 @@
     <div class="recipesField">
         <div class="recipesFieldHeader">
             <p class="c7">User notes</p>
+        </div>
+        <div th:each="recipe : ${user.getRecipes()}">
+            <div class="container">
+                <div class="userRecipeField">
+                    <div class="testForSwitch" th:text="${recipe.getTitle()}"></div>
+                    <div class="testForSwitch2"
+                         th:text="${recipe.getCategory()} + ' ' + ${recipe.getCookingTime()}"></div>
+                    <button class="publishBlocked"> Publish</button>
+                </div>
+            </div>
         </div>
     </div>
 </main>

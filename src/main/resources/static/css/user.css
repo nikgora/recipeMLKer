@@ -18,7 +18,7 @@
 
 .user-name {
     position: absolute;
-    left: 52vh;
+    left: 50vh;
     top: 29.6vh;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 5vh;
@@ -51,7 +51,8 @@
 .allLists,
 .logInModerator,
 .logOut,
-.confirm-list-button {
+.confirm-list-button,
+.userButton {
     width: 20.3125vw;
     height: 7.4074vh;
     border-radius: 2.5vh;
@@ -60,6 +61,7 @@
     border: none;
     margin-bottom: 1.85vh;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .createList {
@@ -70,6 +72,11 @@
 .createRecipe {
     top: 34.1vh;
     background-color: #F28705;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
 }
 
 .confirm-list-button {
@@ -77,21 +84,35 @@
     top: 11vh;
     left: 0.6vh;
     background-color: #F28705;
+
 }
 
 .allLists {
     top: 34.2vh;
     background-color: #F28705;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
 }
 
 .logOut {
+    position: absolute;
     background-color: #F2B705;
-    top: 34.3vh;
+    top: 29.5vh;
 }
 
 .logInModerator {
+    position: absolute;
     background: rgba(242, 183, 5, 0.3);
-    top: 34.4vh;
+    top: 39vh;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
 }
 
 .confirm-list-button:hover {
@@ -127,6 +148,128 @@
     color: white;
     margin-top: 2vh;
     margin-left: 23.5vw;
+}
+
+.container {
+    position: absolute;
+    margin-top: 3vh;
+    width: 51vw;
+    height: 64vh;
+    /*background-color: #B90F0F; !*червоний для зручності щоб бачити межі контейнеру*!*/
+    left: 2.2vw; /*2.605vw; - це щоб було рівномірно, але в нас там ще буде скрол, томку поки так*/
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.userRecipeField {
+    position: absolute;
+    width: 51vw;
+    height: 13.15vh;
+    background-color: #FBEFC7;
+    border-radius: 5vh;
+}
+
+.testForSwitch {
+    position: absolute;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2.1875vw;
+    top: 1vh;
+    left: 4vw;
+}
+
+.testForSwitch2 {
+    position: absolute;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2.1875vw;
+    top: 5vh;
+    left: 4vw;
+}
+
+.publishBlocked {
+    position: absolute;
+    width: 6.511vw;
+    height: 5.556vh;
+    top: 3.5vh;
+    right: 3vw;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.5vw;
+    background: rgba(62, 89, 2, 0.3);
+    border-radius: 5vh;
+    color: black;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.publishBlocked:hover {
+    cursor: not-allowed;
+}
+
+.userRecipeField2 {
+    top: 16.48vh;
+}
+
+.userRecipeField3 {
+    top: 32.96vh;
+}
+
+.recipeIcon {
+    position: absolute;
+    height: 8vh; /*3.7*/
+    width: 5.6vw; /*2.6*/
+    right: 3vw;
+    top: 2.5vh;
+}
+
+.userRecipeField4 {
+    top: 49.46vh;
+}
+
+.moderation {
+    position: absolute;
+    height: 9vh;
+    width: 9vw;
+    right: 1.5vw;
+    top: 2.5vh;
+}
+
+.userRecipeField5 {
+    top: 65.94vh;
+}
+
+::-webkit-scrollbar {
+    width: 0.78125vw;
+}
+
+::-webkit-scrollbar-track {
+    margin-top: 2.7778vh;
+    border: 0.0520834vw solid black;
+    border-radius: 50px;
+    background: #F2E3B3;
+    margin-left: 2vw;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #733506;
+    border-radius: 50px;
+}
+
+.publish {
+    position: absolute;
+    width: 6.511vw;
+    height: 5.556vh;
+    top: 3.5vh;
+    right: 3vw;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.5vw;
+    background: rgba(62, 89, 2);
+    border-radius: 5vh;
+    color: #FBEFC7;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center
 }
 
 .list-container {
