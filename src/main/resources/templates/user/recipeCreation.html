@@ -79,8 +79,7 @@
     </form>
     <form class="text-form-time">
         <div class="recipeCookingTime">
-            <input name="query" placeholder="Cooking time in minutes" type="number">
-            <!-- TODO               min value 1-->
+            <input min="1" name="query" placeholder="Cooking time in minutes" type="number">
         </div>
     </form>
     <form class="text-form-category">
@@ -111,7 +110,7 @@
     </div>
     <form class="text-form-devices">
         <div class="recipeDevices"></div>
-        <input name="query" placeholder="Recipe devices" type="text">
+        <input name="query" placeholder="Recipe devices (separate by comas) " type="text">
     </form>
     <form class="text-form-StepByStep">
         <div class="recipeStepByStep">
@@ -139,18 +138,18 @@
 
     <div class="circle-container telegram-container">
         <div class="telegram"
-             onmouseout="restoreImage('telegram-img', '../../static/images/telegram.svg')"
-             onmouseover="changeImage('telegram-img', '../../static/images/telegram-hover.svg')">
-            <img alt="telegram" class="telegram" id="telegram-img" src="../../static/images/telegram.svg"
+             onmouseout="restoreImage('telegram-img', '../../images/telegram.svg')"
+             onmouseover="changeImage('telegram-img', '../../images/telegram-hover.svg')">
+            <img alt="telegram" class="telegram" id="telegram-img" src="../../images/telegram.svg"
                  th:src="@{images/telegram.svg}">
         </div>
     </div>
 
     <div class="circle-container instagram-container">
         <div class="instagram"
-             onmouseout="restoreImage('instagram-img', '../../static/images/inst.svg')"
-             onmouseover="changeImage('instagram-img', '../../static/images/inst-hover.svg')">
-            <img alt="instagram" class="instagram" id="instagram-img" src="../../static/images/inst.svg"
+             onmouseout="restoreImage('instagram-img', '../../images/inst.svg')"
+             onmouseover="changeImage('instagram-img', '../../images/inst-hover.svg')">
+            <img alt="instagram" class="instagram" id="instagram-img" src="../../images/inst.svg"
                  th:src="@{images/inst.svg}">
         </div>
     </div>
