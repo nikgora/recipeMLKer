@@ -26,10 +26,10 @@
 }
 
 #Login {
+    position: absolute;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 2.1875vw; /*42*/
     color: #733506;
-    position: absolute;
     left: 2vw;
     top: 0.5vh;
     background-color: #F2E3B3;

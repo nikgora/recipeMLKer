@@ -104,7 +104,7 @@
     height: 6vh;
     background-color: #3E5902;
     top: 14.5vh;
-    left: 31vw;
+    left: 21vw; /*31*/
     border-radius: 2vh;
     text-align: center;
     font-family: 'Frank Ruhl Libre', serif;
@@ -116,7 +116,7 @@
     justify-content: center;
 }
 
-#processing:hover, #processing1:hover, #processing2:hover {
+#processing:hover, #processing1:hover, #processing2:hover, #accept:hover, #reject:hover {
     border: 0.5vh solid #3E5902;
     background-color: #F2E3B3;
     color: #3E5902;
