@@ -76,15 +76,20 @@
     </form>
     <form class="text-form-time">
         <div class="recipeCookingTime">
-            <input name="query" placeholder="Cooking time" type="number">
+            <input name="query" placeholder="Cooking time in minutes" type="number">
             <!-- TODO               min value 1-->
         </div>
     </form>
     <form class="text-form-category">
         <div class="recipeCategory">
-            <input name="query" placeholder="Category" type="text">
+            <select name="query">
+                <option disabled selected value="">Category</option>
+                <option th:each="categor : ${category}" th:text="${categor}"
+                        th:value="${category}"></option>
+            </select>
         </div>
     </form>
+
     <div class="ingredientsField">
         <div class="tableContainer">
             <table id="ingredientsTable">
