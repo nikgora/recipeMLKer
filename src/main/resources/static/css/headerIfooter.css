@@ -252,15 +252,15 @@ body {
 #Login {
     position: absolute;
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 2.1875vw; /*42*/
+    font-size: 2vw; /*42*/
     color: #733506;
     left: 2vw;
-    top: 0.5vh;
+    top: 1vh;
     background-color: #F2E3B3;
-    width: 9vw;
-    height: 6vh;
+    width: 10vw;
+    height: 5vh;
+    border: none;
     border-radius: 5vh;
-    border-color: #F2B705;
     display: flex;
     align-items: center;
     justify-content: center
@@ -268,16 +268,16 @@ body {
 
 #SignIn {
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 2.1875vw; /*42*/
+    font-size: 2vw; /*42*/
     color: #733506;
     position: absolute;
     right: 2vw;
-    top: 0.5vh;
+    top: 1vh;
     background-color: #F2E3B3;
-    width: 9vw;
-    height: 6vh;
+    width: 10vw;
+    height: 5vh;
+    border: none;
     border-radius: 5vh;
-    border-color: #F2B705;
     display: flex;
     align-items: center;
     justify-content: center
