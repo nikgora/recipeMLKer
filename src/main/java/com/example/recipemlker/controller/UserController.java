@@ -236,6 +236,7 @@ public class UserController {
         model.addAttribute("notes", recipeService.getAllByUser(user));
         model.addAttribute("newList", new UserList());
         model.addAttribute("isAdmin", moderatorService.existsByUser(user));
+        model.addAttribute("moderator", new Moderator());
         return "user/user";
     }
 

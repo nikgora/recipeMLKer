@@ -102,14 +102,15 @@
 
     <div id="overlay-password" onclick="hideOverlay()"></div>
 
-    <div class="list-container" id="password-popup-window" style="top: 69vh;">
-        <div class="list-name">
-            <input id="password" name="title" placeholder="Enter password" style="top: 10vh;" type="text">
+    <form method="post" th:action="@{/api/moderator/login}" th:object="${moderator}">
+        <div class="list-container" id="password-popup-window" style="top: 69vh;">
+            <div class="list-name">
+                <input id="password" name="secret_password" placeholder="Enter password" style="top: 10vh;"
+                       th:value="${moderator.secret_password}" type="text"/>
+            </div>
+            <button class="confirm-list-button" id="confirm-password-btn">Confirm</button>
         </div>
-        <a class="confirm-list-button" href="../moderator/moderatorPage.html" id="confirm-password-btn"
-           th:href="@{/moderator}">Confirm</a>
-    </div>
-
+    </form>
 
     <div class="recipesField">
         <div class="recipesFieldHeader">

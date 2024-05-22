@@ -6,8 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.Objects;
 
 @Controller
 public class ModeratorController {
@@ -24,6 +27,8 @@ public class ModeratorController {
     private UserService userService;
     @Autowired
     private RecipeService recipeService;
+
+    @Autowired
     private UserController userController;
 
     @GetMapping("/moderator")
@@ -36,11 +41,14 @@ public class ModeratorController {
     }
 
     @PostMapping("/api/moderator/login")
-    public String LoginModerator() {
+    public String LoginModerator(@ModelAttribute Moderator moderator) {
         String jwt = userController.getJwt();
         if (jwt == null) return "redirect:/403";
         User user = userService.getUserByUsername(jwtService.extractUserName(jwt));
         Moderator modUser = moderatorService.getFirstByUser(user);
+        if (!Objects.equals(modUser.getSecret_password(), moderator.getSecret_password())) {
+            return "redirect:/user";
+        }
         moderatorId = modUser.getId();
         return "redirect:/moderator";
     }
@@ -50,7 +58,7 @@ public class ModeratorController {
         if (moderatorId == null) {
             return "redirect:/user/403";
         }
-        model.addAttribute("reports", aiReportService.findAvailableForModer(false, 1L));
+        model.addAttribute("reports", aiReportService.findAvailableForModer(false, moderatorId));
         return "moderator/moderatorAIReports";
     }
 
@@ -59,7 +67,7 @@ public class ModeratorController {
         if (moderatorId == null) {
             return "redirect:/user/403";
         }
-        model.addAttribute("reports", userReportService.findAvailableForModer(false, 1L));
+        model.addAttribute("reports", userReportService.findAvailableForModer(false, moderatorId));
         return "moderator/moderatorUserReports";
     }
 
