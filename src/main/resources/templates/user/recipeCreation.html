@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Recipe Creation</title>
-    <link rel="stylesheet" type="text/css" href="../../static/css/recipeCreation.css"
-          th:href="@{css/recipeCreation.css}">
-    <link rel="stylesheet" type="text/css" href="../../static/css/headerIfooter.css.css"
-          th:href="@{css/headerIfooter.css}">
+    <link href="../../static/css/recipeCreation.css" rel="stylesheet" th:href="@{css/recipeCreation.css}"
+          type="text/css">
+    <link href="../../static/css/headerIfooter.css.css" rel="stylesheet" th:href="@{css/headerIfooter.css}"
+          type="text/css">
 </head>
 <body>
 <header>
     <div class="header">
-        <img th:src="@{images/logo.svg}" src="../../images/logo.svg" alt="logo" class="logo">
+        <img alt="logo" class="logo" src="../../images/logo.svg" th:src="@{images/logo.svg}">
 
         <form class="search-form">
-            <img th:src="@{images/magnifier.svg}" src="../../static/images/magnifier.svg" alt="magnifier"
-                 class="magnifier">
+            <img alt="magnifier" class="magnifier" src="../../static/images/magnifier.svg"
+                 th:src="@{images/magnifier.svg}">
             <input name="query" placeholder="Search" type="search">
         </form>
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
@@ -61,8 +61,8 @@
                      th:src="@{images/user-login.svg}">
             </div>
         </button>
-        <a th:href="@{/}" href="main.html">
-            <img th:src="@{images/home.svg}" src="../../images/home.svg" alt="home" class="home">
+        <a href="main.html" th:href="@{/}">
+            <img alt="home" class="home" src="../../images/home.svg" th:src="@{images/home.svg}">
         </a>
     </div>
 </header>
@@ -90,9 +90,11 @@
             <table id="ingredientsTable">
                 <tbody>
                 <tr>
-                    <td><input type="text" name="ingredient" placeholder="Ingredient"></td>
-                    <td><input type="text" name="amount" placeholder="Amount"></td>
-                    <td><button class="deleteRow">Delete</button></td>
+                    <td><input name="ingredient" placeholder="Ingredient" type="text"></td>
+                    <td><input name="amount" placeholder="Amount" type="text"></td>
+                    <td>
+                        <button class="deleteRow">Delete</button>
+                    </td>
                 </tr>
                 </tbody>
             </table>
@@ -102,17 +104,15 @@
     <form class="text-form-devices">
         <div class="recipeDevices"></div>
         <input name="query" placeholder="Recipe devices" type="text">
-        </div>
     </form>
     <form class="text-form-StepByStep">
         <div class="recipeStepByStep">
-            <input name="query" placeholder="Step by step" type="text">
+            <textarea name="description" placeholder="Step by step"></textarea>
         </div>
     </form>
 
     <div class="saveButton buttonText">Save</div>
     <div class="publishButton buttonText">Publish</div>
-    <div class="stick"></div>
 </main>
 <footer class="footer">
     <button class="support-button" id="support-btn"><span>Support</span></button>
@@ -132,31 +132,31 @@
     <div class="circle-container telegram-container">
         <div
                 class="telegram"
-                onmouseover="changeImage('telegram-img', '../../static/images/telegram-hover.svg')"
                 onmouseout="restoreImage('telegram-img', '../../static/images/telegram.svg')"
+                onmouseover="changeImage('telegram-img', '../../static/images/telegram-hover.svg')"
         >
-            <img id="telegram-img" th:src="@{images/telegram.svg}" src="../../static/images/telegram.svg" alt="telegram"
-                 class="telegram">
+            <img alt="telegram" class="telegram" id="telegram-img" src="../../static/images/telegram.svg"
+                 th:src="@{images/telegram.svg}">
         </div>
     </div>
 
     <div class="circle-container instagram-container">
         <div
                 class="instagram"
-                onmouseover="changeImage('instagram-img', '../../static/images/inst-hover.svg')"
                 onmouseout="restoreImage('instagram-img', '../../static/images/inst.svg')"
+                onmouseover="changeImage('instagram-img', '../../static/images/inst-hover.svg')"
         >
-            <img id="instagram-img" th:src="@{images/inst.svg}" src="../../static/images/inst.svg" alt="instagram"
-                 class="instagram">
+            <img alt="instagram" class="instagram" id="instagram-img" src="../../static/images/inst.svg"
+                 th:src="@{images/inst.svg}">
         </div>
     </div>
 </footer>
 </body>
-<script th:href="@{js/scripts.js}" src="../../js/scripts.js"></script>
+<script src="../../js/scripts.js" th:href="@{js/scripts.js}"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    $(document).ready(function() {
-        $('#addRow').click(function() {
+    $(document).ready(function () {
+        $('#addRow').click(function () {
             let newRow = `<tr>
                         <td><input type="text" name="ingredient" placeholder="Ingredient"></td>
                         <td><input type="text" name="amount" placeholder="Amount"></td>
@@ -165,7 +165,7 @@
             $('#ingredientsTable tbody').append(newRow);
         });
 
-        $(document).on('click', '.deleteRow', function() {
+        $(document).on('click', '.deleteRow', function () {
             $(this).closest('tr').remove();
         });
     });

@@ -58,7 +58,7 @@
     width: 44.76vw;
     height: 16.5vh;
     background-color: #F2E3;
-    top: 0vh;
+    top: 0;
     margin-left: -1vw;
     border-radius: 5vh;
 }
@@ -266,13 +266,12 @@ button#addRow {
     width: 90vw;
     height: 4.2vh;
     left: 4vw;
-    top: 53.25vh; /*рухати поле в середині*/
+    top: 53.25vh;
     flex: 2;
     border: none;
     background: #F2E3B3;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.9vw;
-    border-radius: 1.5vh;
     outline: none;
 }
 
@@ -283,22 +282,22 @@ button#addRow {
     gap: 0.53vw;
     padding-left: 1.0415vw;
     border-radius: 2.778vh;
-    top: 0vh;
+    top: 0;
 }
 
-.text-form-StepByStep input, .inner-window input {
+.text-form-StepByStep textarea {
     position: absolute;
-    width: 90vw;
-    height: 4.2vh;
+    width: 98%;
+    height: 85%;
     left: 1vw;
-    top: 1vh; /*рухати поле в середині*/
-    flex: 2;
+    top: 1vh;
     border: none;
     background: #F2E3B3;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.9vw;
-    border-radius: 1.5vh;
     outline: none;
+    resize: none;
+    autocomplete: off;
 }
 
 ::-webkit-scrollbar {
