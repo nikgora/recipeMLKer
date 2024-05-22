@@ -321,18 +321,3 @@ button#addRow {
     appearance: none;
     cursor: pointer;
 }
-
-.recipeCategory::after {
-    position: absolute;
-    top: 50%;
-    right: 1vw;
-    transform: translateY(-50%);
-    pointer-events: none;
-    background-size: 1.5vw 1.5vh;
-    width: 1.5vw;
-    height: 1.5vh;
-}
-
-.recipeCategory:hover::after {
-    background-color: #D4C28B;
-}
