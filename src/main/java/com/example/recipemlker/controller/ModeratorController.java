@@ -2,6 +2,7 @@ package com.example.recipemlker.controller;
 
 import com.example.recipemlker.model.*;
 import com.example.recipemlker.service.*;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +15,7 @@ import java.util.Objects;
 
 @Controller
 public class ModeratorController {
+    @Getter
     private Long moderatorId;
     @Autowired
     private JwtService jwtService;
@@ -30,6 +32,22 @@ public class ModeratorController {
 
     @Autowired
     private UserController userController;
+
+    @GetMapping("moderator/recipe/{id}")
+    public String recipePage(Model model, @PathVariable("id") Long id) {
+        if (this.recipeService.getRecipeById(id) == null) {
+            return "redirect:/404";
+        }
+        if (moderatorId == null) {
+            return "redirect:/403";
+        }
+        model.addAttribute("recipe", this.recipeService.getRecipeById(id));
+        model.addAttribute("id", id);
+        model.addAttribute("isLogin", true);
+        model.addAttribute("randomRecipeId", userController.getRandomNumRecipe());
+        model.addAttribute("isModerator", true);
+        return "user/recipe";
+    }
 
     @GetMapping("/moderator")
     public String moderatorAccount(Model model) {
