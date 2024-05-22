@@ -65,37 +65,37 @@
     position: absolute;
     text-align: center;
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 2vw;
+    font-size: 1.8vw;
     text-decoration: none;
     left: 2vw;
     top: 1vh;
 }
 
 .InBD {
-    left: 25vw;
+    left: 22vw;
 }
 
 .informationField {
     position: absolute;
     width: 88vw;
-    height: 13vh;
+    height: 16.5vh;
     background-color: #F2E3B3;
     border-radius: 3vh;
-    top: 8vh;
+    top: 6vh;
     left: 1.8vw;
 }
 
-#processing, #accept, #decline {
+[id^="processing"], [id^="accept"], [id^="decline"] {
     position: absolute;
-    width: 26vw;
-    height: 6vh;
+    width: 22vw;
+    height: 5.8vh;
     background-color: #3E5902;
-    top: 14.5vh;
+    top: 17.5vh;
     left: 31vw;
     border-radius: 2vh;
     text-align: center;
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 2vw;
+    font-size: 1.8vw;
     color: #F2E3B3;
     border: none;
     display: flex;
@@ -104,17 +104,17 @@
     cursor: pointer;
 }
 
-#accept, #decline {
+[id^="accept"], [id^="decline"] {
     display: none;
-    top: 10.4vw;
-    width: 13vw;
+    width: 11vw;
+    left: 55vw;
 }
 
-#decline {
-    left: 48vw;
+[id^="decline"] {
+    left: 72vw;
 }
 
-#processing:hover, #accept:hover, #decline:hover {
+[id^="processing"]:hover, [id^="accept"]:hover, [id^="decline"]:hover {
     border: 0.5vh solid #3E5902;
     background-color: #F2E3B3;
     color: #3E5902;

@@ -105,10 +105,10 @@
     <form method="post" th:action="@{/api/moderator/login}" th:object="${moderator}">
         <div class="list-container" id="password-popup-window" style="top: 69vh;">
             <div class="list-name">
-                <input id="password" name="secret_password" placeholder="Enter password" style="top: 10vh;"
-                       th:value="${moderator.secret_password}" type="text"/>
+                <input id="password" name="secret_password" placeholder="Enter password"
+                       th:value="${moderator.secret_password}" type="password"/>
             </div>
-            <button class="confirm-list-button" id="confirm-password-btn">Confirm</button>
+            <button class="confirm-list-button" id="confirm-password-btn" style="top: 10vh;">Confirm</button>
         </div>
     </form>
 

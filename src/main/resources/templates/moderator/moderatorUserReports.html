@@ -52,24 +52,27 @@
     <div class="titleForUserPage">User reports</div>
     <div class="AIReportField">
         <div class="scrollField">
-            <div th:each="report: ${reports}">
-                <div class="reportField">
-                    <div class="linkField">
-                        <div class="notInBD">Request for recipe review:</div>
-                        <a class=" notInBD InBD" th:href="@{/recipe/{id}(id=${report.getRecipe().getId()})}"
-                           th:text="${report.getRecipe().getTitle()}"></a>
-                        <div class="informationField">
-                            <p th:text="${report.getDescription()}"></p>
-                            <button id="processing">Take for processing</button>
+            <div th:each="report, i: ${reports}">
+                <div th:if="${report.getModerator() == null} == true">
+                    <div class="reportField">
+                        <div class="linkField">
+                            <div class="notInBD">Request for recipe review:</div>
+                            <a class=" notInBD InBD" style="font-weight: bold"
+                               th:href="@{/recipe/{id}(id=${report.getRecipe().getId()})}"
+                               th:text="${report.getRecipe().getTitle()}"></a>
+                            <div class="informationField">
+                                <!--TODO: задати стилі для тексту .p-->
+                                <p th:text="${report.getDescription()}"></p>
+                                <button th:id="'processing' + ${i.index}">Take for processing</button>
+                                <button th:id="'accept' + ${i.index}">Accept</button>
+                                <button th:id="'decline' + ${i.index}">Decline</button>
+                            </div>
                         </div>
-                        <button id="accept">Accept</button>
-                        <button id="decline">Decline</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </main>
 <footer class="footer">
     <button class="support-button" id="support-btn"><span>Support</span></button>
@@ -107,13 +110,15 @@
 </body>
 <script src="../../static/js/scripts.js" th:href="@{js/scripts.js}"></script>
 <script>
-    document.getElementById('processing').addEventListener('click', function () {
-        document.getElementById('accept').style.display = 'block';
-        document.getElementById('processing').style.display = 'none';
-    });
-
-    document.getElementById('processing').addEventListener('click', function () {
-        document.getElementById('decline').style.display = 'block';
+    document.querySelectorAll('[id^="processing"]').forEach(function (button) {
+        button.addEventListener('click', function () {
+            var index = button.id.replace('processing', '');
+            var acceptButton = document.getElementById('accept' + index);
+            var declineButton = document.getElementById('decline' + index);
+            acceptButton.style.display = 'block';
+            declineButton.style.display = 'block';
+            button.style.display = 'none';
+        });
     });
 </script>
 </html>
