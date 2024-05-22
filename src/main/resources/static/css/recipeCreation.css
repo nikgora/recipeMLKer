@@ -18,7 +18,7 @@
     left: 3vw;
     right: 3vw;
     top: 20vh;
-    border-radius: 5vw;
+    border-radius: 1vw;
 }
 
 .recipeCookingTime {
@@ -28,10 +28,9 @@
     background-color: #F2E3B3;
     left: 3vw;
     top: 27.4vh;
-    border-radius: 5vw;
+    border-radius: 1vw;
 }
 
-/*4,6875 = 2.3437*/
 .recipeCategory {
     position: absolute;
     width: 44.76vw;
@@ -39,7 +38,7 @@
     background-color: #F2E3B3;
     right: 3vw;
     top: 27.4vh;
-    border-radius: 5vw;
+    border-radius: 1vw;
 }
 
 .recipeIngredients {
@@ -47,12 +46,11 @@
     width: 44.76vw;
     height: 16.5vh;
     background-color: #F2E3;
-    left: 0vw;
-    top: 0vh;
-    border-radius: 5vh;
+    left: 0;
+    top: 0;
+    border-radius: 1vh;
 }
 
-/*4,6875 = 2.3437*/
 .recipeIngredientsAmount {
     position: absolute;
     width: 44.76vw;
@@ -71,7 +69,7 @@
     left: 3vw;
     right: 3vw;
     top: 53.2vh;
-    border-radius: 5vw;
+    border-radius: 1vw;
 }
 
 .recipeStepByStep {
@@ -85,7 +83,7 @@
     border-radius: 5vh;
 }
 
-.saveButton {
+.saveButton, .publishButton {
     position: absolute;
     width: 15.625vw;
     height: 7.41vh;
@@ -93,26 +91,14 @@
     left: 20.4vw;
     background-color: #F28705;
     border-radius: 5vh;
-}
-
-.buttonText {
-    position: absolute;
-    text-align: center;
+    cursor: pointer;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 2vw;
-    display: flex;
-    align-items: center; /* Вирівнювання по вертикалі */
-    justify-content: center; /* Вирівнювання по горизонталі */
+    color: black;
 }
 
 .publishButton {
-    position: absolute;
-    width: 15.625vw;
-    height: 7.41vh;
-    top: 82vh;
-    right: 20.4vw;
-    background-color: #F28705;
-    border-radius: 5vh;
+    left: 60.8vw;
 }
 
 .publishButton:hover, .saveButton:hover {
@@ -128,7 +114,7 @@
     gap: 0.53vw;
     padding-left: 1.0415vw;
     border-radius: 2.778vh;
-    top: 0vh;
+    top: 0;
 }
 
 .text-form-title input, .inner-window input {
@@ -153,7 +139,7 @@
     gap: 0.53vw;
     padding-left: 1.0415vw;
     border-radius: 2.778vh;
-    top: 0vh;
+    top: 0;
 }
 
 .text-form-time input, .inner-window input {
@@ -166,7 +152,6 @@
     background: #F2E3B3;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.9vw;
-    border-radius: 1.5vh;
     outline: none;
 }
 
@@ -176,7 +161,6 @@
     align-items: center;
     gap: 0.53vw;
     padding-left: 1.0415vw;
-    border-radius: 2.778vh;
     top: 0;
     right: 0;
 }
@@ -191,7 +175,6 @@
     background: #F2E3B3;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.9vw;
-    border-radius: 1.5vh;
     outline: none;
 }
 
