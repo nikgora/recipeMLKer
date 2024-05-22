@@ -7,7 +7,6 @@ VALUES ('Oven'),
        ('Mixer'),
        ('Grill');
 
-
 -- Inserting Categories
 INSERT INTO Category (title)
 VALUES ('First Dish'),
@@ -73,7 +72,15 @@ VALUES ('Eggs', FALSE),
        ('Wholegrain Mustard', FALSE),
        ('Spinach', FALSE),
        ('Corn flakes', FALSE),
-       ('Marshmallow', FALSE);
+       ('Marshmallow', FALSE),
+       ('Mushrooms', FALSE),
+       ('Basil', FALSE),
+       ('Pumpkin seeds', FALSE),
+       ('Turkey', FALSE),
+       ('Red bell pepper', FALSE),
+       ('Orange', TRUE),
+       ('Walnuts', TRUE),
+       ('Oregano', FALSE);;
 
 -- Inserting Published Recipes
 INSERT INTO PublishedRecipe (title, cooking_time, description, published, fk_user, fk_category)
@@ -102,8 +109,8 @@ VALUES ('Scrambled Eggs', 15,
         Bake in the preheated oven for 30-35 minutes, or until a toothpick inserted into the center of the cakes comes out clean.
         <br><br>Remove the cakes from the oven and allow them to cool. Once the cakes are completely cool, place one layer on a serving plate or cake stand.
         Optionally, you can garnish the cake with chopped peanuts and mini chocolate chips if desired.',
-        TRUE, 3, 5);
-        ('Grilled Salmon', 90,
+        TRUE, 3, 5),
+       ('Grilled Salmon', 90,
         'In a small bowl, whisk together brown sugar, lemon juice, black pepper, salt, soy sauce, olive oil, water, and minced garlic to create the marinade.
          <br><br>Place the salmon fillets in a shallow dish and pour the marinade over them. Make sure the salmon is well coated and refrigerate for at least 30 minutes, allowing it to marinate. For a more intense flavor, you can marinate it for up to 2 hours.
          <br><br>Preheat your grill to medium-high heat (about 190-200°C). If using a gas grill, preheat for about 10-15 minutes.
@@ -113,7 +120,7 @@ VALUES ('Scrambled Eggs', 15,
         <br><br>Once the salmon is cooked through, remove it from the grill and transfer it to a serving platter.
         Optionally, garnish with fresh herbs like chopped parsley or dill.',
         TRUE, 1, 8),
-        ('Pancakes', 30,
+       ('Pancakes', 30,
         'Sift together flour, baking powder, sugar, and salt in a large bowl.
         <br><br>Make a well in the center of the dry ingredients and add milk, melted butter, and egg. Mix until smooth.
         <br><br>Heat a lightly oiled griddle or pan over medium-high heat.
@@ -121,46 +128,61 @@ VALUES ('Scrambled Eggs', 15,
         <br><br>Flip and cook until browned on the other side.
         <br><br>Repeat with remaining butter.',
         TRUE, 4, 5),
-        ('Green Tahini', 5,
+       ('Green Tahini', 5,
         'Blend up all your sauce ingredients in a food processor or blender until smooth. Taste and adjust. If the sauce is too runny, add a little more tahini.
         <br><br>Pour over roasted vegetables, beans, grains, protein… anything that needs to be woken up with some rich and creamy flavor!',
         TRUE, 2, 9),
-        ('Blueberry Smoothie', 5,
-	   'Put the blueberries, banana, yogurt, apple juice and mint, if using, in a blender and blitz until smooth. Add a splash of water if it seems too thick.
-	<br><br>Pour the smoothie into a tall glass with a glass straw to serve. Garnish with a sprig of mint, if you like.',
-	   TRUE, 1, 6),
-        ('Pumpkin Soup', 40,
-	   'Heat oil in a large saucepan over low heat, add onion and leek and cook for 2-3 minutes, until softened but not coloured.
-<br><br>Add garlic, coriander, cumin, and nutmeg and cook, stirring, for 30 seconds. Add pumpkin, potato and stock and bring to the boil. Turn heat to low, cover and simmer for 30 minutes. Allow to cool slightly, then blend in batches.
-<br><br>Return soup to pan, stir through cream and reheat gently. Season and add a little more nutmeg if desired.',
-	   TRUE, 2, 1),
-        ('Cinnabon Cinnamon Rolls', 90,
-	   'In the bowl of a stand mixer, dissolve yeast in warm milk until lightly foamy.
-<br><br>Add the rest of the ingredients to the bowl and mix with a wooden spoon until combined.
-<br><br>Attach the bowl to the mixer along with the dough hook. Kneed the dough for about 4 minutes until the dough is soft and smooth.
-Grease a clean with butter. Transfer the dough to the buttered bowl. Allow dough to rise undisturbed for one hour.
-<br><br>In a small bowl, mix the cinnamon and sugar together. Transfer the mixture to a sugar shaker (this will eliminate any lumps from the brown sugar). Put aside.
-Transfer the dough to a clean  lightly dusted with flour. Roll out the dough into a rectangle that’s approximately 12 inches by 16 inches.
-<br><br>With a spatula, spread the softened butter evenly over the dough. Sprinkle the cinnamon sugar evenly over the entire surface of the dough.
-From the long end, carefully roll the dough into a log. With a knife or floss, cut the dough into cinnamon rolls. Transfer cinnamon rolls to the buttered baking dish and cover the baking dish with a towel. Allow cinnamon rolls to rise for 30 minutes.
-<br><br>Preheat oven to 350 degrees. Bake the cinnamon rolls for 15 minutes with the foil tent.
-<br><br>In a mixing bowl, whip the butter, cream cheese, powdered sugar, salt and vanilla until light and fluffy.
-Using an icing spatula, frost the baked cinnamon rolls with icing while they’re still warm.',
-	   TRUE, 3, 4),
-        ('Warm Potato Salad', 45,
-	   'Preheat oven to 180°C. Line 2 baking trays with baking paper. Place the potato and garlic on 1 lined tray. Spray with olive oil spray. Season. Bake for 45 mins or until potato is tender and the skin is crispy. Arrange the bacon on remaining lined tray. Bake with potato for the last 15 mins of cooking. Cool slightly. Tear bacon into pieces.
-<br><br>Meanwhile, cook the eggs in a saucepan of boiling water for 8 mins for set yolks. Refresh under cold water. Peel each egg and cut in half.
-<br><br>Squeeze the garlic into a small bowl and discard skins. Stir in the yoghurt, mustard and half the chives. Season.
-<br><br>Combine the potato, bacon, onion, spinach, egg and yoghurt mixture in a large bowl. Sprinkle with the remaining chives. Season.',
-	   TRUE, 2, 3),
-        ('Cornflake Marshmallow Treats', 65,
-	   'Preheat oven to 160ºC. Line two rimmed baking sheets with parchment and divide cereal evenly between the two sheets. Gently crumble the cornflakes to break them up into smaller pieces.
-<br><br>Toast in the oven, using a spatula to stir the grains occasionally, until deep golden brown, about 10 minutes. Remove from oven and cool for 5 minutes. When cool, lift both sides of the parchment to form a “sleeve” and transfer corn flakes to a large bowl.
-<br><br>While the corn flakes toast, line a 9-by 9-inch baking dish with parchment and coat evenly with nonstick baking spray.
-<br><br>In a large pot, melt 4 tablespoons unsalted butter over medium heat, stirring until solids turn golden brown, 3 to 4 minutes. Reduce heat to low. Add salt, followed by marshmallows. Using a rubber spatula, stir until the marshmallows have just melted, about 4 minutes. Stir in toasted corn flakes, folding well to incorporate.
-<br><br>Transfer to prepared baking dish, using a rubber spatula greased with nonstick baking spray to coax the mixture into the pan.  Allow bars to cool for 30 minutes before portioning.
-<br><br>To portion, remove bars from the baking dish and place on a cutting board. Use a serrated knife to cut bars into squares, rectangles, or your desired shape.',
-	   TRUE, 2, 7);
+       ('Blueberry Smoothie', 5,
+        'Put the blueberries, banana, yogurt, apple juice and mint, if using, in a blender and blitz until smooth. Add a splash of water if it seems too thick.
+     <br><br>Pour the smoothie into a tall glass with a glass straw to serve. Garnish with a sprig of mint, if you like.',
+        TRUE, 1, 6),
+       ('Pumpkin Soup', 40,
+        'Heat oil in a large saucepan over low heat, add onion and leek and cook for 2-3 minutes, until softened but not coloured.
+ <br><br>Add garlic, coriander, cumin, and nutmeg and cook, stirring, for 30 seconds. Add pumpkin, potato and stock and bring to the boil. Turn heat to low, cover and simmer for 30 minutes. Allow to cool slightly, then blend in batches.
+ <br><br>Return soup to pan, stir through cream and reheat gently. Season and add a little more nutmeg if desired.',
+        TRUE, 2, 1),
+       ('Cinnabon Cinnamon Rolls', 90,
+        'In the bowl of a stand mixer, dissolve yeast in warm milk until lightly foamy.
+ <br><br>Add the rest of the ingredients to the bowl and mix with a wooden spoon until combined.
+ <br><br>Attach the bowl to the mixer along with the dough hook. Kneed the dough for about 4 minutes until the dough is soft and smooth.
+ Grease a clean with butter. Transfer the dough to the buttered bowl. Allow dough to rise undisturbed for one hour.
+ <br><br>In a small bowl, mix the cinnamon and sugar together. Transfer the mixture to a sugar shaker (this will eliminate any lumps from the brown sugar). Put aside.
+ Transfer the dough to a clean  lightly dusted with flour. Roll out the dough into a rectangle that’s approximately 12 inches by 16 inches.
+ <br><br>With a spatula, spread the softened butter evenly over the dough. Sprinkle the cinnamon sugar evenly over the entire surface of the dough.
+ From the long end, carefully roll the dough into a log. With a knife or floss, cut the dough into cinnamon rolls. Transfer cinnamon rolls to the buttered baking dish and cover the baking dish with a towel. Allow cinnamon rolls to rise for 30 minutes.
+ <br><br>Preheat oven to 350 degrees. Bake the cinnamon rolls for 15 minutes with the foil tent.
+ <br><br>In a mixing bowl, whip the butter, cream cheese, powdered sugar, salt and vanilla until light and fluffy.
+ Using an icing spatula, frost the baked cinnamon rolls with icing while they’re still warm.',
+        TRUE, 3, 4),
+       ('Warm Potato Salad', 45,
+        'Preheat oven to 180°C. Line 2 baking trays with baking paper. Place the potato and garlic on 1 lined tray. Spray with olive oil spray. Season. Bake for 45 mins or until potato is tender and the skin is crispy. Arrange the bacon on remaining lined tray. Bake with potato for the last 15 mins of cooking. Cool slightly. Tear bacon into pieces.
+ <br><br>Meanwhile, cook the eggs in a saucepan of boiling water for 8 mins for set yolks. Refresh under cold water. Peel each egg and cut in half.
+ <br><br>Squeeze the garlic into a small bowl and discard skins. Stir in the yoghurt, mustard and half the chives. Season.
+ <br><br>Combine the potato, bacon, onion, spinach, egg and yoghurt mixture in a large bowl. Sprinkle with the remaining chives. Season.',
+        TRUE, 2, 3),
+       ('Cornflake Marshmallow Treats', 65,
+        'Preheat oven to 160ºC. Line two rimmed baking sheets with parchment and divide cereal evenly between the two sheets. Gently crumble the cornflakes to break them up into smaller pieces.
+ <br><br>Toast in the oven, using a spatula to stir the grains occasionally, until deep golden brown, about 10 minutes. Remove from oven and cool for 5 minutes. When cool, lift both sides of the parchment to form a “sleeve” and transfer corn flakes to a large bowl.
+ <br><br>While the corn flakes toast, line a 9-by 9-inch baking dish with parchment and coat evenly with nonstick baking spray.
+ <br><br>In a large pot, melt 4 tablespoons unsalted butter over medium heat, stirring until solids turn golden brown, 3 to 4 minutes. Reduce heat to low. Add salt, followed by marshmallows. Using a rubber spatula, stir until the marshmallows have just melted, about 4 minutes. Stir in toasted corn flakes, folding well to incorporate.
+ <br><br>Transfer to prepared baking dish, using a rubber spatula greased with nonstick baking spray to coax the mixture into the pan.  Allow bars to cool for 30 minutes before portioning.
+ <br><br>To portion, remove bars from the baking dish and place on a cutting board. Use a serrated knife to cut bars into squares, rectangles, or your desired shape.',
+        TRUE, 2, 7),
+       ('Creamy Mushroom Soup', 25,
+        'Chop the onion and mushrooms into medium-sized pieces. Cook in about 1 tbsp vegetable oil until the onions are translucent and the mushrooms are soft, about 6-7 minutes. Don’t forget to stir them from time to time. Salt and pepper to taste. Add the ground coriander.
+ <br><br>Transfer the cooked onion and mushrooms into a saucepan and add part of the milk. Using a hand blender, blitz until combined. Pour in the rest of the milk and blitz until smooth. You can adjust the amount of milk according to how thick you prefer your soup.
+ <br><br>Reheat the soup over medium heat and cook for about 3-4 minutes. Garnish with pumpkin seeds and basil leaves before serving.',
+        TRUE, 1, 1),
+       ('Baked Turkey', 170,
+        'Preheat the oven to 125 degrees.
+ <br><br>Peel a turkey fillet, rub it with salt and pepper from all sides. Pour 1 tbsp of sunflower oil over the meat.Put the turkey fillet in a baking sleeve and pack tightly. Bake the meat in the oven at 125 degrees for 2.5 hours.
+ <br><br>Wash the red bell pepper, make a small incision to let the air out. Wrap the pepper in foil together with 3 unpeeled cloves of garlic and add some salt.
+ <br><br>Then remove the meat from the "sleeve" and bake the turkey for another 10 minutes. Put pepper with garlic in the oven together with the meat.
+ <br><br>Peel the baked pepper and get rid of seeds.
+ <br><br>Put pieces of baked pepper and garlic in a blender bowl. Add 2 tbsp. of walnuts, 1 tbsp. of sunflower oil, salt and pepper to the taste.
+ <br><br>Squeeze a little orange juice into a bowl and mix everything with a blender to the desired texture of the sauce.
+ <br><br>Cut the orange fillet. Spread the sauce on the turkey or on the side of the meat, lay out the orange fillets and sprinkle your dish with 1 tsp. of oregano.',
+        TRUE, 2, 2);
 
 INSERT INTO recipe_ingredient (amount_of_ingredient, fk_ingredient, fk_recipe)
 VALUES ('2', 1, 1),
@@ -247,7 +269,25 @@ VALUES ('2', 1, 1),
        ('252g', 45, 11),
        ('56g', 5, 11),
        ('for flavor', 6, 11),
-       ('1 bag', 46, 11);
+       ('1 bag', 46, 11),
+       ('600g', 47, 12),
+       ('200g', 31, 12),
+       ('600-800ml', 2, 12),
+       ('2 bunches', 48, 12),
+       ('for flavor', 33, 12),
+       ('for flavor', 6, 12),
+       ('for flavor', 7, 12),
+       ('', 49, 12),
+       ('1 tbsp', 17, 12),
+       ('800g of fillet', 50, 13),
+       ('1', 51, 13),
+       ('1', 52, 13),
+       ('2 tbsp', 53, 13),
+       ('3 cloves', 9, 13),
+       ('1 tsp', 54, 13),
+       ('2 tbsp', 17, 13),
+       ('for flavor', 6, 13),
+       ('for flavor', 7, 13);
 
 INSERT INTO Recipe_Device (fk_device, fk_recipe)
 VALUES (1, 1),
@@ -264,7 +304,10 @@ VALUES (1, 1),
        (2, 9),
        (5, 9),
        (1, 10),
-       (1, 11);
+       (1, 11),
+       (2, 12),
+       (4, 12),
+       (1, 13);
 
 -- Inserting Ratings
 INSERT INTO Rating (mark, fk_user, fk_recipe)
@@ -275,7 +318,9 @@ VALUES (3, 1, 1),
        (8, 3, 5),
        (6, 2, 6),
        (4, 1, 10),
-       (10, 3, 11);
+       (10, 3, 11),
+       (8.3, 2, 12),
+       (10, 1, 13);
 
 -- Inserting Comments
 INSERT INTO "comment" ("text", fk_user, fk_recipe)
@@ -285,24 +330,42 @@ VALUES ('Great recipe, loved it!', 1, 1),
        ('Very tasty, soft and fluffy pancakes. I had to add a little bit more milk to make it thinner.', 1, 5),
        ('Best pancake recipe. I''m keeping it for sure, thank you :)', 2, 5),
        ('Tried this recipe instead of my usual store-bought mix. It is worth it.', 3, 5),
-       ('Grilled this salmon on a charcoal grill, and the smoky flavor combined with the marinade was out of this world. Highly recommend!', 1, 4),
-       ('I usually bake my salmon, but this grilled version was a game-changer. The marinade kept it moist and flavorful. Will definitely make again!', 2, 4),
-       ('The combination of brown sugar and soy sauce creates a perfect balance of sweet and savory. My family loved it!', 3, 4),
-       ('I used this green tahini sauce as a spread on my sandwiches and it was fantastic. So much better than mayo!', 1, 6),
-       ('So easy to make and packed with flavor. I’ll be keeping a jar of this green tahini sauce in my fridge at all times!', 2, 6),
-       ('The addition of leek and potato really adds a nice depth to the soup. It is become a staple in my fall recipe rotation.', 1, 8),
+       ('Grilled this salmon on a charcoal grill, and the smoky flavor combined with the marinade was out of this world. Highly recommend!',
+        1, 4),
+       ('I usually bake my salmon, but this grilled version was a game-changer. The marinade kept it moist and flavorful. Will definitely make again!',
+        2, 4),
+       ('The combination of brown sugar and soy sauce creates a perfect balance of sweet and savory. My family loved it!',
+        3, 4),
+       ('I used this green tahini sauce as a spread on my sandwiches and it was fantastic. So much better than mayo!',
+        1, 6),
+       ('So easy to make and packed with flavor. I’ll be keeping a jar of this green tahini sauce in my fridge at all times!',
+        2, 6),
+       ('The addition of leek and potato really adds a nice depth to the soup. It is become a staple in my fall recipe rotation.',
+        1, 8),
        ('The spices in this soup are just right – not too overpowering but still flavorful.', 2, 8),
-       ('Tried making this pumpkin soup for the first time and ended up with a kitchen disaster! Forgot to blend it and ended up with a chunky mess. Lesson learned: read the recipe thoroughly before starting!', 3, 8),
-       ('The flavors in this pumpkin soup were a bit too subtle for my taste. I ended up adding extra spices and a splash of hot sauce for some extra kick.', 1, 8),
+       ('Tried making this pumpkin soup for the first time and ended up with a kitchen disaster! Forgot to blend it and ended up with a chunky mess. Lesson learned: read the recipe thoroughly before starting!',
+        3, 8),
+       ('The flavors in this pumpkin soup were a bit too subtle for my taste. I ended up adding extra spices and a splash of hot sauce for some extra kick.',
+        1, 8),
        ('We need to know if thought can make the night before and roll out the next morning? Thanks!', 1, 9),
-       ('Thanks so much for putting up this recipe. It was so easy and they turned out great. I would recommend your recipe to All first timers wanting to make these cinnamon buns. So delicious too.', 2, 9),
-       ('In my search for Cinnabon Cinnamon Rolls I found this website. I made these cinnamon rolls for a friend of mine for her birthday. The rolls are very light and fluffy. And it was the very first time that a yeast dough turned out so perfectly for me.', 3, 9),
-       ('I can''t wait to try this recipe! The combination of crispy potato, savory bacon, and creamy yogurt sauce sounds absolutely mouthwatering.', 1, 10),
+       ('Thanks so much for putting up this recipe. It was so easy and they turned out great. I would recommend your recipe to All first timers wanting to make these cinnamon buns. So delicious too.',
+        2, 9),
+       ('In my search for Cinnabon Cinnamon Rolls I found this website. I made these cinnamon rolls for a friend of mine for her birthday. The rolls are very light and fluffy. And it was the very first time that a yeast dough turned out so perfectly for me.',
+        3, 9),
+       ('I can''t wait to try this recipe! The combination of crispy potato, savory bacon, and creamy yogurt sauce sounds absolutely mouthwatering.',
+        1, 10),
        ('Didn''t have spinach, still amazing!', 2, 10),
        ('Love how versatile this recipe is, you can customize it with different cereals and add-ins.', 3, 11),
        ('Perfect snack for on-the-go or for a quick breakfast.', 1, 11),
        ('I bet adding a sprinkle of cinnamon would be delicious.', 2, 11),
-       ('So much better than store-bought cereal bars, and healthier too!', 1, 11);
+       ('So much better than store-bought cereal bars, and healthier too!', 1, 11),
+       ('I think I''ll add a splash of white wine while cooking the onions and mushrooms for extra flavor.', 1, 12),
+       ('The pumpkin seeds and basil leaves garnish is a nice touch. Adds a bit of crunch and color!', 3, 12),
+       ('Slow-cooking the turkey at 125 degrees for 2.5 hours must make it incredibly tender. Can''t wait to try this!',
+        2, 25),
+       ('The red bell pepper and garlic sauce sounds amazing. Adding walnuts for extra texture is a great idea.', 3,
+        25),
+       ('Peeling the bell pepper after baking can be tricky. Any tips on making it easier?', 4, 25);
 
 -- Inserting Moderators
 INSERT INTO Moderator (secret_password, fk_user)
