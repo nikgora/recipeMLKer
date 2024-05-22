@@ -213,6 +213,9 @@ input[type="text"] {
     outline: none;
     padding-left: 1vw;
     box-sizing: border-box;
+    display: flex;
+    text-align: left;
+    justify-content: left;
 }
 
 button {
@@ -224,13 +227,25 @@ button {
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.5vw;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center
 }
 
 button.deleteRow {
+    width: 6vw;
+    height: 4.5vh;
+    border-radius: 1.5vh;
     background-color: #B90F0F;
+    display: flex;
+    align-items: center;
+    justify-content: center
 }
 
 button#addRow {
+    width: 4vw;
+    height: 4.5vh;
+    border-radius: 1.5vh;
     margin-top: 2vh;
 }
 
@@ -270,8 +285,8 @@ button#addRow {
 
 .text-form-StepByStep textarea {
     position: absolute;
-    width: 98%;
-    height: 85%;
+    width: 95%;
+    height: 75%;
     left: 1vw;
     top: 1vh;
     border: none;
@@ -281,6 +296,7 @@ button#addRow {
     outline: none;
     resize: none;
     autocomplete: off;
+
 }
 
 ::-webkit-scrollbar {
