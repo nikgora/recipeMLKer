@@ -4,7 +4,7 @@
     <title>AI Reports</title>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link href="../../static/css/moderatorUserReports.css" rel="stylesheet" th:href="@{../css/moderatorUserReports.css}"
+    <link href="../../static/css/reports.css" rel="stylesheet" th:href="@{../css/reports.css}"
           type="text/css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="../../static/css/headerIfooter.css" rel="stylesheet" th:href="@{../css/headerIfooter.css}">
@@ -70,47 +70,41 @@
     </div>
 </header>
 <body>
-<div class="titleForUserPage">AI reports</div>
-<div class="AIReportField">
-    <div class="scrollField">
-        <div class="reportField">
-            <div class="linkField">
-                <div class="notInBD">Request for recipe review:</div>
-                <!--TODO: А далі треба взяти категорії, назву та час приготування з бд -->
-                <div class=" notInBD InBD">Categories Title Time for cooking</div>
-                <div class="informationField">
-                    <button id="processing">Take for processing</button>
-                </div>
-            </div>
-        </div>
-        <div class="reportField report2">
-            <div class="linkField">
-                <div class="notInBD">Request for recipe review:</div>
-                <!--TODO: А далі треба взяти категорії, назву та час приготування з бд -->
-                <div class=" notInBD InBD">Categories Title Time for cooking</div>
-                <div class="informationField">
-                    <button id="processing1">Take for processing</button>
-                </div>
-            </div>
-        </div>
-        <div class="reportField report3">
-            <div class="linkField">
-                <div class="notInBD">Request for recipe review:</div>
-                <!--TODO: А далі треба взяти категорії, назву та час приготування з бд -->
-                <div class=" notInBD InBD">Categories Title Time for cooking</div>
-                <div class="informationField">
-                    <button id="processing2">Take for processing</button>
+<main>
+    <div class="titleForUserPage">AI reports</div>
+    <div class="AIReportField">
+        <div class="scrollField">
+            <div th:each="report, i: ${reports}">
+                <div th:if="${report.getModerator() == null} == true">
+                    <div class="reportField">
+                        <div class="linkField">
+                            <div class="notInBD">Request for recipe review:</div>
+                            <a class=" notInBD InBD" style="font-weight: bold"
+                               th:href="@{/recipe/{id}(id=${report.getRecipe().getId()})}"
+                               th:text="${report.getRecipe().getTitle()}"></a>
+                            <div class="informationField">
+                                <!--TODO: задати стилі для тексту .p-->
+                                <p th:text="${report.getDescription()}"></p>
+                                <form method="post"
+                                      th:action="@{/api/moderator/takeAIReport/{id1}(id1=${report.getId()})}">
+                                    <button th:id="'processing' + ${i.index}">Take for processing</button>
+                                </form>
+                                <form method="post"
+                                      th:action="@{/api/moderator/approveAIReport/{id1}(id1=${report.getId()})}">
+                                    <button th:id="'accept' + ${i.index}">Accept</button>
+                                </form>
+                                <form method="post"
+                                      th:action="@{/api/moderator/declineAIReport/{id1}(id1=${report.getId()})}">
+                                    <button th:id="'decline' + ${i.index}">Decline</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<table th:each="report: ${reports}">
-    <tr>
-        <td th:text="${report.getDescription()}"></td>
-    </tr>
-</table>
-</body>
+</main>
 <footer class="footer">
     <button class="support-button" id="support-btn"><span>Support</span></button>
 
@@ -129,11 +123,11 @@
     <div class="circle-container telegram-container">
         <div
                 class="telegram"
-                onmouseout="restoreImage('telegram-img', '../../static/images/telegram.svg')"
-                onmouseover="changeImage('telegram-img', '../../static/images/telegram-hover.svg')"
+                onmouseout="restoreImage('telegram-img', '../../images/telegram.svg')"
+                onmouseover="changeImage('telegram-img', '../../images/telegram-hover.svg')"
         >
-            <img alt="telegram" class="telegram" id="telegram-img" src="../../static/images/telegram.svg"
-                 th:src="@{images/telegram.svg}">
+            <img alt="telegram" class="telegram" id="telegram-img" src="../../images/telegram.svg"
+                 th:src="@{../images/telegram.svg}">
         </div>
     </div>
 
@@ -144,23 +138,10 @@
                 onmouseover="changeImage('instagram-img', '../../static/images/inst-hover.svg')"
         >
             <img alt="instagram" class="instagram" id="instagram-img" src="../../static/images/inst.svg"
-                 th:src="@{images/inst.svg}">
+                 th:src="@{../images/inst.svg}">
         </div>
     </div>
 </footer>
+</body>
 <script src="../../static/js/scripts.js" th:href="@{js/scripts.js}"></script>
 </html>
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Title</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--<table th:each="report: ${reports}">-->
-<!--    <tr>-->
-<!--        <td th:text="${report.getDescription()}"></td>-->
-<!--    </tr>-->
-<!--</table>-->
-<!--</body>-->
-<!--</html>-->
