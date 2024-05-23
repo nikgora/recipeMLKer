@@ -58,7 +58,7 @@ public class ModeratorController {
     @GetMapping("/moderator")
     public String moderatorAccount(Model model) {
         if (moderatorId == null) {
-            return "redirect:/user/403";
+            return "redirect:/403";
         }
         model.addAttribute("randomRecipeId", userController.getRandomNumRecipe());
         UserList favoriteList = userListService.getFirstByTitleAndUser("Favorites", moderatorService.getFirstById(moderatorId).getUser());
@@ -84,7 +84,7 @@ public class ModeratorController {
     @GetMapping("/moderator/AIReports")
     public String moderatorAIReports(Model model) {
         if (moderatorId == null) {
-            return "redirect:/user/403";
+            return "redirect:/403";
         }
         model.addAttribute("randomRecipeId", userController.getRandomNumRecipe());
         UserList favoriteList = userListService.getFirstByTitleAndUser("Favorites", moderatorService.getFirstById(moderatorId).getUser());
@@ -97,7 +97,7 @@ public class ModeratorController {
     @GetMapping("/moderator/UserReports")
     public String moderatorUserReports(Model model) {
         if (moderatorId == null) {
-            return "redirect:/user/403";
+            return "redirect:/403";
         }
         model.addAttribute("randomRecipeId", userController.getRandomNumRecipe());
         model.addAttribute("reports", userReportService.findAvailableForModer(false, moderatorId));
@@ -110,7 +110,7 @@ public class ModeratorController {
     @PostMapping("/api/moderator/takeUserReport/{idReport}")
     public String moderatorTakeUserReport(@PathVariable Long idReport) {
         if (moderatorId == null) {
-            return "redirect:/user/403";
+            return "redirect:/403";
         }
         UserReport userReport = userReportService.getFirstById(idReport);
         userReport.setModerator(moderatorService.getFirstById(moderatorId));
@@ -122,7 +122,7 @@ public class ModeratorController {
     @PostMapping("/api/moderator/takeAiReport/{idReport}")
     public String moderatorTakeAiReport(@PathVariable Long idReport) {
         if (moderatorId == null) {
-            return "redirect:/user/403";
+            return "redirect:/403";
         }
         AiReport aiReport = aiReportService.getFirstById(idReport);
         aiReport.setModerator(moderatorService.getFirstById(moderatorId));
@@ -134,7 +134,7 @@ public class ModeratorController {
     @PostMapping("/api/moderator/approveAiReport/{idReport}")
     public String moderatorApproveAiReport(@PathVariable Long idReport) {
         if (moderatorId == null) {
-            return "redirect:/user/403";
+            return "redirect:/403";
         }
         AiReport aiReport = aiReportService.getFirstById(idReport);
         Recipe recipe = aiReport.getRecipe();
@@ -148,7 +148,7 @@ public class ModeratorController {
     @PostMapping("/api/moderator/declineAiReport/{idReport}")
     public String moderatorDeclineAiReport(@PathVariable Long idReport) {
         if (moderatorId == null) {
-            return "redirect:/user/403";
+            return "redirect:/403";
         }
         AiReport aiReport = aiReportService.getFirstById(idReport);
         Recipe recipe = aiReport.getRecipe();
@@ -162,7 +162,7 @@ public class ModeratorController {
     @PostMapping("/api/moderator/approveUserReport/{idReport}")
     public String moderatorApproveUserReport(@PathVariable Long idReport) {
         if (moderatorId == null) {
-            return "redirect:/user/403";
+            return "redirect:/403";
         }
         UserReport userReport = userReportService.getFirstById(idReport);
         Recipe recipe = userReport.getRecipe();
@@ -176,7 +176,7 @@ public class ModeratorController {
     @PostMapping("/api/moderator/declineUserReport/{idReport}")
     public String moderatorDeclineUserReport(@PathVariable Long idReport) {
         if (moderatorId == null) {
-            return "redirect:/user/403";
+            return "redirect:/403";
         }
         UserReport userReport = userReportService.getFirstById(idReport);
         Recipe recipe = userReport.getRecipe();
