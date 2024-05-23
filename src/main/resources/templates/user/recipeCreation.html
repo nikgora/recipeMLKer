@@ -231,5 +231,10 @@
             alert("Please, choose a category of the recipe before saving.");
         }
     });
+
+    document.getElementById("heart-btn").addEventListener("click",
+        () => showOverlay("overlay-favorite", "favorite-popup-window"));
+    document.getElementById("overlay-favorite").addEventListener("click",
+        () => hideOverlay("overlay-favorite", "favorite-popup-window"));
 </script>
 </html>
