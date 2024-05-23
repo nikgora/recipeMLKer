@@ -103,212 +103,209 @@
 </header>
 <main>
     <!-- <img alt="recipeIcon" class="recipeIcon" src="../../images/Recipe.svg" th:src="@{../images/Recipe.svg}">-->
-    <div class="RecipeTitle" th:text="${recipe.getTitle()}"></div>
-    <div class="RecipeRating">
-        <a th:href="@{/allRecipes(rating=${recipe.getAverageMark()})}">
-            <p class="num" th:text="${recipe.getAverageMark()}">8.8</p>
-        </a>
-    </div>
-
     <div th:if="${isModerator} == false">
-        <div th:if="${isLogin} == true">
-            <form method="post" th:action="@{/api/addRecipeToList/{id1}/Favorites(id1=${id})}">
-                <button id="FavoriteList-login">Favorite
-                </button>
-            </form>
-        </div>
-        <div th:if="${isLogin} == false">
-            <button id="FavoriteList-logout" onclick="showAlert('Please, log in to add this recipe to favorites')">
-                Favorite
-            </button>
+        <div class="RecipeTitle" th:text="${recipe.getTitle()}"></div>
+        <div class="RecipeRating">
+            <a th:href="@{/allRecipes(rating=${recipe.getAverageMark()})}">
+                <p class="num" th:text="${recipe.getAverageMark()}">8.8</p>
+            </a>
         </div>
 
-        <button class="UserList" id="lists-btn">Lists</button>
-        <div th:if="${isLogin} == true">
-            <div id="overlay-lists" onclick="hideOverlay()"></div>
-            <div class="lists-container" id="lists-popup-window">
-                <button class="create-list" id="create-new-list-btn">Create a new list</button>
-                <form method="post" th:action="@{/api/addRecipeToList/{id1}/{name}(id1=${id}, name=${list.getTitle()})}"
-                      th:each="list, i : ${user.getUserLists()}">
-                    <button th:class="${i.index == 0} ? 'user-list user-list' : 'user-list user-list' + (${i.index})"
-                            th:style="'top:' + (${i.index * 8 + 10}) + 'vh'"
-                            th:text="${list.getTitle()}">
-                    </button>
-                </form>
-                <div class="list-container" id="list-field-popup-window">
-                    <form method="post" onsubmit="return validateInput('listName')"
-                          th:action="@{/api/newList/{id1}(id1=${id})}"
-                          th:object="${newList}">
-                        <div class="list-name">
-                            <input id="listName" name="title" placeholder="Enter list name" th:value="${newList.title}"
-                                   type="text">
-                        </div>
-                        <button class="confirm-list-button" id="confirm-list-btn">Confirm</button>
-                    </form>
+        <div class="mini">
+            <p class="miniTime" th:text="${recipe.getCookingTime()}  + ' minutes'"></p>
+            <img th:alt="${recipe.getCategory().getTitle()}"
+                 th:class="${recipe.getCategory().getTitle().replace(' ', '-')}"
+                 th:if="${recipe}"
+                 th:src="@{'../images/' + ${recipe.getCategory().getTitle()} + '.svg'}">
+            <p class="miniTime miniCategories" th:text="${recipe.getCategory().getTitle()}">
+        </div>
+
+        <div class="IngredientTagsField">
+            <div class="IngredientTagsTitle">
+                <p class="c7">Ingredient tags</p>
+            </div>
+            <div class="ingredientContent">
+                <div th:each="ingredient: ${recipe.getRecipeIngredients()}">
+                    <a th:href="@{/allRecipes(ingredient=${ingredient.ingredient.getName()})}"
+                       th:text="'#' + ${ingredient.ingredient.getName()}"></a>
                 </div>
             </div>
         </div>
-        <div th:if="${isLogin} == false">
-            <button class="UserList" id="user-list-logout"
-                    onclick="showAlert('Please, log in to add recipe to the custom list.')">Lists
-            </button>
+
+        <div class="IngredientTagsField DeviceTagsField ">
+            <div class="IngredientTagsTitle">
+                <p class="c7 devices">Devices tags</p>
+            </div>
+            <div class="ingredientContent">
+                <table>
+                    <tr>
+                        <td th:each="devices: ${recipe.getRecipeDevices()}">
+                            <a th:href="@{/allRecipes(device=${devices.cookingDevice.getName()})}"
+                               th:text="'#' + ${devices.cookingDevice.getName()}"></a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
 
-        <button class="Report" id="report-btn">Report</button>
+        <div class="fullRecipe">
+            <div class="fullRecipeHeader">Recipe</div>
+            <div class="amountField">
+                <div class="ingredientsHeader">Ingredient amount</div>
+                <div class="amountContent">
+                    <table th:each="ingedients: ${recipe.getRecipeIngredients()}">
+                        <tr>
+                            <td th:text="${ingedients.ingredient.getName()}"></td>
+                            <td th:text="' - '+${ingedients.getAmountOfIngredient()}"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="deviceField">
+                <div class="ingredientsHeader devicesHeader">Cooking devices</div>
+                <div class="amountContent deviceContent">
+                    <table th:each="devices: ${recipe.getRecipeDevices()}">
+                        <tr>
+                            <td th:text="${devices.cookingDevice.getName()}"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="stepByStepField">
+                <div class="ingredientsHeader stepByStepHeader">Step-by-step instructions</div>
+                <div class="amountContent" th:utext="${recipe.getDescription()}"></div>
+            </div>
+        </div>
     </div>
 
-    <div th:if="${isModerator} == false">
-        <div id="overlay-report" onclick="hideOverlay()"></div>
-        <form class="report-container" id="report-field-popup-window" method="post"
-              onsubmit="return validateInput('reportInput')" th:action="@{/api/newUserReport/{id1}(id1=${id})}"
-              th:object="${userReport}">
-            <div class="reportHeader">Report</div>
-            <div class="report-inner-window">
+    <div th:if="${isLogin} == true">
+        <form method="post" th:action="@{/api/addRecipeToList/{id1}/Favorites(id1=${id})}">
+            <button id="FavoriteList-login">Favorite
+            </button>
+        </form>
+    </div>
+    <div th:if="${isLogin} == false">
+        <button id="FavoriteList-logout" onclick="showAlert('Please, log in to add this recipe to favorites')">
+            Favorite
+        </button>
+    </div>
+
+    <button class="UserList" id="lists-btn">Lists</button>
+    <div th:if="${isLogin} == true">
+        <div id="overlay-lists" onclick="hideOverlay()"></div>
+        <div class="lists-container" id="lists-popup-window">
+            <button class="create-list" id="create-new-list-btn">Create a new list</button>
+            <form method="post" th:action="@{/api/addRecipeToList/{id1}/{name}(id1=${id}, name=${list.getTitle()})}"
+                  th:each="list, i : ${user.getUserLists()}">
+                <button th:class="${i.index == 0} ? 'user-list user-list' : 'user-list user-list' + (${i.index})"
+                        th:style="'top:' + (${i.index * 8 + 10}) + 'vh'"
+                        th:text="${list.getTitle()}">
+                </button>
+            </form>
+            <div class="list-container" id="list-field-popup-window">
+                <form method="post" onsubmit="return validateInput('listName')"
+                      th:action="@{/api/newList/{id1}(id1=${id})}"
+                      th:object="${newList}">
+                    <div class="list-name">
+                        <input id="listName" name="title" placeholder="Enter list name" th:value="${newList.title}"
+                               type="text">
+                    </div>
+                    <button class="confirm-list-button" id="confirm-list-btn">Confirm</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div th:if="${isLogin} == false">
+        <button class="UserList" id="user-list-logout"
+                onclick="showAlert('Please, log in to add recipe to the custom list.')">Lists
+        </button>
+    </div>
+
+    <button class="Report" id="report-btn">Report</button>
+
+    <div id="overlay-report" onclick="hideOverlay()"></div>
+    <form class="report-container" id="report-field-popup-window" method="post"
+          onsubmit="return validateInput('reportInput')" th:action="@{/api/newUserReport/{id1}(id1=${id})}"
+          th:object="${userReport}">
+        <div class="reportHeader">Report</div>
+        <div class="report-inner-window">
             <textarea id="reportInput" name="description"
                       placeholder="Please, enter the reason for the report."
                       th:value="${userReport.description}"></textarea>
-            </div>
-            <button class="send-report" id="send-report-btn">Send a report</button>
-        </form>
-    </div>
+        </div>
+        <button class="send-report" id="send-report-btn">Send a report</button>
+    </form>
+
     <div th:if="${isLogin} == false">
         <button class="Report" id="report-btn1" onclick="showAlert('Please, log in to report')">Report</button>
     </div>
 
-    <div class="mini">
-        <p class="miniTime" th:text="${recipe.getCookingTime()}  + ' minutes'"></p>
-        <img th:alt="${recipe.getCategory().getTitle()}"
-             th:class="${recipe.getCategory().getTitle().replace(' ', '-')}"
-             th:if="${recipe}"
-             th:src="@{'../images/' + ${recipe.getCategory().getTitle()} + '.svg'}">
-        <p class="miniTime miniCategories" th:text="${recipe.getCategory().getTitle()}">
-    </div>
-
-    <div class="IngredientTagsField">
-        <div class="IngredientTagsTitle">
-            <p class="c7">Ingredient tags</p>
+    <form class="text-form" method="post"
+          onsubmit="return validateInput('commentInput')" th:action="@{/api/newComment/{id1}(id1=${id})}"
+          th:object="${comment}">
+        <img alt="quill" class="quill" src="../../static/images/quill.svg" th:src="@{../images/quill.svg}">
+        <textarea id="commentInput" maxlength="255" name="startWith" placeholder="Add comment"
+                  th:field="${comment.text}"></textarea>
+        <button id="publish" type="submit">Publish</button>
+    </form>
+    <div class="commentField">
+        <div th:class="'comment-container comment' + ${commentStat.count}"
+             th:each="comment, commentStat : ${recipe.getComments()}">
+            <div class="comment-user-circle">
+                <img alt="comment-user" class="comment-user" id="comment-user" src="../../images/Chef Hat.svg">
+            </div>
+            <div class="comment-text" th:text="${comment.getText()}"></div>
         </div>
-        <div class="ingredientContent">
-            <div th:each="ingredient: ${recipe.getRecipeIngredients()}">
-                <a th:href="@{/allRecipes(ingredient=${ingredient.ingredient.getName()})}"
-                   th:text="'#' + ${ingredient.ingredient.getName()}"></a>
+    </div>
+    <div class="addRatingField">
+        <div class="ratingField">
+            <div class="star-icon">
+                <input id="1" name="rating" type="radio">
+                <label class="fa fa-star" for="1"></label>
+
+                <input id="2" name="rating" type="radio">
+                <label class="fa fa-star" for="2"></label>
+
+                <input id="3" name="rating" type="radio">
+                <label class="fa fa-star" for="3"></label>
+
+                <input id="4" name="rating" type="radio">
+                <label class="fa fa-star" for="4"></label>
+
+                <input id="5" name="rating" type="radio">
+                <label class="fa fa-star" for="5"></label>
+
+                <input id="6" name="rating" type="radio">
+                <label class="fa fa-star" for="6"></label>
+
+                <input id="7" name="rating" type="radio">
+                <label class="fa fa-star" for="7"></label>
+
+                <input id="8" name="rating" type="radio">
+                <label class="fa fa-star" for="8"></label>
+
+                <input id="9" name="rating" type="radio">
+                <label class="fa fa-star" for="9"></label>
+
+                <input id="10" name="rating" type="radio">
+                <label class="fa fa-star" for="10"></label>
             </div>
         </div>
     </div>
-
-    <div class="IngredientTagsField DeviceTagsField ">
-        <div class="IngredientTagsTitle">
-            <p class="c7 devices">Devices tags</p>
-        </div>
-        <div class="ingredientContent">
-            <table>
-                <tr>
-                    <td th:each="devices: ${recipe.getRecipeDevices()}">
-                        <a th:href="@{/allRecipes(device=${devices.cookingDevice.getName()})}"
-                           th:text="'#' + ${devices.cookingDevice.getName()}"></a>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </div>
-    <div th:if="${isModerator} == false">
-        <form class="text-form" method="post"
-              onsubmit="return validateInput('commentInput')" th:action="@{/api/newComment/{id1}(id1=${id})}"
-              th:object="${comment}">
-            <img alt="quill" class="quill" src="../../static/images/quill.svg" th:src="@{../images/quill.svg}">
-            <textarea id="commentInput" maxlength="255" name="startWith" placeholder="Add comment"
-                      th:field="${comment.text}"></textarea>
-            <button id="publish" type="submit">Publish</button>
-        </form>
-        <div class="commentField">
-            <div th:class="'comment-container comment' + ${commentStat.count}"
-                 th:each="comment, commentStat : ${recipe.getComments()}">
-                <div class="comment-user-circle">
-                    <img alt="comment-user" class="comment-user" id="comment-user" src="../../images/Chef Hat.svg">
-                </div>
-                <div class="comment-text" th:text="${comment.getText()}"></div>
-            </div>
-        </div>
-    </div>
-    <div class="fullRecipe">
-        <div class="fullRecipeHeader">Recipe</div>
-        <div class="amountField">
-            <div class="ingredientsHeader">Ingredient amount</div>
-            <div class="amountContent">
-                <table th:each="ingedients: ${recipe.getRecipeIngredients()}">
-                    <tr>
-                        <td th:text="${ingedients.ingredient.getName()}"></td>
-                        <td th:text="' - '+${ingedients.getAmountOfIngredient()}"></td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-        <div class="deviceField">
-            <div class="ingredientsHeader devicesHeader">Cooking devices</div>
-            <div class="amountContent deviceContent">
-                <table th:each="devices: ${recipe.getRecipeDevices()}">
-                    <tr>
-                        <td th:text="${devices.cookingDevice.getName()}"></td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-
-        <div class="stepByStepField">
-            <div class="ingredientsHeader stepByStepHeader">Step-by-step instructions</div>
-            <div class="amountContent" th:utext="${recipe.getDescription()}"></div>
-        </div>
-    </div>
-    <div th:if="${isModerator} == false">
-        <div class="addRatingField">
-            <div class="ratingField">
-                <div class="star-icon">
-                    <input id="1" name="rating" type="radio">
-                    <label class="fa fa-star" for="1"></label>
-
-                    <input id="2" name="rating" type="radio">
-                    <label class="fa fa-star" for="2"></label>
-
-                    <input id="3" name="rating" type="radio">
-                    <label class="fa fa-star" for="3"></label>
-
-                    <input id="4" name="rating" type="radio">
-                    <label class="fa fa-star" for="4"></label>
-
-                    <input id="5" name="rating" type="radio">
-                    <label class="fa fa-star" for="5"></label>
-
-                    <input id="6" name="rating" type="radio">
-                    <label class="fa fa-star" for="6"></label>
-
-                    <input id="7" name="rating" type="radio">
-                    <label class="fa fa-star" for="7"></label>
-
-                    <input id="8" name="rating" type="radio">
-                    <label class="fa fa-star" for="8"></label>
-
-                    <input id="9" name="rating" type="radio">
-                    <label class="fa fa-star" for="9"></label>
-
-                    <input id="10" name="rating" type="radio">
-                    <label class="fa fa-star" for="10"></label>
-                </div>
-            </div>
-        </div>
-        <div th:if="${isLogin} == true">
-            <form method="post" th:action="@{/api/newRating/{id1}(id1=${id})}" th:object="${rating}">
-                <input id="hidden-rating" name="mark" th:value="${rating.mark}" type="hidden"/>
-                <button class="confirmation" id="rate-btn">
-                    <img alt="quill" class="tick" src="../../images/tick.svg" th:src="@{../images/tick.svg}">
-                </button>
-            </form>
-        </div>
-        <div th:if="${isLogin} == false">
-            <input id="hidden-rating2" name="mark" th:value="${rating.mark}" type="hidden"/>
-            <button class="confirmation" id="rate-btn2" onclick="showAlert('Please, log in to rate')">
+    <div th:if="${isLogin} == true">
+        <form method="post" th:action="@{/api/newRating/{id1}(id1=${id})}" th:object="${rating}">
+            <input id="hidden-rating" name="mark" th:value="${rating.mark}" type="hidden"/>
+            <button class="confirmation" id="rate-btn">
                 <img alt="quill" class="tick" src="../../images/tick.svg" th:src="@{../images/tick.svg}">
             </button>
-        </div>
+        </form>
+    </div>
+    <div th:if="${isLogin} == false">
+        <input id="hidden-rating2" name="mark" th:value="${rating.mark}" type="hidden"/>
+        <button class="confirmation" id="rate-btn2" onclick="showAlert('Please, log in to rate')">
+            <img alt="quill" class="tick" src="../../images/tick.svg" th:src="@{../images/tick.svg}">
+        </button>
     </div>
 </main>
 <footer class="footer">
