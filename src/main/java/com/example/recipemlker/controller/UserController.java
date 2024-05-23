@@ -71,6 +71,7 @@ public class UserController {
         List<UserList> userLists = new ArrayList<>(1);
         userLists.add(userList);
         user.setUserLists(userLists);
+        jwt = jwt1.token();
         return ResponseEntity.ok(jwt1);
     }
 
