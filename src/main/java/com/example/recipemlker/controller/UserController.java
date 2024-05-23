@@ -71,6 +71,7 @@ public class UserController {
         List<UserList> userLists = new ArrayList<>(1);
         userLists.add(userList);
         user.setUserLists(userLists);
+        jwt = jwt1.token();
         return ResponseEntity.ok(jwt1);
     }
 
@@ -191,7 +192,7 @@ public class UserController {
     }
 
     @PostMapping("/api/addRecipeToList/{id}/{name}")
-    public String addRecipetoList(@PathVariable("id") Long id, @PathVariable("name") String name) {
+    public String addRecipeToList(@PathVariable("id") Long id, @PathVariable("name") String name) {
         if (jwt == null) return "redirect:/recipe/" + id;
         if (this.recipeService.getRecipeById(id) == null) {
             return "redirect:/404";
@@ -303,8 +304,7 @@ public class UserController {
             UserList favoriteList = userListService.getFirstByTitleAndUser("Favorites", userService.getUserByUsername(jwtService.extractUserName(jwt)));
             model.addAttribute("favoriteList", favoriteList);
         }
-
-        if (this.recipeService.getRecipeById(id).isPublished()) {
+        if (this.recipeService.getRecipeById(id).isPublished() || (jwt != null && userService.getUserByUsername(jwtService.extractUserName(jwt)) == this.recipeService.getRecipeById(id).getUser())) {
             model.addAttribute("recipe", this.recipeService.getRecipeById(id));
             model.addAttribute("id", id);
             model.addAttribute("isLogin", jwt != null);
@@ -326,6 +326,7 @@ public class UserController {
             model.addAttribute("rating", existed);
             Comment comment = new Comment();
             model.addAttribute("comment", comment);
+            model.addAttribute("isModerator", false);
             return "user/recipe";
         }
         return "redirect:/403";
@@ -422,7 +423,7 @@ public class UserController {
         return string;
     }
 
-    private Long getRandomNumRecipe() {
+    public Long getRandomNumRecipe() {
         List<Recipe> recipes = recipeService.getAllRecipeIsPublished();
         Random random = new Random();
         int ind = random.nextInt(recipes.size());
