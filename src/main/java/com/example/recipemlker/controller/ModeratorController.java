@@ -98,7 +98,7 @@ public class ModeratorController {
         userReport.setModerator(moderatorService.getFirstById(moderatorId));
         userReport.setIsAccepted(true);
         userReportService.save(userReport);
-        return "redirect:/moderator/moderatorUserReport";
+        return "redirect:/moderator/moderatorUserReports";
     }
 
     @PostMapping("/api/moderator/takeAiReport/{idReport}")
@@ -110,7 +110,7 @@ public class ModeratorController {
         aiReport.setModerator(moderatorService.getFirstById(moderatorId));
         aiReport.setAccepted(true);
         aiReportService.save(aiReport);
-        return "redirect:/moderator/moderatorAiReport";
+        return "redirect:/moderator/moderatorAiReports";
     }
 
     @PostMapping("/api/moderator/approveAiReport/{idReport}")
@@ -124,7 +124,7 @@ public class ModeratorController {
         aiReport.setModerator(null);
         aiReportService.save(aiReport);
         recipeService.save(recipe);
-        return "redirect:/moderator/moderatorAiReport";
+        return "redirect:/moderator/moderatorAiReports";
     }
 
     @PostMapping("/api/moderator/declineAiReport/{idReport}")
@@ -138,7 +138,7 @@ public class ModeratorController {
         aiReport.setModerator(null);
         aiReportService.save(aiReport);
         recipeService.save(recipe);
-        return "redirect:/moderator/moderatorAiReport";
+        return "redirect:/moderator/moderatorAiReports";
     }
 
     @PostMapping("/api/moderator/approveUserReport/{idReport}")
@@ -152,7 +152,7 @@ public class ModeratorController {
         userReport.setModerator(null);
         userReportService.save(userReport);
         recipeService.save(recipe);
-        return "redirect:/moderator/moderatorUserReport";
+        return "redirect:/moderator/moderatorUserReports";
     }
 
     @PostMapping("/api/moderator/declineUserReport/{idReport}")
@@ -166,6 +166,6 @@ public class ModeratorController {
         userReport.setModerator(null);
         userReportService.save(userReport);
         recipeService.save(recipe);
-        return "redirect:/moderator/moderatorUserReport";
+        return "redirect:/moderator/moderatorUserReports";
     }
 }
