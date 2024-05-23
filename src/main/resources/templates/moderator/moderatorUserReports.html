@@ -27,7 +27,7 @@
             <div class="heart"
                  onmouseout="restoreImage('heart-img', '../images/heart-login.svg')"
                  onmouseover="changeImage('heart-img', '../images/heart-login-hover.svg')">
-                <img alt="heart" class="heart" id="heart-img" src="../../images/heart-login.svg"
+                <img alt="heart" class="heart" id="heart-img" src="../images/heart-login.svg"
                      th:src="@{../images/heart-login.svg}">
             </div>
         </div>
@@ -63,9 +63,18 @@
                             <div class="informationField">
                                 <!--TODO: задати стилі для тексту .p-->
                                 <p th:text="${report.getDescription()}"></p>
-                                <button th:id="'processing' + ${i.index}">Take for processing</button>
-                                <button th:id="'accept' + ${i.index}">Accept</button>
-                                <button th:id="'decline' + ${i.index}">Decline</button>
+                                <form method="post"
+                                      th:action="@{/api/moderator/takeUserReport/{id1}(id1=${report.getId()})}">
+                                    <button th:id="'processing' + ${i.index}">Take for processing</button>
+                                </form>
+                                <form method="post"
+                                      th:action="@{/api/moderator/approveUserReport/{id1}(id1=${report.getId()})}">
+                                    <button th:id="'accept' + ${i.index}">Accept</button>
+                                </form>
+                                <form method="post"
+                                      th:action="@{/api/moderator/declineUserReport/{id1}(id1=${report.getId()})}">
+                                    <button th:id="'decline' + ${i.index}">Decline</button>
+                                </form>
                             </div>
                         </div>
                     </div>
