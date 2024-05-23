@@ -83,7 +83,7 @@
         <div id="overlay-user" onclick="hideOverlay()"></div>
         <div class="login-window" id="popup-login-window">
             <button class="login-heading" id="LoginTab" onclick="showTab('login')">Log in</button>
-            <button class="signIn-heading" id="SignInTab" onclick="showTab('signIn')">Sign in</button>
+            <button class="signUp-heading" id="SignUpTab" onclick="showTab('signUp')">Sign in</button>
 
             <form autocomplete="off" class="form-container active" id="loginForm" method="post"
                   onsubmit="return submitForm()" th:action="@{api/auth/login}">
@@ -96,15 +96,15 @@
                 <button id="confirm-button">Log in</button>
             </form>
 
-            <form autocomplete="off" class="form-container" id="signInForm" method="post"
-                  onsubmit="return submitForm()" th:action="@{api/auth/signin}">
+            <form autocomplete="off" class="form-container" id="signUpForm" method="post"
+                  onsubmit="return submitFormSignUp()" th:action="@{api/auth/signup}">
                 <div class="login-form email">
-                    <input name="email" placeholder="Enter username" required type="text">
+                    <input name="username" placeholder="Enter username" required type="text">
                 </div>
                 <div class="login-form password">
                     <input name="password" placeholder="Enter password" required type="password">
                 </div>
-                <button id="confirm-button1">Sign in</button>
+                <button id="confirm-button1">Sign up</button>
             </form>
         </div>
 
@@ -301,6 +301,29 @@
                     window.location.href = '/'; // Redirect to success page
                 } else {
                     alert('Login failed. Please try again.'); // Show an alert or handle error
+                }
+            }
+        };
+        xhr.send(JSON.stringify(data));
+        return false; // Prevent the form from submitting in the traditional way
+    }
+
+    function submitFormSignUp() {
+        var form = document.getElementById('signUpForm');
+        var formData = new FormData(form);
+        var data = {};
+        formData.forEach(function (value, key) {
+            data[key] = value;
+        });
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', form.action, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    window.location.href = '/'; // Redirect to success page
+                } else {
+                    alert('Signup failed. Please try again.'); // Show an alert or handle error
                 }
             }
         };

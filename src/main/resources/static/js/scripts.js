@@ -33,24 +33,24 @@ function validateInput(inputId) {
 
 function showTab(tabName) {
     var loginTab = document.getElementById('LoginTab');
-    var signInTab = document.getElementById('SignInTab');
+    var signUpTab = document.getElementById('SignUpTab');
     var loginForm = document.getElementById('loginForm');
-    var signInForm = document.getElementById('signInForm');
+    var signUpForm = document.getElementById('signUpForm');
 
     if (tabName === 'login') {
         loginTab.classList.add('active');
-        signInTab.classList.remove('active');
+        signUpTab.classList.remove('active');
         loginForm.classList.add('active');
-        signInForm.classList.remove('active');
-        loginForm.classList.remove('signin-background');
-        signInForm.classList.remove('signin-background');
+        signUpForm.classList.remove('active');
+        loginForm.classList.remove('signup-background');
+        signUpForm.classList.remove('signup-background');
     } else {
         loginTab.classList.remove('active');
-        signInTab.classList.add('active');
+        signUpTab.classList.add('active');
         loginForm.classList.remove('active');
-        signInForm.classList.add('active');
-        loginForm.classList.remove('signin-background');
-        signInForm.classList.add('signin-background');
+        signUpForm.classList.add('active');
+        loginForm.classList.remove('signup-background');
+        signUpForm.classList.add('signup-background');
     }
 }
 
