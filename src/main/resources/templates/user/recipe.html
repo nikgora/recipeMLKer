@@ -110,50 +110,54 @@
         </a>
     </div>
 
-    <div th:if="${isLogin} == true">
-        <form method="post" th:action="@{/api/addRecipeToList/{id1}/Favorites(id1=${id})}">
-            <button id="FavoriteList-login">Favorite
-            </button>
-        </form>
-    </div>
-    <div th:if="${isLogin} == false">
-        <button id="FavoriteList-logout" onclick="showAlert('Please, log in to add this recipe to favorites')">Favorite
-        </button>
-    </div>
-
-    <button class="UserList" id="lists-btn">Lists</button>
-    <div th:if="${isLogin} == true">
-        <div id="overlay-lists" onclick="hideOverlay()"></div>
-        <div class="lists-container" id="lists-popup-window">
-            <button class="create-list" id="create-new-list-btn">Create a new list</button>
-            <form method="post" th:action="@{/api/addRecipeToList/{id1}/{name}(id1=${id}, name=${list.getTitle()})}"
-                  th:each="list, i : ${user.getUserLists()}">
-                <button th:class="${i.index == 0} ? 'user-list user-list' : 'user-list user-list' + (${i.index})"
-                        th:style="'top:' + (${i.index * 8 + 10}) + 'vh'"
-                        th:text="${list.getTitle()}">
+    <div th:if="${isModerator} == false">
+        <div th:if="${isLogin} == true">
+            <form method="post" th:action="@{/api/addRecipeToList/{id1}/Favorites(id1=${id})}">
+                <button id="FavoriteList-login">Favorite
                 </button>
             </form>
-            <div class="list-container" id="list-field-popup-window">
-                <form method="post" onsubmit="return validateInput('listName')"
-                      th:action="@{/api/newList/{id1}(id1=${id})}"
-                      th:object="${newList}">
-                    <div class="list-name">
-                        <input id="listName" name="title" placeholder="Enter list name" th:value="${newList.title}"
-                               type="text">
-                    </div>
-                    <button class="confirm-list-button" id="confirm-list-btn">Confirm</button>
+        </div>
+        <div th:if="${isLogin} == false">
+            <button id="FavoriteList-logout" onclick="showAlert('Please, log in to add this recipe to favorites')">
+                Favorite
+            </button>
+        </div>
+
+        <button class="UserList" id="lists-btn">Lists</button>
+        <div th:if="${isLogin} == true">
+            <div id="overlay-lists" onclick="hideOverlay()"></div>
+            <div class="lists-container" id="lists-popup-window">
+                <button class="create-list" id="create-new-list-btn">Create a new list</button>
+                <form method="post" th:action="@{/api/addRecipeToList/{id1}/{name}(id1=${id}, name=${list.getTitle()})}"
+                      th:each="list, i : ${user.getUserLists()}">
+                    <button th:class="${i.index == 0} ? 'user-list user-list' : 'user-list user-list' + (${i.index})"
+                            th:style="'top:' + (${i.index * 8 + 10}) + 'vh'"
+                            th:text="${list.getTitle()}">
+                    </button>
                 </form>
+                <div class="list-container" id="list-field-popup-window">
+                    <form method="post" onsubmit="return validateInput('listName')"
+                          th:action="@{/api/newList/{id1}(id1=${id})}"
+                          th:object="${newList}">
+                        <div class="list-name">
+                            <input id="listName" name="title" placeholder="Enter list name" th:value="${newList.title}"
+                                   type="text">
+                        </div>
+                        <button class="confirm-list-button" id="confirm-list-btn">Confirm</button>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-    <div th:if="${isLogin} == false">
-        <button class="UserList" id="user-list-logout"
-                onclick="showAlert('Please, log in to add recipe to the custom list.')">Lists
-        </button>
+        <div th:if="${isLogin} == false">
+            <button class="UserList" id="user-list-logout"
+                    onclick="showAlert('Please, log in to add recipe to the custom list.')">Lists
+            </button>
+        </div>
+
+        <button class="Report" id="report-btn">Report</button>
     </div>
 
-    <button class="Report" id="report-btn">Report</button>
-    <div th:if="${isLogin} == true">
+    <div th:if="${isModerator} == false">
         <div id="overlay-report" onclick="hideOverlay()"></div>
         <form class="report-container" id="report-field-popup-window" method="post"
               onsubmit="return validateInput('reportInput')" th:action="@{/api/newUserReport/{id1}(id1=${id})}"
@@ -254,38 +258,40 @@
             <div class="amountContent" th:utext="${recipe.getDescription()}"></div>
         </div>
     </div>
-    <div class="addRatingField">
-        <div class="ratingField">
-            <div class="star-icon">
-                <input id="1" name="rating" type="radio">
-                <label class="fa fa-star" for="1"></label>
+    <div th:if="${isModerator} == false">
+        <div class="addRatingField">
+            <div class="ratingField">
+                <div class="star-icon">
+                    <input id="1" name="rating" type="radio">
+                    <label class="fa fa-star" for="1"></label>
 
-                <input id="2" name="rating" type="radio">
-                <label class="fa fa-star" for="2"></label>
+                    <input id="2" name="rating" type="radio">
+                    <label class="fa fa-star" for="2"></label>
 
-                <input id="3" name="rating" type="radio">
-                <label class="fa fa-star" for="3"></label>
+                    <input id="3" name="rating" type="radio">
+                    <label class="fa fa-star" for="3"></label>
 
-                <input id="4" name="rating" type="radio">
-                <label class="fa fa-star" for="4"></label>
+                    <input id="4" name="rating" type="radio">
+                    <label class="fa fa-star" for="4"></label>
 
-                <input id="5" name="rating" type="radio">
-                <label class="fa fa-star" for="5"></label>
+                    <input id="5" name="rating" type="radio">
+                    <label class="fa fa-star" for="5"></label>
 
-                <input id="6" name="rating" type="radio">
-                <label class="fa fa-star" for="6"></label>
+                    <input id="6" name="rating" type="radio">
+                    <label class="fa fa-star" for="6"></label>
 
-                <input id="7" name="rating" type="radio">
-                <label class="fa fa-star" for="7"></label>
+                    <input id="7" name="rating" type="radio">
+                    <label class="fa fa-star" for="7"></label>
 
-                <input id="8" name="rating" type="radio">
-                <label class="fa fa-star" for="8"></label>
+                    <input id="8" name="rating" type="radio">
+                    <label class="fa fa-star" for="8"></label>
 
-                <input id="9" name="rating" type="radio">
-                <label class="fa fa-star" for="9"></label>
+                    <input id="9" name="rating" type="radio">
+                    <label class="fa fa-star" for="9"></label>
 
-                <input id="10" name="rating" type="radio">
-                <label class="fa fa-star" for="10"></label>
+                    <input id="10" name="rating" type="radio">
+                    <label class="fa fa-star" for="10"></label>
+                </div>
             </div>
         </div>
         <div th:if="${isLogin} == true">
