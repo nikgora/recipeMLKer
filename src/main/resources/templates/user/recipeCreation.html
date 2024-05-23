@@ -89,7 +89,7 @@
                 <select name="query">
                     <option disabled selected value="">Category</option>
                     <option th:each="categor : ${category}" th:text="${categor}"
-                            th:value="${category}"></option>
+                            th:value="${recipe.category}"></option>
                 </select>
             </div>
         </form>
@@ -121,7 +121,7 @@
             </div>
         </div>
 
-        <button class="saveButton">Save</button>
+        <button th:action="@{/api/newRecipe}" class="saveButton">Save</button>
         <button class="publishButton">Publish</button>
     </form>
 
