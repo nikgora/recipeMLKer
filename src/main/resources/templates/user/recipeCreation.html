@@ -16,10 +16,10 @@
         <form class="search-form">
             <img alt="magnifier" class="magnifier" src="../../static/images/magnifier.svg"
                  th:src="@{images/magnifier.svg}">
-            <input name="query" placeholder="Search" type="search">
+            <input name="startWith" placeholder="Search" type="search">
         </form>
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
-        <a class="button-style" href="recipe.html" th:href="@{/recipe/1}">Random</a>
+        <a class="button-style" href="recipe.html" th:href="@{/recipe/{id1}(id1=${randomRecipeId})}">Random</a>
 
         <div class="user-container heart-login-container" id="heart-btn">
             <div class="heart"
@@ -30,7 +30,7 @@
             </div>
         </div>
 
-        <div id="overlay-favorite" onclick="hideOverlay()"></div>
+        <!--<div id="overlay-favorite" onclick="hideOverlay()"></div>
         <div class="favoriteLists-window" id="favorite-popup-window">
             <div th:if="${favoriteList != null}">
                 <div th:each="recipe, i : ${favoriteList.getRecipeUserLists()}">
@@ -51,7 +51,7 @@
                     </button>
                 </div>
             </div>
-        </div>
+        </div>-->
 
         <button class="user-container" id="user-btn">
             <a th:href="@{/user}" th:if="${isLogin} == true">
