@@ -69,7 +69,6 @@ body {
     height: 5.5555vh;
 }
 
-
 .heart-container, .user-container, .heart-login-container, .user-login-container {
     display: flex;
     justify-content: center;
@@ -408,12 +407,15 @@ body {
     background-color: #F2E3B3;
     z-index: 11;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .recipe {
     position: absolute;
+    display: flex;
+    align-content: center;
     top: 2vh;
-    left: 2vw;
+    left: 1vw;
     width: 21vw;
     height: 8vh;
     border-radius: 2.7vw;
@@ -426,18 +428,15 @@ body {
 .content-wrapper {
     display: flex;
     align-items: center;
-    margin-right: 1vw;
 }
 
 .text-wrapper {
     display: flex;
     flex-direction: column;
-}
-
-.recipe a {
-    margin-left: 1vw;
+    font-size: 1.4vw;
     text-decoration: none;
-    color: inherit;
-    font-family: 'Frank Ruhl Libre', serif;
-    font-size: 1.5vw;
+    color: black;
+    margin-left: 0.6vw;
+    margin-top: 1vh;
+    font-weight: bold;
 }

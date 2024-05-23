@@ -21,8 +21,8 @@
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
         <a class="button-style" href="recipe.html" th:href="@{/recipe/{id1}(id1=${randomRecipeId})}">Random</a>
 
-        <a th:href="@{/user}" th:if="${isLogin} == true">
-            <div class="user-container heart-login-container">
+        <div th:if="${isLogin} == true">
+            <div class="user-container heart-login-container" id="heart-btn">
                 <div class="heart"
                      onmouseout="restoreImage('heart-img2', '../../images/heart-login.svg')"
                      onmouseover="changeImage('heart-img2', '../../images/heart-login-hover.svg')">
@@ -30,7 +30,29 @@
                          src="../../images/heart-login.svg" th:src="@{images/heart-login.svg}">
                 </div>
             </div>
-        </a>
+        </div>
+
+        <div id="overlay-favorite" onclick="hideOverlay()"></div>
+        <div class="favoriteLists-window" id="favorite-popup-window">
+            <div th:if="${favoriteList != null}">
+                <div th:each="recipe, i : ${favoriteList.getRecipeUserLists()}">
+                    <a th:class="${i.index == 0} ? 'recipe recipe' : 'recipe recipe' + i.index"
+                       th:href="@{/recipe/{id}(id=${recipe.getRecipe().getId()})}"
+                       th:style="'top:' + (${i.index * 10 + 2}) + 'vh'">
+                        <div class="content-wrapper">
+                            <img th:alt="${recipe.getRecipe().getCategory().getTitle()}"
+                                 th:if="${recipe}"
+                                 th:src="@{'../images/' + ${recipe.getRecipe().getCategory().getTitle()} + '.svg'}">
+
+                            <div class="text-wrapper"
+                                 th:text="${recipe.getRecipe().getTitle()}">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
         <a th:href="@{/user}" th:if="${isLogin} == true">
             <button class="user-container" id="user-btn2">
                 <div class="user"
@@ -121,4 +143,10 @@
     </div>
 </footer>
 <script src="../../js/scripts.js" th:href="@{js/scripts.js}"></script>
+<script>
+    document.getElementById("heart-btn").addEventListener("click",
+        () => showOverlay("overlay-favorite", "favorite-popup-window"));
+    document.getElementById("overlay-favorite").addEventListener("click",
+        () => hideOverlay("overlay-favorite", "favorite-popup-window"));
+</script>
 </html>
