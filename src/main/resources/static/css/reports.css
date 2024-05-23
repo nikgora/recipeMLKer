@@ -94,6 +94,15 @@
     left: 1.8vw;
 }
 
+.reportText {
+    position: absolute;
+    text-align: left;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.8vw;
+    top: -2.5vh;
+    left: 1vw;
+}
+
 [id^="processing"], [id^="accept"], [id^="decline"] {
     position: absolute;
     width: 22vw;
