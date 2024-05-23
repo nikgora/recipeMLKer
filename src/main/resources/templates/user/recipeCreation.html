@@ -13,7 +13,7 @@
     <div class="header">
         <img alt="logo" class="logo" src="../../images/logo.svg" th:src="@{images/logo.svg}">
 
-        <form class="search-form">
+        <form class="search-form" th:action="@{/allRecipes}">
             <img alt="magnifier" class="magnifier" src="../../static/images/magnifier.svg"
                  th:src="@{images/magnifier.svg}">
             <input name="startWith" placeholder="Search" type="search">
@@ -30,7 +30,7 @@
             </div>
         </div>
 
-        <!--<div id="overlay-favorite" onclick="hideOverlay()"></div>
+        <div id="overlay-favorite" onclick="hideOverlay()"></div>
         <div class="favoriteLists-window" id="favorite-popup-window">
             <div th:if="${favoriteList != null}">
                 <div th:each="recipe, i : ${favoriteList.getRecipeUserLists()}">
@@ -51,7 +51,7 @@
                     </button>
                 </div>
             </div>
-        </div>-->
+        </div>
 
         <button class="user-container" id="user-btn">
             <a th:href="@{/user}" th:if="${isLogin} == true">
@@ -222,7 +222,6 @@
             event.preventDefault();
         }
     });
-
 
     document.getElementById('save-btn').addEventListener('click', function () {
         const selectedCategory = document.querySelector('select[name="query"]').value;
