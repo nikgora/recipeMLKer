@@ -74,14 +74,17 @@
 
     <form class="text-form-title">
         <div class="recipeTitle">
-            <input name="query" placeholder="Recipe title" type="text">
+            <input name="title" placeholder="Recipe title" th:value="${recipe.title}" type="text">
         </div>
     </form>
+
     <form class="text-form-time">
         <div class="recipeCookingTime">
-            <input id="cookingTimeInput" min="1" name="query" placeholder="Cooking time in minutes" type="number">
+            <input id="cookingTimeInput" min="1" name="cookingTime" placeholder="Cooking time in minutes"
+                   th:value="${recipe.cookingTime}" type="number">
         </div>
     </form>
+
     <form class="text-form-category">
         <div class="recipeCategory">
             <select name="query">
@@ -92,7 +95,7 @@
         </div>
     </form>
 
-    <div class="ingredientsField">
+    <form class="ingredientsField">
         <div class="tableContainer">
             <table id="ingredientsTable">
                 <tbody>
@@ -114,8 +117,9 @@
             </table>
         </div>
         <button class="addRow" id="addIngredient">Add</button>
-    </div>
-    <div class="devicesField">
+    </form>
+
+    <form class="devicesField">
         <div class="tableContainer">
             <table id="devicesTable">
                 <tbody>
@@ -135,11 +139,12 @@
             </table>
         </div>
         <button class="addRow" id="addDevice">Add</button>
-    </div>
+    </form>
 
     <form class="text-form-StepByStep">
         <div class="recipeStepByStep">
-            <textarea name="description" placeholder="Step by step instructions"></textarea>
+            <textarea name="description" placeholder="Step by step instructions"
+                      th:value="${recipe.description}"></textarea>
         </div>
     </form>
 
