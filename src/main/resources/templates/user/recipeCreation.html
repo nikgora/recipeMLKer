@@ -84,7 +84,7 @@
                        placeholder="Cooking time in minutes" type="number" id="cookingTime">
             </div>
         </div>
-        <form class="text-form-category">
+        <div class="text-form-category">
             <div class="recipeCategory">
                 <select name="query">
                     <option disabled selected value="">Category</option>
@@ -92,7 +92,7 @@
                             th:value="${recipe.category}"></option>
                 </select>
             </div>
-        </form>
+        </div>
 
         <div class="ingredientsField">
             <div class="tableContainer">
@@ -120,8 +120,8 @@
                           placeholder="Step by step instructions"></textarea>
             </div>
         </div>
-    <button class="saveButton" id="save-btn">Save</button>
-    <button class="publishButton">Publish</button>
+        <button class="saveButton" id="save-btn">Save</button>
+        <button class="publishButton">Publish</button>
     </form>
 </main>
 <footer class="footer">
