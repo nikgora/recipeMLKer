@@ -188,6 +188,7 @@
 <script src="../../js/scripts.js" th:href="@{js/scripts.js}"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
+    document.getElementById("cookingTimeInput").value = "";
     $(document).ready(function () {
         $('#addIngredient').click(function () {
             let newRow = `<tr>

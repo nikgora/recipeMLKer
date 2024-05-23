@@ -136,7 +136,7 @@ public class UserController {
         model.addAttribute("ingredients", ingredientService.findAll());
         model.addAttribute("devices", deviceService.findAll());
 
-        return "user/userlist";
+        return "user/allLists";
     }
 
     @GetMapping("/allRecipes")
@@ -335,10 +335,8 @@ public class UserController {
     @GetMapping("/newRecipe")
     public String newRecipePageForm(Model model) {
         if (jwt == null) return "redirect:/mustBeLogin";
-        if (jwt != null) {
-            UserList favoriteList = userListService.getFirstByTitleAndUser("Favorites", userService.getUserByUsername(jwtService.extractUserName(jwt)));
-            model.addAttribute("favoriteList", favoriteList);
-        }
+        UserList favoriteList = userListService.getFirstByTitleAndUser("Favorites", userService.getUserByUsername(jwtService.extractUserName(jwt)));
+        model.addAttribute("favoriteList", favoriteList);
 
         Recipe recipe = new Recipe();
         User user = (userService.getUserByUsername(jwtService.extractUserName(jwt)));

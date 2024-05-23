@@ -33,6 +33,9 @@ public class ModeratorController {
     @Autowired
     private UserController userController;
 
+    @Autowired
+    private UserListService userListService;
+
     @GetMapping("moderator/recipe/{id}")
     public String recipePage(Model model, @PathVariable("id") Long id) {
         if (this.recipeService.getRecipeById(id) == null) {
@@ -46,14 +49,21 @@ public class ModeratorController {
         model.addAttribute("isLogin", true);
         model.addAttribute("randomRecipeId", userController.getRandomNumRecipe());
         model.addAttribute("isModerator", true);
+        UserList favoriteList = userListService.getFirstByTitleAndUser("Favorites", moderatorService.getFirstById(moderatorId).getUser());
+        model.addAttribute("favoriteList", favoriteList);
+
         return "user/recipe";
     }
 
     @GetMapping("/moderator")
     public String moderatorAccount(Model model) {
         if (moderatorId == null) {
-            return "redirect:/user/403";
+            return "redirect:/403";
         }
+        model.addAttribute("randomRecipeId", userController.getRandomNumRecipe());
+        UserList favoriteList = userListService.getFirstByTitleAndUser("Favorites", moderatorService.getFirstById(moderatorId).getUser());
+        model.addAttribute("favoriteList", favoriteList);
+
         model.addAttribute("moderator", moderatorService.getFirstById(moderatorId));
         return "moderator/moderatorPage";
     }
@@ -74,8 +84,12 @@ public class ModeratorController {
     @GetMapping("/moderator/AIReports")
     public String moderatorAIReports(Model model) {
         if (moderatorId == null) {
-            return "redirect:/user/403";
+            return "redirect:/403";
         }
+        model.addAttribute("randomRecipeId", userController.getRandomNumRecipe());
+        UserList favoriteList = userListService.getFirstByTitleAndUser("Favorites", moderatorService.getFirstById(moderatorId).getUser());
+        model.addAttribute("favoriteList", favoriteList);
+
         model.addAttribute("reports", aiReportService.findAvailableForModer(false, moderatorId));
         return "moderator/moderatorAIReports";
     }
@@ -83,16 +97,20 @@ public class ModeratorController {
     @GetMapping("/moderator/UserReports")
     public String moderatorUserReports(Model model) {
         if (moderatorId == null) {
-            return "redirect:/user/403";
+            return "redirect:/403";
         }
+        model.addAttribute("randomRecipeId", userController.getRandomNumRecipe());
         model.addAttribute("reports", userReportService.findAvailableForModer(false, moderatorId));
+        UserList favoriteList = userListService.getFirstByTitleAndUser("Favorites", moderatorService.getFirstById(moderatorId).getUser());
+        model.addAttribute("favoriteList", favoriteList);
+
         return "moderator/moderatorUserReports";
     }
 
     @PostMapping("/api/moderator/takeUserReport/{idReport}")
     public String moderatorTakeUserReport(@PathVariable Long idReport) {
         if (moderatorId == null) {
-            return "redirect:/user/403";
+            return "redirect:/403";
         }
         UserReport userReport = userReportService.getFirstById(idReport);
         userReport.setModerator(moderatorService.getFirstById(moderatorId));
@@ -104,7 +122,7 @@ public class ModeratorController {
     @PostMapping("/api/moderator/takeAiReport/{idReport}")
     public String moderatorTakeAiReport(@PathVariable Long idReport) {
         if (moderatorId == null) {
-            return "redirect:/user/403";
+            return "redirect:/403";
         }
         AiReport aiReport = aiReportService.getFirstById(idReport);
         aiReport.setModerator(moderatorService.getFirstById(moderatorId));
@@ -116,7 +134,7 @@ public class ModeratorController {
     @PostMapping("/api/moderator/approveAiReport/{idReport}")
     public String moderatorApproveAiReport(@PathVariable Long idReport) {
         if (moderatorId == null) {
-            return "redirect:/user/403";
+            return "redirect:/403";
         }
         AiReport aiReport = aiReportService.getFirstById(idReport);
         Recipe recipe = aiReport.getRecipe();
@@ -130,7 +148,7 @@ public class ModeratorController {
     @PostMapping("/api/moderator/declineAiReport/{idReport}")
     public String moderatorDeclineAiReport(@PathVariable Long idReport) {
         if (moderatorId == null) {
-            return "redirect:/user/403";
+            return "redirect:/403";
         }
         AiReport aiReport = aiReportService.getFirstById(idReport);
         Recipe recipe = aiReport.getRecipe();
@@ -144,7 +162,7 @@ public class ModeratorController {
     @PostMapping("/api/moderator/approveUserReport/{idReport}")
     public String moderatorApproveUserReport(@PathVariable Long idReport) {
         if (moderatorId == null) {
-            return "redirect:/user/403";
+            return "redirect:/403";
         }
         UserReport userReport = userReportService.getFirstById(idReport);
         Recipe recipe = userReport.getRecipe();
@@ -158,7 +176,7 @@ public class ModeratorController {
     @PostMapping("/api/moderator/declineUserReport/{idReport}")
     public String moderatorDeclineUserReport(@PathVariable Long idReport) {
         if (moderatorId == null) {
-            return "redirect:/user/403";
+            return "redirect:/403";
         }
         UserReport userReport = userReportService.getFirstById(idReport);
         Recipe recipe = userReport.getRecipe();
