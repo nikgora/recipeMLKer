@@ -31,6 +31,30 @@ function validateInput(inputId) {
     return true;
 }
 
+function showTab(tabName) {
+    var loginTab = document.getElementById('LoginTab');
+    var signInTab = document.getElementById('SignInTab');
+    var loginForm = document.getElementById('loginForm');
+    var signInForm = document.getElementById('signInForm');
+
+    if (tabName === 'login') {
+        loginTab.classList.add('active');
+        signInTab.classList.remove('active');
+        loginForm.classList.add('active');
+        signInForm.classList.remove('active');
+        loginForm.classList.remove('signin-background');
+        signInForm.classList.remove('signin-background');
+    } else {
+        loginTab.classList.remove('active');
+        signInTab.classList.add('active');
+        loginForm.classList.remove('active');
+        signInForm.classList.add('active');
+        loginForm.classList.remove('signin-background');
+        signInForm.classList.add('signin-background');
+    }
+}
+
+
 document.getElementById("support-btn").addEventListener("click",
     () => showOverlay("overlay", "popup-window"));
 document.getElementById("overlay").addEventListener("click",
