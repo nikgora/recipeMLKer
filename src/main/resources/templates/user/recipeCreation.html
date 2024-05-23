@@ -79,7 +79,7 @@
     </form>
     <form class="text-form-time">
         <div class="recipeCookingTime">
-            <input min="1" name="query" placeholder="Cooking time in minutes" type="number">
+            <input id="cookingTimeInput" min="1" name="query" placeholder="Cooking time in minutes" type="number">
         </div>
     </form>
     <form class="text-form-category">
@@ -171,6 +171,12 @@
         $(document).on('click', '.deleteRow', function () {
             $(this).closest('tr').remove();
         });
+    });
+
+    document.getElementById('cookingTimeInput').addEventListener('keydown', function (event) {
+        if (event.key === '-' || event.key === '+') {
+            event.preventDefault();
+        }
     });
 </script>
 </html>
