@@ -53,7 +53,6 @@
     <div class="AIReportField">
         <div class="scrollField">
             <div th:each="report, i: ${reports}">
-                <!--<div th:if="${report.getModerator() == null} == true">-->
                 <div class="reportField">
                     <div class="linkField">
                         <div class="notInBD">Request for recipe review:</div>
@@ -61,7 +60,7 @@
                            th:href="@{/moderator/recipe/{id}(id=${report.getRecipe().getId()})}"
                            th:text="${report.getRecipe().getTitle()}"></a>
                         <div class="informationField">
-                            <p th:text="${report.getDescription()}"></p>
+                            <p class="reportText" th:text="${report.getDescription()}"></p>
                             <form method="post"
                                   th:action="@{/api/moderator/takeUserReport/{id1}(id1=${report.getId()})}"
                                   th:if="${report.getModerator()} == null">
@@ -79,7 +78,6 @@
                             </form>
                         </div>
                     </div>
-                    <!--</div>-->
                 </div>
             </div>
         </div>
