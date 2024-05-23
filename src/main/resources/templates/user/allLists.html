@@ -76,7 +76,8 @@
                 <div class="ListField">
                     <a class="ListFieldHeader" th:text="${list.getTitle()}"></a>
                     <div class="containerList">
-                        <div th:each="recipe: ${list.getRecipeUserLists()}">
+                        <div th:each="recipe: ${list.getRecipeUserLists()}"
+                             th:if="${recipe.getRecipe().isPublished()}==true">
                             <div class="userRecipeField">
                                 <div class="recipeInfoContainer">
                                     <img th:alt="${recipe.getRecipe().getCategory().getTitle()}"
