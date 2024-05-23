@@ -62,7 +62,7 @@
                            th:text="${report.getRecipe().getTitle()}"></a>
                         <div class="informationField">
                             <!--TODO: задати стилі для тексту .p-->
-                            <p th:text="${report.getDescription()}"></p>
+                            <p class="reportText" th:text="${report.getDescription()}"></p>
                             <form method="post"
                                   th:action="@{/api/moderator/takeUserReport/{id1}(id1=${report.getId()})}">
                                 <button th:id="'processing' + ${i.index}">Take for processing</button>
