@@ -80,7 +80,19 @@ VALUES ('Eggs', FALSE),
        ('Red bell pepper', FALSE),
        ('Orange', TRUE),
        ('Walnuts', TRUE),
-       ('Oregano', FALSE);;
+       ('Oregano', FALSE),
+       ('Cherry tomatoes', TRUE),
+       ('Cucumber', FALSE),
+       ('Red onion', FALSE),
+       ('Olives', FALSE),
+       ('Feta cheese', FALSE),
+       ('Plum', FALSE),
+       ('Coffee', FALSE),
+       ('Cardamon', TRUE),
+       ('Lemon', TRUE),
+       ('Pomegranate', TRUE),
+       ('Lime', TRUE),
+       ('Lemonade', TRUE);
 
 -- Inserting Published Recipes
 INSERT INTO PublishedRecipe (title, cooking_time, description, published, fk_user, fk_category)
@@ -182,7 +194,37 @@ VALUES ('Scrambled Eggs', 15,
  <br><br>Put pieces of baked pepper and garlic in a blender bowl. Add 2 tbsp. of walnuts, 1 tbsp. of sunflower oil, salt and pepper to the taste.
  <br><br>Squeeze a little orange juice into a bowl and mix everything with a blender to the desired texture of the sauce.
  <br><br>Cut the orange fillet. Spread the sauce on the turkey or on the side of the meat, lay out the orange fillets and sprinkle your dish with 1 tsp. of oregano.',
-        TRUE, 2, 2);
+        TRUE, 2, 2),
+       ('Greek Salad', 15,
+        'Cut all vegetables into large pieces. Cherry tomatoes you can cut in a half, that’ll be enough.
+ <br><br>The cucumber cut it in half, and then cut each half into half rings 0.5 cm thick. If necessary, peel the cucumber. Transfer to a bowl with the tomatoes.
+ <br><br>The pepper cut it in half, remove the stem and seeds, then dice it about the same size as the tomatoes if you used regular instead of cherry tomatoes. The traditional Greek salad recipe uses green bell peppers, but you can substitute them with red, orange or yellow. Transfer the chopped pepper to a bowl.
+ <br><br>Cut half of the onion into half rings. Also transfer to a bowl with all the salad ingredients.
+ <br><br>If you are preparing a Greek salad in serving plates, put a piece of feta on top of the vegetables. Then everyone who will taste the dish will cut the cheese the way he wants. If you are preparing a Greek salad for a common table, cut 200 g of feta cheese into large cubes. But add to the bowl last.
+ <br><br>Add pitted olives, oregano and salt.
+ <br><br>Drizzle 3-4 tbsp. of olive oil and stir carefully. Then dice feta cheese and add it to the salad.
+ <br><br>Then dice feta cheese and add it to the salad.',
+        TRUE, 1, 3),
+       ('Plum Pie', 50,
+        'To make shortcrust pastry, mix 350 g of flour with warm butter (200 g) in a bowl, add an egg, a pinch of salt and 1 tablespoon of sugar. Knead a dough. If the dough is very dry, add 1 tablespoon of milk and 1 tablespoon of water. This will make a homogeneous dough.
+ <br><br>Preheat the oven to 180 C. Roll out the dough between two sheets of parchment.
+ <br><br>Carefully place the dough in a baking dish and press it slightly along the side with your hands.
+ <br><br>Cut with a knife the remnants of the dough which go beyond the sides of the form. Make holes in the dough with a fork so that it is evenly baked and does not swell. Place the dough in the oven for 10-15 minutes.
+ <br><br>Now wash 400 g of plums, cut them in half and remove the stones.
+ <br><br>Transfer plums to a saucepan, add 200 g of sugar, 100 g of water, 3 pieces of cardamom, 1 tablespoon of ground coffee and 2 cinnamon sticks.
+ <br><br>Cook plums for about 15-20 minutes on very low heat, stirring constantly so that the mixture does not burn.
+ <br><br>Discard the finished filling in a colander to remove excess liquid and remove the cinnamon sticks.
+ <br><br>Distribute the filling around the dough with a spoon. Put the pie in a preheated oven to 180 degrees for 10-15 minutes.
+ <br><br>Remove the pie from the oven and let it cool. Grate a little zest (about half a lemon) directly on the cake.
+ <br><br>Decorate the finished cake with mint leaves to give it a nice fresh note.',
+        TRUE, 2, 4),
+       ('Pomegranate Mojito', 10,
+        'STEP 1
+ <br>A day ahead, divide the pomegranate seeds between the holes in an ice cube tray, top up with water and freeze.
+ <br><br>STEP 2
+ <br>Reserve half the mint for serving, and tear the rest into a large jug with the lime quarters. Using a rolling pin, bash the mint and lime to release the flavours. Add the pomegranate juice and lemonade. Put ice cubes in each glass,
+         then strain over the pomegranate mix through a small sieve. Garnish with lime slices and more mint.',
+        TRUE, 3, 6);
 
 INSERT INTO recipe_ingredient (amount_of_ingredient, fk_ingredient, fk_recipe)
 VALUES ('2', 1, 1),
@@ -287,7 +329,33 @@ VALUES ('2', 1, 1),
        ('1 tsp', 54, 13),
        ('2 tbsp', 17, 13),
        ('for flavor', 6, 13),
-       ('for flavor', 7, 13);
+       ('for flavor', 7, 13),
+       ('200g', 55, 14),
+       ('1', 56, 14),
+       ('1/2', 57, 14),
+       ('50g', 58, 14),
+       ('200g', 59, 14),
+       ('1-2 tsp', 54, 14),
+       ('3-4 tbsp', 17, 14),
+       ('to taste', 6, 14),
+       ('400g', 60, 15),
+       ('210g', 14, 15),
+       ('100g', 18, 15),
+       ('1 tbsp', 61, 15),
+       ('to taste', 62, 15),
+       ('2 sticks', 40, 15),
+       ('1/2 pieces', 63, 15),
+       ('3 spings', 30, 15),
+       ('350g', 3, 15),
+       ('200g', 5, 15),
+       ('1', 1, 15),
+       ('1 pinch', 6, 15),
+       ('1 tbsp', 2, 15),
+       ('3 tbsp of seeds', 64, 16),
+       ('big bunch', 30, 16),
+       ('2', 65, 16),
+       ('1L of juice', 64, 16),
+       ('500ml', 66, 16);
 
 INSERT INTO Recipe_Device (fk_device, fk_recipe)
 VALUES (1, 1),
@@ -307,7 +375,8 @@ VALUES (1, 1),
        (1, 11),
        (2, 12),
        (4, 12),
-       (1, 13);
+       (1, 13),
+       (1, 15);
 
 -- Inserting Ratings
 INSERT INTO Rating (mark, fk_user, fk_recipe)
@@ -320,7 +389,10 @@ VALUES (3, 1, 1),
        (4, 1, 10),
        (10, 3, 11),
        (8.3, 2, 12),
-       (10, 1, 13);
+       (10, 1, 13),
+       (7, 2, 14),
+       (8, 1, 15),
+       (9, 2, 16);
 
 -- Inserting Comments
 INSERT INTO "comment" ("text", fk_user, fk_recipe)
@@ -362,10 +434,21 @@ VALUES ('Great recipe, loved it!', 1, 1),
        ('I think I''ll add a splash of white wine while cooking the onions and mushrooms for extra flavor.', 1, 12),
        ('The pumpkin seeds and basil leaves garnish is a nice touch. Adds a bit of crunch and color!', 3, 12),
        ('Slow-cooking the turkey at 125 degrees for 2.5 hours must make it incredibly tender. Can''t wait to try this!',
-        2, 25),
+        2, 13),
        ('The red bell pepper and garlic sauce sounds amazing. Adding walnuts for extra texture is a great idea.', 3,
-        25),
-       ('Peeling the bell pepper after baking can be tricky. Any tips on making it easier?', 4, 25);
+        13),
+       ('Peeling the bell pepper after baking can be tricky. Any tips on making it easier?', 4, 13),
+       ('I usually add a splash of red wine vinegar to my Greek salad. Anyone else likes a bit of acidity?', 2, 14),
+       ('I love the idea of making holes in the dough with a fork. It ensures the crust bakes evenly without puffing up.',
+        1, 15),
+       ('This recipe seems quite adaptable. I might try it with other fruits like peaches or cherries next time.', 3,
+        15),
+       ('This is my favorite non-alcoholic drink! I love this pomegranate mojito cocktail recipe because it is so refreshing and tasty.',
+        1, 16),
+       ('I had 150mls of leftover pomegranate juice so decided to make this to go along with some enchiladas. I quartered the recipe, using some cranberry to make up the juice and used fizzy water rather than lemonade. Made two good sized glasses.',
+        2, 16),
+       ('Not very flavoursome really. I think it might be better without being diluted with lemonade. The ice cubes are a great idea and look funky.',
+        1, 16);
 
 -- Inserting Moderators
 INSERT INTO Moderator (secret_password, fk_user)
