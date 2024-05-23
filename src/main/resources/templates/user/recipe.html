@@ -110,19 +110,19 @@
         </a>
     </div>
 
-    <div th:if="${isLogin} == true">
+    <div th:if="${isLogin} == true AND ${isModerator} == false">
         <form method="post" th:action="@{/api/addRecipeToList/{id1}/Favorites(id1=${id})}">
             <button id="FavoriteList-login">Favorite
             </button>
         </form>
     </div>
-    <div th:if="${isLogin} == false">
+    <div th:if="${isLogin} == false AND ${isModerator} == false">
         <button id="FavoriteList-logout" onclick="showAlert('Please, log in to add this recipe to favorites')">Favorite
         </button>
     </div>
 
-    <button class="UserList" id="lists-btn">Lists</button>
-    <div th:if="${isLogin} == true">
+    <button class="UserList" id="lists-btn" th:if="${isModerator} == false">Lists</button>
+    <div th:if="${isLogin} == true AND ${isModerator} == false">
         <div id="overlay-lists" onclick="hideOverlay()"></div>
         <div class="lists-container" id="lists-popup-window">
             <button class="create-list" id="create-new-list-btn">Create a new list</button>
@@ -146,14 +146,14 @@
             </div>
         </div>
     </div>
-    <div th:if="${isLogin} == false">
+    <div th:if="${isLogin} == false AND ${isModerator} == false">
         <button class="UserList" id="user-list-logout"
                 onclick="showAlert('Please, log in to add recipe to the custom list.')">Lists
         </button>
     </div>
 
-    <button class="Report" id="report-btn">Report</button>
-    <div th:if="${isLogin} == true">
+    <button class="Report" id="report-btn" th:if="${isModerator} == false">Report</button>
+    <div th:if="${isLogin} == true AND ${isModerator} == false">
         <div id="overlay-report" onclick="hideOverlay()"></div>
         <form class="report-container" id="report-field-popup-window" method="post"
               onsubmit="return validateInput('reportInput')" th:action="@{/api/newUserReport/{id1}(id1=${id})}"
@@ -167,7 +167,7 @@
             <button class="send-report" id="send-report-btn">Send a report</button>
         </form>
     </div>
-    <div th:if="${isLogin} == false">
+    <div th:if="${isLogin} == false AND ${isModerator} == false">
         <button class="Report" id="report-btn1" onclick="showAlert('Please, log in to report')">Report</button>
     </div>
 
@@ -207,8 +207,8 @@
             </table>
         </div>
     </div>
-    <form class="text-form" method="post"
-          onsubmit="return validateInput('commentInput')" th:action="@{/api/newComment/{id1}(id1=${id})}"
+    <form class="text-form" method="post" onsubmit="return validateInput('commentInput')"
+          th:action="@{/api/newComment/{id1}(id1=${id})}" th:if="${isModerator} == false"
           th:object="${comment}">
         <img alt="quill" class="quill" src="../../static/images/quill.svg" th:src="@{../images/quill.svg}">
         <textarea id="commentInput" maxlength="255" name="startWith" placeholder="Add comment"
@@ -254,7 +254,7 @@
             <div class="amountContent" th:utext="${recipe.getDescription()}"></div>
         </div>
     </div>
-    <div class="addRatingField">
+    <div class="addRatingField" th:if="${isModerator} == false">
         <div class="ratingField">
             <div class="star-icon">
                 <input id="1" name="rating" type="radio">
