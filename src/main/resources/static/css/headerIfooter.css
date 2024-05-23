@@ -440,3 +440,8 @@ body {
     margin-top: 1vh;
     font-weight: bold;
 }
+
+.favoriteLists-window a {
+    text-decoration: none;
+    color: inherit;
+}
