@@ -117,7 +117,7 @@
     top: 0;
 }
 
-.text-form-title input, .inner-window input {
+.text-form-title input {
     position: absolute;
     width: 90vw;
     height: 4vh;
@@ -130,6 +130,7 @@
     font-size: 1.9vw;
     border-radius: 1.5vh;
     outline: none;
+    autocomplete: off;
 }
 
 .text-form-time {
@@ -153,6 +154,7 @@
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.9vw;
     outline: none;
+    autocomplete: off;
 }
 
 .text-form-category {

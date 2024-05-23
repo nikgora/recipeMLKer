@@ -53,20 +53,19 @@
     <div class="AIReportField">
         <div class="scrollField">
             <div th:each="report, i: ${reports}">
-                <div th:if="${report.getModerator() == null} == true">
-                    <div class="reportField">
-                        <div class="linkField">
-                            <div class="notInBD">Request for recipe review:</div>
-                            <a class=" notInBD InBD" style="font-weight: bold"
-                               th:href="@{/recipe/{id}(id=${report.getRecipe().getId()})}"
-                               th:text="${report.getRecipe().getTitle()}"></a>
-                            <div class="informationField">
-                                <!--TODO: задати стилі для тексту .p-->
-                                <p th:text="${report.getDescription()}"></p>
-                                <form method="post"
-                                      th:action="@{/api/moderator/takeUserReport/{id1}(id1=${report.getId()})}">
-                                    <button th:id="'processing' + ${i.index}">Take for processing</button>
-                                </form>
+                <!--<div th:if="${report.getModerator() == null} == true">-->
+                <div class="reportField">
+                    <div class="linkField">
+                        <div class="notInBD">Request for recipe review:</div>
+                        <a class=" notInBD InBD" style="font-weight: bold"
+                           th:href="@{/recipe/{id}(id=${report.getRecipe().getId()})}"
+                           th:text="${report.getRecipe().getTitle()}"></a>
+                        <div class="informationField">
+                            <!--TODO: задати стилі для тексту .p-->
+                            <p th:text="${report.getDescription()}"></p>
+                            <form method="post"
+                                  th:action="@{/api/moderator/takeUserReport/{id1}(id1=${report.getId()})}">
+                                <button th:id="'processing' + ${i.index}">Take for processing</button>
                                 <form method="post"
                                       th:action="@{/api/moderator/approveUserReport/{id1}(id1=${report.getId()})}">
                                     <button th:id="'accept' + ${i.index}">Accept</button>
@@ -75,9 +74,10 @@
                                       th:action="@{/api/moderator/declineUserReport/{id1}(id1=${report.getId()})}">
                                     <button th:id="'decline' + ${i.index}">Decline</button>
                                 </form>
-                            </div>
+                            </form>
                         </div>
                     </div>
+                    <!--</div>-->
                 </div>
             </div>
         </div>
@@ -90,7 +90,7 @@
 
     <div class="window" id="popup-window">
         <div class="inner-window">
-            <input name="query" placeholder="Enter feedback" type="search">
+            <textarea name="query" placeholder="Enter feedback" required></textarea>
         </div>
 
         <button id="send-button">Send</button>
@@ -117,7 +117,7 @@
     </div>
 </footer>
 </body>
-<script src="../../static/js/scripts.js" th:href="@{js/scripts.js}"></script>
+<script src="../../js/scripts.js" th:href="@{js/scripts.js}"></script>
 <script>
     document.querySelectorAll('[id^="processing"]').forEach(function (button) {
         button.addEventListener('click', function () {
