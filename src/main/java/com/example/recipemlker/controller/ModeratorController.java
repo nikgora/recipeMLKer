@@ -180,7 +180,7 @@ public class ModeratorController {
         }
         UserReport userReport = userReportService.getFirstById(idReport);
         Recipe recipe = userReport.getRecipe();
-        recipe.setPublished(true);
+        recipe.setPublished(recipe.isPublished());
         userReport.setModerator(null);
         userReportService.save(userReport);
         recipeService.save(recipe);
