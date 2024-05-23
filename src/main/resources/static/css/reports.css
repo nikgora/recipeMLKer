@@ -14,13 +14,13 @@
 }
 
 /*____________________________________________________________________________________________________________________*/
-.titleForAiPage {
+.titleForUserPage {
     position: absolute;
     text-align: center;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 2.2vw;
     text-decoration: none;
-    left: 37vw;
+    left: 45vw;
     top: 12.2vh;
 }
 
@@ -38,33 +38,20 @@
     position: absolute;
     width: 92vw;
     height: 64.5vh;
-    background-color: #3E5902;
     border-radius: 5vh;
     top: 3.5vh;
     margin-bottom: 13vh;
     left: 2vw;
-    overflow-y: auto; /* Дозволяє вертикальний скрол */
-    overflow-x: hidden; /* Вимикає горизонтальний скрол */
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
-
 .reportField {
-    position: absolute;
-    width: 92vw;
+    width: 91.3vw;
     height: 30vh;
     background-color: #FBEFC7;
     border-radius: 5vh;
-
-}
-
-.report2 {
-    position: absolute;
-    top: 34.5vh;
-}
-
-.report3 {
-    position: absolute;
-    top: 54.5vh;
+    margin-bottom: 3vh;
 }
 
 /*____________________________________________________________________________________________________________________*/
@@ -78,40 +65,57 @@
     position: absolute;
     text-align: center;
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 2vw;
+    font-size: 1.8vw;
     text-decoration: none;
     left: 2vw;
     top: 1vh;
 }
 
 .InBD {
-    left: 27vw;
+    left: 22vw;
 }
 
 .informationField {
     position: absolute;
     width: 88vw;
-    height: 13vh;
+    height: 16.5vh;
     background-color: #F2E3B3;
     border-radius: 3vh;
-    top: 8vh;
+    top: 6vh;
     left: 1.8vw;
 }
 
-#processing {
+[id^="processing"], [id^="accept"], [id^="decline"] {
     position: absolute;
-    width: 26vw;
-    height: 6vh;
+    width: 22vw;
+    height: 5.8vh;
     background-color: #3E5902;
-    top: 14.5vh;
+    top: 17.5vh;
     left: 31vw;
     border-radius: 2vh;
     text-align: center;
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 2vw;
+    font-size: 1.8vw;
     color: #F2E3B3;
     border: none;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+}
+
+[id^="accept"], [id^="decline"] {
+    display: none;
+    width: 11vw;
+    left: 55vw;
+}
+
+[id^="decline"] {
+    left: 72vw;
+}
+
+[id^="processing"]:hover, [id^="accept"]:hover, [id^="decline"]:hover {
+    border: 0.5vh solid #3E5902;
+    background-color: #F2E3B3;
+    color: #3E5902;
 }

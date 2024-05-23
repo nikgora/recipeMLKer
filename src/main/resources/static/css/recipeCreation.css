@@ -117,7 +117,7 @@
     top: 0;
 }
 
-.text-form-title input, .inner-window input {
+.text-form-title input {
     position: absolute;
     width: 90vw;
     height: 4vh;
@@ -130,6 +130,7 @@
     font-size: 1.9vw;
     border-radius: 1.5vh;
     outline: none;
+    autocomplete: off;
 }
 
 .text-form-time {
@@ -153,6 +154,7 @@
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.9vw;
     outline: none;
+    autocomplete: off;
 }
 
 .text-form-category {
@@ -213,6 +215,9 @@ input[type="text"] {
     outline: none;
     padding-left: 1vw;
     box-sizing: border-box;
+    display: flex;
+    text-align: left;
+    justify-content: left;
 }
 
 button {
@@ -224,13 +229,25 @@ button {
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.5vw;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center
 }
 
 button.deleteRow {
+    width: 6vw;
+    height: 4.5vh;
+    border-radius: 1.5vh;
     background-color: #B90F0F;
+    display: flex;
+    align-items: center;
+    justify-content: center
 }
 
 button#addRow {
+    width: 4vw;
+    height: 4.5vh;
+    border-radius: 1.5vh;
     margin-top: 2vh;
 }
 
@@ -270,8 +287,8 @@ button#addRow {
 
 .text-form-StepByStep textarea {
     position: absolute;
-    width: 98%;
-    height: 85%;
+    width: 95%;
+    height: 75%;
     left: 1vw;
     top: 1vh;
     border: none;
@@ -281,6 +298,7 @@ button#addRow {
     outline: none;
     resize: none;
     autocomplete: off;
+
 }
 
 ::-webkit-scrollbar {
@@ -296,4 +314,28 @@ button#addRow {
 ::-webkit-scrollbar-thumb {
     background: #733506;
     border-radius: 4.63vh;
+}
+
+.recipeCategory {
+    position: relative;
+    width: 45vw;
+    height: 6.19vh;
+    background: #F2E3B3;
+    border-radius: 5.5vh;
+}
+
+.recipeCategory select {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #F2E3B3;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2vw;
+    border-radius: 5.5vh;
+    outline: none;
+    padding-left: 1vw;
+    padding-right: 2vw;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
 }
