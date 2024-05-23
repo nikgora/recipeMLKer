@@ -172,6 +172,8 @@ body {
 }
 
 /*____________________________________________________________________________________________________________________*/
+
+/*____________________________________________________________________________________________________________________*/
 .login-window {
     position: fixed;
     display: none;
@@ -185,71 +187,13 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.login-form {
-    border-radius: 2.7vw;
-    position: absolute;
-    width: 21vw;
-    height: 4.5vh;
-    z-index: 13;
-    left: 1.5vw;
-}
-
-.email {
-    position: absolute;
-    top: 7vh;
+.tabs {
     display: flex;
-    max-height: 5vh;
+    justify-content: space-between;
+    padding: 1vh 2vw;
 }
 
-.password {
-    position: absolute;
-    top: 14.8vh;
-    display: flex;
-}
-
-.login-heading {
-    position: absolute;
-    right: 9.58vw;
-    bottom: 21.5vh;
-    font-family: 'Frank Ruhl Libre', serif;
-    font-size: 2vw;
-}
-
-.email input, .password input {
-    width: 21.979vw;
-    height: 6vh; /*6.19vh*/
-    flex: 1;
-    border: none;
-    background: #FBEFC7;
-    font-family: 'Frank Ruhl Libre', serif;
-    font-size: 2vw;
-    border-radius: 5.5vh;
-    outline: none;
-    padding-left: 1vw;
-    autocomplete: off;
-}
-
-#confirm-button {
-    background-color: #3E5902;
-    position: absolute;
-    width: 15.6vw;
-    height: 5vh;
-    right: 5.2vw;
-    bottom: 1.7vh;
-    z-index: 15;
-    border-radius: 2.7vw;
-    cursor: pointer;
-    text-align: center;
-    font-family: 'Frank Ruhl Libre', serif;
-    font-size: 2vw;
-    color: #FBEFC7;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center
-}
-
-#Login {
+#LoginTab {
     position: absolute;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 2vw; /*42*/
@@ -266,7 +210,7 @@ body {
     justify-content: center
 }
 
-#SignIn {
+#SignInTab {
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 2vw; /*42*/
     color: #733506;
@@ -283,10 +227,81 @@ body {
     justify-content: center
 }
 
-#Login:hover, #SignIn:hover {
+#LoginTab.active, #SignInTab.active {
     background-color: #F2B705;
-    color: black;
 }
+
+.form-container {
+    display: none;
+}
+
+.form-container.active {
+    display: block;
+}
+
+.login-form {
+    border-radius: 2.7vw;
+    position: absolute;
+    width: 21vw;
+    height: 4.5vh;
+    z-index: 13;
+    left: 1.5vw;
+}
+
+
+.email {
+    position: absolute;
+    top: 7vh;
+    display: flex;
+    max-height: 5vh;
+}
+
+.password {
+    position: absolute;
+    top: 14.8vh;
+    display: flex;
+}
+
+.email input, .password input {
+    width: 21.979vw;
+    height: 6vh;
+    flex: 1;
+    border: none;
+    background: #FBEFC7;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2vw;
+    border-radius: 5.5vh;
+    outline: none;
+    padding-left: 1vw;
+    autocomplete: off;
+}
+
+#confirm-button, #confirm-button1 {
+    background-color: #3E5902;
+    position: absolute;
+    width: 15.6vw;
+    height: 5vh;
+    right: 5.2vw;
+    bottom: 1.7vh;
+    z-index: 15;
+    border-radius: 2.7vw;
+    cursor: pointer;
+    text-align: center;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2vw;
+    color: #FBEFC7;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Додано стилі для зміни фону форми */
+.form-container.signin-background {
+    background-color: #D8C89A;
+}
+
 
 /*____________________________________________________________________________________________________________________*/
 
