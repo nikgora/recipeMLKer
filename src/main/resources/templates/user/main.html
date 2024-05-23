@@ -44,20 +44,19 @@
         <div class="favoriteLists-window" id="favorite-popup-window">
             <div th:if="${favoriteList != null}">
                 <div th:each="recipe, i : ${favoriteList.getRecipeUserLists()}">
-                    <button th:class="${i.index == 0} ? 'recipe recipe' : 'recipe recipe' + i.index"
-                            th:style="'top:' + (${i.index * 10 + 2}) + 'vh'">
+                    <a th:class="${i.index == 0} ? 'recipe recipe' : 'recipe recipe' + i.index"
+                       th:href="@{/recipe/{id}(id=${recipe.getRecipe().getId()})}"
+                       th:style="'top:' + (${i.index * 10 + 2}) + 'vh'">
                         <div class="content-wrapper">
                             <img th:alt="${recipe.getRecipe().getCategory().getTitle()}"
                                  th:if="${recipe}"
                                  th:src="@{'../images/' + ${recipe.getRecipe().getCategory().getTitle()} + '.svg'}">
 
-                            <div class="text-wrapper">
-                                <a style="font-weight: bold;"
-                                   th:href="@{/recipe/{id}(id=${recipe.getRecipe().getId()})}"
-                                   th:text="${recipe.getRecipe().getTitle()}"></a>
+                            <div class="text-wrapper"
+                                 th:text="${recipe.getRecipe().getTitle()}">
                             </div>
                         </div>
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
