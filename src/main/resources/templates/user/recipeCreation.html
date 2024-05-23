@@ -114,11 +114,12 @@
             <div class="recipeDevices"></div>
             <input name="query" placeholder="Recipe devices (separate by comas) " type="text">
         </form>
-        <form class="text-form-StepByStep">
+        <div class="text-form-StepByStep">
             <div class="recipeStepByStep">
-                <textarea name="description" placeholder="Step by step instructions"></textarea>
+                <textarea name="description" th:value="${recipe.description}"
+                          placeholder="Step by step instructions"></textarea>
             </div>
-        </form>
+        </div>
 
         <button class="saveButton">Save</button>
         <button class="publishButton">Publish</button>
