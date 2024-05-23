@@ -164,11 +164,11 @@
             <div class="sub-menu">
                 <div class="timeContainer">
                     <div class="minTime">
-                        <input min="0" name="minTime" placeholder="min" required type="number">
+                        <input id="minTime" min="1" name="minTime" placeholder="min" required type="number">
                     </div>
                     <div class="line"></div>
                     <div class="maxTime">
-                        <input min="0" name="maxTime" placeholder="max" required step="any" type="number">
+                        <input id="maxTime" min="1" name="maxTime" placeholder="max" required step="any" type="number">
                     </div>
                 </div>
             </div>
@@ -300,11 +300,11 @@
             <div class="sub-menu">
                 <div class="ratingContainer">
                     <div class="minRate">
-                        <input name="minRate" placeholder="min" required type="text">
+                        <input id="minRate" name="minRate" placeholder="min" required type="text">
                     </div>
                     <div class="line"></div>
                     <div class="maxRate">
-                        <input name="maxRate" placeholder="max" required type="text">
+                        <input id="maxRate" name="maxRate" placeholder="max" required type="text">
                     </div>
                 </div>
             </div>
@@ -424,6 +424,12 @@
 <script src="../../js/scripts.js" th:href="@{js/scripts.js}"></script>
 <script crossorigin="anonymous" src="https://kit.fontawesome.com/a076d05399.js"></script>
 <script type="text/javascript">
+    function preventMinusAndPlus(event) {
+        if (event.key === '-' || event.key === '+') {
+            event.preventDefault();
+        }
+    }
+
     function submitForm() {
         var form = document.getElementById('loginForm');
         var formData = new FormData(form);
@@ -492,6 +498,11 @@
         () => showOverlay("overlay-favorite", "favorite-popup-window"));
     document.getElementById("overlay-favorite").addEventListener("click",
         () => hideOverlay("overlay-favorite", "favorite-popup-window"));
+
+    document.getElementById('minTime').addEventListener('keydown', preventMinusAndPlus);
+    document.getElementById('maxTime').addEventListener('keydown', preventMinusAndPlus);
+    document.getElementById('minRate').addEventListener('keydown', preventMinusAndPlus);
+    document.getElementById('maxRate').addEventListener('keydown', preventMinusAndPlus);
 </script>
 </body>
 </html>

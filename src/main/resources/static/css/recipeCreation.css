@@ -143,7 +143,7 @@
     top: 0;
 }
 
-.text-form-time input, .inner-window input {
+.text-form-time input {
     position: absolute;
     width: 42vw;
     height: 4vh;
@@ -167,7 +167,7 @@
     right: 0;
 }
 
-.text-form-category input, .inner-window input {
+.text-form-category input {
     position: absolute;
     width: 42vw;
     height: 4.2vh;
@@ -178,6 +178,7 @@
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.9vw;
     outline: none;
+    autocomplete: off;
 }
 
 .ingredientsField {
@@ -339,4 +340,10 @@ button#addRow {
     -webkit-appearance: none;
     appearance: none;
     cursor: pointer;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }

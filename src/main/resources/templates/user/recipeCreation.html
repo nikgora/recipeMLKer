@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Recipe Creation</title>
@@ -120,11 +120,9 @@
                           placeholder="Step by step instructions"></textarea>
             </div>
         </div>
-
-        <button class="saveButton">Save</button>
-        <button class="publishButton">Publish</button>
+    <button class="saveButton" id="save-btn">Save</button>
+    <button class="publishButton">Publish</button>
     </form>
-
 </main>
 <footer class="footer">
     <button class="support-button" id="support-btn"><span>Support</span></button>
@@ -177,6 +175,21 @@
         $(document).on('click', '.deleteRow', function () {
             $(this).closest('tr').remove();
         });
+    });
+
+    document.getElementById('cookingTimeInput').addEventListener('keydown', function (event) {
+        if (event.key === '-' || event.key === '+') {
+            event.preventDefault();
+        }
+    });
+
+
+    document.getElementById('save-btn').addEventListener('click', function () {
+        const selectedCategory = document.querySelector('select[name="query"]').value;
+
+        if (selectedCategory === "") {
+            alert("Please, choose a category of the recipe before saving.");
+        }
     });
 </script>
 </html>
