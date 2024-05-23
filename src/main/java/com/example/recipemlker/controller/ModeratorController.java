@@ -33,6 +33,9 @@ public class ModeratorController {
     @Autowired
     private UserController userController;
 
+    @Autowired
+    private UserListService userListService;
+
     @GetMapping("moderator/recipe/{id}")
     public String recipePage(Model model, @PathVariable("id") Long id) {
         if (this.recipeService.getRecipeById(id) == null) {
@@ -46,6 +49,9 @@ public class ModeratorController {
         model.addAttribute("isLogin", true);
         model.addAttribute("randomRecipeId", userController.getRandomNumRecipe());
         model.addAttribute("isModerator", true);
+        UserList favoriteList = userListService.getFirstByTitleAndUser("Favorites", moderatorService.getFirstById(moderatorId).getUser());
+        model.addAttribute("favoriteList", favoriteList);
+
         return "user/recipe";
     }
 
@@ -54,6 +60,10 @@ public class ModeratorController {
         if (moderatorId == null) {
             return "redirect:/user/403";
         }
+        model.addAttribute("randomRecipeId", userController.getRandomNumRecipe());
+        UserList favoriteList = userListService.getFirstByTitleAndUser("Favorites", moderatorService.getFirstById(moderatorId).getUser());
+        model.addAttribute("favoriteList", favoriteList);
+
         model.addAttribute("moderator", moderatorService.getFirstById(moderatorId));
         return "moderator/moderatorPage";
     }
@@ -76,6 +86,10 @@ public class ModeratorController {
         if (moderatorId == null) {
             return "redirect:/user/403";
         }
+        model.addAttribute("randomRecipeId", userController.getRandomNumRecipe());
+        UserList favoriteList = userListService.getFirstByTitleAndUser("Favorites", moderatorService.getFirstById(moderatorId).getUser());
+        model.addAttribute("favoriteList", favoriteList);
+
         model.addAttribute("reports", aiReportService.findAvailableForModer(false, moderatorId));
         return "moderator/moderatorAIReports";
     }
@@ -85,7 +99,11 @@ public class ModeratorController {
         if (moderatorId == null) {
             return "redirect:/user/403";
         }
+        model.addAttribute("randomRecipeId", userController.getRandomNumRecipe());
         model.addAttribute("reports", userReportService.findAvailableForModer(false, moderatorId));
+        UserList favoriteList = userListService.getFirstByTitleAndUser("Favorites", moderatorService.getFirstById(moderatorId).getUser());
+        model.addAttribute("favoriteList", favoriteList);
+
         return "moderator/moderatorUserReports";
     }
 

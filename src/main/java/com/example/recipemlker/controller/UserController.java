@@ -136,7 +136,7 @@ public class UserController {
         model.addAttribute("ingredients", ingredientService.findAll());
         model.addAttribute("devices", deviceService.findAll());
 
-        return "user/userlist";
+        return "user/allLists";
     }
 
     @GetMapping("/allRecipes")
