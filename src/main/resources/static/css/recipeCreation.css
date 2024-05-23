@@ -12,74 +12,42 @@
 
 .recipeTitle {
     position: absolute;
-    width: 94vw;
-    height: 5.5556vh;
+    width: 33vw;
+    height: 6.5vh;
     background-color: #F2E3B3;
     left: 3vw;
-    right: 3vw;
     top: 20vh;
-    border-radius: 1vw;
+    border-radius: 5.5vh;
 }
 
 .recipeCookingTime {
     position: absolute;
-    width: 44.76vw;
-    height: 5.5556vh;
+    width: 23vw;
+    height: 6.5vh;
     background-color: #F2E3B3;
-    left: 3vw;
-    top: 27.4vh;
-    border-radius: 1vw;
+    left: 38vw;
+    top: 20vh;
+    border-radius: 5.5vw;
 }
 
 .recipeCategory {
     position: absolute;
-    width: 44.76vw;
-    height: 5.5556vh;
-    background-color: #F2E3B3;
+    width: 34vw;
+    height: 6.5vh;
+    background: #F2E3B3;
+    border-radius: 5.5vh;
     right: 3vw;
-    top: 27.4vh;
-    border-radius: 1vw;
-}
-
-.recipeIngredients {
-    position: absolute;
-    width: 44.76vw;
-    height: 16.5vh;
-    background-color: #F2E3;
-    left: 0;
-    top: 0;
-    border-radius: 1vh;
-}
-
-.recipeIngredientsAmount {
-    position: absolute;
-    width: 44.76vw;
-    height: 16.5vh;
-    background-color: #F2E3;
-    top: 0;
-    margin-left: -1vw;
-    border-radius: 5vh;
-}
-
-.recipeDevices {
-    position: absolute;
-    width: 94vw;
-    height: 5.5556vh;
-    background-color: #F2E3B3;
-    left: 3vw;
-    right: 3vw;
-    top: 53.2vh;
-    border-radius: 1vw;
+    top: 20vh;
 }
 
 .recipeStepByStep {
     position: absolute;
     width: 94vw;
-    height: 17vh;
+    height: 32vh;
     background-color: #F2E3B3;
     left: 3vw;
     right: 3vw;
-    top: 60.6vh;
+    top: 51.2vh;
     border-radius: 5vh;
 }
 
@@ -87,7 +55,7 @@
     position: absolute;
     width: 15.625vw;
     height: 7.41vh;
-    top: 82vh;
+    top: 85vh;
     left: 20.4vw;
     background-color: #F28705;
     border-radius: 5vh;
@@ -112,84 +80,47 @@
     display: flex;
     align-items: center;
     gap: 0.53vw;
-    padding-left: 1.0415vw;
+    padding-left: 0.8vw;
     border-radius: 2.778vh;
     top: 0;
 }
 
 .text-form-title input {
     position: absolute;
-    width: 90vw;
-    height: 4vh;
+    width: 90%;
+    height: 95%;
     left: 1vw;
-    margin-top: 0.3vh;
     flex: 2;
     border: none;
     background: #F2E3B3;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.9vw;
-    border-radius: 1.5vh;
     outline: none;
     autocomplete: off;
-}
-
-.text-form-time {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    gap: 0.53vw;
-    padding-left: 1.0415vw;
-    border-radius: 2.778vh;
-    top: 0;
 }
 
 .text-form-time input {
     position: absolute;
-    width: 42vw;
-    height: 4vh;
+    width: 90%;
+    height: 85%;
     left: 1vw;
-    flex: 2;
+    top: 0.3vh;
     border: none;
     background: #F2E3B3;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.9vw;
-    outline: none;
-    autocomplete: off;
-}
-
-.text-form-category {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    gap: 0.53vw;
-    padding-left: 1.0415vw;
-    top: 0;
-    right: 0;
-}
-
-.text-form-category input {
-    position: absolute;
-    width: 42vw;
-    height: 4.2vh;
-    left: 1vw;
-    flex: 2;
-    border: none;
-    background: #F2E3B3;
-    font-family: 'Frank Ruhl Libre', serif;
-    font-size: 1.9vw;
-    outline: none;
     autocomplete: off;
 }
 
 .ingredientsField {
     position: absolute;
-    width: 94vw;
-    height: 17vh;
+    width: 58.5vw;
+    height: 21vh;
     background-color: #F2E3B3;
     left: 3vw;
-    top: 34.8vh;
+    top: 28.5vh;
     border-radius: 5vh;
-    padding: 1vh;
+    padding: 0.5vh;
     box-sizing: border-box;
     overflow-y: auto;
 }
@@ -202,12 +133,24 @@ table {
 th, td {
     padding: 1vh;
     text-align: left;
-    border-bottom: 0.3vh solid #FBEFC7;
+    border-bottom: 0.3vh solid white;
+}
+
+td:nth-child(1) {
+    border-right: 0.3vh solid white;
+}
+
+td:nth-child(2) {
+    width: 27%;
+}
+
+td:nth-child(3) {
+    width: 10%;
 }
 
 input[type="text"] {
     width: 90%;
-    height: 4.2vh;
+    height: 100%;
     border: none;
     background: #F2E3B3;
     font-family: 'Frank Ruhl Libre', serif;
@@ -245,35 +188,11 @@ button.deleteRow {
     justify-content: center
 }
 
-button#addRow {
+button.addRow {
     width: 4vw;
     height: 4.5vh;
     border-radius: 1.5vh;
-    margin-top: 2vh;
-}
-
-.text-form-devices {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    gap: 0.53vw;
-    padding-left: 1.0415vw;
-    border-radius: 2.778vh;
-    top: 0;
-}
-
-.text-form-devices input, .inner-window input {
-    position: absolute;
-    width: 90vw;
-    height: 4.2vh;
-    left: 4vw;
-    top: 53.25vh;
-    flex: 2;
-    border: none;
-    background: #F2E3B3;
-    font-family: 'Frank Ruhl Libre', serif;
-    font-size: 1.9vw;
-    outline: none;
+    margin-top: 0.5vh;
 }
 
 .text-form-StepByStep {
@@ -299,7 +218,6 @@ button#addRow {
     outline: none;
     resize: none;
     autocomplete: off;
-
 }
 
 ::-webkit-scrollbar {
@@ -315,14 +233,6 @@ button#addRow {
 ::-webkit-scrollbar-thumb {
     background: #733506;
     border-radius: 4.63vh;
-}
-
-.recipeCategory {
-    position: absolute;
-    width: 45vw;
-    height: 6.19vh;
-    background: #F2E3B3;
-    border-radius: 5.5vh;
 }
 
 .recipeCategory select {
@@ -346,4 +256,36 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+.devicesField {
+    position: absolute;
+    width: 34vw;
+    height: 21vh;
+    background-color: #F2E3B3;
+    left: 63vw;
+    top: 28.5vh;
+    border-radius: 5vh;
+    padding: 0.5vh;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+#devicesTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#devicesTable th,
+#devicesTable td {
+    text-align: left;
+    border-bottom: 0.3vh solid white;
+}
+
+#devicesTable td:nth-child(2) {
+    width: 27%;
+}
+
+#devicesTable td:nth-child(1) {
+    border-right: none;
 }

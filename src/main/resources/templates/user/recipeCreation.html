@@ -103,15 +103,40 @@
                         <button class="deleteRow">Delete</button>
                     </td>
                 </tr>
+                <tr>
+                    <td><input name="ingredient" placeholder="Ingredient" type="text"></td>
+                    <td><input name="amount" placeholder="Amount" type="text"></td>
+                    <td>
+                        <button class="deleteRow">Delete</button>
+                    </td>
+                </tr>
                 </tbody>
             </table>
         </div>
-        <button id="addRow">Add</button>
+        <button class="addRow" id="addIngredient">Add</button>
     </div>
-    <form class="text-form-devices">
-        <div class="recipeDevices"></div>
-        <input name="query" placeholder="Recipe devices (separate by comas) " type="text">
-    </form>
+    <div class="devicesField">
+        <div class="tableContainer">
+            <table id="devicesTable">
+                <tbody>
+                <tr>
+                    <td><input name="device" placeholder="Device" type="text"></td>
+                    <td>
+                        <button class="deleteRow">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input name="device" placeholder="Device" type="text"></td>
+                    <td>
+                        <button class="deleteRow">Delete</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <button class="addRow" id="addDevice">Add</button>
+    </div>
+
     <form class="text-form-StepByStep">
         <div class="recipeStepByStep">
             <textarea name="description" placeholder="Step by step instructions"></textarea>
@@ -159,13 +184,27 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function () {
-        $('#addRow').click(function () {
+        $('#addIngredient').click(function () {
             let newRow = `<tr>
                         <td><input type="text" name="ingredient" placeholder="Ingredient"></td>
                         <td><input type="text" name="amount" placeholder="Amount"></td>
                         <td><button class="deleteRow">Delete</button></td>
                       </tr>`;
             $('#ingredientsTable tbody').append(newRow);
+        });
+
+        $(document).on('click', '.deleteRow', function () {
+            $(this).closest('tr').remove();
+        });
+    });
+
+    $(document).ready(function () {
+        $('#addDevice').click(function () {
+            let newRow = `<tr>
+                    <td><input type="text" name="device" placeholder="Device"></td>
+                    <td><button class="deleteRow">Delete</button></td>
+                  </tr>`;
+            $('#devicesTable tbody').append(newRow);
         });
 
         $(document).on('click', '.deleteRow', function () {
