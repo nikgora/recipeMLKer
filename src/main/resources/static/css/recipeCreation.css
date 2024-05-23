@@ -317,7 +317,7 @@ button#addRow {
 }
 
 .recipeCategory {
-    position: relative;
+    position: absolute;
     width: 45vw;
     height: 6.19vh;
     background: #F2E3B3;
@@ -325,6 +325,7 @@ button#addRow {
 }
 
 .recipeCategory select {
+    position: absolute;
     width: 100%;
     height: 100%;
     border: none;
