@@ -260,6 +260,12 @@ a:visited, a:link {
     bottom: 8vh;
     border-radius: 5.5vh;
     background-color: #FBEFC7;
+    text-decoration: none;
+    color: black;
+}
+
+.smallerField:hover {
+    border: 0.3vh solid #D8C89A;
 }
 
 .spacer {

@@ -173,27 +173,47 @@
 }
 
 .userRecipeField {
-    position: absolute;
-    width: 51vw;
+    box-sizing: border-box;
+    width: 50.8vw;
     height: 13.15vh;
     background-color: #FBEFC7;
     border-radius: 5vh;
+    text-decoration: none;
+    color: black;
+    margin-bottom: 3vh;
 }
 
-.testForSwitch {
+.userRecipeField:hover {
+    border: 0.3vh solid #D8C89A;
+}
+
+.testForSwitch, .testForSwitch2 {
     position: absolute;
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 2.1875vw;
-    top: 1vh;
-    left: 4vw;
+    font-size: 1.8vw;
+    top: 2vh;
+    left: 6vw;
 }
 
 .testForSwitch2 {
-    position: absolute;
-    font-family: 'Frank Ruhl Libre', serif;
-    font-size: 2.1875vw;
-    top: 5vh;
-    left: 4vw;
+    top: 7vh;
+}
+
+.spacer {
+    margin-right: 0.8vw;
+}
+
+.recipeInfoContainer {
+    display: flex;
+    align-items: center;
+}
+
+.Dessert, .Main-Dish, .First-Dish, .Salad, .Sauce, .Drink, .Snack, .Pastry, .Fish-Dish {
+    margin-top: 3.5vh;
+    position: relative;
+    left: -1vw;
+    width: 8vw;
+    height: 6vh;
 }
 
 .publishBlocked {
@@ -217,24 +237,12 @@
     cursor: not-allowed;
 }
 
-.userRecipeField2 {
-    top: 16.48vh;
-}
-
-.userRecipeField3 {
-    top: 32.96vh;
-}
-
 .recipeIcon {
     position: absolute;
     height: 8vh; /*3.7*/
     width: 5.6vw; /*2.6*/
     right: 3vw;
     top: 2.5vh;
-}
-
-.userRecipeField4 {
-    top: 49.46vh;
 }
 
 .moderation {
@@ -278,7 +286,8 @@
     border: none;
     display: flex;
     align-items: center;
-    justify-content: center
+    justify-content: center;
+    cursor: pointer;
 }
 
 .list-container {

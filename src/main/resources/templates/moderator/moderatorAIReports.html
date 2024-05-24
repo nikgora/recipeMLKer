@@ -86,15 +86,18 @@
                                 <!--TODO: задати стилі для тексту .p-->
                                 <p th:text="${report.getDescription()}"></p>
                                 <form method="post"
-                                      th:action="@{/api/moderator/takeAIReport/{id1}(id1=${report.getId()})}">
+                                      th:action="@{/api/moderator/takeAIReport/{id1}(id1=${report.getId()})}"
+                                      th:if="${report.getModerator()} == null">
                                     <button th:id="'processing' + ${i.index}">Take for processing</button>
                                 </form>
                                 <form method="post"
-                                      th:action="@{/api/moderator/approveAIReport/{id1}(id1=${report.getId()})}">
+                                      th:action="@{/api/moderator/approveAIReport/{id1}(id1=${report.getId()})}"
+                                      th:if="${report.getModerator()} != null">
                                     <button th:id="'accept' + ${i.index}">Accept</button>
                                 </form>
                                 <form method="post"
-                                      th:action="@{/api/moderator/declineAIReport/{id1}(id1=${report.getId()})}">
+                                      th:action="@{/api/moderator/declineAIReport/{id1}(id1=${report.getId()})}"
+                                      th:if="${report.getModerator()} != null">
                                     <button th:id="'decline' + ${i.index}">Decline</button>
                                 </form>
                             </div>

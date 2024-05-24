@@ -209,7 +209,7 @@ body {
     justify-content: center
 }
 
-#SignInTab {
+#SignUpTab {
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 2vw; /*42*/
     color: #733506;
@@ -226,7 +226,7 @@ body {
     justify-content: center
 }
 
-#LoginTab.active, #SignInTab.active {
+#LoginTab.active, #SignUpTab.active {
     background-color: #F2B705;
 }
 
