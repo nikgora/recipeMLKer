@@ -348,9 +348,10 @@
     <div class="mainField">
         <div class="field" id="recipeContainer" th:if="${recipes.size()!=0}">
             <div class="ol">
-                <div th:class="${i.index == 0} ? 'smallerField smallerField' : 'smallerField smallerField-down' + (${i.index})"
-                     th:each="recipe, i : ${recipes}"
-                     th:style="'top:' + (${i.index * 18 + 4}) + 'vh'">
+                <a th:class="${i.index == 0} ? 'smallerField smallerField' : 'smallerField smallerField-down' + (${i.index})"
+                   th:each="recipe, i : ${recipes}"
+                   th:href="@{/recipe/{id}(id=${recipe.getId()})}"
+                   th:style="'top:' + (${i.index * 18 + 4}) + 'vh'">
                     <div class="comment-user-circle">
                         <img th:alt="${recipe.getCategory().getTitle()}"
                              th:class="${recipe.getCategory().getTitle().replace(' ', '-')}"
@@ -360,7 +361,7 @@
                     <table>
                         <tr style="position: relative; bottom: 5vh; left: 5vw;">
                             <th>
-                                <a th:href="@{/recipe/{id}(id=${recipe.getId()})}" th:text="${recipe.getTitle()}"></a>
+                                <div th:text="${recipe.getTitle()}"></div>
                             </th>
                         </tr>
                         <tr style="position: relative; left: 5vw; bottom: 4vh;">
@@ -375,7 +376,7 @@
                             </td>
                         </tr>
                     </table>
-                </div>
+                </a>
             </div>
         </div>
         <div class="field" id="recipeContainer1" th:if="${recipes.size()==0}">
