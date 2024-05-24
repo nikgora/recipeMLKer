@@ -116,23 +116,25 @@
         </div>
         <div class="container">
             <div th:each="note : ${notes}">
-                <a class="userRecipeField" th:href="@{/recipe/{id}(id=${note.getId()})}">
-                    <div class="noteInfoContainer">
-                        <img th:alt="${note.getCategory().getTitle()}"
-                             th:class="${note.getCategory().getTitle().replace(' ', '-')}"
-                             th:if="${note}"
-                             th:src="@{'../images/' + ${note.getCategory().getTitle()} + '.svg'}">
-                        <div class="testForSwitch" style="font-weight: bold" th:text="${note.title}"></div>
-                    </div>
-                    <div class="testForSwitch2">
-                        <span th:text="${note.category.title}"></span>
-                        <span class="spacer"></span>
-                        <span th:text="${note.cookingTime} + ' minutes'"></span>
-                    </div>
-                    <div th:if="${note.isPublished()} == false">
-                        <button class="publish">Publish</button>
-                    </div>
-                </a>
+                <div class="noteField">
+                    <a class="userRecipeField" th:href="@{/recipe/{id}(id=${note.getId()})}">
+                        <div class="noteInfoContainer">
+                            <img th:alt="${note.getCategory().getTitle()}"
+                                 th:class="${note.getCategory().getTitle().replace(' ', '-')}"
+                                 th:if="${note}"
+                                 th:src="@{'../images/' + ${note.getCategory().getTitle()} + '.svg'}">
+                            <div class="testForSwitch" style="font-weight: bold" th:text="${note.title}"></div>
+                        </div>
+                        <div class="testForSwitch2">
+                            <span th:text="${note.category.title}"></span>
+                            <span class="spacer"></span>
+                            <span th:text="${note.cookingTime} + ' minutes'"></span>
+                        </div>
+                        <div th:if="${note.isPublished()} == false">
+                            <button class="publish">Publish</button>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
 

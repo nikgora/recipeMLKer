@@ -187,16 +187,23 @@
     border: 0.3vh solid #D8C89A;
 }
 
+.noteField {
+    display: flex;
+    flex-direction: column;
+}
+
 .testForSwitch, .testForSwitch2 {
-    position: absolute;
+    position: relative;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.8vw;
-    top: 2vh;
+    top: -8vh;
     left: 6vw;
 }
 
-.testForSwitch2 {
-    top: 7vh;
+.testForSwitch2 span {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 1.5vh;
 }
 
 .spacer {

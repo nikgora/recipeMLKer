@@ -228,7 +228,7 @@
         }
     });
 
-    document.getElementById('save-btn').addEventListener('click', function () {
+    document.getElementById('save-btn').addEventListener('click', function (event) {
         const recipeTitle = document.getElementById('recipeTitleInput').value.trim();
         const cookingTime = document.getElementById('cookingTimeInput').value.trim();
         const stepByStepInstructions = document.getElementById('recipeStepByStepInput').value.trim();
