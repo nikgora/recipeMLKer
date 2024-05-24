@@ -189,13 +189,15 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     document.getElementById("cookingTimeInput").value = "";
+
     $(document).ready(function () {
-        $('#addIngredient').click(function () {
+        $('#addIngredient').click(function (e) {
+            e.preventDefault();
             let newRow = `<tr>
-                        <td><input type="text" name="ingredient" placeholder="Ingredient"></td>
-                        <td><input type="text" name="amount" placeholder="Amount"></td>
-                        <td><button class="deleteRow">Delete</button></td>
-                      </tr>`;
+                            <td><input type="text" name="ingredient" placeholder="Ingredient"></td>
+                            <td><input type="text" name="amount" placeholder="Amount"></td>
+                            <td><button class="deleteRow" type="button">Delete</button></td>
+                          </tr>`;
             $('#ingredientsTable tbody').append(newRow);
         });
 
@@ -205,7 +207,8 @@
     });
 
     $(document).ready(function () {
-        $('#addDevice').click(function () {
+        $('#addDevice').click(function (e) {
+            e.preventDefault();
             let newRow = `<tr>
                     <td><input type="text" name="device" placeholder="Device"></td>
                     <td><button class="deleteRow">Delete</button></td>
