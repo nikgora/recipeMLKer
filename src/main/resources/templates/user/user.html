@@ -114,8 +114,8 @@
         <div class="recipesFieldHeader">
             <p class="c7">User notes</p>
         </div>
-        <div th:each="note : ${notes}">
-            <div class="container">
+        <div class="container">
+            <div th:each="note : ${notes}">
                 <a class="userRecipeField" th:href="@{/recipe/{id}(id=${note.getId()})}">
                     <div class="noteInfoContainer">
                         <img th:alt="${note.getCategory().getTitle()}"

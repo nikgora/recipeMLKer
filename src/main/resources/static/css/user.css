@@ -173,7 +173,7 @@
 }
 
 .userRecipeField {
-    position: absolute;
+    box-sizing: border-box;
     width: 50.8vw;
     height: 13.15vh;
     background-color: #FBEFC7;
