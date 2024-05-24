@@ -114,16 +114,28 @@
         <div class="recipesFieldHeader">
             <p class="c7">User notes</p>
         </div>
-        <div th:each="recipe : ${user.getRecipes()}">
+        <div th:each="note : ${notes}">
             <div class="container">
-                <div class="userRecipeField">
-                    <div class="testForSwitch" th:text="${recipe.getTitle()}"></div>
-                    <div class="testForSwitch2"
-                         th:text="${recipe.getCategory()} + ' ' + ${recipe.getCookingTime()}"></div>
-                    <button class="publishBlocked"> Publish</button>
-                </div>
+                <a class="userRecipeField" th:href="@{/recipe/{id}(id=${note.getId()})}">
+                    <div class="noteInfoContainer">
+                        <img th:alt="${note.getCategory().getTitle()}"
+                             th:class="${note.getCategory().getTitle().replace(' ', '-')}"
+                             th:if="${note}"
+                             th:src="@{'../images/' + ${note.getCategory().getTitle()} + '.svg'}">
+                        <div class="testForSwitch" style="font-weight: bold" th:text="${note.title}"></div>
+                    </div>
+                    <div class="testForSwitch2">
+                        <span th:text="${note.category.title}"></span>
+                        <span class="spacer"></span>
+                        <span th:text="${note.cookingTime} + ' minutes'"></span>
+                    </div>
+                    <div th:if="${note.isPublished()} == false">
+                        <button class="publish">Publish</button>
+                    </div>
+                </a>
             </div>
         </div>
+
     </div>
 </main>
 <footer class="footer">

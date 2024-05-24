@@ -92,7 +92,12 @@ VALUES ('Eggs', FALSE),
        ('Lemon', TRUE),
        ('Pomegranate', TRUE),
        ('Lime', TRUE),
-       ('Lemonade', TRUE);
+       ('Lemonade', TRUE),
+       ('Pack chorizo', TRUE),
+       ('Turmeric', TRUE),
+       ('Long rice', FALSE),
+       ('Peas', FALSE),
+       ('Seafood', TRUE);
 
 -- Inserting Published Recipes
 INSERT INTO PublishedRecipe (title, cooking_time, description, published, fk_user, fk_category)
@@ -224,7 +229,13 @@ VALUES ('Scrambled Eggs', 15,
  <br><br>STEP 2
  <br>Reserve half the mint for serving, and tear the rest into a large jug with the lime quarters. Using a rolling pin, bash the mint and lime to release the flavours. Add the pomegranate juice and lemonade. Put ice cubes in each glass,
          then strain over the pomegranate mix through a small sieve. Garnish with lime slices and more mint.',
-        TRUE, 3, 6);
+        TRUE, 3, 6),
+       ('Seafood Rice', 25,
+        'STEP 1
+ <br>Heat the oil in a deep frying pan, then soften the leek for 5 mins without browning. Add the chorizo and fry until it releases its oils. Stir in the turmeric and rice until coated by the oils, then pour in the stock. Bring to the boil, then simmer for 15 mins, stirring occasionally.
+ <br><br>STEP 2
+ <br>Tip in the peas and cook for 5 mins, then stir in the seafood to heat through for a final 1-2 mins cooking or until rice is cooked. Check for seasoning and serve immediately with lemon wedges.',
+        FALSE, 4, 8);
 
 INSERT INTO recipe_ingredient (amount_of_ingredient, fk_ingredient, fk_recipe)
 VALUES ('2', 1, 1),
@@ -355,7 +366,15 @@ VALUES ('2', 1, 1),
        ('big bunch', 30, 16),
        ('2', 65, 16),
        ('1L of juice', 64, 16),
-       ('500ml', 66, 16);
+       ('500ml', 66, 16),
+       ('1 tbsp', 17, 17),
+       ('1', 32, 17),
+       ('110g', 67, 17),
+       ('1 tsp', 68, 17),
+       ('300g', 69, 17),
+       ('1L', 37, 17),
+       ('200g', 70, 17),
+       ('400g', 71, 17);
 
 INSERT INTO Recipe_Device (fk_device, fk_recipe)
 VALUES (1, 1),
@@ -376,7 +395,8 @@ VALUES (1, 1),
        (2, 12),
        (4, 12),
        (1, 13),
-       (1, 15);
+       (1, 15),
+       (2, 17);
 
 -- Inserting Ratings
 INSERT INTO Rating (mark, fk_user, fk_recipe)
