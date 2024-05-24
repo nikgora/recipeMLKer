@@ -4,19 +4,19 @@
     <title>Recipe</title>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link href="../../static/css/recipe.css" rel="stylesheet" th:href="@{../css/recipe.css}" type="text/css">
-    <link href="../../static/css/headerIfooter.css" rel="stylesheet" th:href="@{../css/headerIfooter.css}"
+    <link href="../../static/css/recipe.css" rel="stylesheet" th:href="@{/css/recipe.css}" type="text/css">
+    <link href="../../static/css/headerIfooter.css" rel="stylesheet" th:href="@{/css/headerIfooter.css}"
           type="text/css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
 <header>
     <div class="header">
-        <img alt="logo" class="logo" src="../../images/logo.svg" th:src="@{../images/logo.svg}">
+        <img alt="logo" class="logo" src="../../images/logo.svg" th:src="@{/images/logo.svg}">
 
         <form class="search-form">
             <img alt="magnifier" class="magnifier" src="../../static/images/magnifier.svg"
-                 th:src="@{../images/magnifier.svg}">
+                 th:src="@{/images/magnifier.svg}">
             <input name="startWith" placeholder="Search" type="search">
         </form>
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
@@ -27,7 +27,7 @@
                  onmouseout="restoreImage('heart-img1', '../../images/heart.svg')"
                  onmouseover="changeImage('heart-img1', '../../images/heart-hover.svg')">
                 <img alt="heart" class="heart" id="heart-img1" src="../../images/heart.svg"
-                     th:src="@{../images/heart.svg}">
+                     th:src="@{/images/heart.svg}">
             </div>
         </div>
         <div th:if="${isLogin} == true">
@@ -36,7 +36,7 @@
                      onmouseout="restoreImage('heart-img2', '../../images/heart-login.svg')"
                      onmouseover="changeImage('heart-img2', '../../images/heart-login-hover.svg')">
                     <img alt="heart" class="heart" id="heart-img2"
-                         src="../../images/heart-login.svg" th:src="@{../images/heart-login.svg}">
+                         src="../../images/heart-login.svg" th:src="@{/images/heart-login.svg}">
                 </div>
             </div>
         </div>
@@ -67,7 +67,7 @@
                  onmouseout="restoreImage('user-img1', '../../images/user.svg')"
                  onmouseover="changeImage('user-img1', '../../images/user-hover.svg')">
 
-                <img alt="user" class="user" id="user-img1" src="../../images/user.svg" th:src="@{../images/user.svg}">
+                <img alt="user" class="user" id="user-img1" src="../../images/user.svg" th:src="@{/images/user.svg}">
             </div>
         </button>
         <a th:href="@{/user}" th:if="${isLogin} == true">
@@ -78,7 +78,7 @@
 
                     <img alt="user" class="user" id="user-img2"
                          src="../../images/user-login.svg"
-                         th:src="@{../images/user-login.svg}">
+                         th:src="@{/images/user-login.svg}">
                 </div>
             </button>
         </a>
@@ -97,7 +97,7 @@
         </div>
 
         <a href="main.html" th:href="@{/}">
-            <img alt="home" class="home" src="../../images/home.svg" th:src="@{../images/home.svg}">
+            <img alt="home" class="home" src="../../images/home.svg" th:src="@{/images/home.svg}">
         </a>
     </div>
 </header>
@@ -176,7 +176,7 @@
         <img th:alt="${recipe.getCategory().getTitle()}"
              th:class="${recipe.getCategory().getTitle().replace(' ', '-')}"
              th:if="${recipe}"
-             th:src="@{'../images/' + ${recipe.getCategory().getTitle()} + '.svg'}">
+             th:src="@{'/images/' + ${recipe.getCategory().getTitle()} + '.svg'}">
         <p class="miniTime miniCategories" th:text="${recipe.getCategory().getTitle()}">
     </div>
 
