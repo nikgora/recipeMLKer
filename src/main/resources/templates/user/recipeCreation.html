@@ -74,7 +74,7 @@
 
     <form class="text-form-title">
         <div class="recipeTitle">
-            <input name="title" placeholder="Recipe title" th:value="${recipe.title}" type="text">
+            <input id="recipeTitleInput" name="title" placeholder="Recipe title" th:value="${recipe.title}" type="text">
         </div>
     </form>
 
@@ -143,7 +143,7 @@
 
     <form class="text-form-StepByStep">
         <div class="recipeStepByStep">
-            <textarea name="description" placeholder="Step by step instructions"
+            <textarea id="recipeStepByStepInput" name="description" placeholder="Step by step instructions"
                       th:value="${recipe.description}"></textarea>
         </div>
     </form>
@@ -225,10 +225,29 @@
     });
 
     document.getElementById('save-btn').addEventListener('click', function () {
+        const recipeTitle = document.getElementById('recipeTitleInput').value.trim();
+        const cookingTime = document.getElementById('cookingTimeInput').value.trim();
+        const stepByStepInstructions = document.getElementById('recipeStepByStepInput').value.trim();
         const selectedCategory = document.querySelector('select[name="query"]').value;
 
+        if (recipeTitle === "") {
+            alert("Please enter a recipe title before saving.");
+            event.preventDefault();
+        }
+
+        if (cookingTime === "") {
+            alert("Please enter the cooking time before saving.");
+            event.preventDefault();
+        }
+
+        if (stepByStepInstructions === "") {
+            alert("Please enter the step-by-step instructions before saving.");
+            event.preventDefault();
+        }
+
         if (selectedCategory === "") {
-            alert("Please, choose a category of the recipe before saving.");
+            alert("Please choose a category of the recipe before saving.");
+            event.preventDefault();
         }
     });
 
