@@ -67,6 +67,9 @@ body {
 .heart img, .user img {
     width: 3.6458vw;
     height: 5.5555vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .heart-container, .user-container, .heart-login-container, .user-login-container {
@@ -77,7 +80,7 @@ body {
     border-radius: 50%;
     cursor: pointer;
     border: none;
-    background-color: #f2b3d0;
+    background-color: #F2E3B3;
 }
 
 .heart-container, .user-container {
@@ -100,12 +103,13 @@ body {
 }
 
 .home {
-    /*position: absolute;*/
     height: 5.55555555vh;
     width: 3.125vw;
-    /*top: 2.4vh;*/
-    /*right: 1.5vw;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 
 /*____________________________________________________________________________________________________________________*/
 .footer {
