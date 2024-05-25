@@ -202,7 +202,7 @@ body {
     padding: 1vh 2vw;
 }
 
-#LoginTab {
+#LoginTab { /*верхні кнопки*/
     position: absolute;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 2vw; /*42*/
@@ -258,23 +258,27 @@ body {
 }
 
 
-.email {
+.username {
     position: absolute;
     top: 7vh;
     display: flex;
     max-height: 5vh;
+
 }
 
 .password {
     position: absolute;
     top: 14.8vh;
     display: flex;
+
 }
 
-.email input, .password input {
+.username input, .password input {
+    /*position: absolute;*/
+    /*display: flex;*/
+    /*align-items: center;*/
     width: 21.979vw;
-    height: 6vh;
-    flex: 1;
+    height: 5vh;
     border: none;
     background: #FBEFC7;
     font-family: 'Frank Ruhl Libre', serif;
@@ -289,7 +293,7 @@ body {
     background-color: #3E5902;
     position: absolute;
     width: 15.6vw;
-    height: 5vh;
+    height: 6vh;
     right: 5.2vw;
     bottom: 1.7vh;
     z-index: 15;
