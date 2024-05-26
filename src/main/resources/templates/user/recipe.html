@@ -120,7 +120,7 @@
     <!-- <img alt="recipeIcon" class="recipeIcon" src="../../images/Recipe.svg" th:src="@{../images/Recipe.svg}">-->
     <div class="RecipeTitle" th:text="${recipe.getTitle()}"></div>
     <div class="RecipeRating" th:if="${recipe.isPublished()} == true">
-        <a th:href="@{/allRecipes(rating=${recipe.getAverageMark()})}">
+        <a th:href="@{/allRecipes(minMark=${recipe.getAverageMark()}, maxMark=${recipe.getAverageMark()})}">
             <p class="num" th:text="${recipe.getAverageMark()}">8.8</p>
         </a>
     </div>
