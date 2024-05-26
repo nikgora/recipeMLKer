@@ -448,10 +448,14 @@ body {
     width: 21vw;
     height: 8vh;
     border-radius: 2.7vw;
-    border: 0.5vh solid #B90F0F;
+    border: 0.5vh solid #D8C89A;
     background-color: #FBEFC7;
     cursor: pointer;
     padding: 0.1vh 0 0.1vh 1vw;
+}
+
+.recipe:hover {
+    border: 0.5vh solid #B90F0F;
 }
 
 .content-wrapper {

@@ -173,7 +173,8 @@
 }
 
 .userRecipeField {
-    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
     width: 50.8vw;
     height: 13.15vh;
     background-color: #FBEFC7;
@@ -258,10 +259,6 @@
     width: 9vw;
     right: 1.5vw;
     top: 2.5vh;
-}
-
-.userRecipeField5 {
-    top: 65.94vh;
 }
 
 ::-webkit-scrollbar {

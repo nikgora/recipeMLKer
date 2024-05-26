@@ -17,11 +17,12 @@
 
 .MainField {
     width: 95vw;
-    height: 70vh;
-    padding: 8vh 0 0 0;
+    height: 90%;
+    padding: 8vh 0 3vh 0;
     margin-left: 2vw;
     display: flex;
     flex-wrap: wrap;
+    overflow-y: auto;
 }
 
 .ListField {
@@ -33,7 +34,7 @@
     box-sizing: border-box;
     overflow-y: auto;
     overflow-x: hidden;
-    margin-bottom: 3vh;
+    margin-bottom: 7vh;
 }
 
 .ListFieldHeader {
@@ -57,6 +58,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.52vw;
+    margin-bottom: 3vh;
 }
 
 .userRecipeField {
@@ -128,24 +130,12 @@
     cursor: not-allowed;
 }
 
-.userRecipeField2 {
-    top: 10.48vh;
-}
-
-.userRecipeField3 {
-    top: 20.96vh;
-}
-
 .recipeIcon {
     position: absolute;
     height: 8vh; /*3.7*/
     width: 5.6vw; /*2.6*/
     right: 3vw;
     top: 2.5vh;
-}
-
-.userRecipeField4 {
-    top: 31.46vh;
 }
 
 .moderation {
@@ -156,23 +146,18 @@
     top: 2.5vh;
 }
 
-.userRecipeField5 {
-    top: 41.94vh;
-}
-
-.containerList::-webkit-scrollbar {
+.ListField::-webkit-scrollbar {
     width: 0.78125vw;
 }
 
-.containerList::-webkit-scrollbar-track {
-    margin-top: 2.7778vh;
-    border: 0.0520834vw solid black;
+.ListField::-webkit-scrollbar-track {
+    margin: 7vh 0 2.4vh 0;
     border-radius: 50px;
-    background: #F2E3B3;
+    background: #FBEFC7;
     left: 5vw;
 }
 
-.containerList::-webkit-scrollbar-thumb {
+.ListField::-webkit-scrollbar-thumb {
     background: #733506;
     border-radius: 50px;
 }
@@ -195,13 +180,11 @@
 }
 
 ::-webkit-scrollbar {
-    width: 0.78125vw;
+    width: 0.6vw;
 }
 
 ::-webkit-scrollbar-track {
-    margin: 7vh 0 2.4vh 0;
     border-radius: 50px;
-    background: #FBEFC7;
     border: none;
 }
 
