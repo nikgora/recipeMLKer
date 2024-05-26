@@ -117,7 +117,7 @@
         <div class="container">
             <div th:each="note : ${notes}">
                 <div class="noteField">
-                    <a class="userRecipeField" th:href="@{/recipe/{id}(id=${note.getId()})}">
+                    <div class="userRecipeField" th:href="@{/recipe/{id}(id=${note.getId()})}">
                         <div class="noteInfoContainer">
                             <img th:alt="${note.getCategory().getTitle()}"
                                  th:class="${note.getCategory().getTitle().replace(' ', '-')}"
@@ -133,7 +133,7 @@
                         <div th:if="${note.isPublished()} == false">
                             <button class="publish">Publish</button>
                         </div>
-                    </a>
+                    </div>
                 </div>
             </div>
         </div>
