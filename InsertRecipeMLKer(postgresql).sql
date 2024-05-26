@@ -241,14 +241,14 @@ VALUES ('Scrambled Eggs', 15,
  <br>Heat the oil in a deep frying pan, then soften the leek for 5 mins without browning. Add the chorizo and fry until it releases its oils. Stir in the turmeric and rice until coated by the oils, then pour in the stock. Bring to the boil, then simmer for 15 mins, stirring occasionally.
  <br><br>STEP 2
  <br>Tip in the peas and cook for 5 mins, then stir in the seafood to heat through for a final 1-2 mins cooking or until rice is cooked. Check for seasoning and serve immediately with lemon wedges.',
-        FALSE, 4, 8),
+        FALSE, 3, 8),
        ('Red Wine Sauce', 22,
         'Heat the oil in a large saucepan over a medium-high heat. Add the shallots, garlic, rosemary, thyme, peppercorns and salt. Cook for 5 minutes, stirring frequently.
  <br><br>Pour the wine into the pan, turn up the heat and reduce the liquid by two thirds.
  <br><br>Once the wine has reduced, add the beef stock and bring to a rolling boil. Keep the sauce at this temperature and continue to cook until the liquid has reduced by half and the sauce has thickened.
  <br><br>Carefully strain the sauce through a sieve into a clean saucepan, discarding the cooked vegetables and herbs.
  <br><br>The finished sauce should coat the back of a spoon, so if it hasn’t reached the right consistency just keep reducing the sauce in the pan before serving.',
-        TRUE, 4, 9);
+        TRUE, 1, 9);
 
 INSERT INTO recipe_ingredient (amount_of_ingredient, fk_ingredient, fk_recipe)
 VALUES ('2', 1, 1),

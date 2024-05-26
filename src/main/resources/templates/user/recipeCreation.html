@@ -74,7 +74,8 @@
     <form method="post" th:action="@{/api/newRecipe}">
         <div class="text-form-title">
             <div class="recipeTitle">
-                <input name="title" placeholder="Recipe title" th:value="${recipe.title}" type="text">
+                <input id="recipeTitleInput" name="title" placeholder="Recipe title" th:value="${recipe.title}"
+                       type="text">
             </div>
         </div>
 
@@ -84,7 +85,7 @@
                        th:value="${recipe.cookingTime}" type="number">
             </div>
         </div>
-        <!--TODO-->
+
         <div class="text-form-category">
             <div class="recipeCategory">
                 <select name="recipeCategory">
@@ -94,7 +95,7 @@
                 </select>
             </div>
         </div>
-        <!--TODO-->
+
         <div class="ingredientsField">
             <div class="tableContainer">
                 <table id="ingredientsTable">
@@ -118,7 +119,7 @@
             </div>
             <button class="addRow" id="addIngredient">Add</button>
         </div>
-        <!--TODO-->
+
         <div class="devicesField">
             <div class="tableContainer">
                 <table id="devicesTable">
@@ -143,12 +144,12 @@
 
         <div class="text-form-StepByStep">
             <div class="recipeStepByStep">
-            <textarea name="description" placeholder="Step by step instructions"
-                      th:value="${recipe.description}"></textarea>
+                <textarea id="recipeStepByStepInput" name="description" placeholder="Step by step instructions"
+                          th:value="${recipe.description}"></textarea>
             </div>
         </div>
 
-        <button class="saveButton" id="save-btn">Save</button>
+        <button class="saveButton" id="save-btn" type="submit">Save</button>
     </form>
     <button class="publishButton">Publish</button>
 </main>
@@ -228,31 +229,33 @@
         }
     });
 
-    document.getElementById('save-btn').addEventListener('click', function (event) {
-        const recipeTitle = document.getElementById('recipeTitleInput').value.trim();
-        const cookingTime = document.getElementById('cookingTimeInput').value.trim();
-        const stepByStepInstructions = document.getElementById('recipeStepByStepInput').value.trim();
-        const selectedCategory = document.querySelector('select[name="query"]').value;
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('save-btn').addEventListener('click', function (event) {
+            const recipeTitle = document.getElementById('recipeTitleInput').value.trim();
+            const cookingTime = document.getElementById('cookingTimeInput').value.trim();
+            const stepByStepInstructions = document.getElementById('recipeStepByStepInput').value.trim();
+            const selectedCategory = document.querySelector('select[name="recipeCategory"]').value;
 
-        if (recipeTitle === "") {
-            alert("Please enter a recipe title before saving.");
-            event.preventDefault();
-        }
+            if (recipeTitle === "") {
+                alert("Please, enter a recipe title before saving.");
+                event.preventDefault();
+            }
 
-        if (cookingTime === "") {
-            alert("Please enter the cooking time before saving.");
-            event.preventDefault();
-        }
+            if (cookingTime === "") {
+                alert("Please, enter the cooking time before saving.");
+                event.preventDefault();
+            }
 
-        if (stepByStepInstructions === "") {
-            alert("Please enter the step-by-step instructions before saving.");
-            event.preventDefault();
-        }
+            if (stepByStepInstructions === "") {
+                alert("Please, enter the step-by-step instructions before saving.");
+                event.preventDefault();
+            }
 
-        if (selectedCategory === "") {
-            alert("Please choose a category of the recipe before saving.");
-            event.preventDefault();
-        }
+            if (selectedCategory === "") {
+                alert("Please, choose a category of the recipe before saving.");
+                event.preventDefault();
+            }
+        });
     });
 
     document.getElementById("heart-btn").addEventListener("click",
