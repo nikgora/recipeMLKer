@@ -84,13 +84,13 @@
                        th:value="${recipe.cookingTime}" type="number">
             </div>
         </div>
-
+        <!--TODO-->
         <div class="text-form-category">
             <div class="recipeCategory">
-                <select name="query">
+                <select name="recipeCategory">
                     <option disabled selected value="">Choose category</option>
-                    <option th:each="categor : ${category}" th:text="${categor}"
-                            th:value="${categor}"></option>
+                    <option th:each="categor : ${category}" th:text="${categor.getTitle()}"
+                            th:value="${recipeCategory}"></option>
                 </select>
             </div>
         </div>

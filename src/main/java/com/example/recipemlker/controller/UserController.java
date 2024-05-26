@@ -346,14 +346,16 @@ public class UserController {
         model.addAttribute("category", categoryService.getAllCategory());
         model.addAttribute("recipe", recipe);
         model.addAttribute("isLogin", jwt != null);
+        String recipeCategory = "";
+        model.addAttribute("recipeCategory", recipeCategory);
         model.addAttribute("randomRecipeId", getRandomNumRecipe());
         return "user/recipeCreation";
     }
 
     @PostMapping("/api/newRecipe")
-    public String newRecipePageSubmit(@ModelAttribute Recipe recipe) {
+    public String newRecipePageSubmit(@ModelAttribute Recipe recipe, @ModelAttribute String recipeCategory) {
         User user = (userService.getUserByUsername(jwtService.extractUserName(jwt)));
-        if (recipe.getCategory() == null) recipe.setCategory(categoryService.getCategoryById(1L));
+        recipe.setCategory(categoryService.getCategoryByTitle(recipeCategory));
         recipe.setUser(user);
         recipeService.save(recipe);
         return "redirect:/user";

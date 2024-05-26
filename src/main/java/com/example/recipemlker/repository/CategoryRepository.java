@@ -13,6 +13,6 @@ public interface CategoryRepository extends JpaRepository<Category, Long> {
 
     Category findFirstById(Long id);
 
-    @Query(value = "select c.title from Category c")
-    List<String> findAllCategories();
+    @Query(value = "select c from Category c")
+    List<Category> getAllCategories();
 }
