@@ -157,6 +157,7 @@
 
 .DeviceTagsField {
     margin-top: 13.2vh;
+
 }
 
 .devices {
@@ -318,7 +319,7 @@
 .amountField, .deviceField {
     width: 14vw;
     height: 39vh;
-    border-radius: 5vh;
+    border-radius: 5vh 5vh 0 0;
     background-color: #FBEFC7;
     margin-left: 1.5vw;
     margin-top: 1.9vh;

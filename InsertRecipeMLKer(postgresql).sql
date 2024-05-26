@@ -139,7 +139,7 @@ VALUES ('Scrambled Eggs', 15,
         <br><br>Pour or scoop the batter onto the griddle; cook until bubbles form and the edges are dry, about 2 to 3 minutes.
         <br><br>Flip and cook until browned on the other side.
         <br><br>Repeat with remaining butter.',
-        TRUE, 4, 5),
+        TRUE, 3, 5),
        ('Green Tahini', 5,
         'Blend up all your sauce ingredients in a food processor or blender until smooth. Taste and adjust. If the sauce is too runny, add a little more tahini.
         <br><br>Pour over roasted vegetables, beans, grains, protein… anything that needs to be woken up with some rich and creamy flavor!',
@@ -437,7 +437,7 @@ VALUES ('Great recipe, loved it!', 1, 1),
         2, 13),
        ('The red bell pepper and garlic sauce sounds amazing. Adding walnuts for extra texture is a great idea.', 3,
         13),
-       ('Peeling the bell pepper after baking can be tricky. Any tips on making it easier?', 4, 13),
+       ('Peeling the bell pepper after baking can be tricky. Any tips on making it easier?', 3, 13),
        ('I usually add a splash of red wine vinegar to my Greek salad. Anyone else likes a bit of acidity?', 2, 14),
        ('I love the idea of making holes in the dough with a fork. It ensures the crust bakes evenly without puffing up.',
         1, 15),
