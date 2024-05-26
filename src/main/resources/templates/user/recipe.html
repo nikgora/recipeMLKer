@@ -12,11 +12,11 @@
 <body>
 <header>
     <div class="header">
-        <img alt="logo" class="logo" src="../../images/logo.svg" th:src="@{/images/logo.svg}">
+        <img alt="logo" class="logo" src="../../images/logo.svg" th:src="@{../images/logo.svg}">
 
-        <form class="search-form">
+        <form class="search-form" th:action="@{/allRecipes}">
             <img alt="magnifier" class="magnifier" src="../../static/images/magnifier.svg"
-                 th:src="@{/images/magnifier.svg}">
+                 th:src="@{../images/magnifier.svg}">
             <input name="startWith" placeholder="Search" type="search">
         </form>
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
@@ -27,7 +27,7 @@
                  onmouseout="restoreImage('heart-img1', '../../images/heart.svg')"
                  onmouseover="changeImage('heart-img1', '../../images/heart-hover.svg')">
                 <img alt="heart" class="heart" id="heart-img1" src="../../images/heart.svg"
-                     th:src="@{/images/heart.svg}">
+                     th:src="@{../images/heart.svg}">
             </div>
         </div>
         <div th:if="${isLogin} == true">
@@ -36,7 +36,7 @@
                      onmouseout="restoreImage('heart-img2', '../../images/heart-login.svg')"
                      onmouseover="changeImage('heart-img2', '../../images/heart-login-hover.svg')">
                     <img alt="heart" class="heart" id="heart-img2"
-                         src="../../images/heart-login.svg" th:src="@{/images/heart-login.svg}">
+                         src="../../images/heart-login.svg" th:src="@{../images/heart-login.svg}">
                 </div>
             </div>
         </div>
@@ -67,7 +67,7 @@
                  onmouseout="restoreImage('user-img1', '../../images/user.svg')"
                  onmouseover="changeImage('user-img1', '../../images/user-hover.svg')">
 
-                <img alt="user" class="user" id="user-img1" src="../../images/user.svg" th:src="@{/images/user.svg}">
+                <img alt="user" class="user" id="user-img1" src="../../images/user.svg" th:src="@{../images/user.svg}">
             </div>
         </button>
         <a th:href="@{/user}" th:if="${isLogin} == true">
@@ -78,21 +78,35 @@
 
                     <img alt="user" class="user" id="user-img2"
                          src="../../images/user-login.svg"
-                         th:src="@{/images/user-login.svg}">
+                         th:src="@{../images/user-login.svg}">
                 </div>
             </button>
         </a>
         <div id="overlay-user" onclick="hideOverlay()"></div>
         <div class="login-window" id="popup-login-window">
-            <h1 class="login-heading">Log in</h1>
-            <form id="loginForm" method="post" onsubmit="return submitForm()" th:action="@{/api/auth/login}">
-                <div class="login-form email">
-                    <input name="username" placeholder="Enter login" required type="text">
+            <button class="login-heading" id="LoginTab" onclick="showTab('login')">Log in</button>
+            <button class="signUp-heading" id="SignUpTab" onclick="showTab('signUp')">Sign up</button>
+
+            <form autocomplete="off" class="form-container active" id="loginForm" method="post"
+                  onsubmit="return submitForm()" th:action="@{api/auth/login}">
+                <div class="login-form username">
+                    <input name="username" placeholder="Login" required type="text">
                 </div>
                 <div class="login-form password">
                     <input name="password" placeholder="Enter password" required type="password">
                 </div>
-                <button id="confirm-button">Confirm</button>
+                <button id="confirm-button">Log in</button>
+            </form>
+
+            <form autocomplete="off" class="form-container" id="signUpForm" method="post"
+                  onsubmit="return submitFormSignUp()" th:action="@{api/auth/signup}">
+                <div class="login-form username">
+                    <input name="username" placeholder="Enter username" required type="text">
+                </div>
+                <div class="login-form password">
+                    <input name="password" placeholder="Enter password" required type="password">
+                </div>
+                <button id="confirm-button1">Sign up</button>
             </form>
         </div>
 
@@ -101,6 +115,7 @@
         </a>
     </div>
 </header>
+
 <main>
     <!-- <img alt="recipeIcon" class="recipeIcon" src="../../images/Recipe.svg" th:src="@{../images/Recipe.svg}">-->
     <div class="RecipeTitle" th:text="${recipe.getTitle()}"></div>

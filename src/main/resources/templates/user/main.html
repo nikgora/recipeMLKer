@@ -87,7 +87,7 @@
 
             <form autocomplete="off" class="form-container active" id="loginForm" method="post"
                   onsubmit="return submitForm()" th:action="@{api/auth/login}">
-                <div class="login-form email">
+                <div class="login-form username">
                     <input name="username" placeholder="Login" required type="text">
                 </div>
                 <div class="login-form password">
@@ -98,7 +98,7 @@
 
             <form autocomplete="off" class="form-container" id="signUpForm" method="post"
                   onsubmit="return submitFormSignUp()" th:action="@{api/auth/signup}">
-                <div class="login-form email">
+                <div class="login-form username">
                     <input name="username" placeholder="Enter username" required type="text">
                 </div>
                 <div class="login-form password">
@@ -107,9 +107,9 @@
                 <button id="confirm-button1">Sign up</button>
             </form>
         </div>
-
-
-        <img alt="home" class="home" src="../../images/home.svg" th:src="@{images/home.svg}">
+        <a href="main.html" th:href="@{/}">
+            <img alt="home" class="home" src="../../images/home.svg" th:src="@{../images/home.svg}">
+        </a>
     </div>
 </header>
 <main>
