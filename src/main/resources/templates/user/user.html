@@ -114,10 +114,11 @@
         <div class="recipesFieldHeader">
             <p class="c7">User notes</p>
         </div>
+
         <div class="container">
             <div th:each="note : ${notes}">
                 <div class="noteField">
-                    <div class="userRecipeField" th:href="@{/recipe/{id}(id=${note.getId()})}">
+                    <a class="userRecipeField" th:href="@{/recipe/{id}(id=${note.getId()})}">
                         <div class="noteInfoContainer">
                             <img th:alt="${note.getCategory().getTitle()}"
                                  th:class="${note.getCategory().getTitle().replace(' ', '-')}"
@@ -130,14 +131,27 @@
                             <span class="spacer"></span>
                             <span th:text="${note.cookingTime} + ' minutes'"></span>
                         </div>
-                        <div th:if="${note.isPublished()} == false">
+                    </a>
+                    <div class="buttonsContainer">
+                        <form th:action="@{/api/publishRecipe/{id1}(id1=${note.getId()})}"
+                              th:if="${!note.isPublished()}">
                             <button class="publish">Publish</button>
+                        </form>
+                        <div th:if="${note.isRejected()}">
+                            <button class="publishBlocked">Publish</button>
+                        </div>
+                        <div th:if="${note.isPublished()}">
+                            <img alt="recipe" class="recipeIcon" src="../../static/images/Recipe.svg"
+                                 th:src="@{images/Recipe.svg}">
+                        </div>
+                        <div th:if="${note.isOnView()}">
+                            <img alt="moderation" class="moderation" src="../../static/images/moderation.svg"
+                                 th:src="@{images/moderation.svg}">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 </main>
 <footer class="footer">

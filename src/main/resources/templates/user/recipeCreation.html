@@ -91,7 +91,7 @@
                 <select name="recipeCategory">
                     <option disabled selected value="">Choose category</option>
                     <option th:each="categor : ${category}" th:text="${categor.getTitle()}"
-                            th:value="${recipeCategory}"></option>
+                            th:value="${categor.title}"></option>
                 </select>
             </div>
         </div>
@@ -234,7 +234,6 @@
             const recipeTitle = document.getElementById('recipeTitleInput').value.trim();
             const cookingTime = document.getElementById('cookingTimeInput').value.trim();
             const stepByStepInstructions = document.getElementById('recipeStepByStepInput').value.trim();
-            const selectedCategory = document.querySelector('select[name="recipeCategory"]').value;
 
             if (recipeTitle === "") {
                 alert("Please, enter a recipe title before saving.");
@@ -250,12 +249,17 @@
                 alert("Please, enter the step-by-step instructions before saving.");
                 event.preventDefault();
             }
-
-            if (selectedCategory === "") {
-                alert("Please, choose a category of the recipe before saving.");
-                event.preventDefault();
-            }
         });
+    });
+
+    document.getElementById('save-btn').addEventListener('click', function (event) {
+        const selectedCategory = document.querySelector('select[name="recipeCategory"]').value;
+
+        console.log(`Selected category: "${selectedCategory}"`);
+        if (selectedCategory === "") {
+            alert("Please, choose a category of the recipe before saving.");
+            event.preventDefault();
+        }
     });
 
     document.getElementById("heart-btn").addEventListener("click",

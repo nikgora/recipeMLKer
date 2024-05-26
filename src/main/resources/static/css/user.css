@@ -249,7 +249,7 @@
     height: 8vh; /*3.7*/
     width: 5.6vw; /*2.6*/
     right: 3vw;
-    top: 2.5vh;
+    top: 2vh;
 }
 
 .moderation {
@@ -335,4 +335,12 @@
     left: 0;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 10;
+}
+
+.buttonsContainer {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }

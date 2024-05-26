@@ -66,6 +66,12 @@
     width: 27vw;
     background-color: #FBEFC7;
     border-radius: 5vh;
+    text-decoration: none;
+    color: black;
+}
+
+.userRecipeField:hover {
+    border: 0.3vh solid #D8C89A;
 }
 
 .testForSwitch, .testForSwitch2 {

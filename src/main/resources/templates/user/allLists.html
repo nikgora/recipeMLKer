@@ -74,19 +74,17 @@
         <div class="MainField">
             <div th:each="list, i : ${lists}">
                 <div class="ListField">
-                    <a class="ListFieldHeader" th:text="${list.getTitle()}"></a>
+                    <div class="ListFieldHeader" th:text="${list.getTitle()}"></div>
                     <div class="containerList">
-                        <div th:each="recipe: ${list.getRecipeUserLists()}"
-                             th:if="${recipe.getRecipe().isPublished()}==true">
-                            <div class="userRecipeField">
+                        <div th:each="recipe : ${list.getRecipeUserLists()}"
+                             th:if="${recipe.getRecipe().isPublished()} == true">
+                            <a class="userRecipeField" th:href="@{/recipe/{id}(id=${recipe.getRecipe().getId()})}">
                                 <div class="recipeInfoContainer">
                                     <img th:alt="${recipe.getRecipe().getCategory().getTitle()}"
                                          th:class="${recipe.getRecipe().getCategory().getTitle().replace(' ', '-')}"
-                                         th:if="${recipe}"
                                          th:src="@{'../images/' + ${recipe.getRecipe().getCategory().getTitle()} + '.svg'}">
-                                    <a class="testForSwitch" style="font-weight: bold;"
-                                       th:href="@{/recipe/{id}(id=${recipe.getRecipe().getId()})}"
-                                       th:text="${recipe.getRecipe().getTitle()}"></a>
+                                    <div class="testForSwitch" style="font-weight: bold;"
+                                         th:text="${recipe.getRecipe().getTitle()}"></div>
                                 </div>
                                 <div class="testForSwitch2">
                                     <span th:text="${recipe.getRecipe().getCategory().getTitle()}"></span>
@@ -95,8 +93,7 @@
                                     <span class="spacer"> </span>
                                     <span th:text="${recipe.getRecipe().getAverageMark()}"></span>
                                 </div>
-                                <!--<button class="publishBlocked"> Publish</button>-->
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>
