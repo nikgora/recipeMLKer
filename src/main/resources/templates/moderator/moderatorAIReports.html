@@ -83,8 +83,7 @@
                                th:href="@{/recipe/{id}(id=${report.getRecipe().getId()})}"
                                th:text="${report.getRecipe().getTitle()}"></a>
                             <div class="informationField">
-                                <!--TODO: задати стилі для тексту .p-->
-                                <p th:text="${report.getDescription()}"></p>
+                                <p class="reportText" th:text="${report.getDescription()}"></p>
                                 <form method="post"
                                       th:action="@{/api/moderator/takeAIReport/{id1}(id1=${report.getId()})}"
                                       th:if="${report.getModerator()} == null">
