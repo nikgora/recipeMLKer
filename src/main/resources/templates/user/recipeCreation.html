@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Recipe Creation</title>
     <link href="../../static/css/recipeCreation.css" rel="stylesheet" th:href="@{css/recipeCreation.css}"
           type="text/css">
-    <link href="../../static/css/headerIfooter.css.css" rel="stylesheet" th:href="@{css/headerIfooter.css}"
-          type="text/css">
+    <link href="../../static/css/headerIfooter.css.css" rel="stylesheet" th:href="@{css/headerIfooter.css}">
 </head>
 <body>
 <header>
     <div class="header">
-        <img alt="logo" class="logo" src="../../images/logo.svg" th:src="@{images/logo.svg}">
+        <img alt="logo" class="logo" src="../../static/images/logo.svg" th:src="@{images/logo.svg}">
 
         <form class="search-form" th:action="@{/allRecipes}">
             <img alt="magnifier" class="magnifier" src="../../static/images/magnifier.svg"
                  th:src="@{images/magnifier.svg}">
             <input name="startWith" placeholder="Search" type="search">
         </form>
+
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
         <a class="button-style" href="recipe.html" th:href="@{/recipe/{id1}(id1=${randomRecipeId})}">Random</a>
 
@@ -34,21 +34,19 @@
         <div class="favoriteLists-window" id="favorite-popup-window">
             <div th:if="${favoriteList != null}">
                 <div th:each="recipe, i : ${favoriteList.getRecipeUserLists()}">
-                    <button th:class="${i.index == 0} ? 'recipe recipe' : 'recipe recipe' + i.index"
-                            th:style="'top:' + (${i.index * 10 + 2}) + 'vh'">
+                    <a th:class="${i.index == 0} ? 'recipe recipe' : 'recipe recipe' + i.index"
+                       th:href="@{/recipe/{id}(id=${recipe.getRecipe().getId()})}"
+                       th:style="'top:' + (${i.index * 10 + 2}) + 'vh'">
                         <div class="content-wrapper">
-                            <div class="comment-user-circle">
-                                <img class="favIcons" th:alt="${recipe.getRecipe().getCategory().getTitle()}"
-                                     th:if="${recipe}"
-                                     th:src="@{'../images/' + ${recipe.getRecipe().getCategory().getTitle()} + '.svg'}">
-                            </div>
-                            <div class="text-wrapper">
-                                <a style="font-weight: bold;"
-                                   th:href="@{/recipe/{id}(id=${recipe.getRecipe().getId()})}"
-                                   th:text="${recipe.getRecipe().getTitle()}"></a>
+                            <img class="favIcons" th:alt="${recipe.getRecipe().getCategory().getTitle()}"
+                                 th:if="${recipe}"
+                                 th:src="@{'../images/' + ${recipe.getRecipe().getCategory().getTitle()} + '.svg'}">
+
+                            <div class="text-wrapper"
+                                 th:text="${recipe.getRecipe().getTitle()}">
                             </div>
                         </div>
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -94,7 +92,7 @@
                 </select>
             </div>
         </div>
-        
+
         <div class="ingredientsField">
             <div class="tableContainer">
                 <table id="ingredientsTable">

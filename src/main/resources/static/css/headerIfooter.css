@@ -73,7 +73,6 @@ body {
 }
 
 .heart-container, .user-container, .heart-login-container, .user-login-container {
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -109,7 +108,6 @@ body {
     justify-content: center;
     align-items: center;
 }
-
 
 /*____________________________________________________________________________________________________________________*/
 .footer {
