@@ -294,6 +294,12 @@
     cursor: pointer;
 }
 
+.publish:hover {
+    background-color: #FBEFC7;
+    border: 0.5vh solid #3E5902;
+    color: #3E5902;
+}
+
 .list-container {
     position: fixed;
     display: none;
