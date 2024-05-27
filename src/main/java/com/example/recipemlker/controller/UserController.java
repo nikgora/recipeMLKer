@@ -83,7 +83,7 @@ public class UserController {
     }
 
     @GetMapping("/userList/{name}")
-    public String Sfd(Model model, @PathVariable("name") String name, @RequestParam(required = false) List<String> device, @RequestParam(required = false) List<String> category, @RequestParam(required = false) List<String> ingredient, @RequestParam(required = false) List<String> startWith, @RequestParam(required = false) Integer minTime, @RequestParam(required = false) Integer maxTime, @RequestParam(required = false) Double minMark, @RequestParam(required = false) Double maxMark) {
+    public String UserList(Model model, @PathVariable("name") String name, @RequestParam(required = false) List<String> device, @RequestParam(required = false) List<String> category, @RequestParam(required = false) List<String> ingredient, @RequestParam(required = false) List<String> startWith, @RequestParam(required = false) Integer minTime, @RequestParam(required = false) Integer maxTime, @RequestParam(required = false) Double minMark, @RequestParam(required = false) Double maxMark) {
         if (jwt == null) {
             return "redirect:/403";
         }
@@ -248,9 +248,12 @@ public class UserController {
             return "redirect:/403";
         }
         User user = userService.getUserByUsername(jwtService.extractUserName(jwt));
-        UserList newUserList = new UserList();
-        newUserList.setTitle(userList.getTitle());
-        newUserList.setUser(user);
+        UserList newUserList = userListService.getFirstByTitleAndUser(userList.getTitle(), user);
+        if (newUserList == null) {
+            newUserList = new UserList();
+            newUserList.setTitle(userList.getTitle());
+            newUserList.setUser(user);
+        }
         userListService.save(newUserList);
         if (id == 0) return "redirect:/user";
         String newList = "redirect:/recipe/" + id;
@@ -355,6 +358,7 @@ public class UserController {
     @PostMapping("/api/newRecipe")
     public String newRecipePageSubmit(@ModelAttribute Recipe recipe, @ModelAttribute String recipeCategory) {
         User user = (userService.getUserByUsername(jwtService.extractUserName(jwt)));
+        if (recipeCategory.isEmpty()) recipeCategory = "Drinks";
         recipe.setCategory(categoryService.getCategoryByTitle(recipeCategory));
         recipe.setUser(user);
         recipeService.save(recipe);
