@@ -145,7 +145,7 @@
                                 <img alt="moderation" class="moderation" src="../../static/images/moderation.svg"
                                      th:src="@{images/moderation.svg}">
                             </div>
-                            <div th:if="${note.isNotClickedPublish()} == false AND ${note.isRejected() == true}">
+                            <div th:if="${!note.isNotClickedPublish()} AND ${note.isRejected()}">
                                 <button class="publishBlocked">Publish</button>
                             </div>
                         </div>
