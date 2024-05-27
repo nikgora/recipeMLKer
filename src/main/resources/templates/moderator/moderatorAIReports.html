@@ -91,12 +91,12 @@
                             <form method="post"
                                   th:action="@{/api/moderator/approveAIReport/{id1}(id1=${report.getId()})}"
                                   th:if="${report.getModerator()} != null">
-                                <button th:id="'accept' + ${i.index}">Accept</button>
+                                <button style="width: 13vw" th:id="'accept' + ${i.index}">Make publish</button>
                             </form>
                             <form method="post"
                                   th:action="@{/api/moderator/declineAIReport/{id1}(id1=${report.getId()})}"
                                   th:if="${report.getModerator()} != null">
-                                <button th:id="'decline' + ${i.index}">Decline</button>
+                                <button style="width: 13vw" th:id="'decline' + ${i.index}">Keep private</button>
                             </form>
                         </div>
                     </div>
