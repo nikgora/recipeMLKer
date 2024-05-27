@@ -154,22 +154,22 @@
     top: 41.94vh;
 }
 
-.containerList::-webkit-scrollbar {
-    width: 0.78125vw;
-}
+/*.userRecipeField::-webkit-scrollbar {*/
+/*    width: 0.78125vw;*/
+/*}*/
 
-.containerList::-webkit-scrollbar-track {
-    margin-top: 2.7778vh;
-    border: 0.0520834vw solid black;
-    border-radius: 50px;
-    background: #F2E3B3;
-    left: 5vw;
-}
+/*.userRecipeField::-webkit-scrollbar-track {*/
+/*    margin-top: 2.7778vh;*/
+/*    border: 0.0520834vw solid black;*/
+/*    border-radius: 50px;*/
+/*    background: #F2E3B3;*/
+/*    left: 5vw;*/
+/*}*/
 
-.containerList::-webkit-scrollbar-thumb {
-    background: #733506;
-    border-radius: 50px;
-}
+/*.userRecipeField::-webkit-scrollbar-thumb {*/
+/*    background: #733506;*/
+/*    border-radius: 50px;*/
+/*}*/
 
 .publish {
     position: absolute;
@@ -188,18 +188,18 @@
     justify-content: center
 }
 
-::-webkit-scrollbar {
+.container::-webkit-scrollbar {
     width: 0.78125vw;
 }
 
-::-webkit-scrollbar-track {
+.container::-webkit-scrollbar-track {
     margin: 7vh 0 2.4vh 0;
     border-radius: 50px;
     background: #FBEFC7;
     border: none;
 }
 
-::-webkit-scrollbar-thumb {
+.container::-webkit-scrollbar-thumb {
     background: #733506;
     border-radius: 50px;
 }

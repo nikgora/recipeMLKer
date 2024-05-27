@@ -475,8 +475,9 @@ body {
     color: inherit;
 }
 
-.First-Dish, .Main-Dish, .Salad, .Sauce, .Snack, .Pastry, .Drink, .Dessert {
-    width: 2.22vw;
-    height: 4vh;
+.favIcons {
+    position: relative;
+    width: 3vw;
+    height: 6vh;
     left: 0.2vw;
 }
