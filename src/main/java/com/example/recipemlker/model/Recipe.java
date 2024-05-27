@@ -53,11 +53,11 @@ public class Recipe {
     @Transient
     private double averageRating = getAverageMark();
     @Transient
-    private boolean rejected = aiReports != null && aiReports.getFirst().isAccepted() && aiReports.getFirst().getModerator() == null;
+    private boolean rejected = (aiReports != null && !aiReports.isEmpty() && aiReports.getFirst().isAccepted() && aiReports.getFirst().getModerator() == null);
     @Transient
-    private boolean onView = aiReports != null && (!aiReports.getFirst().isAccepted() || aiReports.getFirst().getModerator() != null);
+    private boolean onView = (aiReports != null && !aiReports.isEmpty() && (!aiReports.getFirst().isAccepted() || aiReports.getFirst().getModerator() != null));
     @Transient
-    private boolean notClickedPublish = aiReports == null;
+    private boolean notClickedPublish = (aiReports == null || aiReports.isEmpty());
 
     @Transient
     public double getAverageMark() {
