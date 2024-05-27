@@ -343,7 +343,7 @@ public class UserController {
         model.addAttribute("user", user);
         model.addAttribute("ingredients", ingredientService.findAll());
         model.addAttribute("devices", deviceService.findAll());
-        model.addAttribute("category", categoryService.getAllCategory());
+        model.addAttribute("categorys", categoryService.getAllCategory());
         model.addAttribute("recipe", recipe);
         model.addAttribute("isLogin", jwt != null);
         String recipeCategory = "";
