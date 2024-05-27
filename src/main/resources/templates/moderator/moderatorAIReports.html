@@ -75,32 +75,29 @@
     <div class="AIReportField">
         <div class="scrollField">
             <div th:each="report, i: ${reports}">
-                <div th:if="${report.getModerator() == null} == true">
-                    <div class="reportField">
-                        <div class="linkField">
-                            <div class="notInBD">Request for recipe review:</div>
-                            <a class=" notInBD InBD" style="font-weight: bold"
-                               th:href="@{/recipe/{id}(id=${report.getRecipe().getId()})}"
-                               th:text="${report.getRecipe().getTitle()}"></a>
-                            <div class="informationField">
-                                <!--TODO: задати стилі для тексту .p-->
-                                <p th:text="${report.getDescription()}"></p>
-                                <form method="post"
-                                      th:action="@{/api/moderator/takeAIReport/{id1}(id1=${report.getId()})}"
-                                      th:if="${report.getModerator()} == null">
-                                    <button th:id="'processing' + ${i.index}">Take for processing</button>
-                                </form>
-                                <form method="post"
-                                      th:action="@{/api/moderator/approveAIReport/{id1}(id1=${report.getId()})}"
-                                      th:if="${report.getModerator()} != null">
-                                    <button th:id="'accept' + ${i.index}">Accept</button>
-                                </form>
-                                <form method="post"
-                                      th:action="@{/api/moderator/declineAIReport/{id1}(id1=${report.getId()})}"
-                                      th:if="${report.getModerator()} != null">
-                                    <button th:id="'decline' + ${i.index}">Decline</button>
-                                </form>
-                            </div>
+                <div class="reportField">
+                    <div class="linkField">
+                        <div class="notInBD">Request for recipe review:</div>
+                        <a class=" notInBD InBD" style="font-weight: bold"
+                           th:href="@{/recipe/{id}(id=${report.getRecipe().getId()})}"
+                           th:text="${report.getRecipe().getTitle()}"></a>
+                        <div class="informationField">
+                            <p class="reportText" th:text="${report.getDescription()}"></p>
+                            <form method="post"
+                                  th:action="@{/api/moderator/takeAIReport/{id1}(id1=${report.getId()})}"
+                                  th:if="${report.getModerator()} == null">
+                                <button th:id="'processing' + ${i.index}">Take for processing</button>
+                            </form>
+                            <form method="post"
+                                  th:action="@{/api/moderator/approveAIReport/{id1}(id1=${report.getId()})}"
+                                  th:if="${report.getModerator()} != null">
+                                <button style="width: 13vw" th:id="'accept' + ${i.index}">Make publish</button>
+                            </form>
+                            <form method="post"
+                                  th:action="@{/api/moderator/declineAIReport/{id1}(id1=${report.getId()})}"
+                                  th:if="${report.getModerator()} != null">
+                                <button style="width: 13vw" th:id="'decline' + ${i.index}">Keep private</button>
+                            </form>
                         </div>
                     </div>
                 </div>
