@@ -287,7 +287,7 @@ public class UserController {
         aiReport.setRecipe(recipe);
         aiReport.setDescription("New recipe in site. Please check");
         aiReportService.save(aiReport);
-        return "redirect:/user/";
+        return "redirect:/user";
     }
 
     @GetMapping("/mustBeLogin")
