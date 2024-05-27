@@ -48,7 +48,7 @@
         <img alt="moder" class="moder" src="../../images/Moderator.svg" th:src="@{images/Moderator.svg}">
     </div>
     <div class="line">
-        <div class="nikText">Moderator name</div>
+        <div class="nikText" th:text="${moderator.getUser().getLogin()}">Moderator name</div>
     </div>
     <a class="AIReport" href="moderatorAIReports.html" th:href="@{/moderator/AIReports}">Recipe publishing</a>
     <a class="UserReport" href="moderatorUserReports.html" th:href="@{/moderator/UserReports}">User report</a>

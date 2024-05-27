@@ -81,7 +81,9 @@
         <form method="post" th:action="@{/api/logout}">
             <button class="userButton logOut">Log out</button>
         </form>
-        <a class="userButton logInModerator" id="login-moderator-btn">Log in as moderator</a>
+        <div th:if="${isAdmin}">
+            <a class="userButton logInModerator" id="login-moderator-btn">Log in as moderator</a>
+        </div>
     </div>
 
     <div id="overlay-list" onclick="hideOverlay()"></div>
@@ -97,17 +99,19 @@
         </form>
     </div>
 
-    <div id="overlay-password" onclick="hideOverlay()"></div>
+    <div th:if="${isAdmin}">
+        <div id="overlay-password" onclick="hideOverlay()"></div>
 
-    <form method="post" th:action="@{/api/moderator/login}" th:object="${moderator}">
-        <div class="list-container" id="password-popup-window" style="top: 69vh;">
-            <div class="list-name">
-                <input id="password" name="secret_password" placeholder="Enter password"
-                       th:value="${moderator.secret_password}" type="password"/>
+        <form method="post" th:action="@{/api/moderator/login}" th:object="${moderator}">
+            <div class="list-container" id="password-popup-window" style="top: 69vh;">
+                <div class="list-name">
+                    <input id="password" name="secret_password" placeholder="Enter password"
+                           th:value="${moderator.secret_password}" type="password"/>
+                </div>
+                <button class="confirm-list-button" id="confirm-password-btn" style="top: 10vh;">Confirm</button>
             </div>
-            <button class="confirm-list-button" id="confirm-password-btn" style="top: 10vh;">Confirm</button>
-        </div>
-    </form>
+        </form>
+    </div>
 
     <div class="recipesField">
         <div class="recipesFieldHeader">
