@@ -133,7 +133,7 @@
                         </div>
                     </a>
                     <div class="buttonsContainer">
-                        <form th:action="@{/api/publishRecipe/{id1}(id1=${note.getId()})}"
+                        <form method="post" th:action="@{/api/publishRecipe/{id1}(id1=${note.getId()})}"
                               th:if="${!note.isPublished()}">
                             <button class="publish">Publish</button>
                         </form>
