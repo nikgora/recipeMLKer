@@ -157,6 +157,7 @@
 
 .DeviceTagsField {
     margin-top: 13.2vh;
+
 }
 
 .devices {
@@ -318,11 +319,16 @@
 .amountField, .deviceField {
     width: 14vw;
     height: 39vh;
-    border-radius: 5vh;
+    border-radius: 5vh 5vh 0 0;
     background-color: #FBEFC7;
     margin-left: 1.5vw;
     margin-top: 1.9vh;
     overflow-y: scroll;
+    text-align: left;
+    display: flex;
+    align-content: center;
+    justify-content: left;
+    text-rendering: optimizeLegibility;
 }
 
 .deviceField {
@@ -401,8 +407,8 @@
     background: #F2B705;
 }
 
-.confirmation {
-    position: fixed;
+.confirmation, #rate-btn {
+    position: absolute;
     width: 2.7vw;
     height: 5.4vh;
     border-radius: 50vh;
@@ -412,6 +418,9 @@
     cursor: pointer;
     border: none;
     outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .tick {
@@ -465,6 +474,13 @@
     padding: 4vh 0.5vw 3vh 1vw;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 1.3vw;
+}
+
+.names {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
 }
 
 /*.amountContent td:first-child {

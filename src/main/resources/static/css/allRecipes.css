@@ -194,6 +194,12 @@ a:visited, a:link {
     color: #733506;
 }
 
+.text-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
 /*____________________________________________________________________________________________________________________*/
 .field {
     position: absolute;

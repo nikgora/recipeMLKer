@@ -48,7 +48,7 @@
                        th:href="@{/recipe/{id}(id=${recipe.getRecipe().getId()})}"
                        th:style="'top:' + (${i.index * 10 + 2}) + 'vh'">
                         <div class="content-wrapper">
-                            <img th:alt="${recipe.getRecipe().getCategory().getTitle()}"
+                            <img class="favIcons" th:alt="${recipe.getRecipe().getCategory().getTitle()}"
                                  th:if="${recipe}"
                                  th:src="@{'../images/' + ${recipe.getRecipe().getCategory().getTitle()} + '.svg'}">
 
@@ -86,7 +86,7 @@
             <button class="signUp-heading" id="SignUpTab" onclick="showTab('signUp')">Sign up</button>
 
             <form autocomplete="off" class="form-container active" id="loginForm" method="post"
-                  onsubmit="return submitForm()" th:action="@{api/auth/login}">
+                  onsubmit="return submitForm()" th:action="@{/api/auth/login}">
                 <div class="login-form username">
                     <input name="username" placeholder="Login" required type="text">
                 </div>
@@ -97,7 +97,7 @@
             </form>
 
             <form autocomplete="off" class="form-container" id="signUpForm" method="post"
-                  onsubmit="return submitFormSignUp()" th:action="@{api/auth/signup}">
+                  onsubmit="return submitFormSignUp()" th:action="@{/api/auth/signup}">
                 <div class="login-form username">
                     <input name="username" placeholder="Enter username" required type="text">
                 </div>

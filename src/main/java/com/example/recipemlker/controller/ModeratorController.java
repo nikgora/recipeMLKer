@@ -138,7 +138,7 @@ public class ModeratorController {
         }
         AiReport aiReport = aiReportService.getFirstById(idReport);
         Recipe recipe = aiReport.getRecipe();
-        recipe.setPublished(false);
+        recipe.setPublished(true);
         aiReport.setModerator(null);
         aiReportService.save(aiReport);
         recipeService.save(recipe);
@@ -152,7 +152,7 @@ public class ModeratorController {
         }
         AiReport aiReport = aiReportService.getFirstById(idReport);
         Recipe recipe = aiReport.getRecipe();
-        recipe.setPublished(true);
+        recipe.setPublished(false);
         aiReport.setModerator(null);
         aiReportService.save(aiReport);
         recipeService.save(recipe);

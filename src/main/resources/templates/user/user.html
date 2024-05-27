@@ -38,7 +38,7 @@
                        th:href="@{/recipe/{id}(id=${recipe.getRecipe().getId()})}"
                        th:style="'top:' + (${i.index * 10 + 2}) + 'vh'">
                         <div class="content-wrapper">
-                            <img th:alt="${recipe.getRecipe().getCategory().getTitle()}"
+                            <img class="favIcons" th:alt="${recipe.getRecipe().getCategory().getTitle()}"
                                  th:if="${recipe}"
                                  th:src="@{'../images/' + ${recipe.getRecipe().getCategory().getTitle()} + '.svg'}">
 
@@ -97,7 +97,6 @@
         </form>
     </div>
 
-
     <div id="overlay-password" onclick="hideOverlay()"></div>
 
     <form method="post" th:action="@{/api/moderator/login}" th:object="${moderator}">
@@ -133,20 +132,26 @@
                         </div>
                     </a>
                     <div class="buttonsContainer">
-                        <form method="post" th:action="@{/api/publishRecipe/{id1}(id1=${note.getId()})}"
-                              th:if="${!note.isPublished()}">
-                            <button class="publish">Publish</button>
-                        </form>
-                        <div th:if="${note.isRejected()}">
-                            <button class="publishBlocked">Publish</button>
+                        <!--/If not published{
+                        If notclickedpublished -> published button
+                        If !notclickedpublished && on view-> foto
+                        If !notclickedpublished && rejected -> info}-->
+                        <div th:if="${!note.isPublished()}">
+                            <form method="post" th:action="@{/api/publishRecipe/{id1}(id1=${note.getId()})}"
+                                  th:if="${note.isNotClickedPublish()}">
+                                <button class="publish">Publish</button>
+                            </form>
+                            <div th:if="${!note.isNotClickedPublish()} AND ${note.isOnView()}">
+                                <img alt="moderation" class="moderation" src="../../static/images/moderation.svg"
+                                     th:src="@{images/moderation.svg}">
+                            </div>
+                            <div th:if="${!note.isNotClickedPublish()} AND ${note.isRejected()}">
+                                <button class="publishBlocked">Publish</button>
+                            </div>
                         </div>
                         <div th:if="${note.isPublished()}">
                             <img alt="recipe" class="recipeIcon" src="../../static/images/Recipe.svg"
                                  th:src="@{images/Recipe.svg}">
-                        </div>
-                        <div th:if="${note.isOnView()}">
-                            <img alt="moderation" class="moderation" src="../../static/images/moderation.svg"
-                                 th:src="@{images/moderation.svg}">
                         </div>
                     </div>
                 </div>
