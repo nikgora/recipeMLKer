@@ -133,20 +133,21 @@
                         </div>
                     </a>
                     <div class="buttonsContainer">
+                        <div th:if="${!note.isPublished()} AND ${note.isRejected()}">
+                            <button class="publishBlocked">Publish</button>
+                        </div>
+                        <div th:if="${!note.isPublished()} AND ${note.isOnView()}">
+                            <img alt="moderation" class="moderation" src="../../static/images/moderation.svg"
+                                 th:src="@{images/moderation.svg}">
+                            <p>On view</p>
+                        </div>
                         <form method="post" th:action="@{/api/publishRecipe/{id1}(id1=${note.getId()})}"
                               th:if="${!note.isPublished()}">
                             <button class="publish">Publish</button>
                         </form>
-                        <div th:if="${note.isRejected()}">
-                            <button class="publishBlocked">Publish</button>
-                        </div>
                         <div th:if="${note.isPublished()}">
                             <img alt="recipe" class="recipeIcon" src="../../static/images/Recipe.svg"
                                  th:src="@{images/Recipe.svg}">
-                        </div>
-                        <div th:if="${note.isOnView()}">
-                            <img alt="moderation" class="moderation" src="../../static/images/moderation.svg"
-                                 th:src="@{images/moderation.svg}">
                         </div>
                     </div>
                 </div>
