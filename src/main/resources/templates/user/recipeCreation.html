@@ -88,7 +88,7 @@
 
         <div class="text-form-category">
             <div class="recipeCategory">
-                <select th:field="*{recipeCategory}">
+                <select name="recipeCategory" th:field="*{recipeCategory}">
                     <option th:each="categor : ${categorys}" th:text="${categor.title}"
                             th:value="${categor.title}"></option>
                 </select>

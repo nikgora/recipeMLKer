@@ -356,9 +356,9 @@ public class UserController {
     }
 
     @PostMapping("/api/newRecipe")
-    public String newRecipePageSubmit(@ModelAttribute Recipe recipe, @ModelAttribute String recipeCategory) {
+    public String newRecipePageSubmit(@ModelAttribute Recipe recipe, @RequestParam String recipeCategory) {
         User user = (userService.getUserByUsername(jwtService.extractUserName(jwt)));
-        if (recipeCategory.isEmpty()) recipeCategory = "Drinks";
+        if (recipeCategory.isEmpty()) recipeCategory = "Drink";
         recipe.setCategory(categoryService.getCategoryByTitle(recipeCategory));
         recipe.setUser(user);
         recipeService.save(recipe);
