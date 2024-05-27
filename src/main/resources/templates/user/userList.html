@@ -333,7 +333,7 @@
                 <div th:class="${i.index == 0} ? 'smallerField smallerField' : 'smallerField smallerField-down' + (${i.index})"
                      th:each="recipe, i : ${recipes}">
                     <div class="comment-user-circle">
-                        <img th:alt="${recipe.getCategory().getTitle()}"
+                        <img class="favIcons" th:alt="${recipe.getCategory().getTitle()}"
                              th:class="${recipe.getCategory().getTitle().replace(' ', '-')}"
                              th:if="${recipe}"
                              th:src="@{'../images/' + ${recipe.getCategory().getTitle()} + '.svg'}">

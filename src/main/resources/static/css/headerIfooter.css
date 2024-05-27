@@ -478,3 +478,10 @@ body {
     text-decoration: none;
     color: inherit;
 }
+
+.favIcons {
+    position: relative;
+    width: 3vw;
+    height: 6vh;
+    left: 0.2vw;
+}
