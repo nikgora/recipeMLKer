@@ -1,0 +1,326 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.menu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 1.9vw;
+    margin-top: 2.5vh;
+    margin-right: 1.7vw;
+    z-index: 1;
+}
+
+.h1 {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2.1875vw; /*42*/
+    color: #733506;
+    position: absolute;
+    left: 1.979167vw;
+    bottom: 0.2605vh;
+    margin-bottom: 44.25vh;
+}
+
+
+.boardOneTitle {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2vw; /*42*/
+    color: #733506;
+    width: 3vw;
+    height: 4vh;
+    margin-left: 2.7vw;
+    margin-top: -63.5vh;
+    z-index: 5;
+}
+
+/*____________________________________________________________________________________________________________________*/
+.ulBoard::-webkit-scrollbar, ::-webkit-scrollbar {
+    width: 0.78125vw;
+}
+
+.ulBoard::-webkit-scrollbar-track {
+    margin-top: 2.7778vh;
+    border: 0.0520834vw solid black;
+    border-radius: 4.63vh;
+    background: #F2E3B3;
+    margin-left: 0.5vw;
+}
+
+.ulBoard::-webkit-scrollbar-thumb, ::-webkit-scrollbar-thumb {
+    background: #733506;
+    border-radius: 4.63vh;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #733506;
+}
+
+::-webkit-scrollbar-track {
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    border-radius: 4.63vh;
+}
+
+.board {
+    width: 14.584vw; /*280*/
+    height: 75.926vh; /*820*/
+    margin-right: 2.5vw;
+    margin-top: 1vh;
+}
+
+.fieldForCategory {
+    width: 12.5vw; /*240*/
+    height: 66.67vh; /*720*/
+    margin-right: 2.344vw;
+}
+
+.First-Dish, .Main-Dish, .Salad, .Sauce, .Snack, .Pastry, .Drink, .Dessert, .Fish-Dish {
+    width: 2.22vw;
+    height: 4vh;
+    left: 0.2vw;
+}
+
+.First-Dish {
+    position: relative;
+    top: 0.6vh;
+}
+
+.Main-Dish {
+    position: relative;
+    top: 0.9vh;
+    left: 0.2vw;
+}
+
+.Salad {
+    position: relative;
+    top: 0.1vh;
+    left: 0.2vw;
+}
+
+.Pastry {
+    position: relative;
+    top: 0.6vh;
+    left: 0.2vw;
+}
+
+.Dessert {
+    position: relative;
+    top: 0.8vh;
+    left: 0.2vw;
+}
+
+.Drink {
+    position: relative;
+    top: 0.35vh;
+}
+
+.Fish-Dish {
+    position: relative;
+    top: 0.35vh;
+    left: 0.2vw;
+}
+
+.Snack {
+    position: relative;
+    top: 0.35vh;
+    left: 0.2vw;
+}
+
+.Sauce {
+    position: relative;
+    top: 0.6vh;
+    left: 0.2vw;
+}
+
+.bean {
+    position: absolute;
+    width: 2vw; /*35*/
+    height: 4.8vh; /*45*/
+    left: 6.3vw;
+    top: 69vh;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+}
+
+.cheesecake {
+    position: absolute;
+    left: 18.4375vw;
+    top: 54.1vh;
+    border-radius: 13.8vh 13.8vh 7.8vh 7.8vh;
+    z-index: 1;
+    width: 13.17vw;
+    height: 36.1vh;
+    margin-right: 2.344vw;
+}
+
+.fresh {
+    position: absolute;
+    left: 33.6875vw;
+    top: 54.1vh;
+    border-radius: 13.8vh 13.8vh 7.8vh 7.8vh;
+    width: 13.17vw;
+    height: 36.1vh;
+    margin-right: 2.344vw;
+}
+
+.seafoodSalad {
+    position: absolute;
+    left: 48.9175vw;
+    top: 54.1vh;
+    border-radius: 13.8vh 13.8vh 7.8vh 7.8vh;
+    width: 13.17vw;
+    height: 36.1vh;
+    margin-right: 2.344vw;
+}
+
+.firstDish {
+    position: absolute;
+    left: 18.4375vw;
+    top: 14.815vh;
+    height: 35.1851vh;
+    width: 43.69vw;
+    margin-right: 2.344vw;
+    border-radius: 5.5vh 5.5vh 7.8vh 7.8vh;
+}
+
+.mainDish {
+    position: absolute;
+    left: 63.931vw;
+    top: 14.815vh;
+    height: 75.926vh;
+    width: 31.25vw;
+    margin-left: 2.344vw;
+    border-radius: 8.3vh 8.3vh 7.8vh 7.8vh;
+}
+
+.rectangle {
+    position: absolute;
+    width: 13.17vw;
+    height: 6.0185185185vh;
+    top: 84.5vh;
+    margin-right: 2.344vw;
+    border-radius: 0 0 7.8vh 7.8vh;
+    background: #F2E3B3;
+    z-index: 2;
+    text-align: center;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2.1875vw;
+    color: black;
+}
+
+.rectangle-left-1 {
+    left: 18.4375vw;
+}
+
+.dessert:hover .cheesecake, .dessert:hover .rectangle-left-1 {
+    border: 0.46vh solid #733506;
+}
+
+.rectangle-left-2 {
+    left: 33.6875vw;
+}
+
+.drink:hover .fresh, .drink:hover .rectangle-left-2 {
+    border: 0.46vh solid #733506;
+}
+
+.rectangle-left-3 {
+    left: 48.9175vw;
+}
+
+.salad:hover .seafoodSalad, .salad:hover .rectangle-left-3 {
+    border: 0.46vh solid #733506;
+}
+
+.rectangleFD {
+    position: absolute;
+    height: 7vh;
+    width: 43.69vw;
+    top: 43vh;
+    margin-right: 2.344vw;
+    border-radius: 0 0 7.8vh 7.8vh;
+    background: #F2E3B3;
+    z-index: 2;
+    text-align: center;
+    font-family: 'Frank Ruhl Libre', serif;
+    left: 18.4375vw;
+    font-size: 2.1875vw;
+    color: black;
+}
+
+.firstD:hover .rectangleFD, .firstD:hover .firstDish {
+    border: 0.46vh solid #733506;
+}
+
+.rectangleMD {
+    position: absolute;
+    height: 7vh;
+    width: 31.25vw;
+    top: 83.70vh;
+    left: 66.275vw;
+    margin-right: 2.344vw;
+    border-radius: 0 0 7.8vh 7.8vh;
+    background: #F2E3B3;
+    z-index: 2;
+    text-align: center;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2.1875vw;
+    color: black;
+}
+
+.mainD:hover .rectangleMD, .mainD:hover .mainDish {
+    border: 0.46vh solid #733506;
+}
+
+#overlay-user {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 10;
+}
+
+.item {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.5vw;
+    padding-left: 0.2605vw;
+    margin-left: 1.5vw;
+    cursor: pointer;
+}
+
+.item a {
+    color: black;
+    display: block;
+    line-height: 3.7vh;
+}
+
+.item a:hover {
+    background-color: #F2B705;
+    border-radius: 2vh;
+    width: 9.95vw;
+}
+
+hr {
+    border: 0.09vw solid black;
+    width: 9.3vw;
+    margin-right: 0.5vw;
+    margin-left: 2vw;
+}
+
+.ulBoard {
+    position: absolute;
+    top: 19vh;
+    height: 45vh;
+    font-size: 1.66667vw;
+    overflow-y: auto;
+    overflow-x: hidden;
+}

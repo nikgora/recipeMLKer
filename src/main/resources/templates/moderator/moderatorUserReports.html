@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>User Reports</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../../static/css/reports.css" rel="stylesheet" th:href="@{../css/reports.css}"
+          type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../../static/css/headerIfooter.css" rel="stylesheet" th:href="@{../css/headerIfooter.css}">
+</head>
+<body>
+<header>
+    <div class="header">
+        <img alt="logo" class="logo" src="../../static/images/logo.svg" th:src="@{../images/logo.svg}">
+
+        <form class="search-form" th:action="@{/allRecipes}">
+            <img alt="magnifier" class="magnifier" src="../../static/images/magnifier.svg"
+                 th:src="@{../images/magnifier.svg}">
+            <input name="startWith" placeholder="Search" type="search">
+        </form>
+
+        <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
+        <a class="button-style" href="recipe.html" th:href="@{/recipe/{id1}(id1=${randomRecipeId})}">Random</a>
+
+        <div class="user-container heart-login-container" id="heart-btn">
+            <div class="heart"
+                 onmouseout="restoreImage('heart-img', '../images/heart-login.svg')"
+                 onmouseover="changeImage('heart-img', '../images/heart-login-hover.svg')">
+                <img alt="heart" class="heart" id="heart-img" src="../images/heart-login.svg"
+                     th:src="@{../images/heart-login.svg}">
+            </div>
+        </div>
+
+        <button class="user-container" id="user-btn">
+            <a href="moderatorPage.html" th:href="@{/moderator}">
+                <div class="user"
+                     onmouseout="restoreImage('user-img', '../../images/user-login.svg')"
+                     onmouseover="changeImage('user-img', '../../images/user-login-hover.svg')">
+                    <img alt="user" class="user" id="user-img" src="../../images/user-login.svg"
+                         th:src="@{../images/user-login.svg}">
+                </div>
+            </a>
+        </button>
+
+        <a href="main.html" th:href="@{/}">
+            <img alt="home" class="home" src="../../images/home.svg" th:src="@{../images/home.svg}">
+        </a>
+    </div>
+</header>
+<main>
+    <div class="titleForUserPage">User reports</div>
+    <div class="AIReportField">
+        <div class="scrollField">
+            <div th:each="report, i: ${reports}">
+                <div class="reportField">
+                    <div class="linkField">
+                        <div class="notInBD">Request for recipe review:</div>
+                        <a class=" notInBD InBD" style="font-weight: bold"
+                           th:href="@{/moderator/recipe/{id}(id=${report.getRecipe().getId()})}"
+                           th:text="${report.getRecipe().getTitle()}"></a>
+                        <div class="informationField">
+                            <p class="reportText" th:text="${report.getDescription()}"></p>
+                            <form method="post"
+                                  th:action="@{/api/moderator/takeUserReport/{id1}(id1=${report.getId()})}"
+                                  th:if="${report.getModerator()} == null">
+                                <button th:id="'processing' + ${i.index}">Take for processing</button>
+                            </form>
+                            <form method="post"
+                                  th:action="@{/api/moderator/approveUserReport/{id1}(id1=${report.getId()})}"
+                                  th:if="${report.getModerator()} != null">
+                                <button th:id="'accept' + ${i.index}">Accept</button>
+                            </form>
+                            <form method="post"
+                                  th:action="@{/api/moderator/declineUserReport/{id1}(id1=${report.getId()})}"
+                                  th:if="${report.getModerator()} != null">
+                                <button th:id="'decline' + ${i.index}">Decline</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="footer">
+    <button class="support-button" id="support-btn"><span>Support</span></button>
+
+    <div id="overlay" onclick="hideOverlay()"></div>
+
+    <div class="window" id="popup-window">
+        <div class="inner-window">
+            <textarea name="query" placeholder="Enter feedback" required></textarea>
+        </div>
+
+        <button id="send-button">Send</button>
+    </div>
+
+    <div class="copyright">© Company policy and privacy rules</div>
+
+    <div class="circle-container telegram-container">
+        <div class="telegram"
+             onmouseout="restoreImage('telegram-img', '../../images/telegram.svg')"
+             onmouseover="changeImage('telegram-img', '../../images/telegram-hover.svg')">
+            <img alt="telegram" class="telegram" id="telegram-img" src="../../images/telegram.svg"
+                 th:src="@{../images/telegram.svg}">
+        </div>
+    </div>
+
+    <div class="circle-container instagram-container">
+        <div class="instagram"
+             onmouseout="restoreImage('instagram-img', '../../images/inst.svg')"
+             onmouseover="changeImage('instagram-img', '../../images/inst-hover.svg')">
+            <img alt="instagram" class="instagram" id="instagram-img" src="../../images/inst.svg"
+                 th:src="@{../images/inst.svg}">
+        </div>
+    </div>
+</footer>
+</body>
+<script src="../../js/scripts.js" th:href="@{js/scripts.js}"></script>
+<script>
+    /*document.querySelectorAll('[id^="processing"]').forEach(function (button) {
+        button.addEventListener('click', function () {
+            var index = button.id.replace('processing', '');
+            var acceptButton = document.getElementById('accept' + index);
+            var declineButton = document.getElementById('decline' + index);
+            acceptButton.style.display = 'block';
+            declineButton.style.display = 'block';
+            button.style.display = 'none';
+        });
+    });*/
+</script>
+</html>

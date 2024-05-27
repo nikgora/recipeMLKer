@@ -1,0 +1,138 @@
+::-webkit-scrollbar {
+    width: 0.78125vw;
+}
+
+::-webkit-scrollbar-track {
+    margin-top: 2.7778vh;
+    margin-bottom: 2.7778vh;
+    border-radius: 4.63vh;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #733506;
+    border-radius: 4.63vh;
+}
+
+/*____________________________________________________________________________________________________________________*/
+.titleForUserPage {
+    position: absolute;
+    text-align: center;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2.2vw;
+    text-decoration: none;
+    left: 45vw;
+    top: 12.2vh;
+}
+
+.AIReportField {
+    position: absolute;
+    width: 95.8vw;
+    height: 71vh;
+    background-color: #F2B705;
+    border-radius: 5vh;
+    top: 19vh;
+    left: 2.1vw;
+}
+
+.scrollField {
+    position: absolute;
+    width: 92vw;
+    height: 64.5vh;
+    border-radius: 5vh;
+    top: 3.5vh;
+    margin-bottom: 13vh;
+    left: 2vw;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.reportField {
+    width: 91.3vw;
+    height: 30vh;
+    background-color: #FBEFC7;
+    border-radius: 5vh;
+    margin-bottom: 3vh;
+}
+
+/*____________________________________________________________________________________________________________________*/
+.linkField {
+    position: absolute;
+    width: 91.6vw;
+    height: 8vh;
+}
+
+.notInBD {
+    position: absolute;
+    text-align: center;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.8vw;
+    text-decoration: none;
+    left: 2vw;
+    top: 1vh;
+}
+
+.InBD {
+    left: 22vw;
+}
+
+.reportText {
+    position: absolute;
+    text-align: left;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.8vw;
+    top: -2.5vh;
+    left: 1vw;
+}
+
+.informationField {
+    position: absolute;
+    width: 88vw;
+    height: 16.5vh;
+    background-color: #F2E3B3;
+    border-radius: 3vh;
+    top: 6vh;
+    left: 1.8vw;
+}
+
+.reportText {
+    position: absolute;
+    text-align: left;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.8vw;
+    top: -2.5vh;
+    left: 1vw;
+}
+
+[id^="processing"], [id^="accept"], [id^="decline"] {
+    position: absolute;
+    width: 22vw;
+    height: 5.8vh;
+    background-color: #3E5902;
+    top: 17.5vh;
+    left: 31vw;
+    border-radius: 2vh;
+    text-align: center;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.8vw;
+    color: #F2E3B3;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+[id^="accept"], [id^="decline"] {
+    width: 11vw;
+    left: 55vw;
+}
+
+[id^="decline"] {
+    left: 72vw;
+}
+
+[id^="processing"]:hover, [id^="accept"]:hover, [id^="decline"]:hover {
+    border: 0.5vh solid #3E5902;
+    background-color: #F2E3B3;
+    color: #3E5902;
+}
