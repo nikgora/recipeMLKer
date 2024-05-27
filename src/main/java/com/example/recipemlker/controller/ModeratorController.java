@@ -119,7 +119,7 @@ public class ModeratorController {
         return "redirect:/moderator/UserReports";
     }
 
-    @PostMapping("/api/moderator/takeAiReport/{idReport}")
+    @PostMapping("/api/moderator/takeAIReport/{idReport}")
     public String moderatorTakeAiReport(@PathVariable Long idReport) {
         if (moderatorId == null) {
             return "redirect:/403";
@@ -128,10 +128,10 @@ public class ModeratorController {
         aiReport.setModerator(moderatorService.getFirstById(moderatorId));
         aiReport.setAccepted(true);
         aiReportService.save(aiReport);
-        return "redirect:/moderator/AiReports";
+        return "redirect:/moderator/AIReports";
     }
 
-    @PostMapping("/api/moderator/approveAiReport/{idReport}")
+    @PostMapping("/api/moderator/approveAIReport/{idReport}")
     public String moderatorApproveAiReport(@PathVariable Long idReport) {
         if (moderatorId == null) {
             return "redirect:/403";
@@ -142,10 +142,10 @@ public class ModeratorController {
         aiReport.setModerator(null);
         aiReportService.save(aiReport);
         recipeService.save(recipe);
-        return "redirect:/moderator/AiReports";
+        return "redirect:/moderator/AIReports";
     }
 
-    @PostMapping("/api/moderator/declineAiReport/{idReport}")
+    @PostMapping("/api/moderator/declineAIReport/{idReport}")
     public String moderatorDeclineAiReport(@PathVariable Long idReport) {
         if (moderatorId == null) {
             return "redirect:/403";
@@ -156,7 +156,7 @@ public class ModeratorController {
         aiReport.setModerator(null);
         aiReportService.save(aiReport);
         recipeService.save(recipe);
-        return "redirect:/moderator/AiReports";
+        return "redirect:/moderator/AIReports";
     }
 
     @PostMapping("/api/moderator/approveUserReport/{idReport}")
