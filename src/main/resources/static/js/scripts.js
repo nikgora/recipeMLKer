@@ -54,7 +54,6 @@ function showTab(tabName) {
     }
 }
 
-
 document.getElementById("support-btn").addEventListener("click",
     () => showOverlay("overlay", "popup-window"));
 document.getElementById("overlay").addEventListener("click",

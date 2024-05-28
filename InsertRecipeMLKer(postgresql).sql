@@ -103,7 +103,14 @@ VALUES ('Eggs', FALSE),
        ('Thyme', FALSE),
        ('Red wine', FALSE),
        ('Peppercorn', TRUE),
-       ('Beef stock', TRUE);
+       ('Beef stock', TRUE),
+       ('Tomato', TRUE),
+       ('Chili pepper', FALSE),
+       ('Balsamic vinegar', FALSE),
+       ('Baguette', FALSE),
+       ('Eggplant', FALSE),
+       ('Zucchini', FALSE),
+       ('Tomato paste', TRUE);
 
 -- Inserting Published Recipes
 INSERT INTO PublishedRecipe (title, cooking_time, description, published, fk_user, fk_category)
@@ -248,7 +255,31 @@ VALUES ('Scrambled Eggs', 15,
  <br><br>Once the wine has reduced, add the beef stock and bring to a rolling boil. Keep the sauce at this temperature and continue to cook until the liquid has reduced by half and the sauce has thickened.
  <br><br>Carefully strain the sauce through a sieve into a clean saucepan, discarding the cooked vegetables and herbs.
  <br><br>The finished sauce should coat the back of a spoon, so if it hasn’t reached the right consistency just keep reducing the sauce in the pan before serving.',
-        TRUE, 1, 9);
+        TRUE, 1, 9),
+       ('Gazpacho', 6,
+        'Wash 2 tomatoes and make cross cuts on the bottom of each. You can choose red tomatoes, as well as yellow and black to get a richer color of soup. Tomatoes must be fleshy and with a minimum number of stones.
+ <br><br>Boil water in a saucepan and dip the sliced tomatoes in boiling water for 1-2 minutes.
+ <br><br>Then carefully remove the thin skin from the tomatoes. In Spain, as a rule, the skin of vegetables is not removed, as it has a lot of vitamins, but without the skin the structure of gazpacho will be softer. I chose the second option.
+ <br><br>Cut the tomatoes and one bell pepper. Then wash 2 sprigs of parsley and 2-3 sprigs of mint.
+ <br><br>Transfer tomatoes with pepper, mint leaves and parsley to a blender. Add 3 cloves of garlic and half a chili pepper. Remove the stalk and seeds.
+ <br><br>Add pepper and salt to taste, as well as 2 tbsp. olive oil. Beat everything together in a blender.
+ <br><br>Fry 3-4 slices of baguette or white loaf in a dry pan and sprinkle with a little oil before serving.
+ <br><br>Before serving the soup, be sure to cool it - put it in the fridge for a few hours. Serve in a frozen plate - slightly moisten it with water and place in the freezer for 10 minutes. When serving, add 2 tbsp balsamic vinegar to the soup and place a crispy slice of bread on the top.',
+        TRUE, 1, 1),
+       ('Moussaka', 60,
+        'Preheat the oven to 180C. Peel the potatoes and slice them thinly.
+ <br><br>Wash and slice the eggplant and zucchini. The slices should be the same thickness as the potatoes.
+ <br><br>Place an even layer of the potato slices into an oven-proof baking dish, top with a layer of the zucchini and then with a layer of eggplant slices.
+ <br><br>Peel and finely dice the onion. Heat a tablespoon of vegetable oil in a frying pan until it shimmers and saute the onion until translucent.
+ <br><br>Add the ground beef into the pan. It’s preferable to grind your own beef, because store-bought mince can be too fatty.
+ <br><br>Finely dice the tomatoes and toss them with the ground beef. Then add a tablespoon of tomato paste, two finely minced garlic cloves and the thyme. Salt and pepper to taste.
+ <br><br>To make the bechamel, melt the butter in a saute pan.
+ <br><br>Add flour to the melted butter and cook over medium heat for several minutes.
+ <br><br>Pour in the milk. Salt and pepper to taste. Reduce the sauce until it is thick enough to cover the back of a spoon.
+ <br><br>Pour half of the bechamel into the oven-proof baking dish. Some recipes suggest you cover each layer with the sauce, but I find this unnecessary, as the vegetables mop up the sauce anyway.
+ <br><br>Top with the ground beef and tomato mixture, then pour over the rest of the bechamel.
+ <br><br>Sprinkle it with the ground parmesan cheese. You can replace the parmesan with any other aged cheese. Bake for 30-35 minutes.',
+        TRUE, 1, 2);
 
 INSERT INTO recipe_ingredient (amount_of_ingredient, fk_ingredient, fk_recipe)
 VALUES ('2', 1, 1),
@@ -396,7 +427,33 @@ VALUES ('2', 1, 1),
        ('3', 76, 18),
        ('1/2 tsp', 6, 18),
        ('375ml', 75, 18),
-       ('500ml', 77, 18);
+       ('500ml', 77, 18),
+       ('2 large', 78, 19),
+       ('1', 51, 19),
+       ('3 cloves', 9, 19),
+       ('2 sprigs', 24, 19),
+       ('1/2', 79, 19),
+       ('2-3 sprigs', 30, 19),
+       ('2 tbsp', 17, 19),
+       ('2 tbsp', 80, 19),
+       ('3-4 slices', 81, 19),
+       ('to taste', 6, 19),
+       ('to taste', 7, 19),
+       ('1', 82, 20),
+       ('1', 83, 20),
+       ('400-500g', 85, 20),
+       ('2 medium', 36, 20),
+       ('2 medium', 78, 20),
+       ('1 tbsp', 84, 20),
+       ('1 tbsp', 74, 20),
+       ('2 cloves', 9, 20),
+       ('1', 31, 20),
+       ('50g', 10, 20),
+       ('1 tbsp', 17, 20),
+       ('50g', 5, 20),
+       ('50g', 3, 20),
+       ('500ml', 2, 20),
+       ('to taste', 6, 20);
 
 INSERT INTO Recipe_Device (fk_device, fk_recipe)
 VALUES (1, 1),
@@ -418,7 +475,11 @@ VALUES (1, 1),
        (4, 12),
        (1, 13),
        (1, 15),
-       (2, 17);
+       (2, 17),
+       (2, 19),
+       (4, 19),
+       (2, 20),
+       (1, 20);
 
 -- Inserting Ratings
 INSERT INTO Rating (mark, fk_user, fk_recipe)
@@ -434,7 +495,9 @@ VALUES (3, 1, 1),
        (10, 1, 13),
        (7, 2, 14),
        (8, 1, 15),
-       (9, 2, 16);
+       (9, 2, 16),
+       (5, 2, 19),
+       (6, 2, 20);
 
 -- Inserting Comments
 INSERT INTO "comment" ("text", fk_user, fk_recipe)
@@ -490,7 +553,21 @@ VALUES ('Great recipe, loved it!', 1, 1),
        ('I had 150mls of leftover pomegranate juice so decided to make this to go along with some enchiladas. I quartered the recipe, using some cranberry to make up the juice and used fizzy water rather than lemonade. Made two good sized glasses.',
         2, 16),
        ('Not very flavoursome really. I think it might be better without being diluted with lemonade. The ice cubes are a great idea and look funky.',
-        1, 16);
+        1, 16),
+       ('Removing the skin really does make a difference in texture. Thanks for the tip!', 2, 19),
+       ('This recipe was easy to follow and didn’t take much time at all. The end result was a delicious and vibrant gazpacho that everyone enjoyed. Will be making this all summer long!',
+        3, 19),
+       ('My blender struggled with the tough skins and seeds, even though I peeled the tomatoes. The consistency wasn’t as smooth as I hoped.',
+        2, 19),
+       ('Three cloves of garlic was way too much. The garlic flavor was overpowering and too harsh.', 3, 19),
+       ('I didn’t like the texture the parsley added to the soup. Even though I blended it well, it still felt a bit gritty.',
+        2, 19),
+       ('The minced garlic really brought out the flavors in the ground beef. Two cloves were just the right amount.',
+        1, 20),
+       ('This recipe is a great way to get in lots of veggies. The layers of vegetables with the beef and bechamel were delicious',
+        2, 20),
+       ('This dish took longer than I expected with all the prep work. Next time, I might use a mandoline to slice the veggies faster.',
+        3, 20);
 
 -- Inserting Moderators
 INSERT INTO Moderator (secret_password, fk_user)
