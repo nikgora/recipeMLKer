@@ -38,7 +38,7 @@
                             th:style="'top:' + (${i.index * 10 + 2}) + 'vh'">
                         <div class="content-wrapper">
                             <div class="comment-user-circle">
-                                <img th:alt="${recipe.getRecipe().getCategory().getTitle()}"
+                                <img class="favIcons" th:alt="${recipe.getRecipe().getCategory().getTitle()}"
                                      th:if="${recipe}"
                                      th:src="@{'../images/' + ${recipe.getRecipe().getCategory().getTitle()} + '.svg'}">
                             </div>
@@ -94,8 +94,7 @@
                 </select>
             </div>
         </div>
-
-
+        
         <div class="ingredientsField">
             <div class="tableContainer">
                 <table id="ingredientsTable">

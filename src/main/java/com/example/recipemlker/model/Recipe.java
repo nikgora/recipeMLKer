@@ -51,13 +51,23 @@ public class Recipe {
     private List<UserReport> userReports;
 
     @Transient
-    private double averageRating = getAverageMark();
+    private double averageRating;
     @Transient
-    private boolean rejected = aiReports != null && aiReports.getFirst().isAccepted() && aiReports.getFirst().getModerator() == null;
+    private boolean rejected;
     @Transient
-    private boolean onView = aiReports != null && (!aiReports.getFirst().isAccepted() || aiReports.getFirst().getModerator() != null);
+    private boolean onView;
     @Transient
-    private boolean notClickedPublish = aiReports == null;
+    private boolean notClickedPublish;
+
+    @PostLoad
+    @PostPersist
+    @PostUpdate
+    public void calculateTransientFields() {
+        this.averageRating = getAverageMark();
+        this.rejected = (aiReports != null && !aiReports.isEmpty() && aiReports.get(0).isAccepted() && aiReports.get(0).getModerator() == null);
+        this.onView = (aiReports != null && !aiReports.isEmpty() && (!aiReports.get(0).isAccepted() || aiReports.get(0).getModerator() != null));
+        this.notClickedPublish = (aiReports == null || aiReports.isEmpty());
+    }
 
     @Transient
     public double getAverageMark() {
