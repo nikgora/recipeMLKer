@@ -165,7 +165,7 @@ input[type="text"] {
     justify-content: left;
 }
 
-button {
+.button, .deleteRow, .addRow {
     margin-left: 1.7vw;
     border: none;
     border-radius: 1.5vh;
@@ -179,7 +179,7 @@ button {
     justify-content: center
 }
 
-button.deleteRow {
+.deleteRow {
     width: 6vw;
     height: 4.5vh;
     border-radius: 1.5vh;
@@ -189,7 +189,7 @@ button.deleteRow {
     justify-content: center
 }
 
-button.addRow {
+.addRow {
     width: 4vw;
     height: 4.5vh;
     border-radius: 1.5vh;

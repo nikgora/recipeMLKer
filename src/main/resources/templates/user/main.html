@@ -88,7 +88,7 @@
             <form autocomplete="off" class="form-container active" id="loginForm" method="post"
                   onsubmit="return submitForm()" th:action="@{/api/auth/login}">
                 <div class="login-form username">
-                    <input name="username" placeholder="Login" required type="text">
+                    <input name="username" placeholder="Enter login" required type="text">
                 </div>
                 <div class="login-form password">
                     <input name="password" placeholder="Enter password" required type="password">
@@ -273,11 +273,9 @@
     </div>
 
     <div class="circle-container instagram-container">
-        <div
-                class="instagram"
-                onmouseout="restoreImage('instagram-img',  '../../images/inst.svg')"
-                onmouseover="changeImage('instagram-img',  '../../images/inst-hover.svg')"
-        >
+        <div class="instagram"
+             onmouseout="restoreImage('instagram-img',  '../../images/inst.svg')"
+             onmouseover="changeImage('instagram-img',  '../../images/inst-hover.svg')">
             <img alt="instagram" class="instagram" id="instagram-img" src="../../images/inst.svg"
                  th:src="@{images/inst.svg}">
         </div>

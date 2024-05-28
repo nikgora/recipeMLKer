@@ -23,7 +23,8 @@ public interface RecipeRepository extends JpaRepository<Recipe, Long> {
     @Query(value = "SELECT DISTINCT pr FROM Recipe pr INNER JOIN pr.recipeDevices ri INNER JOIN ri.cookingDevice i WHERE i.name = :deviceName")
     List<Recipe> findAllByRecipeDevices(String deviceName);
 
-    List<Recipe> findAllByTitleStartsWith(String title);
+    @Query(value = "SELECT DISTINCT r FROM Recipe r WHERE LOWER(r.title) LIKE LOWER(CONCAT(:startWith, '%'))")
+    List<Recipe> findAllByTitleStartsWith(String startWith);
 
     List<Recipe> findALlByCookingTimeBetween(int min, int max);
 

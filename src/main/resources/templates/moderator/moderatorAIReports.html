@@ -4,8 +4,7 @@
     <title>AI Reports</title>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link href="../../static/css/reports.css" rel="stylesheet" th:href="@{../css/reports.css}"
-          type="text/css">
+    <link href="../../static/css/reports.css" rel="stylesheet" th:href="@{../css/reports.css}" type="text/css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="../../static/css/headerIfooter.css" rel="stylesheet" th:href="@{../css/headerIfooter.css}">
 </head>
@@ -71,7 +70,7 @@
 </header>
 <body>
 <main>
-    <div class="titleForUserPage">Recipe publication requests</div>
+    <div class="titleForUserPage" style="left: 39vw;">Recipe publication requests</div>
     <div class="AIReportField">
         <div class="scrollField">
             <div th:each="report, i: ${reports}">
@@ -79,7 +78,7 @@
                     <div class="linkField">
                         <div class="notInBD">Request for recipe review:</div>
                         <a class=" notInBD InBD" style="font-weight: bold"
-                           th:href="@{/recipe/{id}(id=${report.getRecipe().getId()})}"
+                           th:href="@{/moderator/recipe/{id}(id=${report.getRecipe().getId()})}"
                            th:text="${report.getRecipe().getTitle()}"></a>
                         <div class="informationField">
                             <p class="reportText" th:text="${report.getDescription()}"></p>

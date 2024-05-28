@@ -31,6 +31,7 @@ body {
 }
 
 .search-form input {
+    autocomplete: off;
     height: 6.19vh;
     width: 41.67vw;
     margin-left: 1vw;
@@ -42,7 +43,6 @@ body {
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 2.5vw;
     outline: none;
-    autocomplete: off;
 }
 
 .magnifier {
@@ -73,7 +73,6 @@ body {
 }
 
 .heart-container, .user-container, .heart-login-container, .user-login-container {
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -109,7 +108,6 @@ body {
     justify-content: center;
     align-items: center;
 }
-
 
 /*____________________________________________________________________________________________________________________*/
 .footer {

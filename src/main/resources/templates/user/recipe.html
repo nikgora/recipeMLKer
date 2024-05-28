@@ -4,19 +4,19 @@
     <title>Recipe</title>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link href="../../static/css/recipe.css" rel="stylesheet" th:href="@{../css/recipe.css}" type="text/css">
-    <link href="../../static/css/headerIfooter.css" rel="stylesheet" th:href="@{../css/headerIfooter.css}"
+    <link href="../../static/css/recipe.css" rel="stylesheet" th:href="@{/css/recipe.css}" type="text/css">
+    <link href="../../static/css/headerIfooter.css" rel="stylesheet" th:href="@{/css/headerIfooter.css}"
           type="text/css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
 <header>
     <div class="header">
-        <img alt="logo" class="logo" src="../../static/images/logo.svg" th:src="@{../images/logo.svg}">
+        <img alt="logo" class="logo" src="../../static/images/logo.svg" th:src="@{/images/logo.svg}">
 
         <form class="search-form" th:action="@{/allRecipes}">
             <img alt="magnifier" class="magnifier" src="../../static/images/magnifier.svg"
-                 th:src="@{../images/magnifier.svg}">
+                 th:src="@{/images/magnifier.svg}">
             <input name="startWith" placeholder="Search" type="search">
         </form>
         <a class="button-style" href="allRecipes.html" th:href="@{/allRecipes}">All recipes</a>
@@ -27,7 +27,7 @@
                  onmouseout="restoreImage('heart-img1', '../../images/heart.svg')"
                  onmouseover="changeImage('heart-img1', '../../images/heart-hover.svg')">
                 <img alt="heart" class="heart" id="heart-img1" src="../../images/heart.svg"
-                     th:src="@{../images/heart.svg}">
+                     th:src="@{/images/heart.svg}">
             </div>
         </div>
         <div th:if="${isLogin} == true">
@@ -36,7 +36,7 @@
                      onmouseout="restoreImage('heart-img2', '../../images/heart-login.svg')"
                      onmouseover="changeImage('heart-img2', '../../images/heart-login-hover.svg')">
                     <img alt="heart" class="heart" id="heart-img2"
-                         src="../../images/heart-login.svg" th:src="@{../images/heart-login.svg}">
+                         src="../../images/heart-login.svg" th:src="@{/images/heart-login.svg}">
                 </div>
             </div>
         </div>
@@ -67,7 +67,7 @@
                  onmouseout="restoreImage('user-img1', '../../images/user.svg')"
                  onmouseover="changeImage('user-img1', '../../images/user-hover.svg')">
 
-                <img alt="user" class="user" id="user-img1" src="../../images/user.svg" th:src="@{../images/user.svg}">
+                <img alt="user" class="user" id="user-img1" src="../../images/user.svg" th:src="@{/images/user.svg}">
             </div>
         </button>
         <a th:href="@{/user}" th:if="${isLogin} == true">
@@ -77,7 +77,7 @@
                      onmouseover="changeImage('user-img2', '../../images/user-login-hover.svg')">
 
                     <img alt="user" class="user" id="user-img2" src="../../images/user-login.svg"
-                         th:src="@{../images/user-login.svg}">
+                         th:src="@{/images/user-login.svg}">
                 </div>
             </button>
         </a>
@@ -89,7 +89,7 @@
             <form autocomplete="off" class="form-container active" id="loginForm" method="post"
                   onsubmit="return submitForm()" th:action="@{/api/auth/login}">
                 <div class="login-form username">
-                    <input name="username" placeholder="Login" required type="text">
+                    <input name="username" placeholder="Enter login" required type="text">
                 </div>
                 <div class="login-form password">
                     <input name="password" placeholder="Enter password" required type="password">
@@ -109,15 +109,14 @@
             </form>
         </div>
         <a href="main.html" th:href="@{/}">
-            <img alt="home" class="home" src="../../images/home.svg" th:src="@{../images/home.svg}">
+            <img alt="home" class="home" src="../../images/home.svg" th:src="@{/images/home.svg}">
         </a>
     </div>
 </header>
-
 <main>
     <!-- <img alt="recipeIcon" class="recipeIcon" src="../../images/Recipe.svg" th:src="@{../images/Recipe.svg}">-->
     <div class="RecipeTitle" th:text="${recipe.getTitle()}"></div>
-    <div class="RecipeRating">
+    <div class="RecipeRating" th:if="${recipe.isPublished} == true">
         <a th:href="@{/allRecipes(minMark=${recipe.getAverageMark()}, maxMark=${recipe.getAverageMark()})}">
             <p class="num" th:text="${recipe.getAverageMark()}">8.8</p>
         </a>
@@ -130,7 +129,7 @@
         </form>
     </div>
     <div th:if="${isLogin} == false AND ${isModerator} == false">
-        <button id="FavoriteList-logout" onclick="showAlert('Please, log in to add this recipe to favorites')">Favorite
+        <button id="FavoriteList-logout" onclick="showAlert('Please, log in to add this recipe to favorites.')">Favorite
         </button>
     </div>
 
@@ -165,8 +164,9 @@
         </button>
     </div>
 
-    <button class="Report" id="report-btn" th:if="${isModerator} == false">Report</button>
-    <div th:if="${isLogin} == true AND ${isModerator} == false">
+    <button class="Report" id="report-btn" th:if="${isModerator} == false AND ${recipe.isPublished} == true">Report
+    </button>
+    <div th:if="${isLogin} == true AND ${isModerator} == false AND ${recipe.isPublished} == true">
         <div id="overlay-report" onclick="hideOverlay()"></div>
         <form class="report-container" id="report-field-popup-window" method="post"
               onsubmit="return validateInput('reportInput')" th:action="@{/api/newUserReport/{id1}(id1=${id})}"
@@ -181,7 +181,7 @@
         </form>
     </div>
     <div th:if="${isLogin} == false AND ${isModerator} == false">
-        <button class="Report" id="report-btn1" onclick="showAlert('Please, log in to report')">Report</button>
+        <button class="Report" id="report-btn1" onclick="showAlert('Please, log in to report.')">Report</button>
     </div>
 
     <div class="mini">
@@ -189,7 +189,7 @@
         <img th:alt="${recipe.getCategory().getTitle()}"
              th:class="${recipe.getCategory().getTitle().replace(' ', '-')}"
              th:if="${recipe}"
-             th:src="@{'../images/' + ${recipe.getCategory().getTitle()} + '.svg'}">
+             th:src="@{'/images/' + ${recipe.getCategory().getTitle()} + '.svg'}">
         <p class="miniTime miniCategories" th:text="${recipe.getCategory().getTitle()}">
     </div>
 
@@ -210,15 +210,10 @@
             <p class="c7 devices">Devices tags</p>
         </div>
         <div class="ingredientContent">
-            <!--            <table>-->
-            <!--                <tr>-->
             <div th:each="devices: ${recipe.getRecipeDevices()}">
                 <a th:href="@{/allRecipes(device=${devices.cookingDevice.getName()})}"
                    th:text="'#' + ${devices.cookingDevice.getName()}"></a>
             </div>
-            <!--                    </td>-->
-            <!--                </tr>-->
-            <!--            </table>-->
         </div>
     </div>
     <form class="text-form" method="post" onsubmit="return validateInput('commentInput')"
@@ -227,7 +222,7 @@
         <img alt="quill" class="quill" src="../../static/images/quill.svg" th:src="@{../images/quill.svg}">
         <textarea id="commentInput" maxlength="255" name="startWith" placeholder="Add comment"
                   th:field="${comment.text}"></textarea>
-        <button id="publish" type="submit">Publish</button>
+        <button id="publish" onclick="showAlert('Please, log in to publish comments.')" type="submit">Publish</button>
     </form>
     <div class="commentField">
         <div th:class="'comment-container comment' + ${commentStat.count}"
