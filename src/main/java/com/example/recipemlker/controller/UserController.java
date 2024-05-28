@@ -342,7 +342,7 @@ public class UserController {
         model.addAttribute("favoriteList", favoriteList);
 
         Recipe recipe = new Recipe();
-        User user = (userService.getUserByUsername(jwtService.extractUserName(jwt)));
+        User user = userService.getUserByUsername(jwtService.extractUserName(jwt));
         model.addAttribute("user", user);
         model.addAttribute("ingredients", ingredientService.findAll());
         model.addAttribute("devices", deviceService.findAll());
@@ -355,8 +355,9 @@ public class UserController {
         return "user/recipeCreation";
     }
 
+
     @PostMapping("/api/newRecipe")
-    public String newRecipePageSubmit(@ModelAttribute Recipe recipe, @ModelAttribute String recipeCategory) {
+    public String newRecipePageSubmit(@ModelAttribute Recipe recipe, @ModelAttribute("recipeCategory") String recipeCategory) {
         User user = (userService.getUserByUsername(jwtService.extractUserName(jwt)));
         if (recipeCategory.isEmpty()) recipeCategory = "Drink";
         recipe.setCategory(categoryService.getCategoryByTitle(recipeCategory));
