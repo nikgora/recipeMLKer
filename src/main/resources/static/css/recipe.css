@@ -200,10 +200,11 @@
     width: 2.5vw;
 }
 
-#publish {
+.publish {
     position: absolute;
     width: 6.5vw;
     height: 6.8vh;
+    top: 0;
     left: 40vw;
     background-color: #F28705;
     border-radius: 5vh;
@@ -216,7 +217,7 @@
     justify-content: center;
 }
 
-#publish:hover, #FavoriteList-logout:hover, #FavoriteList-login:hover, .UserList:hover,
+.publish:hover, #FavoriteList-logout:hover, #FavoriteList-login:hover, .UserList:hover,
 .Report:hover, .create-list:hover, #confirm-list-btn:hover {
     background-color: #FBEFC7;
     border: 0.5vh solid #F28705;

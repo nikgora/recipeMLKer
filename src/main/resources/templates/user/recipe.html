@@ -216,14 +216,26 @@
             </div>
         </div>
     </div>
+
     <form class="text-form" method="post" onsubmit="return validateInput('commentInput')"
           th:action="@{/api/newComment/{id1}(id1=${id})}" th:if="${isModerator} == false"
           th:object="${comment}">
-        <img alt="quill" class="quill" src="../../static/images/quill.svg" th:src="@{../images/quill.svg}">
-        <textarea id="commentInput" maxlength="255" name="startWith" placeholder="Add comment"
-                  th:field="${comment.text}"></textarea>
-        <button id="publish" onclick="showAlert('Please, log in to publish comments.')" type="submit">Publish</button>
+        <div th:if="${isLogin} == true">
+            <img alt="quill" class="quill" src="../../static/images/quill.svg" th:src="@{../images/quill.svg}">
+            <textarea id="commentInput" maxlength="255" name="startWith" placeholder="Add comment"
+                      th:field="${comment.text}"></textarea>
+            <button class="publish" id="publish" type="submit">Publish</button>
+        </div>
+        <div th:if="${isLogin} == false">
+            <img alt="quill" class="quill" th:src="@{../images/quill.svg}">
+            <textarea id="commentInput1" maxlength="255" name="startWith" placeholder="Add comment"
+                      readonly th:field="${comment.text}"></textarea>
+            <button class="publish" onclick="showAlert('Please, log in to publish comments.')" type="submit">
+                Publish
+            </button>
+        </div>
     </form>
+
     <div class="commentField">
         <div th:class="'comment-container comment' + ${commentStat.count}"
              th:each="comment, commentStat : ${recipe.getComments()}">
