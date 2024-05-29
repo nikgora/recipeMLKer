@@ -1,0 +1,47 @@
+.body {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 3vw; /*42*/
+    color: #733506;
+    position: absolute;
+    left: 1vw;
+}
+
+.mainField {
+    width: 96vw;
+    height: 76vh;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    margin-top: 3vh;
+    background-color: #3E5902;
+    overflow: hidden;
+}
+
+.container {
+    position: absolute;
+    width: 94vw;
+    margin-right: 1vw;
+    margin-left: 1vw;
+    text-align: left;
+}
+
+.h1, .h2, .h3 {
+    color: #2c3e50;
+}
+
+.h1 {
+    text-align: center;
+}
+
+.ul {
+    list-style-type: disc;
+    margin-left: 1vw;
+}
+
+.p {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2vw; /*42*/
+    color: #733506;
+    position: absolute;
+    left: 1vw;
+    margin: 1vh 0;
+}
