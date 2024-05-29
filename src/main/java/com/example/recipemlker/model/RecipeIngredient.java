@@ -20,12 +20,19 @@ public class RecipeIngredient {
     @ManyToOne
     @JoinColumn(name = "fk_ingredient", referencedColumnName = "ingredient_id")
     @JsonIgnore
-    private Ingredient  ingredient;
+    private Ingredient ingredient;
     @ManyToOne
     @JoinColumn(name = "fk_recipe", referencedColumnName = "recipe_id")
     @JsonIgnore
     private Recipe recipe;
-    @Column (name = "amount_of_ingredient")
+    @Column(name = "amount_of_ingredient")
     private String amountOfIngredient;
 
+    @Override
+    public String toString() {
+        return "RecipeIngredient{" +
+                "id=" + id +
+                ", amountOfIngredient='" + amountOfIngredient + '\'' +
+                '}';
+    }
 }

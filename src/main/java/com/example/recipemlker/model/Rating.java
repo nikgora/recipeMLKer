@@ -17,6 +17,15 @@ public class Rating {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "rating_id")
     private Long id;
+
+    @Override
+    public String toString() {
+        return "Rating{" +
+                "mark=" + mark +
+                ", id=" + id +
+                '}';
+    }
+
     @ManyToOne
     @JoinColumn(name = "fk_user", referencedColumnName = "user_id")
     @JsonIgnore

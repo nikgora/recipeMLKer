@@ -31,4 +31,13 @@ public class Moderator {
     private List<AiReport> aiReports;
     @OneToMany(mappedBy = "moderator")
     private List<UserReport> userReports;
+
+    @Override
+    public String toString() {
+        return "Moderator{" +
+                "role='" + role + '\'' +
+                ", secret_password='" + secret_password + '\'' +
+                ", id=" + id +
+                '}';
+    }
 }

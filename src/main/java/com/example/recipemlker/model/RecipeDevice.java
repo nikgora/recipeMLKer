@@ -16,10 +16,18 @@ public class RecipeDevice {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "recipe_device_id")
     private Long id;
+
+    @Override
+    public String toString() {
+        return "RecipeDevice{" +
+                "id=" + id +
+                '}';
+    }
+
     @ManyToOne
     @JoinColumn(name = "fk_device", referencedColumnName = "device_id")
     @JsonIgnore
-    private CookingDevice  cookingDevice;
+    private CookingDevice cookingDevice;
     @ManyToOne
     @JoinColumn(name = "fk_recipe", referencedColumnName = "recipe_id")
     @JsonIgnore

@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Entity
-@Table (name = "ingredient")
+@Table(name = "ingredient")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,9 +20,17 @@ public class Ingredient {
     private Long id;
     @Column(name = "title")
     private String name;
-    @Column (name = "allergen")
+    @Column(name = "allergen")
     private boolean isAllergen;
     @OneToMany(mappedBy = "ingredient")
     private List<RecipeIngredient> recipeIngredients;
 
+    @Override
+    public String toString() {
+        return "Ingredient{" +
+                "isAllergen=" + isAllergen +
+                ", name='" + name + '\'' +
+                ", id=" + id +
+                '}';
+    }
 }

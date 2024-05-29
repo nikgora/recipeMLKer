@@ -69,7 +69,7 @@
 </header>
 <main>
     <div class="title">Create a recipe</div>
-    <form method="post" th:action="@{/api/newRecipe}">
+    <form method="post" th:action="@{/api/newRecipe}" th:object="${recipe}">
         <div class="text-form-title">
             <div class="recipeTitle">
                 <input id="recipeTitleInput" name="title" placeholder="Recipe title" th:value="${recipe.title}"
@@ -86,9 +86,9 @@
 
         <div class="text-form-category">
             <div class="recipeCategory">
-                <select th:field="*{recipeCategory}">
+                <select name="category" th:field="*{category}">
                     <option th:each="categor : ${categorys}" th:text="${categor.title}"
-                            th:value="${categor.title}"></option>
+                            th:value="${categor.id}"></option>
                 </select>
             </div>
         </div>

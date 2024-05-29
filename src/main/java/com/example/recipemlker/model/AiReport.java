@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table (name = "aireport")
+@Table(name = "aireport")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -17,7 +17,7 @@ public class AiReport {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "report_id")
     private Long id;
-    @Column (name = "description")
+    @Column(name = "description")
     private String description;
     @Column(name = "is_accepted")
     private boolean isAccepted;
@@ -29,4 +29,13 @@ public class AiReport {
     @JoinColumn(name = "fk_recipe", referencedColumnName = "recipe_id")
     @JsonIgnore
     private Recipe recipe;
+
+    @Override
+    public String toString() {
+        return "AiReport{" +
+                "isAccepted=" + isAccepted +
+                ", description='" + description + '\'' +
+                ", id=" + id +
+                '}';
+    }
 }

@@ -359,11 +359,10 @@ public class UserController {
 
 
     @PostMapping("/api/newRecipe")
-    public String newRecipePageSubmit(@ModelAttribute Recipe recipe, @ModelAttribute("recipeCategory") String recipeCategory) {
+    public String newRecipePageSubmit(@ModelAttribute Recipe recipe) {
         User user = (userService.getUserByUsername(jwtService.extractUserName(jwt)));
-        if (recipeCategory.isEmpty()) recipeCategory = "Drink";
+        if (recipe.getCategory() == null) recipe.setCategory(categoryService.getCategoryByTitle("Drink"));
         List<String> devices = new ArrayList<>();
-        recipe.setCategory(categoryService.getCategoryByTitle(recipeCategory));
         for (String device : devices) {
             if (device != null && !deviceService.existsByName(device)) {
                 CookingDevice cookingDevice = new CookingDevice();
@@ -385,6 +384,7 @@ public class UserController {
             }
         }
         recipe.setRecipeDevices(recipeDevices);
+        recipeService.save(recipe);
         return "redirect:/user";
     }
 

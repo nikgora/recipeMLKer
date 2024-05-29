@@ -37,6 +37,22 @@ public class Recipe {
     @JoinColumn(name = "fk_category", referencedColumnName = "category_id")
     @JsonIgnore
     private Category category;
+
+    @Override
+    public String toString() {
+        return "Recipe{" +
+                "notClickedPublish=" + notClickedPublish +
+                ", onView=" + onView +
+                ", rejected=" + rejected +
+                ", averageRating=" + averageRating +
+                ", isPublished=" + isPublished +
+                ", cookingTime=" + cookingTime +
+                ", description='" + description + '\'' +
+                ", title='" + title + '\'' +
+                ", id=" + id +
+                '}';
+    }
+
     @OneToMany(mappedBy = "recipe")
     private List<AiReport> aiReports;
     @OneToMany(mappedBy = "recipe")
