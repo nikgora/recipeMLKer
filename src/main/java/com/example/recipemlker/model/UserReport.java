@@ -33,4 +33,12 @@ public class UserReport {
     @JsonIgnore
     private User user;
 
+    @Override
+    public String toString() {
+        return "UserReport{" +
+                "description='" + description + '\'' +
+                ", isAccepted=" + isAccepted +
+                ", id=" + id +
+                '}';
+    }
 }

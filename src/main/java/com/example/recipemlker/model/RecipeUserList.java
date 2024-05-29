@@ -19,9 +19,16 @@ public class RecipeUserList {
     @ManyToOne
     @JoinColumn(name = "fk_user_list", referencedColumnName = "list_id")
     @JsonIgnore
-    private UserList  userList;
+    private UserList userList;
     @ManyToOne
     @JoinColumn(name = "fk_recipe_id", referencedColumnName = "recipe_id")
     @JsonIgnore
     private Recipe recipe;
+
+    @Override
+    public String toString() {
+        return "RecipeUserList{" +
+                "id=" + id +
+                '}';
+    }
 }

@@ -25,4 +25,11 @@ public class UserList {
     @OneToMany(mappedBy = "userList")
     private List<RecipeUserList> recipeUserLists;
 
+    @Override
+    public String toString() {
+        return "UserList{" +
+                "title='" + title + '\'' +
+                ", id=" + id +
+                '}';
+    }
 }

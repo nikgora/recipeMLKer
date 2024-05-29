@@ -20,6 +20,16 @@ import java.util.List;
 @AllArgsConstructor
 public class User implements UserDetails {
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "password='" + password + '\'' +
+                ", login='" + login + '\'' +
+                ", id=" + id +
+                ", role='" + role + '\'' +
+                '}';
+    }
+
     @Transient
     private String role = "USER";
 

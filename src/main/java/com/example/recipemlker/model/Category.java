@@ -20,8 +20,18 @@ public class Category {
     private Long id;
     @Column(name = "title")
     private String title;
-    @Column (name = "description")
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "description='" + description + '\'' +
+                ", title='" + title + '\'' +
+                ", id=" + id +
+                '}';
+    }
+
+    @Column(name = "description")
     private String description;
-    @OneToMany (mappedBy="category")
+    @OneToMany(mappedBy = "category")
     private List<Recipe> recipes;
 }

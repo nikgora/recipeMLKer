@@ -23,5 +23,13 @@ public class CookingDevice {
 
     @OneToMany(mappedBy = "cookingDevice")
     private List<RecipeDevice> recipeDevices;
+
+    @Override
+    public String toString() {
+        return "CookingDevice{" +
+                "name='" + name + '\'' +
+                ", id=" + id +
+                '}';
+    }
 }
 
