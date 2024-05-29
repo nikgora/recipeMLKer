@@ -12,4 +12,7 @@ public interface DeviceRepository extends JpaRepository<CookingDevice, Long> {
     @Query("select dev from CookingDevice dev")
     List<CookingDevice> findAll();
 
+    CookingDevice getFirstByName(String deviceName);
+
+    boolean existsByName(String name);
 }

@@ -98,23 +98,17 @@
                 <table id="ingredientsTable">
                     <tbody>
                     <tr>
-                        <td><input name="ingredient" placeholder="Ingredient" type="text"></td>
-                        <td><input name="amount" placeholder="Amount" type="text"></td>
+                        <td><input name="ingredients[0].name" placeholder="Ingredient" type="text"></td>
+                        <td><input name="ingredients[0].amount" placeholder="Amount" type="text"></td>
                         <td>
-                            <button class="deleteRow">Delete</button>
+                            <button class="deleteRow" type="button">Delete</button>
                         </td>
                     </tr>
-                    <tr>
-                        <td><input name="ingredient" placeholder="Ingredient" type="text"></td>
-                        <td><input name="amount" placeholder="Amount" type="text"></td>
-                        <td>
-                            <button class="deleteRow">Delete</button>
-                        </td>
-                    </tr>
+                    <!-- Additional ingredient rows can be added dynamically -->
                     </tbody>
                 </table>
+                <button class="addRow" id="addIngredient">Add</button>
             </div>
-            <button class="addRow" id="addIngredient">Add</button>
         </div>
 
         <div class="devicesField">
@@ -122,21 +116,16 @@
                 <table id="devicesTable">
                     <tbody>
                     <tr>
-                        <td><input name="device" placeholder="Device" type="text"></td>
+                        <td><input name="devices[0].name" placeholder="Device" type="text"></td>
                         <td>
-                            <button class="deleteRow">Delete</button>
+                            <button class="deleteRow" type="button">Delete</button>
                         </td>
                     </tr>
-                    <tr>
-                        <td><input name="device" placeholder="Device" type="text"></td>
-                        <td>
-                            <button class="deleteRow">Delete</button>
-                        </td>
-                    </tr>
+                    <!-- Additional device rows can be added dynamically -->
                     </tbody>
                 </table>
+                <button class="addRow" id="addDevice">Add</button>
             </div>
-            <button class="addRow" id="addDevice">Add</button>
         </div>
 
         <div class="text-form-StepByStep">
@@ -192,27 +181,32 @@
     $(document).ready(function () {
         $('#addIngredient').click(function (e) {
             e.preventDefault();
+            let newIndex = $('#ingredientsTable tbody tr').length;
             let newRow = `<tr>
-                            <td><input type="text" name="ingredient" placeholder="Ingredient"></td>
-                            <td><input type="text" name="amount" placeholder="Amount"></td>
+                            <td><input type="text" name="ingredients[${newIndex}].name" placeholder="Ingredient"></td>
+                            <td><input type="text" placeholder="Amount"></td>
+<!--                             name="ingredients[${newIndex}].amount"-->
                             <td><button class="deleteRow" type="button">Delete</button></td>
                           </tr>`;
             $('#ingredientsTable tbody').append(newRow);
         });
 
-        $(document).on('click', '.deleteRow', function () {
-            $(this).closest('tr').remove();
-        });
-    });
-
-    $(document).ready(function () {
         $('#addDevice').click(function (e) {
             e.preventDefault();
+            let newIndex = $('#devicesTable tbody tr').length;
             let newRow = `<tr>
-                    <td><input type="text" name="device" placeholder="Device"></td>
-                    <td><button class="deleteRow">Delete</button></td>
-                  </tr>`;
+                        <td><input type="text" name="devices[${newIndex}].name" placeholder="Device"></td>
+                        <td><button class="deleteRow" type="button">Delete</button></td>
+                      </tr>`;
             $('#devicesTable tbody').append(newRow);
+        });
+
+        $(document).on('click', '.deleteRow', function () {
+            $(this).closest('tr').remove();
+            // Update indices after deletion
+            $('#devicesTable tbody tr').each(function (index) {
+                $(this).find('input[name^="devices"]').attr('name', `devices[${index}].name`);
+            });
         });
 
         $(document).on('click', '.deleteRow', function () {

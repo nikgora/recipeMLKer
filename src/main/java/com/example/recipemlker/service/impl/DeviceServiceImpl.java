@@ -18,4 +18,19 @@ public class DeviceServiceImpl implements DeviceService {
         return deviceRepository.findAll();
     }
 
+    @Override
+    public boolean existsByName(String name) {
+        return deviceRepository.existsByName(name);
+    }
+
+    @Override
+    public CookingDevice getFirstByName(String deviceName) {
+        return deviceRepository.getFirstByName(deviceName);
+    }
+
+    @Override
+    public void save(CookingDevice device) {
+        deviceRepository.save(device);
+    }
+
 }

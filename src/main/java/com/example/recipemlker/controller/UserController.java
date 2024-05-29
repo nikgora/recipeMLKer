@@ -41,7 +41,8 @@ public class UserController {
     private UserListService userListService;
     @Autowired
     private ModeratorService moderatorService;
-
+    @Autowired
+    private RecipeDeviceService recipeDeviceService;
     @Autowired
     private DeviceService deviceService;
     @Autowired
@@ -345,12 +346,13 @@ public class UserController {
         User user = userService.getUserByUsername(jwtService.extractUserName(jwt));
         model.addAttribute("user", user);
         model.addAttribute("ingredients", ingredientService.findAll());
-        model.addAttribute("devices", deviceService.findAll());
         model.addAttribute("categorys", categoryService.getAllCategory());
         model.addAttribute("recipe", recipe);
         model.addAttribute("isLogin", jwt != null);
         String recipeCategory = "";
         model.addAttribute("recipeCategory", recipeCategory);
+        List<CookingDevice> devices = new ArrayList<>();
+        model.addAttribute("devices", devices);
         model.addAttribute("randomRecipeId", getRandomNumRecipe());
         return "user/recipeCreation";
     }
@@ -360,9 +362,29 @@ public class UserController {
     public String newRecipePageSubmit(@ModelAttribute Recipe recipe, @ModelAttribute("recipeCategory") String recipeCategory) {
         User user = (userService.getUserByUsername(jwtService.extractUserName(jwt)));
         if (recipeCategory.isEmpty()) recipeCategory = "Drink";
+        List<String> devices = new ArrayList<>();
         recipe.setCategory(categoryService.getCategoryByTitle(recipeCategory));
+        for (String device : devices) {
+            if (device != null && !deviceService.existsByName(device)) {
+                CookingDevice cookingDevice = new CookingDevice();
+                cookingDevice.setName(device);
+                deviceService.save(cookingDevice);
+            }
+        }
         recipe.setUser(user);
         recipeService.save(recipe);
+        List<RecipeDevice> recipeDevices = new ArrayList<>();
+        for (String device : devices) {
+            CookingDevice cookingDevice = deviceService.getFirstByName(device);
+            if (device != null) {
+                RecipeDevice recipeDevice = new RecipeDevice();
+                recipeDevice.setCookingDevice(cookingDevice);
+                recipeDevice.setRecipe(recipe);
+                recipeDeviceService.save(recipeDevice);
+                recipeDevices.add(recipeDevice);
+            }
+        }
+        recipe.setRecipeDevices(recipeDevices);
         return "redirect:/user";
     }
 
