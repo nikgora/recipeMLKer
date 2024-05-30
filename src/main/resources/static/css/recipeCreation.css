@@ -63,6 +63,7 @@
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 2vw;
     color: black;
+    border: none;
 }
 
 .publishButton {
